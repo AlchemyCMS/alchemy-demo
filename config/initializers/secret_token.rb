@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Alchemy3App::Application.config.secret_key_base = '8cf90826fe2bcc3290b4b79f379a28db1ed09bf2ec49d81c7106bd3c7098de83df23c179a88f136be4cf1af4f04990128b73a710054bd1f601fc504d34737a80'
+Alchemy3Demo::Application.config.secret_key_base = '8cf90826fe2bcc3290b4b79f379a28db1ed09bf2ec49d81c7106bd3c7098de83df23c179a88f136be4cf1af4f04990128b73a710054bd1f601fc504d34737a80'

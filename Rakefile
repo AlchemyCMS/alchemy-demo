@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Alchemy3App::Application.load_tasks
+Alchemy3Demo::Application.load_tasks
