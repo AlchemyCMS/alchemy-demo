@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 79f437773a1d6ce7dd250f7cdc54c28de46c7cc8
+  revision: 16eed477817509b617bbaf5526658de20f606ef8
   branch: master
   specs:
-    alchemy-devise (1.0.0)
+    alchemy-devise (1.0.0.beta)
       alchemy_cms (= 3.0.0.alpha)
       devise (~> 3.0.0)
 
