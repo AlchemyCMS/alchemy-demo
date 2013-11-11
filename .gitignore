@@ -18,3 +18,4 @@
 # Ignore Alchemy specific files
 /uploads
 /public/pictures
+/config/database.yml
