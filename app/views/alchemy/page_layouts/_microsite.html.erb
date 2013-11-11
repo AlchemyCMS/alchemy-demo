@@ -1,0 +1,103 @@
+<%= render 'shared/microsite_header' %>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <% cache(page) do %>
+    <div class="row">
+      <div class="large-12">
+        <%= render_cell :slider %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="row">
+
+          <div class="large-4 small-6 columns">
+
+            <h4>Upcoming Shows</h4><hr>
+
+            <div class="row">
+              <div class="large-1 column">
+
+              </div>
+
+              <div class="large-9 columns">
+                <h5><a href="#">Venue Name</a></h5>
+                <h6 class="subheader show-for-small">Doors at 00:00pm</h6>
+              </div>
+            </div><hr>
+
+            <div class="hide-for-small">
+              <div class="row">
+                <div class="large-1 column">
+
+                </div>
+
+                <div class="large-9 columns">
+                  <h5 class="subheader"><a href="#">Venue Name</a></h5>
+                </div>
+              </div><hr>
+
+              <div class="row">
+                <div class="large-1 column">
+
+                </div>
+
+                <div class="large-9 columns">
+                  <h5 class="subheader"><a href="#">Venue Name</a></h5>
+                </div>
+              </div><hr>
+
+              <div class="row">
+                <div class="large-1 column">
+
+                </div>
+
+                <div class="large-9 columns">
+                  <h5 class="subheader"><a href="#">Venue Name</a></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <%= render_elements only: 'portrait_image' %>
+
+          <% blog = blog_page(@page) %>
+          <% if blog %>
+          <div class="large-4 small-12 columns">
+            <h4><%= blog.title %></h4><hr>
+            <% articles = blog_articles(@page) %>
+
+            <% articles.each do |article| %>
+
+            <%- first = articles.first == article -%>
+            <div class="panel<%= first ? '' : ' hide-for-small' %>">
+              <h5><%= link_to article.ingredient(:title), show_alchemy_page_path(article.page, anchor: element_dom_id(article)) %></h5>
+
+              <% if first %>
+              <h6 class="subheader">
+                <%= render_essence_view_by_name article, :intro, shorten_to: 20 %>
+              </h6>
+              <h6><%= link_to 'Read More »', show_alchemy_page_path(article.page, anchor: element_dom_id(article)) %></h6>
+              <% end %>
+
+            </div>
+
+            <% end %>
+
+            <%= link_to 'Go To Blog »', show_alchemy_page_path(blog), class: 'right' %>
+
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <%= render 'shared/footer' %>
+
+  </div>
+</div>

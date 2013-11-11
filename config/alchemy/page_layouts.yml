@@ -1,0 +1,43 @@
+# == This file defines the page_layouts for new pages.
+#
+# For further informations please see http://guides.alchemy-cms.com/create_page_layouts.html
+
+- name: intro
+  unique: true
+  cells: [slider]
+  elements: [image_slide, video_slide, image_teaser, intro_text]
+  autogenerate: [intro_text]
+
+- name: standard
+  elements: [text_block, content_block]
+
+- name: content_page
+  cells: [slider]
+  elements: [video_slide, image_slide, content_block, call_to_action]
+  autogenerate: [video_slide, content_block, content_block, content_block, call_to_action]
+
+- name: blog
+  insert_elements_at: top
+  elements: [blog_post]
+  autogenerate: [blog_post]
+
+- name: category
+  cells: [slider]
+  cache: false
+  elements: [category_intro, image_slide, video_slide]
+  autogenerate: [category_intro]
+
+- name: microsite
+  cells: [slider]
+  elements: [video_slide, image_slide, portrait_image]
+
+- name: external
+  redirects_to_external: true
+
+# global pages
+
+- name: footer
+  unique: true
+  layoutpage: true
+  elements: [footer_note, footer_links, social_button]
+  autogenerate: [footer_note, footer_links]

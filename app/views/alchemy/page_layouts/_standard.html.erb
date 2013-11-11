@@ -1,0 +1,9 @@
+<%= render 'shared/header' %>
+
+<% cache(page) do %>
+<div class="row">
+  <%= render_elements %>
+</div>
+<% end %>
+
+<%= render 'shared/footer' %>

@@ -1,0 +1,7 @@
+<%= element_editor_for(element) do |el| -%>
+  <%= el.edit :title %>
+  <%= el.edit :meta_data %>
+  <%= el.edit :image, image_size: '400x240', crop: true %>
+  <%= el.edit :intro %>
+  <%= el.edit :body %>
+<%- end -%>

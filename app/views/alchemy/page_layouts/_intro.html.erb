@@ -1,0 +1,52 @@
+<%= render 'shared/header' %>
+
+<% cache(page) do %>
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="hide-for-small">
+      <%= render_cell :slider %>
+    </div>
+
+    <div class="row">
+      <div class="small-12 show-for-small"><br>
+        <img src="http://placehold.it/1000x600&text=For Small Screens" />
+      </div>
+    </div>
+
+  </div>
+</div><br>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <%= render_elements only: 'image_teaser' %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+
+      <div class="large-8 columns">
+      <%= render_elements only: 'intro_text' %>
+      </div>
+
+      <div class="large-4 columns hide-for-small">
+        <h4>Get In Touch!</h4><hr/>
+
+        <a class="large button expand" href="#">
+          Call To Action!
+        </a>
+        <a class="large button expand" href="#">
+          Call To Action!
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+<% end %>
+
+<%= render 'shared/footer' %>

@@ -1,0 +1,15 @@
+<%= render 'shared/header' %>
+
+<% cache(page) do %>
+<%= render_cell 'slider' %>
+
+<div class="row">
+  <%= render_elements only: 'content_block' %>
+</div>
+
+<div class="row">
+  <%= render_elements only: 'call_to_action' %>
+</div>
+<% end %>
+
+<%= render 'shared/footer' %>

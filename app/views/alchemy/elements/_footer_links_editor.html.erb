@@ -1,0 +1,6 @@
+<% element.contents.where(name: %w(link)).each do |content| %>
+  <%= render_essence_editor content %>
+<% end %>
+<p>
+  <%= render_create_content_link(element, :link, label: 'Add a link') %>
+</p>

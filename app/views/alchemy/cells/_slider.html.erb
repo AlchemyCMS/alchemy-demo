@@ -1,0 +1,12 @@
+<% cache(cell) do %>
+<% if cell.elements.published.any? %>
+<div class="row">
+  <div class="large-12 columns">
+    <ul data-orbit>
+      <%= render_cell_elements(cell) %>
+    </ul>
+    <hr>
+  </div>
+</div>
+<% end %>
+<% end %>

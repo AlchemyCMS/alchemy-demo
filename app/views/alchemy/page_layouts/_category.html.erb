@@ -1,0 +1,24 @@
+<%= render 'shared/header' %>
+
+<% cache(page) do %>
+<%= render_cell 'slider' %>
+
+<div class="row">
+  <div class="large-4 columns">
+    <%= render_elements only: 'category_intro' %>
+
+    <a href="#">
+      <div class="panel callout radius">
+        <h6>99&nbsp; items in your cart</h6>
+      </div>
+    </a>
+  </div>
+  <div class="large-8 columns">
+    <div class="row">
+      <%= render_elements only: 'spree_category' %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<%= render 'shared/footer' %>

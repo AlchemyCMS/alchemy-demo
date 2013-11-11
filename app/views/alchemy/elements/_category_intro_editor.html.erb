@@ -1,0 +1,5 @@
+<%= element_editor_for(element) do |el| -%>
+  <%= el.edit :image, image_size: '303x393', crop: true %>
+  <%= el.edit :header %>
+  <%= el.edit :text %>
+<%- end -%>

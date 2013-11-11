@@ -1,0 +1,129 @@
+# == In this configuration you setup Alchemy´s element layouts.
+#
+# For further informations please see http://guides.alchemy-cms.com/create_elements.html
+
+- name: category_intro
+  unique: true
+  contents:
+  - name: image
+    type: EssencePicture
+  - name: header
+    type: EssenceText
+    default: 'Header'
+  - name: text
+    type: EssenceRichtext
+    default: 'Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.'
+
+- name: blog_post
+  contents:
+  - name: title
+    type: EssenceText
+    default: 'Blog Post Title'
+  - name: meta_data
+    type: EssenceText
+    default: 'Written by %{user} on %{date}.'
+  - name: image
+    type: EssencePicture
+  - name: intro
+    type: EssenceRichtext
+    default: :blog_post_intro
+  - name: body
+    type: EssenceRichtext
+    default: :blog_post_body
+
+- name: video_slide
+  contents:
+  - name: video
+    type: EssenceText
+    hint: Please paste a youtube video id into this field. The embed code is already included.
+
+- name: image_slide
+  contents:
+  - name: image
+    type: EssencePicture
+
+- name: content_block
+  contents:
+  - name: picture
+    type: EssencePicture
+  - name: headline
+    type: EssenceText
+    default: This is a content section.
+  - name: text
+    type: EssenceRichtext
+    default: <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+
+- name: intro_text
+  unique: true
+  contents:
+  - name: headline
+    type: EssenceText
+    default: Header
+  - name: subheader
+    type: EssenceText
+    default: Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+  - name: text
+    type: EssenceRichtext
+    default: <p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.</p>
+
+- name: text_block
+  contents:
+  - name: headline
+    type: EssenceText
+    default: This is a headline.
+  - name: text
+    type: EssenceRichtext
+    default: <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
+    settings:
+      tinymce:
+        theme_advanced_buttons1: 'bold,italic,underline'
+        theme_advanced_buttons2: ''
+
+- name: call_to_action
+  unique: true
+  contents:
+  - name: headline
+    type: EssenceText
+    default: Get in touch!
+  - name: text
+    type: EssenceRichtext
+    default: We'd love to hear from you, you attractive person you.
+
+- name: image_teaser
+  contents:
+  - name: image
+    type: EssencePicture
+  - name: caption
+    type: EssenceText
+    default: Subline
+
+- name: portrait_image
+  unique: true
+  contents:
+  - name: image
+    type: EssencePicture
+
+- name: footer_note
+  unique: true
+  contents:
+  - name: body
+    type: EssenceText
+    default: '© 2013 magic labs'
+
+- name: footer_links
+  unique: true
+  contents:
+  - name: link
+    type: EssenceText
+    settings:
+      linkable: true
+      deletable: true
+  available_contents:
+  - name: link
+    type: EssenceText
+    settings:
+      linkable: true
+      deletable: true
+
+- name: social_button
+  unique: true

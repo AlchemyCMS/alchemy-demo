@@ -1,0 +1,36 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <% parent = @page.parent %>
+      <h1>
+        <% if parent.level > 1 %>
+          <%= link_to show_alchemy_page_path(parent) do %>
+            &laquo;
+            <%= parent.title %>
+          <% end %>
+        <% else %>
+          <%= link_to show_alchemy_page_path(@page) do %>
+            <%= @page.title %>
+          <% end %>
+        <% end %>
+      </h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+  </ul>
+
+  <% if microsite %>
+  <section class="top-bar-section">
+    <%= render_subnavigation(
+      {
+        from_page: microsite.parent,
+        spacer: '<li class="divider"></li>',
+        navigation_partial: 'alchemy/navigation/microsite_renderer'
+      },
+      {
+        class: 'right'
+      }
+    ) %>
+  </section>
+  <% end %>
+</nav>

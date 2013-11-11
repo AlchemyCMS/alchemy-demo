@@ -1,0 +1,23 @@
+<% if pages.present? %>
+<%= content_tag(
+  'ul',
+  :class => html_options[:class] || "navigation level_#{pages.first.level - 1}",
+  :id => html_options[:id]
+) do %>
+  <% pages.each do |page| %>
+    <% position = 'first' if page == pages.first %>
+    <% position = 'last' if page == pages.last %>
+    <%= content_tag(
+      'li',
+      class: page.children.visible.any? ? 'has-dropdown' : nil
+    ) do %>
+      <%= render options[:navigation_link_partial], :page => page, :options => options %>
+      <% options[:from_page] = page %>
+      <%= render_navigation(options, {class: 'dropdown'}) %>
+    <% end %>
+    <% if options[:spacer].present? && position != 'last' %>
+      <%= content_tag :li, options[:spacer].html_safe, class: 'navigation_spacer' %>
+    <% end %>
+  <% end %>
+<% end %>
+<% end %>

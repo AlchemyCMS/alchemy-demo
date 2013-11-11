@@ -1,0 +1,16 @@
+<% cache(element) do %>
+<%= element_view_for(element, class: "large-12 columns") do |el| -%>
+  <div class="panel">
+    <h4><%= el.render :headline %></h4>
+
+    <div class="row">
+      <div class="large-9 columns">
+        <%= el.render :text %>
+      </div>
+      <div class="large-3 columns">
+        <a href="#" class="radius button right">Contact</a>
+      </div>
+    </div>
+  </div>
+<%- end -%>
+<%- end -%>

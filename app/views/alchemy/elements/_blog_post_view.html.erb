@@ -1,0 +1,21 @@
+<% cache(element) do %>
+<%= element_view_for(element) do |el| -%>
+<article>
+
+  <h3><a href="#"><%= el.render :title %></a></h3>
+  <h6><%= el.render(:meta_data) % {user: element.creator.name, date: l(element.created_at, format: :date)} %></h6>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <%= el.render :intro %>
+    </div>
+    <div class="large-6 columns">
+      <%= el.render :image, image_size: '400x240', crop: true %>
+    </div>
+  </div>
+
+  <%= el.render :body %>
+
+</article>
+<%- end -%>
+<% end %>

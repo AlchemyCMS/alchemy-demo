@@ -1,0 +1,21 @@
+<% cache(element) do %>
+<%= element_view_for(element, class: 'panel radius') do |el| -%>
+  <div class="row">
+    <div class="large-6 small-6 columns">
+      <h4><%= el.render :headline %></h4><hr/>
+
+      <h5 class="subheader">
+        <%= el.render :subheader %>
+      </h5>
+
+      <div class="show-for-small" align="center">
+        <a href="#" class="small radius button">Call To Action!</a><br>
+        <a href="#" class="small radius button">Call To Action!</a>
+      </div>
+    </div>
+    <div class="large-6 small-6 columns">
+      <%= el.render :text %>
+    </div>
+  </div>
+<%- end -%>
+<% end %>

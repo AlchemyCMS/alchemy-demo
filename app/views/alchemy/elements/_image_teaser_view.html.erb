@@ -1,0 +1,6 @@
+<% cache(element) do %>
+<%= element_view_for(element, class: "large-3 small-6 columns") do |el| -%>
+  <%= el.render :image, image_size: '250x250', crop: true %>
+  <h6 class="panel"><%= el.render :caption %></h6>
+<%- end -%>
+<% end %>
