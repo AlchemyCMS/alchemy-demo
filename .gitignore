@@ -19,3 +19,5 @@
 /uploads
 /public/pictures
 /config/database.yml
+
+/public/assets/

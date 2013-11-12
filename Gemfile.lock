@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: fa6ce50a4c2ca0f4baa94ec7140d5513df94a494
+  revision: d8d6febf8e945c3a8c0a87eba907678bd5ecb6c9
   branch: master
   specs:
     alchemy_cms (3.0.0.alpha)
@@ -25,6 +25,7 @@ GIT
       jquery-ui-rails (~> 3.0.1)
       kaminari (~> 0.14.1)
       magiclabs-userstamp (~> 2.0.2)
+      non-stupid-digest-assets (~> 1.0.0)
       rails (~> 4.0.0)
       sass-rails (~> 4.0.0)
       sassy-buttons (~> 0.1.3)
@@ -34,6 +35,12 @@ GIT
       turbolinks (~> 1.3.0)
       tvdeyen-handles_sortable_columns (~> 0.1.5)
       uglifier (>= 1.3.0)
+
+GIT
+  remote: git://github.com/tvdeyen/non-stupid-digest-assets.git
+  revision: 75f180e8ace99e50e28d3800da375b3a56b2a365
+  specs:
+    non-stupid-digest-assets (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -213,6 +220,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jquery-rails
   mysql2
+  non-stupid-digest-assets!
   pry
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
