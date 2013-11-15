@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 16eed477817509b617bbaf5526658de20f606ef8
+  revision: 43ff77a1c7772e4fd729e57a4f429cb62933bc0c
   branch: master
   specs:
     alchemy-devise (1.0.0.beta)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: d8d6febf8e945c3a8c0a87eba907678bd5ecb6c9
+  revision: 11d2b3daf12f0e382feae9402d9e0aa005564721
   branch: master
   specs:
     alchemy_cms (3.0.0.alpha)
@@ -38,9 +38,10 @@ GIT
 
 GIT
   remote: git://github.com/tvdeyen/non-stupid-digest-assets.git
-  revision: 75f180e8ace99e50e28d3800da375b3a56b2a365
+  revision: a2935a7a6526a3d5c0d5c6d89541a26dbbdeda4b
+  branch: whitelist
   specs:
-    non-stupid-digest-assets (1.0.0)
+    non-stupid-digest-assets (1.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -54,7 +55,7 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionpack-page_caching (1.0.1)
+    actionpack-page_caching (1.0.2)
       actionpack (>= 4.0.0, < 5)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
@@ -103,7 +104,7 @@ GEM
       sass (~> 3.1)
     compass-rails (2.0.alpha.0)
       compass (>= 0.12.2, < 0.14)
-    devise (3.0.3)
+    devise (3.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -143,7 +144,7 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    orm_adapter (0.4.0)
+    orm_adapter (0.5.0)
     polyglot (0.3.3)
     pry (0.9.12.3)
       coderay (~> 1.0)
@@ -198,7 +199,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.3.0)
+    turbolinks (1.3.1)
       coffee-rails
     tvdeyen-handles_sortable_columns (0.1.5)
     tzinfo (0.3.38)
