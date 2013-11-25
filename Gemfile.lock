@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 43ff77a1c7772e4fd729e57a4f429cb62933bc0c
+  revision: 248caca29bd3ef826803403ae2e7d675a9421952
   branch: master
   specs:
     alchemy-devise (1.0.0.beta)
@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 62e7e1e920fc1eee71e2496b5e3a9cddfa59bdfe
-  branch: master
+  revision: e664291d50c261537a69f34bf1115d7e004e6b1a
+  branch: 3.0/live-preview
   specs:
     alchemy_cms (3.0.0.alpha)
       actionpack-page_caching (~> 1.0.0)
@@ -133,7 +133,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
-    mime-types (1.25)
+    mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
     mysql2 (0.3.14)
@@ -150,6 +150,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -175,14 +177,14 @@ GEM
     sassy-buttons (0.1.4)
       compass (>= 0.12.2)
       sass (>= 3.2.0)
-    select2-rails (3.5.1)
+    select2-rails (3.5.2)
       thor (~> 0.14)
     simple_form (3.0.0)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
-    slop (3.4.6)
+    slop (3.4.7)
     spinner.rb (0.3.0)
-    sprockets (2.10.0)
+    sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -223,6 +225,7 @@ DEPENDENCIES
   mysql2
   non-stupid-digest-assets!
   pry
+  quiet_assets
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sqlite3

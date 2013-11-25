@@ -8,7 +8,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'alchemy_cms', github: 'magiclabs/alchemy_cms', branch: 'master'
+gem 'alchemy_cms', github: 'magiclabs/alchemy_cms', branch: '3.0/live-preview'
 gem 'alchemy-devise', github: 'magiclabs/alchemy-devise', branch: 'master'
 gem 'non-stupid-digest-assets', github: 'tvdeyen/non-stupid-digest-assets', branch: 'whitelist'
 
@@ -23,6 +23,8 @@ group :development do
   gem 'capistrano', '~> 2.15'
   gem 'pry'
   gem 'sqlite3'
+  # gem "rails-i18n-debug"
+  gem 'quiet_assets'
 end
 
 group :production do
