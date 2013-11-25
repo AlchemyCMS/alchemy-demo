@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 248caca29bd3ef826803403ae2e7d675a9421952
+  revision: fe999e6e9950ce471614bee80d934b717407969e
   branch: master
   specs:
     alchemy-devise (1.0.0.beta)
