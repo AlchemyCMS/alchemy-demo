@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 4d920c492826871e3f1c32fad16f8a9a8ca05644
-  branch: 3.0/live-preview
+  revision: 60ed9a9f3088dad36eeb861c9288875310546008
+  branch: master
   specs:
     alchemy_cms (3.0.0.alpha)
       actionpack-page_caching (~> 1.0.0)
@@ -20,15 +20,15 @@ GIT
       cancan (~> 1.6.10)
       coffee-rails (~> 4.0.0)
       compass-rails (~> 2.0.alpha.0)
-      dragonfly (~> 0.9.14)
+      dragonfly (~> 1.0.1)
       jquery-rails (~> 3.0.4)
       jquery-ui-rails (~> 3.0.1)
-      kaminari (~> 0.14.1)
+      kaminari (~> 0.15.0)
       magiclabs-userstamp (~> 2.0.2)
       non-stupid-digest-assets (~> 1.0.0)
       rails (~> 4.0.0)
       sass-rails (~> 4.0.0)
-      sassy-buttons (~> 0.1.3)
+      sassy-buttons (~> 0.2.6)
       select2-rails (~> 3.5.0)
       simple_form (~> 3.0.0.rc)
       spinner.rb
@@ -38,8 +38,8 @@ GIT
 
 GIT
   remote: git://github.com/tvdeyen/non-stupid-digest-assets.git
-  revision: a2935a7a6526a3d5c0d5c6d89541a26dbbdeda4b
-  branch: whitelist
+  revision: bf36ca96ad47aa1834dddda0cffece789ca1c8ca
+  branch: check-existence
   specs:
     non-stupid-digest-assets (1.0.1)
 
@@ -109,7 +109,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
-    dragonfly (0.9.15)
+    dragonfly (1.0.1)
       multi_json (~> 1.0)
       rack
     erubis (2.7.0)
@@ -117,7 +117,7 @@ GEM
     fssm (0.2.10)
     highline (1.6.20)
     hike (1.2.3)
-    i18n (0.6.5)
+    i18n (0.6.9)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -125,7 +125,7 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.1)
-    kaminari (0.14.1)
+    kaminari (0.15.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     magiclabs-userstamp (2.0.2)
@@ -146,7 +146,7 @@ GEM
       net-ssh (>= 2.6.5)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
-    pry (0.9.12.3)
+    pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
@@ -174,12 +174,11 @@ GEM
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    sassy-buttons (0.1.4)
+    sassy-buttons (0.2.6)
       compass (>= 0.12.2)
-      sass (>= 3.2.0)
     select2-rails (3.5.2)
       thor (~> 0.14)
-    simple_form (3.0.0)
+    simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
     slop (3.4.7)
@@ -205,7 +204,7 @@ GEM
       coffee-rails
     tvdeyen-handles_sortable_columns (0.1.5)
     tzinfo (0.3.38)
-    uglifier (2.3.1)
+    uglifier (2.3.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
