@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 60ed9a9f3088dad36eeb861c9288875310546008
+  revision: bc4a121c170a87823e6224958b5647f2cd8a7bbe
   branch: master
   specs:
     alchemy_cms (3.0.0.alpha)
@@ -19,7 +19,7 @@ GIT
       awesome_nested_set (~> 3.0.0.rc.1)
       cancan (~> 1.6.10)
       coffee-rails (~> 4.0.0)
-      compass-rails (~> 2.0.alpha.0)
+      compass-rails (~> 1.1.2)
       dragonfly (~> 1.0.1)
       jquery-rails (~> 3.0.4)
       jquery-ui-rails (~> 3.0.1)
@@ -102,8 +102,8 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-rails (2.0.alpha.0)
-      compass (>= 0.12.2, < 0.14)
+    compass-rails (1.1.2)
+      compass (>= 0.12.2)
     devise (3.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
