@@ -9,14 +9,14 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: bc4a121c170a87823e6224958b5647f2cd8a7bbe
+  revision: c5d4260069afd1aa9a72eca2b6b8b68b3774c1f7
   branch: master
   specs:
     alchemy_cms (3.0.0.alpha)
       actionpack-page_caching (~> 1.0.0)
       acts-as-taggable-on (~> 2.4.1)
       acts_as_list (~> 0.3.0)
-      awesome_nested_set (~> 3.0.0.rc.1)
+      awesome_nested_set (~> 3.0.0.rc.2)
       cancan (~> 1.6.10)
       coffee-rails (~> 4.0.0)
       compass-rails (~> 1.1.2)
@@ -30,9 +30,9 @@ GIT
       sass-rails (~> 4.0.0)
       sassy-buttons (~> 0.2.6)
       select2-rails (~> 3.5.0)
-      simple_form (~> 3.0.0.rc)
+      simple_form (~> 3.0.1)
       spinner.rb
-      turbolinks (~> 1.3.0)
+      turbolinks (~> 2.0.0)
       tvdeyen-handles_sortable_columns (~> 0.1.5)
       uglifier (>= 1.3.0)
 
@@ -200,11 +200,11 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.3.1)
+    turbolinks (2.0.0)
       coffee-rails
     tvdeyen-handles_sortable_columns (0.1.5)
     tzinfo (0.3.38)
-    uglifier (2.3.2)
+    uglifier (2.3.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
