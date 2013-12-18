@@ -9,11 +9,12 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: c5d4260069afd1aa9a72eca2b6b8b68b3774c1f7
+  revision: 2e42eafae99a1a32d1538336fdb1588c1847256f
   branch: master
   specs:
     alchemy_cms (3.0.0.alpha)
       actionpack-page_caching (~> 1.0.0)
+      active_model_serializers (~> 0.8.1)
       acts-as-taggable-on (~> 2.4.1)
       acts_as_list (~> 0.3.0)
       awesome_nested_set (~> 3.0.0.rc.2)
@@ -57,6 +58,8 @@ GEM
       rack-test (~> 0.6.2)
     actionpack-page_caching (1.0.2)
       actionpack (>= 4.0.0, < 5)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.0)
       activesupport (= 4.0.0)
       builder (~> 3.1.0)
@@ -78,8 +81,8 @@ GEM
       activerecord (>= 3.0)
     arel (4.0.1)
     atomic (1.1.14)
-    awesome_nested_set (3.0.0.rc.2)
-      activerecord (~> 4.0.0)
+    awesome_nested_set (3.0.0.rc.3)
+      activerecord (>= 4.0.0, < 5)
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
     cancan (1.6.10)
