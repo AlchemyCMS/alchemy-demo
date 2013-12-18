@@ -1,6 +1,9 @@
 # == In this configuration you setup Alchemy´s element layouts.
 #
 # For further informations please see http://guides.alchemy-cms.com/create_elements.html
+- name: gallery
+  unique: true
+  picture_gallery: true
 
 - name: category_intro
   unique: true

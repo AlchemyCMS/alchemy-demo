@@ -24,7 +24,7 @@
 - name: category
   cells: [slider]
   cache: false
-  elements: [category_intro, image_slide, video_slide]
+  elements: [category_intro, image_slide, video_slide, gallery]
   autogenerate: [category_intro]
 
 - name: microsite
