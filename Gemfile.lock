@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 8944cd550fdf85f8221f0f8129a5a7b8a7ec697c
+  revision: 591656b8d9ee9e330dd4a5a7a30a8300c42c12f1
   branch: master
   specs:
     alchemy-devise (1.0.0.beta)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 4c1d0761857c490b4e4d974f1df020702c8049a5
+  revision: 04a19f9b30ffcf4c633fde24d9de47ab38ffdd1c
   branch: master
   specs:
     alchemy_cms (3.0.0.alpha)
@@ -105,7 +105,7 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-rails (1.1.2)
+    compass-rails (1.1.3)
       compass (>= 0.12.2)
     devise (3.0.4)
       bcrypt-ruby (~> 3.0)
