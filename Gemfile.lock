@@ -1,18 +1,18 @@
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 591656b8d9ee9e330dd4a5a7a30a8300c42c12f1
+  revision: f477e819dceefc5c72d1a5616cdea84bb24bffc8
   branch: master
   specs:
     alchemy-devise (1.0.0.beta)
-      alchemy_cms (= 3.0.0.alpha)
+      alchemy_cms (~> 3.0.0.beta1)
       devise (~> 3.0.0)
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 04a19f9b30ffcf4c633fde24d9de47ab38ffdd1c
+  revision: 45b1c2f666d4063cf8ce1dea7f5a01c75beeae4d
   branch: master
   specs:
-    alchemy_cms (3.0.0.alpha)
+    alchemy_cms (3.0.0.beta1)
       actionpack-page_caching (~> 1.0.0)
       active_model_serializers (~> 0.8.1)
       acts-as-taggable-on (~> 2.4.1)
