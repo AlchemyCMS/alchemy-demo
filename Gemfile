@@ -8,9 +8,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'alchemy_cms',              github: 'magiclabs/alchemy_cms', branch: 'master'
-gem 'alchemy-devise',           github: 'magiclabs/alchemy-devise', branch: 'master'
-gem 'alchemy-usermanual',       github: 'magiclabs/alchemy-usermanual', branch: 'master'
+gem 'alchemy_cms',              github: 'magiclabs/alchemy_cms',            branch: '3.0/backend-redesign'
+gem 'alchemy-devise',           github: 'magiclabs/alchemy-devise',         branch: 'master'
+gem 'alchemy-usermanual',       github: 'magiclabs/alchemy-usermanual',     branch: 'master'
 gem 'non-stupid-digest-assets', github: 'tvdeyen/non-stupid-digest-assets', branch: 'check-existence'
 
 gem 'sass-rails', '~> 4.0.0'
