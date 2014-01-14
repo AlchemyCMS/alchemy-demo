@@ -11,13 +11,13 @@ gem 'rails', '4.0.0'
 gem 'alchemy_cms',              github: 'magiclabs/alchemy_cms',            branch: '3.0/backend-redesign'
 gem 'alchemy-devise',           github: 'magiclabs/alchemy-devise',         branch: 'master'
 gem 'alchemy-usermanual',       github: 'magiclabs/alchemy-usermanual',     branch: 'master'
-gem 'non-stupid-digest-assets', github: 'tvdeyen/non-stupid-digest-assets', branch: 'check-existence'
+gem 'non-stupid-digest-assets', github: 'alexspeller/non-stupid-digest-assets', branch: 'master'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', '2.1.0'
 gem "zurb-foundation"
 
 group :development do

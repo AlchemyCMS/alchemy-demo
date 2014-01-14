@@ -1,6 +1,13 @@
 GIT
+  remote: git://github.com/alexspeller/non-stupid-digest-assets.git
+  revision: ffcd833bc92fadac39d1d24928083175425024b6
+  branch: master
+  specs:
+    non-stupid-digest-assets (1.0.2)
+
+GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: c2b6aedd6664d1271ef9a15762ded81eba4b5075
+  revision: 3f89148c0da26598bb797f8d4c3f7a308c34ba97
   branch: master
   specs:
     alchemy-devise (1.0.0.beta)
@@ -19,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 8d2ddf2689217885e73a5d2d88098cb81781431b
+  revision: 5ec747e3de982261acf5b350b6ccdb327db3dde4
   branch: 3.0/backend-redesign
   specs:
     alchemy_cms (3.0.0.beta1)
@@ -36,7 +43,7 @@ GIT
       jquery-ui-rails (~> 3.0.1)
       kaminari (~> 0.15.0)
       magiclabs-userstamp (~> 2.0.2)
-      non-stupid-digest-assets (~> 1.0.0)
+      non-stupid-digest-assets (~> 1.0)
       rails (>= 4.0, < 5.0)
       sass-rails (~> 4.0.0)
       sassy-buttons (~> 0.2.6)
@@ -46,13 +53,6 @@ GIT
       turbolinks (~> 2.0)
       tvdeyen-handles_sortable_columns (~> 0.1.5)
       uglifier (>= 1.3.0)
-
-GIT
-  remote: git://github.com/tvdeyen/non-stupid-digest-assets.git
-  revision: bf36ca96ad47aa1834dddda0cffece789ca1c8ca
-  branch: check-existence
-  specs:
-    non-stupid-digest-assets (1.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -85,7 +85,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    acts-as-taggable-on (3.0.0)
+    acts-as-taggable-on (3.0.1)
       rails (>= 3, < 5)
     acts_as_list (0.3.0)
       activerecord (>= 3.0)
@@ -149,7 +149,7 @@ GEM
     method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
-    multi_json (1.8.2)
+    multi_json (1.8.4)
     mysql2 (0.3.14)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -244,6 +244,6 @@ DEPENDENCIES
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sqlite3
-  turbolinks
+  turbolinks (= 2.1.0)
   uglifier (>= 1.3.0)
   zurb-foundation
