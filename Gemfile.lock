@@ -7,8 +7,8 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 3f89148c0da26598bb797f8d4c3f7a308c34ba97
-  branch: master
+  revision: f7c4fe3986f92d5cc00db890089cccf74df61734
+  branch: alchemy-3.0-interface
   specs:
     alchemy-devise (1.0.0.beta)
       alchemy_cms (~> 3.0.0.beta1)
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: dc697c966077b5e20c1df7b50854c7c8ecb85bc8
+  revision: 541b9e09c507323d828f31539e0efb5a7b644af7
   branch: 3.0/backend-redesign
   specs:
     alchemy_cms (3.0.0.beta1)
