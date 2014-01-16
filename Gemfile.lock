@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 541b9e09c507323d828f31539e0efb5a7b644af7
+  revision: 0e22713a778628c32d2df487a439b53aaebd7b68
   branch: 3.0/backend-redesign
   specs:
     alchemy_cms (3.0.0.beta1)
@@ -139,7 +139,7 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.1)
-    kaminari (0.15.0)
+    kaminari (0.15.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     magiclabs-userstamp (2.0.2)
