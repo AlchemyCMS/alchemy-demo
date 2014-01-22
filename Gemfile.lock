@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 0e22713a778628c32d2df487a439b53aaebd7b68
+  revision: 43aeb82dcfa703e25eb3da88ab436ebdf2298cdb
   branch: 3.0/backend-redesign
   specs:
     alchemy_cms (3.0.0.beta1)
@@ -40,7 +40,7 @@ GIT
       compass-rails (~> 1.1.2)
       dragonfly (~> 1.0.1)
       jquery-rails (~> 3.0.4)
-      jquery-ui-rails (~> 3.0.1)
+      jquery-ui-rails (~> 4.1.1)
       kaminari (~> 0.15.0)
       magiclabs-userstamp (~> 2.0.2)
       non-stupid-digest-assets (~> 1.0)
@@ -135,8 +135,7 @@ GEM
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (3.0.1)
-      jquery-rails
+    jquery-ui-rails (4.1.1)
       railties (>= 3.1.0)
     json (1.8.1)
     kaminari (0.15.1)
