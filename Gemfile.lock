@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 5fd7e2efcea3b17414303969918a0a737c5e2311
+  revision: 71a2392aa261b746650628438745e25c38e87140
   branch: master
   specs:
-    alchemy-devise (1.0.0.beta)
+    alchemy-devise (2.0.0.rc1)
       alchemy_cms (~> 3.0.0.beta1)
       devise (~> 3.0.0)
 
@@ -19,10 +19,10 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 4b47bdbbe229ecfe45410a2e6124c1fbc1ad66d9
+  revision: 49593c7f1de3a0ceff407865b9bbe6e62fdd6b42
   branch: master
   specs:
-    alchemy_cms (3.0.0.beta2)
+    alchemy_cms (3.0.0.rc2)
       actionpack-page_caching (~> 1.0.0)
       active_model_serializers (~> 0.8.1)
       acts-as-taggable-on (~> 3.0.0)
@@ -82,7 +82,7 @@ GEM
       rails (>= 3, < 5)
     acts_as_list (0.3.0)
       activerecord (>= 3.0)
-    arel (4.0.1)
+    arel (4.0.2)
     atomic (1.1.14)
     awesome_nested_set (3.0.0.rc.3)
       activerecord (>= 4.0.0, < 5)
@@ -103,7 +103,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.3)
+    coffee-script-source (1.7.0)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -115,7 +115,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
-    dragonfly (1.0.2)
+    dragonfly (1.0.3)
       multi_json (~> 1.0)
       rack
     erubis (2.7.0)
