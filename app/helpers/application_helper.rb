@@ -11,7 +11,7 @@ module ApplicationHelper
   def blog_articles(page)
     blog_page = blog_page(page)
     if blog_page
-      blog_page.elements.named(:blog_post)
+      blog_page.elements.available.named(:blog_post)
     end
   end
 

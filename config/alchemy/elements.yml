@@ -24,7 +24,7 @@
     default: 'Blog Post Title'
   - name: meta_data
     type: EssenceText
-    default: 'Written by %{user} on %{date}.'
+    default: 'Written by'
   - name: image
     type: EssencePicture
   - name: intro
