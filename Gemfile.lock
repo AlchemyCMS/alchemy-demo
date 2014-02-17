@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 9a4d2fc91f5cd3490c4ab158e69f21b914f7990c
+  revision: 5910a0745f634b2e9d87007e923f5031cb43a7a7
   branch: master
   specs:
     alchemy_cms (3.0.0.rc4)
@@ -108,7 +108,7 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-rails (1.1.3)
+    compass-rails (1.1.4)
       compass (>= 0.12.2)
     devise (3.0.4)
       bcrypt-ruby (~> 3.0)
