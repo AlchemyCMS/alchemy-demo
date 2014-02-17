@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/magiclabs/alchemy-devise.git
-  revision: 71a2392aa261b746650628438745e25c38e87140
+  revision: 005d0689384622b224cff9c1eea539ef3b8d8e99
   branch: master
   specs:
     alchemy-devise (2.0.0.rc1)
@@ -19,10 +19,10 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 40f127e4b8ee4e219c763bc3111f85cf756276f6
-  branch: 3.0-stable
+  revision: 9a4d2fc91f5cd3490c4ab158e69f21b914f7990c
+  branch: master
   specs:
-    alchemy_cms (3.0.0.rc3)
+    alchemy_cms (3.0.0.rc4)
       actionpack-page_caching (~> 1.0.0)
       active_model_serializers (~> 0.8.1)
       acts-as-taggable-on (~> 3.0.0)
@@ -32,7 +32,7 @@ GIT
       coffee-rails (~> 4.0.0)
       compass-rails (~> 1.1.2)
       dragonfly (~> 1.0.1)
-      jquery-rails (~> 3.0.4)
+      jquery-rails (~> 3.1.0)
       jquery-ui-rails (~> 4.1.1)
       kaminari (~> 0.15.0)
       magiclabs-userstamp (~> 2.0.2)
@@ -125,7 +125,7 @@ GEM
     highline (1.6.20)
     hike (1.2.3)
     i18n (0.6.9)
-    jquery-rails (3.0.4)
+    jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.1.1)
@@ -150,7 +150,7 @@ GEM
     net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    non-stupid-digest-assets (1.0.3)
+    non-stupid-digest-assets (1.0.4)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     pry (0.9.12.4)
