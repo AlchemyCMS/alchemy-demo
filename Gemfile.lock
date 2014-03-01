@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 7a865972b1dcbd754463f36cf5faea9681b5e7aa
+  revision: d7abfe38d9b4aed32c7e1e5a3e7655188cc833bb
   branch: master
   specs:
     alchemy_cms (3.0.0.rc4)
@@ -40,7 +40,7 @@ GIT
       rails (>= 4.0, < 5.0)
       sass-rails (~> 4.0.0)
       sassy-buttons (~> 0.2.6)
-      select2-rails (~> 3.5.0)
+      select2-rails (~> 3.4)
       simple_form (~> 3.0.1)
       spinner.rb
       turbolinks (~> 2.0)
