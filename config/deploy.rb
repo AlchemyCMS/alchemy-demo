@@ -23,7 +23,7 @@ set :branch,                    "master"
 # before hooks
 before "deploy",                "deploy:web:disable"
 before "deploy:start",          "deploy:seed"
-# before "deploy:create_symlink", "demo:reset"
+before "deploy:create_symlink", "demo:reset"
 before "deploy:create_symlink", "deploy:migrate"
 
 # after hooks
