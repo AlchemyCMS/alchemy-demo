@@ -19,8 +19,8 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 6bc46e4c6ab4d697f8709939ad20e7c5ba30df2f
-  branch: fix-tinymce-init
+  revision: ddcf08cef8bc363d15c75248f41d603ad0abce57
+  branch: master
   specs:
     alchemy_cms (3.0.0.rc5)
       actionpack-page_caching (~> 1.0.0)
