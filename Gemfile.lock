@@ -19,10 +19,10 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 24b3c3613c52bddec16a25c41aef6905b132c99c
+  revision: 870f6393ab1d42c52989cac4bdbe58fe481972fc
   branch: master
   specs:
-    alchemy_cms (3.0.0.rc5)
+    alchemy_cms (3.0.0.rc7)
       actionpack-page_caching (~> 1.0.0)
       active_model_serializers (~> 0.8.1)
       acts-as-taggable-on (~> 3.0.0)
