@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks', '2.1.0'
 gem "zurb-foundation"
+gem 'mysql2'
 
 group :development do
   gem 'capistrano', '~> 2.15'
@@ -25,8 +26,4 @@ group :development do
   gem 'sqlite3'
   # gem "rails-i18n-debug"
   gem 'quiet_assets'
-end
-
-group :production do
-  gem 'mysql2'
 end

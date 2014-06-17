@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git://github.com/magiclabs/alchemy_cms.git
-  revision: 870f6393ab1d42c52989cac4bdbe58fe481972fc
+  revision: 18c8d7aaefa04784aa238c6429d2c5e2b2e290aa
   branch: master
   specs:
     alchemy_cms (3.0.0.rc7)
@@ -119,7 +119,7 @@ GEM
       multi_json (~> 1.0)
       rack
     erubis (2.7.0)
-    execjs (2.1.0)
+    execjs (2.2.0)
     fssm (0.2.10)
     github-markdown (0.6.3)
     highline (1.6.20)
@@ -212,7 +212,7 @@ GEM
       coffee-rails
     tvdeyen-handles_sortable_columns (0.1.5)
     tzinfo (0.3.39)
-    uglifier (2.5.0)
+    uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     warden (1.2.3)
