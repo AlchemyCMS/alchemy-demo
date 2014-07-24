@@ -8,8 +8,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.2'
 
-gem 'alchemy_cms',              github: 'magiclabs/alchemy_cms',            branch: 'master'
-gem 'alchemy-devise',           github: 'magiclabs/alchemy-devise',         branch: 'master'
+gem 'alchemy_cms',              github: 'magiclabs/alchemy_cms',            branch: '3.0-stable'
+gem 'alchemy-devise',           github: 'magiclabs/alchemy-devise',         branch: '2.0-stable'
 gem 'alchemy-usermanual',       github: 'magiclabs/alchemy-usermanual',     branch: 'master'
 
 gem 'sass-rails', '~> 4.0.0'

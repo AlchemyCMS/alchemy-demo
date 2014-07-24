@@ -18,7 +18,7 @@ set :deploy_to,                 "/var/www/alchemy-edge-demo"
 # repository settings
 set :scm,                       "git"
 set :repository,                "git://github.com/magiclabs/alchemy3-demo.git"
-set :branch,                    "master"
+set :branch,                    "stable"
 
 # before hooks
 before "deploy",                "deploy:web:disable"
