@@ -7,7 +7,7 @@
 #
 # NOTE: You have to create a SSL certificate on your server to make this work
 #
-require_ssl: false
+require_ssl: true
 
 # === Auto Log Out Time
 #
