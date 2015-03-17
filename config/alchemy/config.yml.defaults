@@ -81,10 +81,10 @@ image_output_format: jpg
 
 # This is the default language for new sites.
 default_language:
-  code: de
-  name: Deutsch
-  page_layout: intro
-  frontpage_name: Intro
+  code: en
+  name: English
+  page_layout: index
+  frontpage_name: Index
 
 # === Mailer Settings:
 #
@@ -138,7 +138,7 @@ mailer:
 #     user_roles:
 #       rolename: Name of the role
 #
-user_roles: [member, author, editor, admin, demo]
+user_roles: [member, author, editor, admin]
 
 # === Uploader Settings
 #
