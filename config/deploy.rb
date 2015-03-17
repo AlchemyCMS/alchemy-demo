@@ -13,11 +13,11 @@ role :web,                      "server1904.railsvserver.de"
 role :db,                       "server1904.railsvserver.de", :primary => true
 
 # the webserver path
-set :deploy_to,                 "/var/www/alchemy-edge-demo"
+set :deploy_to,                 "/var/www/alchemy-demo"
 
 # repository settings
 set :scm,                       "git"
-set :repository,                "git://github.com/magiclabs/alchemy3-demo.git"
+set :repository,                "git://github.com/AlchemyCMS/alchemy-demo.git"
 set :branch,                    "stable"
 
 # before hooks
@@ -29,7 +29,7 @@ before "deploy:create_symlink", "deploy:migrate"
 # after hooks
 after "deploy:setup",           "alchemy:database_yml:create"
 after "deploy:finalize_update", "alchemy:database_yml:symlink"
-after "deploy:finalize_update", "secret_token:symlink"
+after "deploy:finalize_update", "dotenv:symlink"
 after "deploy",                 "deploy:cleanup"
 after "deploy",                 "deploy:web:enable"
 
@@ -72,12 +72,11 @@ namespace :demo do
 
 end
 
-namespace :secret_token do
+namespace :dotenv do
 
-  desc 'Symlink the secret token from shared folder into app.'
+  desc 'Symlink the .env file from shared folder into app.'
   task :symlink do
-    run "rm #{release_path}/config/initializers/secret_token.rb"
-    run "ln -s #{shared_path}/config/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
+    run "ln -s #{shared_path}/.env #{release_path}/.env"
   end
 
 end
