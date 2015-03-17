@@ -8,28 +8,28 @@ namespace :demo do
     database = mysql_config['database']
 
     # Set maintenance notice
-    system `echo "<h1>We are doing maintenance. Please stay tuned</h1>" > /var/www/alchemy-edge-demo/shared/system/maintenance.html`
+    system `echo "<h1>We are doing maintenance. Please stay tuned</h1>" > /var/www/alchemy-demo/shared/system/maintenance.html`
 
     # recreate database
     Rake::Task['db:drop'].invoke
     Rake::Task['db:create'].invoke
 
     # read backup into database
-    system `mysql -u#{username} -p#{password} #{database} < /home/#{username}/demo-files/alchemy-edge-demo.sql`
+    system `mysql -u#{username} -p#{password} #{database} < /home/#{username}/demo-files/alchemy-demo.sql`
 
     # delete all uploaded files
-    system `rm -Rf /var/www/alchemy-edge-demo/shared/uploads/*`
+    system `rm -Rf /var/www/alchemy-demo/shared/uploads/*`
 
     # copy backup upload-files into working-directory
-    system `cp -Rf /home/#{username}/demo-files/uploads/* /var/www/alchemy-edge-demo/shared/uploads/`
+    system `cp -Rf /home/#{username}/demo-files/uploads/* /var/www/alchemy-demo/shared/uploads/`
 
     # clear cache
     Rake::Task['tmp:cache:clear'].invoke
-    system `rm -Rf /var/www/alchemy-edge-demo/current/public/pictures/*`
+    system `rm -Rf /var/www/alchemy-demo/current/public/pictures/*`
 
     # Restart the application
-    system `rm /var/www/alchemy-edge-demo/shared/system/maintenance.html`
-    system `touch /var/www/alchemy-edge-demo/current/tmp/restart.txt`
+    system `rm /var/www/alchemy-demo/shared/system/maintenance.html`
+    system `touch /var/www/alchemy-demo/current/tmp/restart.txt`
   end
 
 end
