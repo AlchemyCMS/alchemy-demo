@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 2.5'
 gem "zurb-foundation"
 gem 'mysql2'
+gem 'dotenv-rails'
 
 group :development do
   gem 'capistrano', '~> 2.15'
