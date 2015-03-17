@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107213058) do
+ActiveRecord::Schema.define(version: 20140703081024) do
 
   create_table "alchemy_attachments", force: true do |t|
     t.string   "name"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.string   "file_uid"
   end
 
-  add_index "alchemy_attachments", ["file_uid"], name: "index_alchemy_attachments_on_file_uid"
+  add_index "alchemy_attachments", ["file_uid"], name: "index_alchemy_attachments_on_file_uid", using: :btree
 
   create_table "alchemy_cells", force: true do |t|
     t.integer  "page_id"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.integer  "updater_id"
   end
 
-  add_index "alchemy_contents", ["element_id", "position"], name: "index_contents_on_element_id_and_position"
+  add_index "alchemy_contents", ["element_id", "position"], name: "index_contents_on_element_id_and_position", using: :btree
 
   create_table "alchemy_elements", force: true do |t|
     t.string   "name"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.text     "cached_tag_list"
   end
 
-  add_index "alchemy_elements", ["page_id", "position"], name: "index_elements_on_page_id_and_position"
+  add_index "alchemy_elements", ["page_id", "position"], name: "index_elements_on_page_id_and_position", using: :btree
 
   create_table "alchemy_elements_alchemy_pages", id: false, force: true do |t|
     t.integer "element_id"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.integer  "updater_id"
   end
 
-  add_index "alchemy_essence_booleans", ["value"], name: "index_alchemy_essence_booleans_on_value"
+  add_index "alchemy_essence_booleans", ["value"], name: "index_alchemy_essence_booleans_on_value", using: :btree
 
   create_table "alchemy_essence_dates", force: true do |t|
     t.datetime "date"
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.integer  "updater_id"
   end
 
-  add_index "alchemy_essence_selects", ["value"], name: "index_alchemy_essence_selects_on_value"
+  add_index "alchemy_essence_selects", ["value"], name: "index_alchemy_essence_selects_on_value", using: :btree
 
   create_table "alchemy_essence_texts", force: true do |t|
     t.text     "body"
@@ -191,9 +191,9 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.integer  "site_id"
   end
 
-  add_index "alchemy_languages", ["language_code", "country_code"], name: "index_alchemy_languages_on_language_code_and_country_code"
-  add_index "alchemy_languages", ["language_code"], name: "index_alchemy_languages_on_language_code"
-  add_index "alchemy_languages", ["site_id"], name: "index_alchemy_languages_on_site_id"
+  add_index "alchemy_languages", ["language_code", "country_code"], name: "index_alchemy_languages_on_language_code_and_country_code", using: :btree
+  add_index "alchemy_languages", ["language_code"], name: "index_alchemy_languages_on_language_code", using: :btree
+  add_index "alchemy_languages", ["site_id"], name: "index_alchemy_languages_on_site_id", using: :btree
 
   create_table "alchemy_legacy_page_urls", force: true do |t|
     t.string   "urlname",    null: false
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "alchemy_legacy_page_urls", ["urlname"], name: "index_alchemy_legacy_page_urls_on_urlname"
+  add_index "alchemy_legacy_page_urls", ["urlname"], name: "index_alchemy_legacy_page_urls_on_urlname", using: :btree
 
   create_table "alchemy_pages", force: true do |t|
     t.string   "name"
@@ -235,9 +235,9 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.datetime "published_at"
   end
 
-  add_index "alchemy_pages", ["language_id"], name: "index_pages_on_language_id"
-  add_index "alchemy_pages", ["parent_id", "lft"], name: "index_pages_on_parent_id_and_lft"
-  add_index "alchemy_pages", ["urlname"], name: "index_pages_on_urlname"
+  add_index "alchemy_pages", ["language_id"], name: "index_pages_on_language_id", using: :btree
+  add_index "alchemy_pages", ["parent_id", "lft"], name: "index_pages_on_parent_id_and_lft", using: :btree
+  add_index "alchemy_pages", ["urlname"], name: "index_pages_on_urlname", using: :btree
 
   create_table "alchemy_pictures", force: true do |t|
     t.string   "name"
@@ -264,8 +264,8 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.boolean  "redirect_to_primary_host"
   end
 
-  add_index "alchemy_sites", ["host", "public"], name: "alchemy_sites_public_hosts_idx"
-  add_index "alchemy_sites", ["host"], name: "index_alchemy_sites_on_host"
+  add_index "alchemy_sites", ["host", "public"], name: "alchemy_sites_public_hosts_idx", using: :btree
+  add_index "alchemy_sites", ["host"], name: "index_alchemy_sites_on_host", using: :btree
 
   create_table "alchemy_users", force: true do |t|
     t.string   "firstname"
@@ -293,10 +293,10 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.datetime "reset_password_sent_at"
   end
 
-  add_index "alchemy_users", ["alchemy_roles"], name: "index_alchemy_users_on_alchemy_roles"
-  add_index "alchemy_users", ["email"], name: "index_alchemy_users_on_email", unique: true
-  add_index "alchemy_users", ["login"], name: "index_alchemy_users_on_login", unique: true
-  add_index "alchemy_users", ["reset_password_token"], name: "index_alchemy_users_on_reset_password_token", unique: true
+  add_index "alchemy_users", ["alchemy_roles"], name: "index_alchemy_users_on_alchemy_roles", using: :btree
+  add_index "alchemy_users", ["email"], name: "index_alchemy_users_on_email", unique: true, using: :btree
+  add_index "alchemy_users", ["login"], name: "index_alchemy_users_on_login", unique: true, using: :btree
+  add_index "alchemy_users", ["reset_password_token"], name: "index_alchemy_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -327,12 +327,14 @@ ActiveRecord::Schema.define(version: 20140107213058) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
 end
