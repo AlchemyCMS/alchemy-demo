@@ -13,12 +13,12 @@ role :web,                      "server1904.railsvserver.de"
 role :db,                       "server1904.railsvserver.de", :primary => true
 
 # the webserver path
-set :deploy_to,                 "/var/www/alchemy-demo"
+set :deploy_to,                 "/var/www/alchemy-edge-demo"
 
 # repository settings
 set :scm,                       "git"
 set :repository,                "git://github.com/AlchemyCMS/alchemy-demo.git"
-set :branch,                    "stable"
+set :branch,                    "master"
 
 # before hooks
 before "deploy",                "deploy:web:disable"
