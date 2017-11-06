@@ -121,12 +121,15 @@
     settings:
       linkable: true
       deletable: true
-  available_contents:
+  nestable_elements:
+  - footer_links_link
+
+- name: footer_links_link
+  contents:
   - name: link
     type: EssenceText
     settings:
       linkable: true
-      deletable: true
 
 - name: social_button
   unique: true
