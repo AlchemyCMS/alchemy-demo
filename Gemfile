@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0'
 
-'3.3-stable'.tap do |branch|
+'3.6-stable'.tap do |branch|
   gem 'alchemy_cms',    github: 'AlchemyCMS/alchemy_cms',    branch: branch
   gem 'alchemy-devise', github: 'AlchemyCMS/alchemy-devise', branch: branch
 end
@@ -16,7 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 2.5'
 gem "zurb-foundation"
-gem 'pg'
+gem 'pg', '< 1'
 gem 'dotenv-rails'
 
 group :development do
