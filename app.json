@@ -1,8 +1,7 @@
 {
   "name": "AlchemyCMS Demo",
-  "description": "A demo installation of the Alchemy CMS.",
-  "repository": "https://github.com/AlchemyCMS/alchemy_cms",
-  "template": "https://github.com/AlchemyCMS/alchemy-demo/tree/fresh-start",
+  "description": "A demo installation of AlchemyCMS.",
+  "repository": "https://github.com/AlchemyCMS/alchemy-demo",
   "website": "https://alchemy-cms.com/",
   "logo": "https://raw.githubusercontent.com/AlchemyCMS/alchemy_cms/master/app/assets/images/alchemy/favicon.ico",
   "keywords": [
