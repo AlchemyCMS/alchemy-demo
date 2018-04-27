@@ -111,7 +111,7 @@
   contents:
   - name: body
     type: EssenceText
-    default: '© 2013 magic labs'
+    default: 'Made with ❤️ and AlchemyCMS'
 
 - name: footer_links
   unique: true
@@ -120,7 +120,6 @@
     type: EssenceText
     settings:
       linkable: true
-      deletable: true
   nestable_elements:
   - footer_links_link
 
