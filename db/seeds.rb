@@ -6,3 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Alchemy::Seeder.seed!
+
+Alchemy.user_class.create!(
+  login: 'demo',
+  email: 'demo@example.com',
+  password: 'demo123',
+  password_confirmation: 'demo123'
+)

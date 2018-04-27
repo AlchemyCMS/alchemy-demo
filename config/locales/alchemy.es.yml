@@ -1,5 +1,7 @@
 es:
   alchemy:
+    user_roles:
+      demo: Demo
 
     # Translations for page layout names
     page_layout_names:
