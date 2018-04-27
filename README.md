@@ -1,24 +1,23 @@
-# README
+# AlchemyCMS Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the source code of the AlchemyCMS demo.
 
-Things you may want to cover:
+## Visit the demo online
 
-* Ruby version
+The demo is located at https://alchemy-demo.herokuapp.com
 
-* System dependencies
+Login to the admin backend at https://alchemy-demo.herokuapp.com/admin
 
-* Configuration
+* Username: `demo`
+* Password: `demo123`
 
-* Database creation
+## Deploy your own demo
 
-* Database initialization
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-* How to run the test suite
+## Run the demo locally
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone this repository to your machine
+2. Run `bin/rails setup`
+3. Visit http://localhost:3000
+4. Follow on-screen instructions
