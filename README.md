@@ -1,22 +1,24 @@
-# Alchemy Demo
+# README
 
-This is the source code of the Alchemy CMS demo.
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## Visit the demo online
+Things you may want to cover:
 
-The demo is located at https://demo.alchemy-cms.com
+* Ruby version
 
-Login to the admin backend at https://demo.alchemy-cms.com/admin
+* System dependencies
 
-* Username: `demo`
-* Password: `demo123`
+* Configuration
 
-The demo gets resetted every hour, so don't hesitate to mess things up!
+* Database creation
 
-## Run the demo locally
+* Database initialization
 
-1. Clone this repo to your hard drive
-2. `bundle install`
-3. Copy the `config/database.yml.example` to `config/database.yml` and change accordingly
-4. `bundle exec rake db:setup`
-5. Visit http://localhost:3000
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
