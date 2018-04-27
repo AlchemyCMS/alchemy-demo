@@ -1,5 +1,5 @@
 # This migration comes from alchemy_devise (originally 20131015124700)
-class CreateAlchemyUsers < ActiveRecord::Migration
+class CreateAlchemyUsers < ActiveRecord::Migration[4.2]
   def up
     return if table_exists?(:alchemy_users)
     create_table "alchemy_users" do |t|
@@ -8,7 +8,6 @@ class CreateAlchemyUsers < ActiveRecord::Migration
       t.string   "login"
       t.string   "email"
       t.string   "gender"
-      t.string   "alchemy_roles",                              default: "member"
       t.string   "language"
       t.string   "encrypted_password",     limit: 128, default: "",       null: false
       t.string   "password_salt",          limit: 128, default: "",       null: false
@@ -28,9 +27,8 @@ class CreateAlchemyUsers < ActiveRecord::Migration
       t.datetime "reset_password_sent_at"
     end
 
-    add_index "alchemy_users", ["email"], name: "index_alchemy_users_on_email", unique: true
-    add_index "alchemy_users", ["login"], name: "index_alchemy_users_on_login", unique: true
-    add_index "alchemy_users", ["reset_password_token"], name: "index_alchemy_users_on_reset_password_token", unique: true
-    add_index "alchemy_users", ["alchemy_roles"], name: "index_alchemy_users_on_alchemy_roles"
+    add_index "alchemy_users", ["email"], unique: true
+    add_index "alchemy_users", ["login"], unique: true
+    add_index "alchemy_users", ["reset_password_token"], unique: true
   end
 end

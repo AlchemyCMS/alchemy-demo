@@ -1,5 +1,5 @@
 # This migration comes from alchemy_devise (originally 20131225232042)
-class AddAlchemyRolesToAlchemyUsers < ActiveRecord::Migration
+class AddAlchemyRolesToAlchemyUsers < ActiveRecord::Migration[4.2]
   def up
     # Updating old :roles column (since Alchemy CMS v2.6)
     if column_exists?(:alchemy_users, :roles)
