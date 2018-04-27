@@ -14,6 +14,19 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.cache_store = :dalli_store
+  config.action_dispatch.rack_cache = {
+    metastore: Dalli::Client.new(ENV.fetch('MEMCACHEDCLOUD_SERVERS', '').split(','),
+      username: ENV['MEMCACHEDCLOUD_USERNAME'],
+      password: ENV['MEMCACHEDCLOUD_PASSWORD'],
+      error_when_over_max_size: false,
+      value_max_bytes: 10485760
+    ),
+    entitystore: 'file:/var/cache/rack',
+    allow_reload: false
+  }
+  config.static_cache_control = 'public, max-age=2592000'
+
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
