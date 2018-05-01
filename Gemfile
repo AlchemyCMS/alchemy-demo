@@ -7,6 +7,7 @@ ruby '2.5.1'
   gem 'alchemy_cms', github: 'AlchemyCMS/alchemy_cms', branch: branch
   gem 'alchemy-devise', github: 'AlchemyCMS/alchemy-devise', branch: branch
   gem 'alchemy_i18n', github: 'AlchemyCMS/alchemy_i18n', branch: branch
+  gem 'alchemy_cloudinary', github: 'AlchemyCMS/alchemy_cloudinary', branch: branch
 end
 
 

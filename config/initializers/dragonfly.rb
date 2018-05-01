@@ -18,10 +18,7 @@ Dragonfly.app(:alchemy_pictures).configure do
   secret '1a90874b2588cc0df5367da88e2509dce4796048d894113cb1f0bccfb69733a5'
   url_format '/pictures/:job/:name.:ext'
 
-  datastore :file,
-    root_path: Rails.root.join('uploads/pictures').to_s,
-    server_root: Rails.root.join('public'),
-    store_meta: false
+  datastore :alchemy_cloudinary
 end
 
 # Mount as middleware
