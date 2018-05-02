@@ -1,5 +1,5 @@
 <% cache(element) do %>
-<%= element_view_for(element, class: 'large-4 small-6 columns') do |el| -%>
-  <%= el.render :image, image_size: '300x465', crop: true %>
-<%- end -%>
+<%= element_view_for(element, class: 'large-4 small-6 columns') do |el| %>
+  <%= el.render :image %>
+<% end %>
 <% end %>

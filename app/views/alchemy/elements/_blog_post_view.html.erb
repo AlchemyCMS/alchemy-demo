@@ -1,5 +1,5 @@
 <% cache(element) do %>
-<%= element_view_for(element, tag: 'article') do |el| -%>
+<%= element_view_for(element, tag: 'article') do |el| %>
   <h3><a href="#"><%= el.render(:title) %></a></h3>
   <h6><%= el.render(:meta_data) %></h6>
 
@@ -8,10 +8,10 @@
       <%= el.render :intro %>
     </div>
     <div class="large-6 columns">
-      <%= el.render :image, image_size: '400x240', crop: true %>
+      <%= el.render :image %>
     </div>
   </div>
 
   <%= el.render :body %>
-<%- end -%>
+<% end %>
 <% end %>

@@ -10,6 +10,9 @@
   contents:
   - name: image
     type: EssencePicture
+    settings:
+      size: 303x393
+      crop: true
   - name: header
     type: EssenceText
     default: 'Header'
@@ -27,6 +30,9 @@
     default: 'Written by'
   - name: image
     type: EssencePicture
+    settings:
+      size: 400x240
+      crop: true
   - name: intro
     type: EssenceRichtext
     default: :blog_post_intro
@@ -44,11 +50,17 @@
   contents:
   - name: image
     type: EssencePicture
+    settings:
+      size: 1000x400
+      crop: true
 
 - name: content_block
   contents:
   - name: picture
     type: EssencePicture
+    settings:
+      size: 400x300
+      crop: true
   - name: headline
     type: EssenceText
     default: This is a content section.
@@ -96,6 +108,9 @@
   contents:
   - name: image
     type: EssencePicture
+    settings:
+      size: 250x250
+      crop: true
   - name: caption
     type: EssenceText
     default: Subline
@@ -105,6 +120,9 @@
   contents:
   - name: image
     type: EssencePicture
+    settings:
+      size: 300x465
+      crop: true
 
 - name: footer_note
   unique: true

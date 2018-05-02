@@ -1,7 +1,7 @@
 <% cache(element) do %>
-<%= element_view_for(element, class: 'large-4 columns') do |el| -%>
-  <%= el.render :picture, image_size: '400x300', crop: true %>
+<%= element_view_for(element, class: 'large-4 columns') do |el| %>
+  <%= el.render :picture %>
   <h4><%= el.render :headline %></h4>
   <%= el.render :text %>
-<%- end -%>
-<%- end -%>
+<% end %>
+<% end %>
