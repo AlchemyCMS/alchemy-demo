@@ -1,5 +1,5 @@
 <% cache(element) do %>
-<li>
-  <%= render_essence_view_by_name element, :image, image_size: '1000x400', crop: true %>
-</li>
+<%= element_view_for(element, tag: 'li', id: nil, class: nil) do |el| %>
+  <%= el.render :image %>
+<% end %>
 <% end %>
