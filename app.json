@@ -14,7 +14,8 @@
   ],
   "addons": [
     "heroku-postgresql:hobby-dev",
-    "memcachedcloud:30"
+    "memcachedcloud:30",
+    "cloudinary:starter"
   ],
   "scripts": {
     "postdeploy": "rake db:migrate && rake db:seed"
