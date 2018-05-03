@@ -21,7 +21,6 @@ gem 'puma', '~> 3.11'
 gem 'sassc-rails', '~> 1.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-gem 'turbolinks', '~> 5'
 gem "zurb-foundation"
 
 # Reduces boot times through caching; required in config/boot.rb
