@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cloudinary.git
-  revision: 7e138093164face89a33a86fc926aead5460389d
+  revision: bc7a965c360d50818b47e0754e6e624b1955a44a
   branch: master
   specs:
     alchemy_cloudinary (0.1.0)
@@ -99,7 +99,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts_as_list (0.9.11)
+    acts_as_list (0.9.12)
       activerecord (>= 3.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
@@ -198,7 +198,7 @@ GEM
     msgpack (1.2.4)
     multi_json (1.13.1)
     netrc (0.11.0)
-    nio4r (2.3.0)
+    nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     non-stupid-digest-assets (1.0.9)
