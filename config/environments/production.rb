@@ -14,14 +14,17 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  config.cache_store = :dalli_store
-  config.action_dispatch.rack_cache = {
-    metastore: Dalli::Client.new(ENV.fetch('MEMCACHEDCLOUD_SERVERS', '').split(','),
+  dalli_options = [
+    ENV.fetch('MEMCACHEDCLOUD_SERVERS', '').split(','), {
       username: ENV['MEMCACHEDCLOUD_USERNAME'],
       password: ENV['MEMCACHEDCLOUD_PASSWORD'],
       error_when_over_max_size: false,
       value_max_bytes: 10485760
-    ),
+    }
+  ]
+  config.cache_store = *([:dalli_store] + dalli_options)
+  config.action_dispatch.rack_cache = {
+    metastore: Dalli::Client.new(*dalli_options),
     entitystore: 'file:/var/cache/rack',
     allow_reload: false
   }
