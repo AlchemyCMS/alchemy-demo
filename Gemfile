@@ -40,4 +40,5 @@ group :production do
   gem 'rack-cache'
   gem 'dalli'
   gem 'kgio'
+  gem 'lograge'
 end
