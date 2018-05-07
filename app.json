@@ -15,7 +15,8 @@
   "addons": [
     "heroku-postgresql:hobby-dev",
     "memcachedcloud:30",
-    "cloudinary:starter"
+    "cloudinary:starter",
+    "papertrail:choklad"
   ],
   "scripts": {
     "postdeploy": "rake db:migrate && rake db:seed"
