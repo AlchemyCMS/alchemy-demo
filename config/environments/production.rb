@@ -23,9 +23,10 @@ Rails.application.configure do
     }
   ]
   config.cache_store = *([:dalli_store] + dalli_options)
+  dalli_client = Dalli::Client.new(*dalli_options)
   config.action_dispatch.rack_cache = {
-    metastore: Dalli::Client.new(*dalli_options),
-    entitystore: 'file:/var/cache/rack',
+    metastore: dalli_client,
+    entitystore: dalli_client,
     allow_reload: false
   }
   config.static_cache_control = 'public, max-age=2592000'
