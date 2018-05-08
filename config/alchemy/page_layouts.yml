@@ -5,7 +5,7 @@
 - name: intro
   unique: true
   cells: [slider]
-  elements: [image_slide, video_slide, image_teaser, intro_text]
+  elements: [image_teaser, intro_text]
   autogenerate: [intro_text]
 
 - name: standard
@@ -14,7 +14,7 @@
 
 - name: content_page
   cells: [slider]
-  elements: [video_slide, image_slide, content_block, call_to_action]
+  elements: [content_block, call_to_action]
   autogenerate: [video_slide, image_slide, content_block, content_block, content_block, call_to_action]
 
 - name: blog
@@ -28,7 +28,7 @@
 
 - name: microsite
   cells: [slider]
-  elements: [video_slide, image_slide, portrait_image]
+  elements: [portrait_image]
   autogenerate: [portrait_image, image_slide]
 
 - name: external
