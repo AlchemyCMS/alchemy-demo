@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: d72333d423fa1ca60e62dde56137220a5af9950f
+  revision: d86a655bf6db02166a25383fef793fbe5f494138
   branch: master
   specs:
     alchemy_cms (4.1.0.beta)
@@ -223,7 +223,7 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.5)
-    rack-cache (1.7.1)
+    rack-cache (1.7.2)
       rack (>= 0.4)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
