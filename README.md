@@ -18,6 +18,6 @@ Login to the admin backend at https://alchemy-demo.herokuapp.com/admin
 ## Run the demo locally
 
 1. Clone this repository to your machine
-2. Run `bin/rails setup`
+2. Run 'bin/setup'
 3. Visit http://localhost:3000
 4. Follow on-screen instructions
