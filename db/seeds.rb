@@ -12,5 +12,5 @@ Alchemy.user_class.create!(
   email: 'demo@example.com',
   password: 'demo123',
   password_confirmation: 'demo123',
-  alchemy_roles: ["demo"]
+  alchemy_roles: ['demo']
 )
