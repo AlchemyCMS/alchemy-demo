@@ -3,7 +3,17 @@
 # For further informations please see http://guides.alchemy-cms.com/create_elements.html
 - name: gallery
   unique: true
-  picture_gallery: true
+  nestable_elements:
+  - gallery_picture
+
+- name: gallery_picture
+  compact: true
+  contents:
+  - name: image
+    type: EssencePicture
+    settings:
+      size: 500x500
+      crop: true
 
 - name: category_intro
   unique: true

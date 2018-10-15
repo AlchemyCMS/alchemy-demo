@@ -10,6 +10,7 @@ en:
     # Translations for element names
     element_names:
       article: Article
+      gallery_picture: Gallery Picture
 
     # Translations for content names
     content_names:

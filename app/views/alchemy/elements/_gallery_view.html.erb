@@ -1,13 +1,5 @@
 <%- cache(element) do -%>
   <%= element_view_for(element, class: 'row') do |el| -%>
-    <%- element.contents.gallery_pictures.each do |gallery_picture| -%>
-    <div class="large-4 small-6 columns">
-      <%= image_tag show_alchemy_picture_path(gallery_picture.ingredient, size: '500x500', crop: true) %>
-
-      <div class="panel">
-        <h5><%= gallery_picture.essence.caption %></h5>
-      </div>
-    </div>
-    <%- end -%>
+    <%= render element.nested_elements %>
   <%- end -%>
 <%- end -%>
