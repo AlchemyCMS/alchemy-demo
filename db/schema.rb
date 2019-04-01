@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_27_121141) do
+ActiveRecord::Schema.define(version: 2019_04_01_211000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,9 @@ ActiveRecord::Schema.define(version: 2018_04_27_121141) do
     t.integer "cell_id"
     t.text "cached_tag_list"
     t.integer "parent_element_id"
+    t.boolean "fixed", default: false, null: false
     t.index ["cell_id"], name: "index_alchemy_elements_on_cell_id"
+    t.index ["fixed"], name: "index_alchemy_elements_on_fixed"
     t.index ["page_id", "parent_element_id"], name: "index_alchemy_elements_on_page_id_and_parent_element_id"
     t.index ["page_id", "position"], name: "index_elements_on_page_id_and_position"
   end
