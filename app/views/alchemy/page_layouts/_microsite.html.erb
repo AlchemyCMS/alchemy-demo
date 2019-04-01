@@ -6,7 +6,7 @@
     <% cache(page) do %>
     <div class="row">
       <div class="large-12">
-        <%= render_cell :slider %>
+        <%= render_elements(only: :slider, fixed: true) %>
       </div>
     </div>
 

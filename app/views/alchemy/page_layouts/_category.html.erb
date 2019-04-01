@@ -1,7 +1,7 @@
 <%= render 'shared/header' %>
 
 <% cache(page) do %>
-<%= render_cell 'slider' %>
+<%= render_elements(only: 'slider', fixed: true) %>
 
 <div class="row">
   <div class="large-4 columns">
