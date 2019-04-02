@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Reset the demo
 gem "database_cleaner", "~> 1.7", require: false
+gem 'dotenv-rails', '~> 2.7'
 
 group :development, :test do
   gem 'pry-rails'
@@ -37,7 +38,6 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'dotenv-rails', '~> 2.7'
 end
 
 group :production do
