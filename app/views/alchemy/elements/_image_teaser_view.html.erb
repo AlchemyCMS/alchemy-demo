@@ -1,5 +1,5 @@
-<% cache(element) do %>
-<%= element_view_for(element, class: "large-3 small-6 columns") do |el| %>
+<% cache(image_teaser_view) do %>
+<%= element_view_for(image_teaser_view, class: "large-3 small-6 columns") do |el| %>
   <%= el.render :image %>
   <h6 class="panel"><%= el.render :caption %></h6>
 <% end %>
