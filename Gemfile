@@ -48,3 +48,5 @@ group :production do
 end
 
 gem "sentry-raven", "~> 2.9"
+
+gem "newrelic_rpm", "~> 6.2"
