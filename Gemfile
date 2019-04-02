@@ -18,7 +18,7 @@ gem 'pg', '~> 1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sassc-rails', '~> 1.3'
+gem 'sassc-rails', '~> 2.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem "zurb-foundation", "~> 4.3.2"
