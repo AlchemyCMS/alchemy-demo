@@ -46,3 +46,5 @@ group :production do
   gem 'kgio', '~> 2.11'
   gem 'lograge', '~> 0.10'
 end
+
+gem "sentry-raven", "~> 2.9"
