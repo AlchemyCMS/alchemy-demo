@@ -8,5 +8,8 @@ namespace :demo do
     puts "Resetting database"
     DatabaseCleaner.clean_with(:truncation, reset_ids: true)
     Rake::Task['db:seed'].invoke
+    puts "Clearing cache"
+    Rails.cache.clear
+    puts "Done."
   end
 end
