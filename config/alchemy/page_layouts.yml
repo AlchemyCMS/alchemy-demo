@@ -26,8 +26,6 @@
   - call_to_action
   - slider
   autogenerate:
-  - video_slide
-  - image_slide
   - content_block
   - call_to_action
   - slider
@@ -53,7 +51,6 @@
   - slider
   autogenerate:
   - portrait_image
-  - image_slide
   - slider
 
 - name: external

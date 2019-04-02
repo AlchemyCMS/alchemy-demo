@@ -5,6 +5,8 @@
   unique: true
   nestable_elements:
   - gallery_picture
+  autogenerate:
+  - gallery_picture
 
 - name: gallery_picture
   compact: true
@@ -149,7 +151,9 @@
     settings:
       linkable: true
   nestable_elements:
-  - footer_links_link
+    - footer_links_link
+  autogenerate:
+    - footer_links_link
 
 - name: footer_links_link
   contents:
@@ -164,4 +168,9 @@
 - name: slider
   fixed: true
   unique: true
-  nestable_elements: [video_slide, image_slide]
+  nestable_elements:
+    - video_slide
+    - image_slide
+  autogenerate:
+    - video_slide
+    - image_slide
