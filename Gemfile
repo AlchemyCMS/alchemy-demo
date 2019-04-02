@@ -26,6 +26,9 @@ gem "zurb-foundation", "~> 4.3.2"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Reset the demo
+gem "database_cleaner", "~> 1.7", require: false
+
 group :development, :test do
   gem 'pry-rails'
 end
