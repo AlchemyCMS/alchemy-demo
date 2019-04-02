@@ -2,7 +2,9 @@
 <% video = video_slide_view.ingredient(:video) %>
 <% if video %>
 <li>
-  <iframe width="100%" height="388" src="//www.youtube.com/embed/<%= video %>?rel=0" frameborder="0" allowfullscreen></iframe>
+  <video style="width: 100%; height: 388px; object-fit: cover" autoplay loop muted preload="auto">
+    <source src="https://player.vimeo.com/external/<%= video %>.hd.mp4?s=d24e76e2ac0a7cd98864c3b09b1f78df2bfcd39c&profile_id=175&oauth2_token_id=57447761" type="video/mp4">
+  </video>
 </li>
 <% end %>
 <% end %>

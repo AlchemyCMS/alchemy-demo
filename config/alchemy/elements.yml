@@ -59,7 +59,7 @@
   contents:
   - name: video
     type: EssenceText
-    hint: Please paste a youtube video id into this field. The embed code is already included.
+    hint: Please paste a Vimeo video id into this field. The embed code is already included.
 
 - name: image_slide
   contents:
