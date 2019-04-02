@@ -26,6 +26,10 @@ Alchemy::EssenceText.joins(:element)
   .where(alchemy_elements: {name: 'video_slide'})
   .update_all(body: '225795837')
 
+Alchemy::EssenceText.joins(:element)
+  .where(alchemy_elements: {name: 'footer_links_link'})
+  .update_all(body: 'Admin Login', link: '/admin')
+
 # Admin user
 if ENV['ADMIN_LOGIN']
   Alchemy.user_class.create!(
