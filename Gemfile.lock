@@ -230,7 +230,7 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.0.3)
     puma (3.12.1)
-    rack (2.0.6)
+    rack (2.0.7)
     rack-cache (1.9.0)
       rack (>= 0.4)
     rack-test (1.1.0)
@@ -357,7 +357,7 @@ DEPENDENCIES
   zurb-foundation (~> 4.3.2)
 
 RUBY VERSION
-   ruby 2.5.3p105
+   ruby 2.6.2p47
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
