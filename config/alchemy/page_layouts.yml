@@ -9,6 +9,7 @@
   - intro_text
   - slider
   autogenerate:
+  - image_teaser
   - intro_text
   - slider
 
