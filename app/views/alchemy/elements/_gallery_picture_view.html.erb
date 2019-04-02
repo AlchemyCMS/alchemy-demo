@@ -3,7 +3,7 @@
     <%= el.render :image %>
 
     <div class="panel">
-      <h5><%= gallery_picture_view.content_by_name(:image).essence.caption %></h5>
+      <h5><%= el.ingredient(:caption) %></h5>
     </div>
   <%- end -%>
 <%- end -%>
