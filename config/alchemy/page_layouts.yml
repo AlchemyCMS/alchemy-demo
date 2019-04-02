@@ -4,32 +4,57 @@
 
 - name: intro
   unique: true
-  cells: [slider]
-  elements: [image_teaser, intro_text]
-  autogenerate: [intro_text]
+  elements:
+  - image_teaser
+  - intro_text
+  - slider
+  autogenerate:
+  - intro_text
+  - slider
 
 - name: standard
-  elements: [text_block, content_block]
-  autogenerate: [text_block, content_block]
+  elements:
+  - text_block
+  - content_block
+  autogenerate:
+  - text_block
+  - content_block
 
 - name: content_page
-  cells: [slider]
-  elements: [content_block, call_to_action]
-  autogenerate: [video_slide, image_slide, content_block, content_block, content_block, call_to_action]
+  elements:
+  - content_block
+  - call_to_action
+  - slider
+  autogenerate:
+  - video_slide
+  - image_slide
+  - content_block
+  - call_to_action
+  - slider
 
 - name: blog
   insert_elements_at: top
-  elements: [blog_post]
-  autogenerate: [blog_post]
+  elements:
+  - blog_post
+  autogenerate:
+  - blog_post
 
 - name: category
-  elements: [category_intro, gallery]
-  autogenerate: [category_intro, gallery]
+  elements:
+  - category_intro
+  - gallery
+  autogenerate:
+  - category_intro
+  - gallery
 
 - name: microsite
-  cells: [slider]
-  elements: [portrait_image]
-  autogenerate: [portrait_image, image_slide]
+  elements:
+  - portrait_image
+  - slider
+  autogenerate:
+  - portrait_image
+  - image_slide
+  - slider
 
 - name: external
   redirects_to_external: true
@@ -39,5 +64,10 @@
 - name: footer
   unique: true
   layoutpage: true
-  elements: [footer_note, footer_links, social_button]
-  autogenerate: [footer_note, footer_links]
+  elements:
+  - footer_note
+  - footer_links
+  - social_button
+  autogenerate:
+  - footer_note
+  - footer_links

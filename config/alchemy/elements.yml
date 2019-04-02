@@ -160,3 +160,8 @@
 
 - name: social_button
   unique: true
+
+- name: slider
+  fixed: true
+  unique: true
+  nestable_elements: [video_slide, image_slide]

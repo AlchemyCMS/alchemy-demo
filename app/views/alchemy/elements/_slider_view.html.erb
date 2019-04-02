@@ -1,9 +1,9 @@
-<% cache(cell) do %>
-<% if cell.elements.published.any? %>
+<% cache(slider_view) do %>
+<% if slider_view.nested_elements.available.any? %>
 <div class="row">
   <div class="large-12 columns">
     <ul data-orbit data-options="bullets: false; timer: false; slide_number: false">
-      <%= render_elements(from_cell: cell) %>
+      <%= render slider_view.nested_elements.available %>
     </ul>
     <hr>
   </div>

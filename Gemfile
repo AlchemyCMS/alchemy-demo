@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+ruby '2.5.3'
 
 'master'.tap do |branch|
   gem 'alchemy_cms', github: 'AlchemyCMS/alchemy_cms', branch: branch
@@ -21,7 +21,7 @@ gem 'puma', '~> 3.11'
 gem 'sassc-rails', '~> 1.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-gem "zurb-foundation"
+gem "zurb-foundation", "~> 4.3.2"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -37,8 +37,8 @@ group :development do
 end
 
 group :production do
-  gem 'rack-cache'
-  gem 'dalli'
-  gem 'kgio'
-  gem 'lograge'
+  gem 'rack-cache', '~> 1.8'
+  gem 'dalli', '~> 2.7'
+  gem 'kgio', '~> 2.11'
+  gem 'lograge', '~> 0.10'
 end
