@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy-graphql.git
-  revision: 7e882dd0d2c080b6de00851bd52b4b50dcbd3c40
+  revision: 4771b96989b837e26b4834133776f76761435205
   branch: master
   specs:
     alchemy-graphql (0.1.0)
