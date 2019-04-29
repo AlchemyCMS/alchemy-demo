@@ -8,6 +8,15 @@ GIT
       devise (>= 4.6.0, < 4.99)
 
 GIT
+  remote: https://github.com/AlchemyCMS/alchemy-graphql.git
+  revision: 7e882dd0d2c080b6de00851bd52b4b50dcbd3c40
+  branch: master
+  specs:
+    alchemy-graphql (0.1.0)
+      alchemy_cms (>= 4.2.0.rc1, < 5)
+      graphql (~> 1.9)
+
+GIT
   remote: https://github.com/AlchemyCMS/alchemy_cloudinary.git
   revision: 6452c12d27143f98a94ed3336ab55afc60948772
   branch: master
@@ -158,6 +167,7 @@ GEM
     ffi (1.10.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    graphql (1.9.4)
     gutentag (2.5.0)
       activerecord (>= 3.2.0)
     handlebars_assets (0.23.3)
@@ -341,6 +351,7 @@ PLATFORMS
 
 DEPENDENCIES
   alchemy-devise!
+  alchemy-graphql!
   alchemy_cloudinary!
   alchemy_cms!
   alchemy_i18n!

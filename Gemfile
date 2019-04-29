@@ -8,6 +8,7 @@ ruby '2.6.2'
   gem 'alchemy-devise', github: 'AlchemyCMS/alchemy-devise', branch: branch
   gem 'alchemy_i18n', github: 'AlchemyCMS/alchemy_i18n', branch: branch
   gem 'alchemy_cloudinary', github: 'AlchemyCMS/alchemy_cloudinary', branch: branch
+  gem 'alchemy-graphql', github: 'AlchemyCMS/alchemy-graphql', branch: branch
 end
 
 
