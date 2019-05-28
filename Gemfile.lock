@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/AlchemyCMS/alchemy-devise.git
-  revision: ab1781db136cc634c38775d939f45e98f9d74e8e
+  revision: 4fe8f827bd3f294c75be82fa5650fc42a9d358de
   branch: master
   specs:
-    alchemy-devise (4.2.0)
+    alchemy-devise (4.2.1)
       alchemy_cms (>= 4.1.0.beta, < 4.99)
       devise (>= 4.6.0, < 4.99)
 
@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 59ac69a246f53d26d9396a06668a40608bb8e87e
+  revision: 3425c73684fba1526bd4c585ccd54a1a64828cc5
   branch: master
   specs:
     alchemy_cms (4.2.0.rc2)
@@ -46,7 +46,7 @@ GIT
       non-stupid-digest-assets (~> 1.0.8)
       originator (~> 3.1)
       rails (~> 5.0, < 6.0)
-      ransack (~> 2.0)
+      ransack (>= 1.8, < 3.0)
       request_store (~> 1.2)
       responders (~> 2.0)
       select2-rails (>= 3.5.9.1, < 4.0)
@@ -170,7 +170,7 @@ GEM
     graphiql-rails (1.4.8)
       rails
     graphql (1.9.4)
-    gutentag (2.5.0)
+    gutentag (2.5.1)
       activerecord (>= 3.2.0)
     handlebars_assets (0.23.3)
       execjs (~> 2.0)
@@ -244,7 +244,7 @@ GEM
       method_source (~> 0.9.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    public_suffix (3.0.3)
+    public_suffix (3.1.0)
     puma (3.12.1)
     rack (2.0.7)
     rack-cache (1.9.0)
