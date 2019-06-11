@@ -1,7 +1,5 @@
 <% cache(footer_links_view) do %>
 <ul class="inline-list right"<%= element_preview_code(element) %>>
-<% footer_links_view.nested_elements.each do |element| %>
-  <li><%= render_element(element) %></li>
-<% end %>
+  <%= render footer_links_view.nested_elements.available %>
 </ul>
 <% end %>
