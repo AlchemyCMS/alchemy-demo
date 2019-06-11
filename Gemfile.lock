@@ -27,10 +27,10 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 3425c73684fba1526bd4c585ccd54a1a64828cc5
+  revision: c97446a7c47d31b5d9a3babbadc4a3fad6d174c6
   branch: master
   specs:
-    alchemy_cms (4.2.0.rc2)
+    alchemy_cms (4.2.0)
       active_model_serializers (~> 0.10.0)
       acts_as_list (~> 0.3)
       awesome_nested_set (~> 3.1)
@@ -118,7 +118,7 @@ GEM
     awesome_nested_set (3.1.4)
       activerecord (>= 4.0.0, < 5.3)
     aws_cf_signer (0.1.3)
-    bcrypt (3.1.12)
+    bcrypt (3.1.13)
     bindex (0.7.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -164,15 +164,15 @@ GEM
     execjs (2.7.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
-    ffi (1.10.0)
+    ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     graphiql-rails (1.4.8)
       rails
-    graphql (1.9.4)
+    graphql (1.9.6)
     gutentag (2.5.1)
       activerecord (>= 3.2.0)
-    handlebars_assets (0.23.3)
+    handlebars_assets (0.23.4)
       execjs (~> 2.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
@@ -186,7 +186,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    jsonapi-renderer (0.2.0)
+    jsonapi-renderer (0.2.1)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.1.1)
@@ -226,7 +226,7 @@ GEM
     minitest (5.11.3)
     msgpack (1.2.10)
     multi_json (1.13.1)
-    multipart-post (2.0.0)
+    multipart-post (2.1.1)
     netrc (0.11.0)
     newrelic_rpm (6.4.0.356)
     nio4r (2.3.1)
@@ -342,9 +342,9 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    websocket-driver (0.7.0)
+    websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.3)
+    websocket-extensions (0.1.4)
     zurb-foundation (4.3.2)
       sass (>= 3.2.0)
 
