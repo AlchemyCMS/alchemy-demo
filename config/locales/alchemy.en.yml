@@ -11,6 +11,7 @@ en:
     element_names:
       article: Article
       gallery_picture: Gallery Picture
+      footer_links_link: Footer Link
 
     # Translations for content names
     content_names:
