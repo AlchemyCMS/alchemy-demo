@@ -1,0 +1,7 @@
+<%= content_tag :li do %>
+  <%= link_to_if node.url,
+    node.name,
+    @preview_mode ? 'javascript: void(0)' : node.url,
+    target: node.external? ? '_blank' : nil,
+    rel: node.nofollow? ? 'nofollow' : nil %>
+<% end %>

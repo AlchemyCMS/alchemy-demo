@@ -1,0 +1,6 @@
+<ul class="inline-list right">
+  <%= render partial: options[:node_partial_name],
+    collection: node.children.includes(:page, :children),
+    locals: { options: options },
+    as: 'node' %>
+</ul>

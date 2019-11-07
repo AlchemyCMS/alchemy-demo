@@ -1,3 +1,6 @@
 # == In this configuration, you set up Alchemy's menu names.
 #
 # For further information please see http://guides.alchemy-cms.com/stable/menus.html
+
+- main_navigation
+- footer_navigation
