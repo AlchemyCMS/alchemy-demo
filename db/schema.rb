@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_211000) do
+ActiveRecord::Schema.define(version: 2019_11_07_075514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,13 @@ ActiveRecord::Schema.define(version: 2019_04_01_211000) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "creator_id"
     t.integer "updater_id"
+  end
+
+  create_table "alchemy_essence_pages", id: :serial, force: :cascade do |t|
+    t.integer "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_alchemy_essence_pages_on_page_id"
   end
 
   create_table "alchemy_essence_pictures", id: :serial, force: :cascade do |t|
@@ -359,4 +366,5 @@ ActiveRecord::Schema.define(version: 2019_04_01_211000) do
   add_foreign_key "alchemy_contents", "alchemy_elements", column: "element_id", name: "alchemy_contents_element_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_cells", column: "cell_id", name: "alchemy_elements_cell_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_pages", column: "page_id", name: "alchemy_elements_page_id_fkey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "alchemy_essence_pages", "alchemy_pages", column: "page_id"
 end

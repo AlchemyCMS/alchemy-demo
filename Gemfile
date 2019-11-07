@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.2'
+ruby `cat .ruby-version`.chomp.tr('ruby-', '')
 
 'master'.tap do |branch|
-  gem 'alchemy_cms', github: 'AlchemyCMS/alchemy_cms', branch: branch
-  gem 'alchemy-devise', github: 'AlchemyCMS/alchemy-devise', branch: branch
-  gem 'alchemy_i18n', github: 'AlchemyCMS/alchemy_i18n', branch: branch
+  gem 'alchemy_cms',        github: 'AlchemyCMS/alchemy_cms',        branch: branch
+  gem 'alchemy-devise',     github: 'AlchemyCMS/alchemy-devise',     branch: branch
+  gem 'alchemy_i18n',       github: 'AlchemyCMS/alchemy_i18n',       branch: branch
   gem 'alchemy_cloudinary', github: 'AlchemyCMS/alchemy_cloudinary', branch: branch
-  gem 'alchemy-graphql', github: 'AlchemyCMS/alchemy-graphql', branch: branch
+  gem 'alchemy-graphql',    github: 'AlchemyCMS/alchemy-graphql',    branch: branch
 end
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
