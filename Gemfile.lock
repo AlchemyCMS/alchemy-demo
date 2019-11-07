@@ -26,9 +26,17 @@ GIT
       cloudinary (~> 1.9)
 
 GIT
-  remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 93dd8c0ce56dcac9191e9d290109d8f7f44c4144
+  remote: https://github.com/AlchemyCMS/alchemy_i18n.git
+  revision: 286d7bab2b428129daa4a955d487c36be1e5503f
   branch: master
+  specs:
+    alchemy_i18n (1.0.0)
+      alchemy_cms (>= 4.1.0.beta, < 5.0)
+
+GIT
+  remote: https://github.com/tvdeyen/alchemy_cms.git
+  revision: 6058b44a139d744778f4eee666fcca26cd8009b4
+  branch: add-menus
   specs:
     alchemy_cms (4.4.0.alpha)
       active_model_serializers (~> 0.10.0)
@@ -52,14 +60,6 @@ GIT
       select2-rails (>= 3.5.9.1, < 4.0)
       simple_form (>= 4.0, < 6)
       turbolinks (>= 2.5)
-
-GIT
-  remote: https://github.com/AlchemyCMS/alchemy_i18n.git
-  revision: 286d7bab2b428129daa4a955d487c36be1e5503f
-  branch: master
-  specs:
-    alchemy_i18n (1.0.0)
-      alchemy_cms (>= 4.1.0.beta, < 5.0)
 
 GEM
   remote: https://rubygems.org/
