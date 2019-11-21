@@ -7,6 +7,7 @@ namespace :demo do
   task reset: :environment do
     puts "Resetting database"
     DatabaseCleaner.clean_with(:truncation, reset_ids: true)
+    Rake::Task['db:schema:load'].invoke
     Rake::Task['db:seed'].invoke
     puts "Clearing cache"
     Rails.cache.clear
