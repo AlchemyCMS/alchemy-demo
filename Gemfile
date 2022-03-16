@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby `cat .ruby-version`.chomp.tr('ruby-', '')
 
-'4.4-stable'.tap do |branch|
+'4.5-stable'.tap do |branch|
   gem 'alchemy_cms',        github: 'AlchemyCMS/alchemy_cms',        branch: branch
   gem 'alchemy-devise',     github: 'AlchemyCMS/alchemy-devise',     branch: branch
   gem 'alchemy_i18n',       github: 'AlchemyCMS/alchemy_i18n',       branch: 'main'
