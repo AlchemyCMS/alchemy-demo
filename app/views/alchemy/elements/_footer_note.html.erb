@@ -1,0 +1,5 @@
+<% cache(footer_note) do %>
+<%= element_view_for(footer_note, tag: 'p') do |el| -%>
+  <%= el.render :body %>
+<%- end -%>
+<% end %>

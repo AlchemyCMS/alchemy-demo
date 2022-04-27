@@ -1,9 +1,9 @@
-<% cache(slider_view) do %>
-<% if slider_view.nested_elements.available.any? %>
+<% cache(slider) do %>
+<% if slider.nested_elements.available.any? %>
 <div class="row">
   <div class="large-12 columns">
     <ul data-orbit data-options="bullets: false; timer: false; slide_number: false">
-      <%= render slider_view.nested_elements.available %>
+      <%= render slider.nested_elements.available %>
     </ul>
     <hr>
   </div>

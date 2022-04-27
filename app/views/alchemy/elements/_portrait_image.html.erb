@@ -1,0 +1,5 @@
+<% cache(portrait_image) do %>
+<%= element_view_for(portrait_image, class: 'large-4 small-6 columns') do |el| %>
+  <%= el.render :image %>
+<% end %>
+<% end %>

@@ -1,0 +1,5 @@
+<% cache(image_slide) do %>
+<%= element_view_for(image_slide, tag: 'li', id: nil, class: nil) do |el| %>
+  <%= el.render :image %>
+<% end %>
+<% end %>

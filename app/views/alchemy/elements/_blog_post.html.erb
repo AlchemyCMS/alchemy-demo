@@ -1,5 +1,5 @@
-<% cache(blog_post_view) do %>
-<%= element_view_for(blog_post_view, tag: 'article') do |el| %>
+<% cache(blog_post) do %>
+<%= element_view_for(blog_post, tag: 'article') do |el| %>
   <h3><a href="#"><%= el.render(:title) %></a></h3>
   <h6><%= el.render(:meta_data) %></h6>
 

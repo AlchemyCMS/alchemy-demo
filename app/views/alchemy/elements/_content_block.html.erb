@@ -1,0 +1,7 @@
+<% cache(content_block) do %>
+<%= element_view_for(content_block, class: 'large-4 columns') do |el| %>
+  <%= el.render :picture %>
+  <h4><%= el.render :headline %></h4>
+  <%= el.render :text %>
+<% end %>
+<% end %>
