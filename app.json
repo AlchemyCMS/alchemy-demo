@@ -4,14 +4,17 @@
   "repository": "https://github.com/AlchemyCMS/alchemy-demo",
   "website": "https://alchemy-cms.com/",
   "logo": "https://raw.githubusercontent.com/AlchemyCMS/alchemy_cms/master/app/assets/images/alchemy/favicon.ico",
-  "keywords": [
-    "alchemy",
-    "demo",
-    "cms"
-  ],
+  "keywords": ["alchemy", "demo", "cms"],
   "buildpacks": [
-    {"url": "heroku/node"},
-    {"url": "heroku/ruby"}
+    {
+      "url": "heroku/node"
+    },
+    {
+      "url": "https://github.com/mojodna/heroku-buildpack-jemalloc.git"
+    },
+    {
+      "url": "heroku/ruby"
+    }
   ],
   "addons": [
     "heroku-postgresql:hobby-dev",
