@@ -58,14 +58,17 @@ puts "-------------"
 
 YAML.load_file("./db/seeds/alchemy/pages.yml").each do |page|
   if page["layoutpage"]
-    name = "footer_navigation"
+    name = "Footer Navigation"
+    type = "footer_navigation"
   else
-    name = "main_navigation"
+    name = "Main Navigation"
+    type = "main_navigation"
   end
 
   parent_page = Alchemy::Page.find_by!(name: page["name"], page_layout: page["page_layout"])
   parent = Alchemy::Node.create!(
-    menu_type: name,
+    name: name,
+    menu_type: type,
     site: parent_page.site,
     language: parent_page.language,
   )
