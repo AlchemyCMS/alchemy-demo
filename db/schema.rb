@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_16_194900) do
+ActiveRecord::Schema.define(version: 2022_05_29_164822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,13 @@ ActiveRecord::Schema.define(version: 2022_03_16_194900) do
     t.integer "updater_id"
   end
 
+  create_table "alchemy_essence_nodes", force: :cascade do |t|
+    t.bigint "node_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["node_id"], name: "index_alchemy_essence_nodes_on_node_id"
+  end
+
   create_table "alchemy_essence_pages", id: :serial, force: :cascade do |t|
     t.integer "page_id"
     t.datetime "created_at", null: false
@@ -236,14 +243,13 @@ ActiveRecord::Schema.define(version: 2022_03_16_194900) do
     t.integer "updater_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "site_id", null: false
+    t.string "menu_type", null: false
     t.index ["creator_id"], name: "index_alchemy_nodes_on_creator_id"
     t.index ["language_id"], name: "index_alchemy_nodes_on_language_id"
     t.index ["lft"], name: "index_alchemy_nodes_on_lft"
     t.index ["page_id"], name: "index_alchemy_nodes_on_page_id"
     t.index ["parent_id"], name: "index_alchemy_nodes_on_parent_id"
     t.index ["rgt"], name: "index_alchemy_nodes_on_rgt"
-    t.index ["site_id"], name: "index_alchemy_nodes_on_site_id"
     t.index ["updater_id"], name: "index_alchemy_nodes_on_updater_id"
   end
 
@@ -260,18 +266,17 @@ ActiveRecord::Schema.define(version: 2022_03_16_194900) do
     t.integer "rgt"
     t.integer "parent_id"
     t.integer "depth"
-    t.boolean "visible", default: false
     t.integer "locked_by"
     t.boolean "restricted", default: false
     t.boolean "robot_index", default: true
     t.boolean "robot_follow", default: true
     t.boolean "sitemap", default: true
-    t.boolean "layoutpage", default: false
+    t.boolean "layoutpage", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "creator_id"
     t.integer "updater_id"
-    t.integer "language_id"
+    t.integer "language_id", null: false
     t.text "cached_tag_list"
     t.datetime "published_at"
     t.datetime "public_on"
@@ -394,8 +399,9 @@ ActiveRecord::Schema.define(version: 2022_03_16_194900) do
   add_foreign_key "alchemy_contents", "alchemy_elements", column: "element_id", name: "alchemy_contents_element_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_cells", column: "cell_id", name: "alchemy_elements_cell_id_fkey", on_update: :cascade, on_delete: :cascade
   add_foreign_key "alchemy_elements", "alchemy_pages", column: "page_id", name: "alchemy_elements_page_id_fkey", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "alchemy_essence_nodes", "alchemy_nodes", column: "node_id"
   add_foreign_key "alchemy_essence_pages", "alchemy_pages", column: "page_id"
   add_foreign_key "alchemy_nodes", "alchemy_languages", column: "language_id"
   add_foreign_key "alchemy_nodes", "alchemy_pages", column: "page_id", on_delete: :cascade
-  add_foreign_key "alchemy_nodes", "alchemy_sites", column: "site_id", on_delete: :cascade
+  add_foreign_key "alchemy_pages", "alchemy_languages", column: "language_id"
 end

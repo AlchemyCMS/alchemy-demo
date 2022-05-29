@@ -1,19 +1,19 @@
 GIT
   remote: https://github.com/AlchemyCMS/alchemy-devise.git
-  revision: 43b6aba394b25b51017f2a0fdd6a59d5837de56b
-  branch: 4.6-stable
+  revision: 0915f2b15b4e7c781c383609a837ababdadbc938
+  branch: 5.0-stable
   specs:
-    alchemy-devise (4.6.0)
+    alchemy-devise (5.0.1)
       alchemy_cms (>= 4.1.0, < 5.1)
       devise (>= 4.7.1, < 5)
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy-graphql.git
-  revision: dd6c8e1bc6c5aa70d0e4fbc73bee1fea52008cbb
+  revision: bf84ed43f9da5fc7e32fa7f4e00e971b503227b2
   branch: main
   specs:
     alchemy-graphql (0.1.0)
-      alchemy_cms (>= 4.2.0.rc1, < 5)
+      alchemy_cms (>= 4.2.0.rc1, < 6)
       graphql (~> 1.9)
 
 GIT
@@ -27,16 +27,16 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 94e14398745c3134ebc977db2b3c5fa048cab1aa
-  branch: 4.6-stable
+  revision: b8ff38b24a8e78b2ab74caf0a4401c357fea6ef9
+  branch: 5.0-stable
   specs:
-    alchemy_cms (4.6.7)
+    alchemy_cms (5.0.10)
       active_model_serializers (~> 0.10.0)
       acts_as_list (>= 0.3, < 2)
       awesome_nested_set (~> 3.1)
       cancancan (>= 2.1, < 4.0)
       coffee-rails (~> 4.0, < 5.0)
-      dragonfly (>= 1.0.7, < 1.4)
+      dragonfly (~> 1.4)
       dragonfly_svg (~> 0.0.4)
       gutentag (~> 2.2, >= 2.2.1)
       handlebars_assets (~> 0.23)
@@ -45,7 +45,7 @@ GIT
       kaminari (~> 1.1)
       non-stupid-digest-assets (~> 1.0.8)
       originator (~> 3.1)
-      rails (>= 5.0.0, < 6.1)
+      rails (>= 5.2.0, < 6.1)
       ransack (>= 1.8, < 3.0)
       request_store (~> 1.2)
       responders (>= 2.0, < 4.0)
@@ -54,6 +54,7 @@ GIT
       simple_form (>= 4.0, < 6)
       sprockets (>= 3.0, < 5)
       turbolinks (>= 2.5)
+      webpacker (>= 4.0, < 6)
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_i18n.git
@@ -156,7 +157,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    dragonfly (1.3.0)
+    dragonfly (1.4.0)
       addressable (~> 2.3)
       multi_json (~> 1.0)
       rack (>= 1.3)
@@ -254,6 +255,8 @@ GEM
     rack (2.2.3.1)
     rack-cache (1.13.0)
       rack (>= 0.4)
+    rack-proxy (0.7.2)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.8)
@@ -316,6 +319,7 @@ GEM
       sprockets-rails
       tilt
     select2-rails (3.5.11)
+    semantic_range (3.0.0)
     sentry-raven (2.13.0)
       faraday (>= 0.7.6, < 1.0)
     simple_form (5.1.0)
@@ -348,6 +352,11 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (5.4.3)
+      activesupport (>= 5.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 5.2)
+      semantic_range (>= 2.3.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)

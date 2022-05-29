@@ -1,33 +1,26 @@
 - name: Intro
   page_layout: intro
-  visible: true
   public_on: 2019-04-02
   children:
-  - name: Home
-    page_layout: standard
-    visible: true
-    public_on: 2019-04-02
-  - name: About us
-    page_layout: content_page
-    visible: true
-    public_on: 2019-04-02
-  - name: Products
-    page_layout: category
-    visible: true
-    public_on: 2019-04-02
-  - name: Blog
-    page_layout: blog
-    visible: true
-    public_on: 2019-04-02
-    children:
-    - name: Blog Entry 1
-      page_layout: blog
-      visible: true
+    - name: Home
+      page_layout: standard
       public_on: 2019-04-02
-    - name: Blog Entry 2
-      page_layout: blog
-      visible: true
+    - name: About us
+      page_layout: content_page
       public_on: 2019-04-02
+    - name: Products
+      page_layout: category
+      public_on: 2019-04-02
+    - name: Blog
+      page_layout: blog
+      public_on: 2019-04-02
+      children:
+        - name: Blog Entry 1
+          page_layout: blog
+          public_on: 2019-04-02
+        - name: Blog Entry 2
+          page_layout: blog
+          public_on: 2019-04-02
 
 - name: Footer
   layoutpage: true

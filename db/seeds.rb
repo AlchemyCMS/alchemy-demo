@@ -65,7 +65,7 @@ YAML.load_file("./db/seeds/alchemy/pages.yml").each do |page|
 
   parent_page = Alchemy::Page.find_by!(name: page["name"], page_layout: page["page_layout"])
   parent = Alchemy::Node.create!(
-    name: name,
+    menu_type: name,
     site: parent_page.site,
     language: parent_page.language,
   )

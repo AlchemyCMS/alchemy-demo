@@ -11,7 +11,7 @@ auto_logout_time: 30
 
 # === Redirect Options
 #
-#   redirect_to_public_child  [Boolean]   # Alchemy redirects to the first public child page found, if a page is not visible.
+#   redirect_to_public_child  [Boolean]   # Alchemy redirects to the first public child page found, if a page is not public.
 #
 redirect_to_public_child: true
 
@@ -38,23 +38,33 @@ sitemap:
   show_root: true
   show_flag: false
 
-# === URL nesting
-#
-# Since Alchemy 2.6.0, page urls are nested, respectively to their tree position.
-#
-# Disable +url_nesting+ to get slug only urls.
-#
-# NOTE: After changing the url_nesting, you should run one of these convert rake tasks:
-#
-#   rake alchemy:convert:urlnames:to_nested
-#   rake alchemy:convert:urlnames:to_slug
-#
-url_nesting: true
-
 # === Default items per page in admin views
 #
 # In Alchemy's Admin, change how many items you would get shown per page by Kaminari
 items_per_page: 15
+
+# === Preview window URL configuration
+#
+# By default Alchemy uses its internal page preview renderer,
+# but you can configure it to be any URL instead.
+#
+# Basic Auth is supported.
+#
+# preview:
+#   host: https://www.my-static-site.com
+#   auth:
+#     username: <%= ENV["BASIC_AUTH_USERNAME"] %>
+#     password: <%= ENV["BASIC_AUTH_PASSWORD"] %>
+#
+# Preview config per site is supported as well.
+#
+# preview:
+#   My site name:
+#     host: https://www.my-static-site.com
+#     auth:
+#       username: <%= ENV["BASIC_AUTH_USERNAME"] %>
+#       password: <%= ENV["BASIC_AUTH_PASSWORD"] %>
+#
 
 # === Picture rendering settings
 #
@@ -77,9 +87,9 @@ image_output_format: original
 # This is used by the seeder to create the default site.
 default_site:
   name: Default Site
-  host: '*'
+  host: "*"
 
-# This is the default language when a new site gets created.
+# This is the default language when seeding.
 default_language:
   code: en
   name: English
@@ -119,7 +129,8 @@ mailer:
   mail_from: your.mail@your-domain.com
   mail_to: your.mail@your-domain.com
   subject: A new contact form message
-  fields: [salutation, firstname, lastname, address, zip, city, phone, email, message]
+  fields:
+    [salutation, firstname, lastname, address, zip, city, phone, email, message]
   validate_fields: [lastname, email]
 
 # === User roles
@@ -152,13 +163,13 @@ uploader:
   file_size_limit: 100
   allowed_filetypes:
     alchemy/attachments:
-    - '*'
+      - "*"
     alchemy/pictures:
-    - jpg
-    - jpeg
-    - gif
-    - png
-    - svg
+      - jpg
+      - jpeg
+      - gif
+      - png
+      - svg
 
 # === Link Target Options
 #
@@ -172,9 +183,6 @@ uploader:
 #   jQuery(a[data-link-target="overlay"]).dialog();
 #
 link_target_options: [blank]
-
-# Should pages that redirect to an external url open the link in a new tab/window?
-open_external_links_in_new_tab: true
 
 # === Format matchers
 #

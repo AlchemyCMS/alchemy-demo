@@ -5,6 +5,9 @@ superclass = ActiveRecord::VERSION::MAJOR < 5 ?
   ActiveRecord::Migration : ActiveRecord::Migration[4.2]
 class GutentagTables < superclass
   def up
+    # inserted by Alchemy CMS upgrader
+    return if table_exists?(:gutentag_taggings)
+
     create_table :gutentag_taggings do |t|
       t.integer :tag_id,        :null => false
       t.integer :taggable_id,   :null => false

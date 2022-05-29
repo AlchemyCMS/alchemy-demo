@@ -5,6 +5,9 @@ superclass = ActiveRecord::VERSION::MAJOR < 5 ?
   ActiveRecord::Migration : ActiveRecord::Migration[4.2]
 class GutentagCacheCounter < superclass
   def up
+    # inserted by Alchemy CMS upgrader
+    return if column_exists?(:gutentag_tags, :taggings_count)
+
     add_column :gutentag_tags, :taggings_count, :integer, :default => 0
     add_index  :gutentag_tags, :taggings_count
 
