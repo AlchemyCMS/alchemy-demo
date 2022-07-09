@@ -7,7 +7,7 @@ ruby `cat .ruby-version`.chomp.tr("ruby-", "")
   gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: branch
   gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: branch
   gem "alchemy_i18n", "~> 2.0"
-  gem "alchemy_cloudinary", "~> 2.0"
+  gem "alchemy_cloudinary", github: "AlchemyCMS/alchemy_cloudinary", branch: "fix-autoloading"
   gem "alchemy-graphql", github: "AlchemyCMS/alchemy-graphql", branch: "main"
 end
 
