@@ -17,15 +17,6 @@ GIT
       graphql (~> 1.9)
 
 GIT
-  remote: https://github.com/AlchemyCMS/alchemy_cloudinary.git
-  revision: 2ba49c17905c6bf3daea2f97db35b0b15cdf9062
-  branch: fix-autoloading
-  specs:
-    alchemy_cloudinary (2.0.0)
-      alchemy_cms (>= 5.1.0, < 7.0)
-      cloudinary (~> 1.9)
-
-GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
   revision: 5095430f98bde76e50a2227384aa538779942761
   branch: 5.1-stable
@@ -122,6 +113,9 @@ GEM
       activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    alchemy_cloudinary (2.0.2)
+      alchemy_cms (>= 5.1.0, < 7.0)
+      cloudinary (~> 1.9)
     alchemy_i18n (2.3.1)
       alchemy_cms (>= 4.4.0.a, < 6.0)
       rails-i18n
@@ -377,7 +371,7 @@ PLATFORMS
 DEPENDENCIES
   alchemy-devise!
   alchemy-graphql!
-  alchemy_cloudinary!
+  alchemy_cloudinary (~> 2.0)
   alchemy_cms!
   alchemy_i18n (~> 2.0)
   bootsnap (>= 1.1.0)
