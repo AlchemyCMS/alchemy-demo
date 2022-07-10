@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/AlchemyCMS/alchemy-devise.git
-  revision: b30ba1fc0cf994f37ed88b4e9b9058f7b15d8e54
-  branch: 5.2-stable
+  revision: 2a49731ae44ca4c0a77f8b83b19ecec90c92cac8
+  branch: 5.3-stable
   specs:
-    alchemy-devise (5.2.0.a)
+    alchemy-devise (5.3.0)
       alchemy_cms (>= 5.0.0, < 6.1)
       devise (>= 4.7.1, < 5)
 
@@ -18,10 +18,10 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 4ade160a99b7b8ea14f1bc29dae184bcddc35a8b
-  branch: 5.2-stable
+  revision: 32f2ca29db29ffac3a32df1dc034880524828c15
+  branch: 5.3-stable
   specs:
-    alchemy_cms (5.2.7)
+    alchemy_cms (5.3.7)
       active_model_serializers (~> 0.10.0)
       acts_as_list (>= 0.3, < 2)
       awesome_nested_set (~> 3.1)
