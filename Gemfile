@@ -44,7 +44,7 @@ end
 
 group :production do
   gem "rack-cache", "~> 1.8"
-  gem "dalli", "~> 2.7"
+  gem "dalli", "~> 3.2"
   gem "kgio", "~> 2.11"
   gem "lograge", "~> 0.10"
 end
