@@ -2,11 +2,13 @@
 # yarn lockfile v1
 
 
-"@alchemy_cms/admin@~5.3.7":
-  version "5.3.8"
-  resolved "https://registry.yarnpkg.com/@alchemy_cms/admin/-/admin-5.3.8.tgz#6bee1afa3dfd3b1b893c674a3e0992358c0da74a"
-  integrity sha512-oTUfOB1LiRdaLaKDPJVGj+bFoESbNsSw20xIm1xdGAlIW+ba7AKb7csyKszhMXw2VXYQprixvAuu8TyxPbsbzw==
+"@alchemy_cms/admin@~6.0.12":
+  version "6.0.12"
+  resolved "https://registry.yarnpkg.com/@alchemy_cms/admin/-/admin-6.0.12.tgz#67d426d7311d9fe1a70ba2f073be1cf40655d700"
+  integrity sha512-ATb3FGHhzT4fDnQqU8B0R9r349+YC7cqcAb2ui++fkJ2/jkfyNZzDGCQh81/k6+ZaizpKMW+KHrhcyozYsLHzg==
   dependencies:
+    flatpickr "^4.6.9"
+    lodash-es "^4.17.21"
     sortablejs "^1.10.2"
 
 "@ampproject/remapping@^2.1.0":
@@ -3003,6 +3005,11 @@ findup-sync@^3.0.0:
     micromatch "^3.0.4"
     resolve-dir "^1.0.1"
 
+flatpickr@^4.6.9:
+  version "4.6.13"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.6.13.tgz#8a029548187fd6e0d670908471e43abe9ad18d94"
+  integrity sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==
+
 flatted@^3.2.2:
   version "3.2.7"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.7.tgz#609f39207cb614b89d0765b477cb2d437fbf9787"
@@ -4042,6 +4049,11 @@ locate-path@^5.0.0:
   integrity sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
   dependencies:
     p-locate "^4.1.0"
+
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash.debounce@^4.0.8:
   version "4.0.8"

@@ -3,13 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby `cat .ruby-version`.chomp.tr("ruby-", "")
 
-"5.3-stable".tap do |branch|
-  gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: branch
-  gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: branch
-  gem "alchemy_i18n", "~> 2.0"
-  gem "alchemy_cloudinary", "~> 2.0"
-  gem "alchemy-graphql", github: "AlchemyCMS/alchemy-graphql", branch: "main"
-end
+gem "alchemy_cms", "~> 6.0"
+gem "alchemy-devise", "~> 6.0"
+gem "alchemy_i18n", "~> 3.0"
+gem "alchemy_cloudinary", "~> 2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 6.0.0"
@@ -29,8 +26,6 @@ gem "bootsnap", ">= 1.1.0", require: false
 # Reset the demo
 gem "database_cleaner", "~> 1.7", require: false
 gem "dotenv-rails", "~> 2.7"
-
-gem "graphiql-rails", "1.4.8"
 
 # K8s health checks
 gem "health_bit", "~> 0.2"
