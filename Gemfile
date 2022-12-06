@@ -48,6 +48,7 @@ group :production do
   gem "health_bit", "~> 0.2"
   # Necessary to compile assets without database connection
   gem "activerecord-nulldb-adapter"
+  gem "redis", "~> 5.0"
 end
 
 gem "sentry-raven", "~> 2.9"
