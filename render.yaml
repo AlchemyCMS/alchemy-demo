@@ -7,7 +7,7 @@ services:
     repo: https://github.com/AlchemyCMS/alchemy-demo.git
     numInstances: 1
     healthCheckPath: /healthz
-    buildCommand: bin/rake assets:precompile
+    buildCommand: bin/build
     initialDeployHook: bin/rake db:seed
     startCommand: bundle exec puma -C config/puma.rb
     envVars:
