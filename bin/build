@@ -11,6 +11,7 @@ end
 FileUtils.chdir APP_ROOT do
   puts "== Installing dependencies =="
   system!("bundle install --frozen --clean --without development test --jobs $(nproc)")
+  system!("bin/yarn install")
 
   if ENV["RENDER_SERVICE_TYPE"] == "web"
     puts "\n== Compiling assets =="
