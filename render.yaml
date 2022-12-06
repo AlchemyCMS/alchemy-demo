@@ -28,33 +28,6 @@ services:
           property: port
           type: redis
 
-  - name: alchemy-demo-reset
-    type: cron
-    env: ruby
-    repo: https://github.com/AlchemyCMS/alchemy-demo.git
-    region: frankfurt
-    plan: free
-    schedule: "30 7 * * *"
-    buildCommand: bin/build
-    startCommand: bin/rake demo:reset
-    envVars:
-      - fromGroup: alchemy-demo-env-vars
-      - fromGroup: alchemy-demo-secrets
-      - key: DATABASE_URL
-        fromDatabase:
-          name: alchemy-demo-postgres
-          property: connectionString
-      - key: REDIS_HOST
-        fromService:
-          name: alchemy-demo-redis
-          property: host
-          type: redis
-      - key: REDIS_PORT
-        fromService:
-          name: alchemy-demo-redis
-          property: port
-          type: redis
-
   - name: alchemy-demo-redis
     type: redis
     region: frankfurt
