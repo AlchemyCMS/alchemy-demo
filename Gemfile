@@ -43,10 +43,11 @@ group :development do
 end
 
 group :production do
-  gem "rack-cache", "~> 1.8"
-  gem "dalli", "~> 2.7"
-  gem "kgio", "~> 2.11"
   gem "lograge", "~> 0.10"
+  # K8s health checks
+  gem "health_bit", "~> 0.2"
+  # Necessary to compile assets without database connection
+  gem "activerecord-nulldb-adapter"
 end
 
 gem "sentry-raven", "~> 2.9"

@@ -14,22 +14,13 @@ Rails.application.configure do
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
-  dalli_options = [
-    ENV.fetch('MEMCACHEDCLOUD_SERVERS', '').split(','), {
-      username: ENV['MEMCACHEDCLOUD_USERNAME'],
-      password: ENV['MEMCACHEDCLOUD_PASSWORD'],
-      error_when_over_max_size: false,
-      value_max_bytes: 10485760
-    }
-  ]
-  config.cache_store = *([:mem_cache_store] + dalli_options)
-  dalli_client = Dalli::Client.new(*dalli_options)
-  config.action_dispatch.rack_cache = {
-    metastore: dalli_client,
-    entitystore: dalli_client,
-    allow_reload: false
+  config.cache_store = :redis_cache_store, {
+    host: ENV["REDIS_HOST"],
+    port: ENV["REDIS_PORT"],
+    db: 0,
+    expires_in: 7.days,
   }
-  config.static_cache_control = 'public, max-age=2592000'
+  config.static_cache_control = "public, max-age=2592000"
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
@@ -37,7 +28,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass

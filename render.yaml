@@ -1,0 +1,60 @@
+services:
+  - name: alchemy-demo-rails
+    type: web
+    env: ruby
+    region: frankfurt
+    plan: free
+    repo: https://github.com/AlchemyCMS/alchemy-demo.git
+    numInstances: 1
+    healthCheckPath: /healthz
+    buildCommand: bin/rake assets:precompile
+    initialDeployHook: bin/rake db:seed
+    startCommand: bundle exec puma -C config/puma.rb
+    envVars:
+      - fromGroup: alchemy-demo-env-vars
+      - fromGroup: alchemy-demo-secrets
+      - key: DATABASE_URL
+        fromDatabase:
+          name: alchemy-demo-postgres
+          property: connectionString
+      - key: REDIS_HOST
+        fromService:
+          name: alchemy-demo-redis
+          property: host
+          type: redis
+      - key: REDIS_PORT
+        fromService:
+          name: alchemy-demo-redis
+          property: port
+          type: redis
+
+  - name: alchemy-demo-redis
+    type: redis
+    region: frankfurt
+    plan: free
+    maxmemoryPolicy: volatile-lru
+    ipAllowList:
+      - source: 90.187.213.217/32
+        description: Blish (office)
+
+databases:
+  - name: alchemy-demo-postgres
+    region: frankfurt
+    plan: free
+    ipAllowList:
+      - source: 90.187.213.217/32
+        description: Blish (office)
+
+envVarGroups:
+  - name: alchemy-demo-env-vars
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_SERVE_STATIC_FILES
+        value: true
+      - key: RAILS_LOG_TO_STDOUT
+        value: true
+      - key: SENTRY_DSN
+        value: https://359b7e0f2ad1418c94df2e8930cfea55@o373698.ingest.sentry.io/4504280947621888
+      - key: LD_PRELOAD
+        value: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
