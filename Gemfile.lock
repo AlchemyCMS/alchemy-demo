@@ -197,10 +197,9 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    listen (3.1.5)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
+    listen (3.7.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     lograge (0.12.0)
       actionpack (>= 4)
       activesupport (>= 4)
@@ -311,7 +310,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    ruby_dep (1.5.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -384,7 +382,7 @@ DEPENDENCIES
   database_cleaner (~> 1.7)
   dotenv-rails (~> 2.7)
   health_bit (~> 0.2)
-  listen (>= 3.0.5, < 3.2)
+  listen (>= 3.0.5)
   lograge (~> 0.10)
   newrelic_rpm (~> 6.2)
   pg (~> 1.0)
@@ -399,7 +397,7 @@ DEPENDENCIES
   zurb-foundation (~> 4.3.2)
 
 RUBY VERSION
-   ruby 2.7.6p219
+   ruby 3.0.5p211
 
 BUNDLED WITH
-   2.2.32
+   2.3.26
