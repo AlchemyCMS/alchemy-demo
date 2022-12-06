@@ -32,6 +32,9 @@ gem "dotenv-rails", "~> 2.7"
 
 gem "graphiql-rails", "1.4.8"
 
+# K8s health checks
+gem "health_bit", "~> 0.2"
+
 group :development, :test do
   gem "pry-rails"
 end
@@ -44,8 +47,6 @@ end
 
 group :production do
   gem "lograge", "~> 0.10"
-  # K8s health checks
-  gem "health_bit", "~> 0.2"
   # Necessary to compile assets without database connection
   gem "activerecord-nulldb-adapter"
   gem "redis", "~> 5.0"
