@@ -54,7 +54,13 @@ envVarGroups:
         value: true
       - key: RAILS_LOG_TO_STDOUT
         value: true
-      - key: SENTRY_DSN
-        value: https://359b7e0f2ad1418c94df2e8930cfea55@o373698.ingest.sentry.io/4504280947621888
       - key: LD_PRELOAD
         value: /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+      - key: DATABASE_CLEANER_ALLOW_PRODUCTION
+        value: true
+      - key: DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL
+        value: true
+      - key: DISABLE_DATABASE_ENVIRONMENT_CHECK
+        value: 1
+      - key: NEW_RELIC_LOG
+        value: stdout
