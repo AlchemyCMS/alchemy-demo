@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby `cat .ruby-version`.chomp.tr("ruby-", "")
+ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 
 gem "alchemy_cms", github: "tvdeyen/alchemy_cms", branch: "fix-page-seeder"
 gem "alchemy-devise", "~> 6.0"
