@@ -14,12 +14,19 @@ Rails.application.configure do
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
-  config.cache_store = :redis_cache_store, {
-    host: ENV["REDIS_HOST"],
-    port: ENV["REDIS_PORT"],
+  redis_options = {
     db: 0,
     expires_in: 7.days,
   }
+
+  if ENV["REDIS_URL"].present?
+    redis_options[:url] = ENV["REDIS_URL"]
+  else
+    redis_options[:host] = ENV["REDIS_HOST"]
+    redis_options[:port] = ENV["REDIS_PORT"]
+  end
+
+  config.cache_store = :redis_cache_store, redis_options
   config.static_cache_control = "public, max-age=2592000"
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
