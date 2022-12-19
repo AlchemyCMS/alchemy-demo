@@ -24,7 +24,7 @@ gem "zurb-foundation", "~> 4.3.2"
 gem "bootsnap", ">= 1.1.0", require: false
 
 # Reset the demo
-gem "database_cleaner", "~> 1.7", require: false
+gem "database_cleaner", "~> 2.0", require: false
 gem "dotenv-rails", "~> 2.7"
 
 # K8s health checks
