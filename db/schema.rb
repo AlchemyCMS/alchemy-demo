@@ -471,4 +471,5 @@ ActiveRecord::Schema.define(version: 2022_12_06_164030) do
   add_foreign_key "alchemy_nodes", "alchemy_pages", column: "page_id", on_delete: :restrict
   add_foreign_key "alchemy_page_versions", "alchemy_pages", column: "page_id", on_delete: :cascade
   add_foreign_key "alchemy_pages", "alchemy_languages", column: "language_id"
+  add_foreign_key "alchemy_picture_thumbs", "alchemy_pictures", column: "picture_id"
 end

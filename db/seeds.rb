@@ -96,3 +96,5 @@ YAML.load_file("./db/seeds/alchemy/pages.yml").each do |page|
     puts "== Created menu entry: Admin Login"
   end
 end
+
+Alchemy::Page.all.each(&:publish!)
