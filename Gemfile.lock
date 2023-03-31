@@ -120,8 +120,8 @@ GEM
     alchemy_cloudinary (2.0.2)
       alchemy_cms (>= 5.1.0, < 7.0)
       cloudinary (~> 1.9)
-    alchemy_i18n (3.0.2)
-      alchemy_cms (>= 6.0.0, < 7)
+    alchemy_i18n (3.1.0)
+      alchemy_cms (>= 6.0.0, < 8)
       rails-i18n
     awesome_nested_set (3.5.0)
       activerecord (>= 4.0.0, < 7.1)
