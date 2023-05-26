@@ -56,7 +56,7 @@ puts "== Created demo user"
 puts "\nSeeding Menus"
 puts "-------------"
 
-YAML.load_file("./db/seeds/alchemy/pages.yml").each do |page|
+YAML.load_file("./db/seeds/alchemy/pages.yml", permitted_classes: [Date]).each do |page|
   if page["layoutpage"]
     name = "Footer Navigation"
     type = "footer_navigation"
