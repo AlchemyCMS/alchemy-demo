@@ -16,15 +16,15 @@ Alchemy::Seeder.seed!
   category_intro: 13,
   content_block: 14,
 }.each do |element_name, picture_id|
-  Alchemy::EssencePicture.joins(:element)
+  Alchemy::Ingredients::Picture.joins(:element)
     .where(alchemy_elements: { name: element_name })
-    .update_all(picture_id: picture_id)
+    .update_all(related_object_id: picture_id, related_object_type: "Alchemy::Picture")
 end
 
 # Video assigments
-Alchemy::EssenceText.joins(:element)
+Alchemy::Ingredients::Text.joins(:element)
   .where(alchemy_elements: { name: "video_slide" })
-  .update_all(body: "225795837")
+  .update_all(value: "225795837")
 
 puts "\nSeeding Users"
 puts "-------------"

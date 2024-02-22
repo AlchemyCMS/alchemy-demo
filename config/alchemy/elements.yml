@@ -10,99 +10,99 @@
 
 - name: gallery_picture
   compact: true
-  contents:
-    - name: image
-      type: EssencePicture
+  ingredients:
+    - role: image
+      type: Picture
       settings:
         size: 500x500
         crop: true
-    - name: caption
-      type: EssenceText
+    - role: caption
+      type: Text
       default: "Image Caption"
 
 - name: category_intro
   unique: true
-  contents:
-    - name: image
-      type: EssencePicture
+  ingredients:
+    - role: image
+      type: Picture
       settings:
         size: 303x393
         crop: true
-    - name: header
-      type: EssenceText
+    - role: header
+      type: Text
       default: "Header"
-    - name: text
-      type: EssenceRichtext
+    - role: text
+      type: Richtext
       default: "Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis."
 
 - name: blog_post
-  contents:
-    - name: title
-      type: EssenceText
+  ingredients:
+    - role: title
+      type: Text
       default: "Blog Post Title"
-    - name: meta_data
-      type: EssenceText
+    - role: meta_data
+      type: Text
       default: "Written by"
-    - name: image
-      type: EssencePicture
+    - role: image
+      type: Picture
       settings:
         size: 400x240
         crop: true
-    - name: intro
-      type: EssenceRichtext
+    - role: intro
+      type: Richtext
       default: :blog_post_intro
-    - name: body
-      type: EssenceRichtext
+    - role: body
+      type: Richtext
       default: :blog_post_body
 
 - name: video_slide
-  contents:
-    - name: video
-      type: EssenceText
+  ingredients:
+    - role: video
+      type: Text
       hint: Please paste a Vimeo video id into this field. The embed code is already included.
 
 - name: image_slide
-  contents:
-    - name: image
-      type: EssencePicture
+  ingredients:
+    - role: image
+      type: Picture
       settings:
         size: 1000x400
         crop: true
 
 - name: content_block
-  contents:
-    - name: picture
-      type: EssencePicture
+  ingredients:
+    - role: picture
+      type: Picture
       settings:
         size: 400x300
         crop: true
-    - name: headline
-      type: EssenceText
+    - role: headline
+      type: Text
       default: This is a content section.
-    - name: text
-      type: EssenceRichtext
+    - role: text
+      type: Richtext
       default: <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
 
 - name: intro_text
   unique: true
-  contents:
-    - name: headline
-      type: EssenceText
+  ingredients:
+    - role: headline
+      type: Text
       default: Header
-    - name: subheader
-      type: EssenceText
+    - role: subheader
+      type: Text
       default: Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
-    - name: text
-      type: EssenceRichtext
+    - role: text
+      type: Richtext
       default: <p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.</p>
 
 - name: text_block
-  contents:
-    - name: headline
-      type: EssenceText
+  ingredients:
+    - role: headline
+      type: Text
       default: This is a headline.
-    - name: text
-      type: EssenceRichtext
+    - role: text
+      type: Richtext
       default: <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
       settings:
         tinymce:
@@ -111,39 +111,39 @@
 
 - name: call_to_action
   unique: true
-  contents:
-    - name: headline
-      type: EssenceText
+  ingredients:
+    - role: headline
+      type: Text
       default: Get in touch!
-    - name: text
-      type: EssenceRichtext
+    - role: text
+      type: Richtext
       default: We'd love to hear from you, you attractive person you.
 
 - name: image_teaser
-  contents:
-    - name: image
-      type: EssencePicture
+  ingredients:
+    - role: image
+      type: Picture
       settings:
         size: 250x250
         crop: true
-    - name: caption
-      type: EssenceText
+    - role: caption
+      type: Text
       default: Subline
 
 - name: portrait_image
   unique: true
-  contents:
-    - name: image
-      type: EssencePicture
+  ingredients:
+    - role: image
+      type: Picture
       settings:
         size: 300x465
         crop: true
 
 - name: footer_note
   unique: true
-  contents:
-    - name: body
-      type: EssenceText
+  ingredients:
+    - role: body
+      type: Text
       default: "Made with ❤️ and AlchemyCMS"
 
 - name: social_button
