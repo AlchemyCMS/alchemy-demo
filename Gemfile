@@ -7,6 +7,7 @@ gem "alchemy_cms", "~> 7.1.0"
 gem "alchemy-devise", "~> 7.1.0"
 gem "alchemy_i18n", "~> 4.1.0"
 gem "alchemy_cloudinary", "~> 3.0"
+gem "alchemy-sentry", "~> 1.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 7.0.0"
@@ -46,7 +47,5 @@ group :production do
   gem "activerecord-nulldb-adapter"
   gem "redis", "~> 5.0"
 end
-
-gem "sentry-raven", "~> 2.9"
 
 gem "newrelic_rpm", "~> 8.0"
