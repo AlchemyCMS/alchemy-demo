@@ -86,7 +86,7 @@ GEM
       activerecord (>= 4.2)
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
-    alchemy-devise (7.1.1)
+    alchemy-devise (7.1.2)
       alchemy_cms (>= 7.0.0, < 8)
       devise (>= 4.7.1, < 5)
     alchemy-sentry (1.0.0)
