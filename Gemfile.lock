@@ -96,7 +96,7 @@ GEM
     alchemy_cloudinary (3.0.0)
       alchemy_cms (>= 7.0, < 8.0)
       cloudinary (~> 1.9)
-    alchemy_cms (7.1.4)
+    alchemy_cms (7.1.5)
       actionmailer (>= 7.0, < 7.2)
       actionpack (>= 7.0, < 7.2)
       actionview (>= 7.0, < 7.2)
@@ -181,8 +181,7 @@ GEM
     dragonfly_svg (0.0.4)
       dragonfly (~> 1.0)
       nokogiri
-    drb (2.2.0)
-      ruby2_keywords
+    drb (2.2.1)
     erubi (1.12.0)
     execjs (2.9.1)
     ffi (1.16.3)
@@ -350,7 +349,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    ruby2_keywords (0.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
