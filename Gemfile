@@ -20,7 +20,6 @@ gem "sassc-rails", "~> 2.1"
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 gem "zurb-foundation", "~> 4.3.2"
-gem "redis", "~> 5.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
@@ -46,6 +45,7 @@ group :production do
   gem "lograge", "~> 0.10"
   # Necessary to compile assets without database connection
   gem "activerecord-nulldb-adapter"
+  gem "redis", "~> 5.0"
 end
 
 gem "newrelic_rpm", "~> 8.0"
