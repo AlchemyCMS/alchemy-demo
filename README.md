@@ -4,9 +4,9 @@ This is the source code of the AlchemyCMS demo.
 
 ## Visit the demo online
 
-The demo is located at https://alchemy-demo.herokuapp.com
+The demo is located at https://demo.alchemy-cms.com
 
-Login to the admin backend at https://alchemy-demo.herokuapp.com/admin
+Login to the admin backend at https://demo.alchemy-cms.com/admin
 
 * Username: `demo`
 * Password: `demo123`
