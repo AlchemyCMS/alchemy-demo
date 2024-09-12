@@ -10,7 +10,7 @@ gem "alchemy_cloudinary", "~> 3.0"
 gem "alchemy-sentry", "~> 1.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 7.1.0"
+gem "rails", "~> 7.2.0"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.0"
 # Use Puma as the app server
@@ -44,7 +44,6 @@ end
 group :production do
   gem "lograge", "~> 0.10"
   # Necessary to compile assets without database connection
-  gem "activerecord-nulldb-adapter"
   gem "redis", "~> 5.0"
 end
 
