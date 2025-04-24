@@ -21,7 +21,7 @@ ARG RUBY_VERSION=3.3.5
 ARG VARIANT=jemalloc-bookworm-slim
 FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
 
-LABEL fly_launch_runtime="rails"
+LABEL org.opencontainers.image.source="https://github.com/AlchemyCMS/alchemy-demo"
 
 ARG NODE_VERSION=20
 ARG BUNDLER_VERSION=2.5.18
@@ -113,12 +113,12 @@ ENV SECRET_KEY_BASE 1
 # ENV AWS_ACCESS_KEY_ID=1
 # ENV AWS_SECRET_ACCESS_KEY=1
 
-# Run build task defined in lib/tasks/fly.rake
-ARG BUILD_COMMAND="bin/rails fly:build"
+# Run build task defined in lib/tasks/demo.rake
+ARG BUILD_COMMAND="bin/rake demo:build"
 RUN ${BUILD_COMMAND}
 
-# Default server start instructions.  Generally Overridden by fly.toml.
+# Default server start instructions.
 ENV PORT 8080
-ARG SERVER_COMMAND="bin/rails fly:server"
+ARG SERVER_COMMAND="bin/start"
 ENV SERVER_COMMAND ${SERVER_COMMAND}
 CMD ${SERVER_COMMAND}
