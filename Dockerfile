@@ -17,14 +17,14 @@
 # We recommend using the highest patch level for better security and
 # performance.
 
-ARG RUBY_VERSION=3.3.5
+ARG RUBY_VERSION=3.4.3
 ARG VARIANT=jemalloc-bookworm-slim
 FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
 
 LABEL org.opencontainers.image.source="https://github.com/AlchemyCMS/alchemy-demo"
 
 ARG NODE_VERSION=20
-ARG BUNDLER_VERSION=2.5.18
+ARG BUNDLER_VERSION=2.6.8
 
 ARG RAILS_ENV=production
 ENV RAILS_ENV=${RAILS_ENV}
