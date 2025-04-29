@@ -3,9 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 
-gem "alchemy_cms", "~> 7.3.0"
-gem "alchemy-devise", "~> 7.3.0"
-gem "alchemy_i18n", "~> 4.2.0"
+gem "alchemy_cms", "~> 7.4"
+gem "alchemy-devise", "~> 7.4"
+gem "alchemy_i18n", "~> 4.2"
 gem "alchemy_cloudinary", "~> 3.0"
 gem "alchemy-sentry", "~> 1.0"
 
@@ -20,6 +20,8 @@ gem "sassc-rails", "~> 2.1"
 # Use Uglifier as compressor for JavaScript assets
 gem "uglifier", ">= 1.3.0"
 gem "zurb-foundation", "~> 4.3.2"
+
+gem "jquery-rails", "~> 4.6"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
