@@ -45,8 +45,6 @@ end
 
 group :production do
   gem "lograge", "~> 0.10"
-  # Necessary to compile assets without database connection
-  gem "redis", "~> 5.0"
 end
 
 gem "newrelic_rpm", "~> 8.0"
