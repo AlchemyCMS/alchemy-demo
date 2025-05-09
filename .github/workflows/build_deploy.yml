@@ -6,6 +6,8 @@ on:
       - main
   pull_request:
     types: [synchronize, opened]
+  schedule:
+    - cron: '15 2 * * *' # Every day at midnight UTC
 
 jobs:
   Build:
