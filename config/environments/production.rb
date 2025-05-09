@@ -16,21 +16,6 @@ Rails.application.configure do
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
-  redis_options = {
-    db: 0,
-    expires_in: 7.days,
-  }
-
-  if ENV["REDIS_URL"].present?
-    redis_options[:url] = ENV["REDIS_URL"]
-  else
-    redis_options[:host] = ENV["REDIS_HOST"]
-    redis_options[:port] = ENV["REDIS_PORT"]
-  end
-
-  config.cache_store = :redis_cache_store, redis_options
-  config.static_cache_control = "public, max-age=2592000"
-
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
@@ -83,7 +68,7 @@ Rails.application.configure do
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :memory_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter = :resque

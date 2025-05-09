@@ -3,6 +3,8 @@
 require "database_cleaner"
 
 namespace :demo do
+  task build: ["assets:precompile", "assets:clean"]
+
   desc "Reset the demo content"
   task reset: :environment do
     puts "Resetting database"

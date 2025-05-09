@@ -97,4 +97,11 @@ YAML.load_file("./db/seeds/alchemy/pages.yml", permitted_classes: [Date]).each d
   end
 end
 
-Alchemy::Page.all.each(&:publish!)
+puts "\nPublish Pages"
+puts "-------------"
+Alchemy::Page.all.each do |page|
+  page.publish!
+  puts "== Published Page: #{page.name}"
+end
+
+puts "\nSeeding finished 🎉"
