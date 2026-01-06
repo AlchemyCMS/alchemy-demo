@@ -28,10 +28,14 @@ gem "bootsnap", ">= 1.1.0", require: false
 
 # Reset the demo
 gem "database_cleaner", "~> 2.0", require: false
-gem "dotenv-rails", "~> 2.7"
+gem "dotenv-rails", "~> 3.1"
 
 # K8s health checks
 gem "health_bit", "~> 0.2"
+
+# Deployment
+gem "kamal", "~> 2.0", require: false
+gem "thruster", "~> 0.1", require: false
 
 group :development, :test do
   gem "pry-rails"

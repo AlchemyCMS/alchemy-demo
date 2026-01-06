@@ -1,0 +1,60 @@
+# Name of your application. Used to uniquely configure containers.
+service: alchemy-demo
+
+# Name of the container image.
+image: alchemycms/alchemy-demo
+
+# Deploy to these servers.
+servers:
+  web:
+    - 49.13.10.173
+
+# Enable SSL auto certification via Let's Encrypt.
+# If used with Cloudflare, set encryption mode in SSL/TLS setting to "Full".
+proxy:
+  ssl: true
+  host: demo.alchemy-cms.com
+  app_port: 8080
+  healthcheck:
+    path: /healthz
+    timeout: 60
+
+# Credentials for your image host.
+registry:
+  server: ghcr.io
+  username: $
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+# Inject ENV variables into containers (secrets come from .kamal/secrets).
+env:
+  clear:
+    DATABASE_CLEANER_ALLOW_PRODUCTION: true
+    DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
+  secret:
+    - SECRET_KEY_BASE
+    - ADMIN_LOGIN
+    - ADMIN_EMAIL
+    - ADMIN_PASSWORD
+    - CLOUDINARY_URL
+    - SENTRY_DSN
+
+# Use a persistent storage volume for sqlite database and uploads.
+volumes:
+  - "alchemy_demo_storage:/app/storage"
+
+# Bridge fingerprinted assets between versions.
+asset_path: /app/public/assets
+
+# Configure the image builder.
+builder:
+  arch: amd64
+  cache:
+    type: gha
+    options: mode=max
+
+# Aliases for common commands.
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f

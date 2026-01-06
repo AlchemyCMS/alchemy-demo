@@ -33,6 +33,7 @@
 config/cloudinary.yml
 *.sql
 /.env.local
+/.env.production
 
 /public/packs
 /public/packs-test
