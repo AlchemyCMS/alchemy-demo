@@ -3,11 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 
-gem "alchemy_cms", "~> 7.4"
-gem "alchemy-devise", "~> 7.4"
-gem "alchemy_i18n", "~> 4.2"
-gem "alchemy_cloudinary", "~> 3.0"
-gem "alchemy-sentry", "~> 1.0"
+gem "alchemy_cms", "~> 8.0"
+gem "alchemy-devise", "~> 8.0"
+gem "alchemy_i18n", "~> 5.0"
+gem "alchemy_cloudinary", "~> 4.0"
+gem "alchemy-sentry", "~> 2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem "rails", "~> 7.2.0"
