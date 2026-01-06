@@ -55,7 +55,7 @@ RUN volta install node@${NODE_VERSION} && \
 
 FROM base AS build_deps
 
-ARG BUILD_PACKAGES="git build-essential libpq-dev wget vim curl gzip xz-utils libsqlite3-dev libyaml-dev"
+ARG BUILD_PACKAGES="git build-essential wget vim curl gzip xz-utils pkg-config libsqlite3-dev libyaml-dev"
 ENV BUILD_PACKAGES=${BUILD_PACKAGES}
 
 RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
@@ -80,7 +80,7 @@ RUN bundle install && rm -rf vendor/bundle/ruby/*/cache
 
 FROM base
 
-ARG DEPLOY_PACKAGES="postgresql-client file vim curl gzip imagemagick libmagickcore-dev"
+ARG DEPLOY_PACKAGES="sqlite3 file vim curl gzip imagemagick libmagickcore-dev"
 ENV DEPLOY_PACKAGES=${DEPLOY_PACKAGES}
 
 RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
