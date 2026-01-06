@@ -7,7 +7,17 @@ on:
   pull_request:
     types: [synchronize, opened]
   schedule:
-    - cron: '15 2 * * *' # Every day at midnight UTC
+    - cron: '15 2 * * *' # Reset demo daily at 2:15 UTC
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        required: true
+        default: production
+
+concurrency:
+  group: build-${{ github.ref_name }}
+  cancel-in-progress: ${{ github.ref_name != 'main' }}
 
 jobs:
   Build:
@@ -16,7 +26,7 @@ jobs:
       IMAGE_NAME: ghcr.io/alchemycms/alchemy-demo
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
@@ -37,7 +47,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docker image
         id: docker_build
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile
@@ -45,7 +55,10 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ${{ env.IMAGE_NAME }}:${{ env.ALCHEMY_VERSION }}
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
             ${{ env.IMAGE_NAME }}:latest
+          labels: |
+            service=alchemy-demo
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -54,11 +67,27 @@ jobs:
     needs: Build
     if: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
     environment:
-      name: alchemy-demo
+      name: production
       url: https://demo.alchemy-cms.com
     steps:
-      - name: Deploy the app
-        uses: digitalocean/app_action/deploy@v2
+      - name: Check out the repo
+        uses: actions/checkout@v5
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          token: ${{ secrets.DO_DEPLOY_TOKEN }}
-          app_name: alchemy-demo
+          bundler-cache: true
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy with Kamal
+        env:
+          KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+          ADMIN_LOGIN: ${{ secrets.ADMIN_LOGIN }}
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          VERSION: ${{ github.sha }}
+        run: bin/kamal deploy --skip-push --version=$VERSION
