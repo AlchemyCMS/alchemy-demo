@@ -54,9 +54,6 @@
     - portrait_image
     - slider
 
-- name: external
-  redirects_to_external: true
-
 # global pages
 
 - name: footer
