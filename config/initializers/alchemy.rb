@@ -268,8 +268,6 @@ Alchemy.configure do |config|
   # without overwriting or defacing the Admin Interface.
   #
   # config.link_dialog_tabs << "Acme::LinkTab"
-end
 
-Rails.application.config.to_prepare do
-  Alchemy.register_ability Ability
+  config.abilities.add("Ability")
 end
