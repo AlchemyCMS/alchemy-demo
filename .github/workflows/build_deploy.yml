@@ -69,6 +69,15 @@ jobs:
     environment:
       name: production
       url: https://demo.alchemy-cms.com
+    env:
+      KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+      SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
+      ADMIN_LOGIN: ${{ secrets.ADMIN_LOGIN }}
+      ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+      ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+      CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
+      SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      VERSION: ${{ github.sha }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v5
@@ -81,13 +90,19 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Deploy with Kamal
-        env:
-          KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-          SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
-          ADMIN_LOGIN: ${{ secrets.ADMIN_LOGIN }}
-          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
-          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
-          CLOUDINARY_URL: ${{ secrets.CLOUDINARY_URL }}
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-          VERSION: ${{ github.sha }}
-        run: bin/kamal deploy --skip-push --version=$VERSION
+        id: deploy
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          bin/kamal deploy --skip-push --version=$VERSION 2>&1 | tee /tmp/kamal-deploy.log
+      - name: Reboot kamal-proxy and retry deploy
+        if: steps.deploy.outcome == 'failure'
+        run: |
+          if grep -q "kamal-proxy.*is too old" /tmp/kamal-deploy.log; then
+            echo "kamal-proxy is outdated, rebooting..."
+            bin/kamal proxy reboot -y
+            bin/kamal deploy --skip-push --version=$VERSION
+          else
+            echo "Deploy failed for a different reason"
+            exit 1
+          fi
