@@ -36,7 +36,7 @@ gem "health_bit", "~> 0.2"
 # Deployment
 gem "kamal", "~> 2.0", require: false
 gem "thruster", "~> 0.1", require: false
-gem "connection_pool", "~> 2.4"  # Pin to 2.x for Rails RedisCacheStore compatibility
+gem "connection_pool", "~> 3.0"  # Pin to 2.x for Rails RedisCacheStore compatibility
 
 group :development, :test do
   gem "pry-rails"
