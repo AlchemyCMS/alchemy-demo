@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_19_143414) do
+ActiveRecord::Schema[7.2].define(version: 2026_08_01_074120) do
   create_table "alchemy_attachments", force: :cascade do |t|
     t.string "name"
     t.string "file_name"
@@ -75,6 +75,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_19_143414) do
   create_table "alchemy_elements_alchemy_pages", id: false, force: :cascade do |t|
     t.integer "element_id"
     t.integer "page_id"
+    t.index ["element_id"], name: "index_alchemy_elements_alchemy_pages_on_element_id"
+    t.index ["page_id"], name: "index_alchemy_elements_alchemy_pages_on_page_id"
   end
 
   create_table "alchemy_essence_audios", force: :cascade do |t|

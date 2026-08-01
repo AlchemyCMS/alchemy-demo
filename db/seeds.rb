@@ -31,7 +31,7 @@ puts "-------------"
 
 # Admin user
 if ENV["ADMIN_LOGIN"]
-  Alchemy.user_class.create!(
+  Alchemy.config.user_class.create!(
     login: ENV["ADMIN_LOGIN"],
     email: ENV["ADMIN_EMAIL"],
     password: ENV["ADMIN_PASSWORD"],
@@ -42,7 +42,7 @@ if ENV["ADMIN_LOGIN"]
 end
 
 # Demo user
-Alchemy.user_class.create!(
+Alchemy.config.user_class.create!(
   login: "demo",
   email: "demo@example.com",
   password: "demo123",
