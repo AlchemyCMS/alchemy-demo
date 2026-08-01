@@ -41,10 +41,10 @@ env:
 
 # Use a persistent storage volume for sqlite database and uploads.
 volumes:
-  - "alchemy_demo_storage:/app/storage"
+  - "alchemy_demo_storage:/rails/storage"
 
 # Bridge fingerprinted assets between versions.
-asset_path: /app/public/assets
+asset_path: /rails/public/assets
 
 # Configure the image builder.
 builder:
