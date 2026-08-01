@@ -190,6 +190,7 @@ GEM
       net-http (~> 0.5)
     ffi (1.17.4)
     ffi (1.17.4-arm64-darwin)
+    ffi (1.17.4-x86_64-linux-gnu)
     flickwerk (0.3.6)
       railties (>= 7.0)
     globalid (1.4.0)
@@ -289,6 +290,8 @@ GEM
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     nokogiri (1.19.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-linux-gnu)
       racc (~> 1.4)
     originator (3.2)
       actionpack (>= 4.0)
@@ -410,6 +413,7 @@ GEM
     sqlite3 (2.9.5)
       mini_portile2 (~> 2.8.0)
     sqlite3 (2.9.5-arm64-darwin)
+    sqlite3 (2.9.5-x86_64-linux-gnu)
     sshkit (1.25.1)
       base64
       logger
@@ -420,6 +424,7 @@ GEM
     thor (1.5.0)
     thruster (0.1.23)
     thruster (0.1.23-arm64-darwin)
+    thruster (0.1.23-x86_64-linux)
     tilt (2.8.0)
     timeout (0.6.1)
     tsort (0.2.0)
@@ -454,6 +459,7 @@ GEM
 PLATFORMS
   arm64-darwin-25
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   alchemy-devise (~> 8.0)
