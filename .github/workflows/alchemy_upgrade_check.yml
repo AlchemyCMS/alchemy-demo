@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Remind to run alchemy:upgrade on minor or major bump
         run: |
@@ -21,9 +23,8 @@ jobs:
           }
 
           base_ref="${{ github.base_ref }}"
-          git fetch --no-tags --depth=1 origin "$base_ref"
 
-          old_version="$(git show "FETCH_HEAD:Gemfile.lock" | read_alchemy_version)"
+          old_version="$(git show "origin/${base_ref}:Gemfile.lock" | read_alchemy_version)"
           new_version="$(read_alchemy_version < Gemfile.lock)"
 
           echo "alchemy_cms: ${old_version:-<none>} -> ${new_version:-<none>}"
