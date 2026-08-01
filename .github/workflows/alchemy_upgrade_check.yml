@@ -1,0 +1,46 @@
+name: Alchemy Upgrade Check
+
+on:
+  pull_request:
+    paths:
+      - Gemfile.lock
+
+jobs:
+  alchemy-upgrade-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v5
+
+      - name: Remind to run alchemy:upgrade on minor or major bump
+        run: |
+          set -euo pipefail
+
+          read_alchemy_version() {
+            awk '/^    alchemy_cms \(/ { gsub(/[()]/, "", $2); print $2 }'
+          }
+
+          base_ref="${{ github.base_ref }}"
+          git fetch --no-tags --depth=1 origin "$base_ref"
+
+          old_version="$(git show "FETCH_HEAD:Gemfile.lock" | read_alchemy_version)"
+          new_version="$(read_alchemy_version < Gemfile.lock)"
+
+          echo "alchemy_cms: ${old_version:-<none>} -> ${new_version:-<none>}"
+
+          if [ -z "$old_version" ] || [ -z "$new_version" ] || [ "$old_version" = "$new_version" ]; then
+            echo "No alchemy_cms version change. Nothing to do."
+            exit 0
+          fi
+
+          old_major="${old_version%%.*}"
+          new_major="${new_version%%.*}"
+          old_minor="$(echo "$old_version" | cut -d. -f2)"
+          new_minor="$(echo "$new_version" | cut -d. -f2)"
+
+          if [ "$old_major" != "$new_major" ] || [ "$old_minor" != "$new_minor" ]; then
+            echo "::error::alchemy_cms had a minor or major bump (${old_version} -> ${new_version}). Run \`bin/rails alchemy:upgrade\` locally and commit the generated changes."
+            exit 1
+          fi
+
+          echo "Only a patch-level alchemy_cms change (${old_version} -> ${new_version}). No upgrade task needed."
