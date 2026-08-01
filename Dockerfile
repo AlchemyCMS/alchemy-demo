@@ -67,19 +67,19 @@ RUN SECRET_KEY_BASE=1 ./bin/rails assets:precompile
 # Final stage for app image
 FROM base
 
-# Run and own only the runtime files as a non-root user for security
+# Run and own only the runtime files as a non-root user for security.
+# storage/, log/ and tmp/ are excluded via .dockerignore, so create them here
+# owned by the app user: a freshly created storage volume then initializes from
+# this rails-owned directory and stays writable to the non-root user.
 RUN groupadd --system --gid 1000 rails && \
-    useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash
+    useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
+    mkdir -p storage log tmp/pids && \
+    chown -R rails:rails storage log tmp
 USER 1000:1000
 
 # Copy built artifacts: gems, application
 COPY --chown=rails:rails --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
 COPY --chown=rails:rails --from=build /rails /rails
-
-# Create writable runtime dirs owned by the app user. They are excluded via
-# .dockerignore, so a freshly created storage volume initializes from this
-# rails-owned directory and stays writable to the non-root user.
-RUN mkdir -p storage log tmp/pids
 
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
