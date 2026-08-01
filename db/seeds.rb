@@ -100,7 +100,7 @@ end
 puts "\nPublish Pages"
 puts "-------------"
 Alchemy::Page.all.each do |page|
-  page.publish!
+  Alchemy::PublishPageJob.perform_now(page.id, public_on: Time.current)
   puts "== Published Page: #{page.name}"
 end
 
