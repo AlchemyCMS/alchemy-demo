@@ -13,5 +13,5 @@ FileUtils.chdir APP_ROOT do
   system! "bin/rails demo:reset"
 
   puts "\n== Starting application server =="
-  system! "bin/rails server"
+  system! "bin/thrust bin/rails server"
 end
