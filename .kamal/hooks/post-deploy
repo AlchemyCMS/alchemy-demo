@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Reset the demo content once per deploy, inside the freshly booted container.
+#
+# This runs in a single Rails process, which matters: Alchemy's page seeder
+# destructively consumes the memoized pages.yml (`draft.delete("children")`),
+# so seeding twice in one process drops all child pages. Running the reset
+# here — rather than from the entrypoint alongside db:migrate's own work —
+# guarantees exactly one seed per process and keeps it off the boot path.
+bin/kamal app exec --reuse "bin/rails demo:reset"

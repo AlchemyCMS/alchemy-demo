@@ -1,8 +1,10 @@
 #!/bin/bash -e
 
-# If running the rails server then create or migrate existing database
+# If running the rails server then create or migrate existing database.
+# Seeding is not done here on purpose: it runs once per deploy from the
+# post-deploy Kamal hook, so a slow reseed never blocks the health check.
 if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
-  ./bin/rails demo:reset
+  ./bin/rails db:migrate
 fi
 
 exec "${@}"
