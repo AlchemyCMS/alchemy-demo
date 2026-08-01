@@ -11,10 +11,6 @@ Login to the admin backend at https://demo.alchemy-cms.com/admin
 * Username: `demo`
 * Password: `demo123`
 
-## Deploy your own demo
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
 ## Run the demo locally
 
 1. Clone this repository to your machine
