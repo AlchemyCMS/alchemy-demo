@@ -5,7 +5,7 @@ ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "8.3-stable"
 gem "alchemy-devise", "~> 8.0"
-gem "alchemy_i18n", "~> 5.0"
+gem "alchemy_i18n", "~> 8.3"
 gem "alchemy_cloudinary", "~> 4.0"
 gem "alchemy-sentry", "~> 2.0"
 

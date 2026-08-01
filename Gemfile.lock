@@ -124,7 +124,7 @@ GEM
     alchemy_cloudinary (4.0.0)
       alchemy_cms (>= 8.0.0.c, < 9.0)
       cloudinary (~> 2.0)
-    alchemy_i18n (5.1.0)
+    alchemy_i18n (8.3.0)
       alchemy_cms (>= 8.0.0.c, < 9)
       rails-i18n
     awesome_nested_set (3.9.0)
@@ -264,7 +264,9 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (5.27.0)
+    minitest (6.0.6)
+      drb (~> 2.0)
+      prism (~> 1.5)
     msgpack (1.8.4)
     multi_json (1.21.1)
     multipart-post (2.4.1)
@@ -466,7 +468,7 @@ DEPENDENCIES
   alchemy-sentry (~> 2.0)
   alchemy_cloudinary (~> 4.0)
   alchemy_cms!
-  alchemy_i18n (~> 5.0)
+  alchemy_i18n (~> 8.3)
   bootsnap (>= 1.1.0)
   connection_pool (~> 2.4)
   database_cleaner (~> 2.0)
