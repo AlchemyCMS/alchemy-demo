@@ -1,124 +1,84 @@
-# syntax = docker/dockerfile:experimental
+# syntax=docker/dockerfile:1
+# check=error=true
 
-# Dockerfile used to build a deployable image for a Rails application.
-# Adjust as required.
-#
-# Common adjustments you may need to make over time:
-#  * Modify version numbers for Ruby, Bundler, and other products.
-#  * Add library packages needed at build time for your gems, node modules.
-#  * Add deployment packages needed by your application
-#  * Add (often fake) secrets needed to compile your assets
+# This Dockerfile is designed for production, not development. Use with Kamal or build'n'run by hand:
+# docker build -t blish_base .
+# docker run -d -p 80:80 -e RAILS_MASTER_KEY=<value from config/master.key> --name blish_base blish_base
 
-#######################################################################
+# For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html
 
-# Learn more about the chosen Ruby stack, Fullstaq Ruby, here:
-#   https://github.com/evilmartians/fullstaq-ruby-docker.
-#
-# We recommend using the highest patch level for better security and
-# performance.
+# Make sure RUBY_VERSION matches the Ruby version in .ruby-version
+ARG RUBY_VERSION=4.0.6
+FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
-ARG RUBY_VERSION=3.4.9
-ARG VARIANT=jemalloc-bookworm-slim
-FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} AS base
+# Rails app lives here
+WORKDIR /rails
 
-LABEL org.opencontainers.image.source="https://github.com/AlchemyCMS/alchemy-demo"
+# Install base packages
+# libmagickcore-*-extra ships ImageMagick's built-in SVG coder, so `identify` reports SVGs
+# correctly. The base build lacks it and misidentifies SVGs as PNG (via the rsvg-convert
+# delegate), which makes Alchemy rasterize them on upload.
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 imagemagick libmagickcore-7.q16-10-extra sqlite3 && \
+    ln -s /usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-ARG NODE_VERSION=20
-ARG BUNDLER_VERSION=4.0.11
+# Set production environment variables and enable jemalloc for reduced memory usage and latency.
+ENV RAILS_ENV="production" \
+    BUNDLE_DEPLOYMENT="1" \
+    BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_WITHOUT="development" \
+    LD_PRELOAD="/usr/local/lib/libjemalloc.so"
 
-ARG RAILS_ENV=production
-ENV RAILS_ENV=${RAILS_ENV}
-ENV RUBY_YJIT_ENABLE=1
+# Throw-away build stage to reduce size of final image
+FROM base AS build
 
-ENV RAILS_SERVE_STATIC_FILES=true
-ENV RAILS_LOG_TO_STDOUT=true
+# Install packages needed to build gems and node modules
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential git libyaml-dev pkg-config && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-ARG BUNDLE_WITHOUT=development:test
-ARG BUNDLE_PATH=vendor/bundle
-ENV BUNDLE_PATH=${BUNDLE_PATH}
-ENV BUNDLE_WITHOUT=${BUNDLE_WITHOUT}
+# Install JavaScript dependencies
+ARG NODE_VERSION=24.14.1
+ENV PATH=/usr/local/node/bin:$PATH
+RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
+    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
+    rm -rf /tmp/node-build-master
 
-RUN mkdir /app
-WORKDIR /app
-RUN mkdir -p tmp/pids
+# Install application gems
+COPY vendor/* ./vendor/
+COPY Gemfile Gemfile.lock .ruby-version ./
 
-RUN curl https://get.volta.sh | bash
-ENV VOLTA_HOME=/root/.volta
-ENV PATH=$VOLTA_HOME/bin:/usr/local/bin:$PATH
-RUN volta install node@${NODE_VERSION} && \
-    gem update --system --no-document && \
-    gem install -N bundler -v ${BUNDLER_VERSION}
+RUN bundle install && \
+    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
+    # -j 1 disable parallel compilation to avoid a QEMU bug: https://github.com/rails/bootsnap/issues/495
+    bundle exec bootsnap precompile -j 1 --gemfile
 
-#######################################################################
-
-# install packages only needed at build time
-
-FROM base AS build_deps
-
-ARG BUILD_PACKAGES="git build-essential wget vim curl gzip xz-utils pkg-config libsqlite3-dev libyaml-dev"
-ENV BUILD_PACKAGES=${BUILD_PACKAGES}
-
-RUN --mount=type=cache,id=dev-apt-cache,sharing=locked,target=/var/cache/apt \
-    --mount=type=cache,id=dev-apt-lib,sharing=locked,target=/var/lib/apt \
-    apt-get update -qq && \
-    apt-get install --no-install-recommends -y ${BUILD_PACKAGES} \
-    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-#######################################################################
-
-# install gems
-
-FROM build_deps AS gems
-
-COPY Gemfile* ./
-COPY .ruby-version ./
-RUN bundle install && rm -rf vendor/bundle/ruby/*/cache
-
-#######################################################################
-
-# install deployment packages
-
-FROM base
-
-ARG DEPLOY_PACKAGES="sqlite3 file vim curl gzip imagemagick libmagickcore-dev"
-ENV DEPLOY_PACKAGES=${DEPLOY_PACKAGES}
-
-RUN --mount=type=cache,id=prod-apt-cache,sharing=locked,target=/var/cache/apt \
-    --mount=type=cache,id=prod-apt-lib,sharing=locked,target=/var/lib/apt \
-    apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
-    ${DEPLOY_PACKAGES} \
-    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-# copy installed gems
-COPY --from=gems /app /app
-COPY --from=gems /usr/lib/fullstaq-ruby/versions /usr/lib/fullstaq-ruby/versions
-COPY --from=gems /usr/local/bundle /usr/local/bundle
-
-#######################################################################
-
-# Deploy your application
+# Copy application code
 COPY . .
 
-# Adjust binstubs to run on Linux and set current working directory
-RUN chmod +x /app/bin/* && \
-    sed -i 's/ruby.exe\r*/ruby/' /app/bin/* && \
-    sed -i 's/ruby\r*/ruby/' /app/bin/* && \
-    sed -i '/^#!/aDir.chdir File.expand_path("..", __dir__)' /app/bin/*
+# Precompile bootsnap code for faster boot times.
+# -j 1 disable parallel compilation to avoid a QEMU bug: https://github.com/rails/bootsnap/issues/495
+RUN bundle exec bootsnap precompile -j 1 app/ lib/ config/
 
-# The following enable assets to precompile on the build server.  Adjust
-# as necessary.  If no combination works for you, see:
-# https://fly.io/docs/rails/getting-started/existing/#access-to-environment-variables-at-build-time
-ENV SECRET_KEY_BASE=1
-# ENV AWS_ACCESS_KEY_ID=1
-# ENV AWS_SECRET_ACCESS_KEY=1
+# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
+RUN SECRET_KEY_BASE=1 ./bin/rails assets:precompile
 
-# Run build task defined in lib/tasks/demo.rake
-ARG BUILD_COMMAND="bin/rake demo:build"
-RUN ${BUILD_COMMAND}
+# Final stage for app image
+FROM base
 
-# Default server start instructions.
-ENV HTTP_PORT=8080
-ARG SERVER_COMMAND="bin/start"
-ENV SERVER_COMMAND=${SERVER_COMMAND}
-CMD ${SERVER_COMMAND}
+# Run and own only the runtime files as a non-root user for security
+RUN groupadd --system --gid 1000 rails && \
+    useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash
+USER 1000:1000
+
+# Copy built artifacts: gems, application
+COPY --chown=rails:rails --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
+COPY --chown=rails:rails --from=build /rails /rails
+
+# Entrypoint prepares the database.
+ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
+# Start server via Thruster by default, this can be overwritten at runtime
+EXPOSE 80
+CMD ["./bin/thrust", "./bin/rails", "server"]
