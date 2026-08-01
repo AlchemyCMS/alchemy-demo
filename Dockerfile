@@ -76,6 +76,11 @@ USER 1000:1000
 COPY --chown=rails:rails --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
 COPY --chown=rails:rails --from=build /rails /rails
 
+# Create writable runtime dirs owned by the app user. They are excluded via
+# .dockerignore, so a freshly created storage volume initializes from this
+# rails-owned directory and stays writable to the non-root user.
+RUN mkdir -p storage log tmp/pids
+
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
