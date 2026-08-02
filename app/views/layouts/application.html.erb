@@ -2,10 +2,16 @@
 <html lang="en">
   <head>
     <%= render 'alchemy/pages/meta_data' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag "application", 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => 'reload', defer: true %>
     <%= csrf_meta_tags %>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://analytics.blish.cloud/js/pa-IyDrbPc5CYvrl1hkk2vZv.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
   </head>
 
   <body>
