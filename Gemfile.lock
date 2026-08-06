@@ -286,7 +286,8 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     net-ssh (7.3.3)
-    newrelic_rpm (8.16.0)
+    newrelic_rpm (10.6.0)
+      logger
     nio4r (2.7.5)
     nokogiri (1.19.4)
       mini_portile2 (~> 2.8.2)
@@ -478,7 +479,7 @@ DEPENDENCIES
   kamal (~> 2.0)
   listen (>= 3.0.5)
   lograge (~> 0.10)
-  newrelic_rpm (~> 8.0)
+  newrelic_rpm (~> 10.6)
   pry-rails
   puma (~> 7.2)
   rails (~> 8.0.5, >= 8.0.5.1)
