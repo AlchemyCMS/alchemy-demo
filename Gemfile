@@ -10,7 +10,7 @@ gem "alchemy_cloudinary", "~> 4.0"
 gem "alchemy-sentry", "~> 2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 8.0.5", ">= 8.0.5.1"
+gem "rails", "~> 8.1.3"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 2.1"
 # Use Puma as the app server
