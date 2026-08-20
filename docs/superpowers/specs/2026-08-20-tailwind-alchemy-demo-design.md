@@ -20,7 +20,10 @@ definition behind it.
 
 ### Goals
 
-- Remove zurb-foundation and jQuery entirely; style with Tailwind CSS.
+- Replace zurb-foundation and jQuery with Tailwind CSS across the whole
+  frontend. (The dependency removal and toolchain swap already shipped in
+  PR #338; what remains is restyling the templates and rebuilding the content —
+  see the merge & deployment constraint below.)
 - Rebuild the demo as a curriculum that demonstrates Alchemy's core building
   blocks and several advanced integrations, using real Alchemy features to
   demonstrate themselves.
@@ -93,6 +96,29 @@ all. Any decision to add a controller must be justified against this policy.
 
 Each phase keeps the `published_pages_test` green and ships as an independent,
 reviewable PR.
+
+### Merge & deployment constraint
+
+`main` auto-deploys to the live demo, and CI passes even when the site is
+unstyled (pages still render 200). Therefore **PR #338 must not be merged to
+`main` on its own** — after Phase 1 the templates still carry now-inert
+Foundation classes, so merging it alone would deploy a broken-looking demo. The
+toolchain change may only reach `main` together with the Phase 2 restyle.
+
+To keep per-phase PRs reviewable without ever leaving `main` in a broken state,
+the phases land on a long-lived integration branch (e.g. `tailwind-migration`,
+branched from `main`):
+
+- PR #338 (Phase 1) is retargeted to merge into the integration branch, not
+  `main`.
+- Phase 2 and Phase 3 PRs also target the integration branch and stack on top.
+- Only once the demo is fully styled and content-complete is the integration
+  branch merged into `main` — a single, never-broken deploy.
+
+(Alternative if a long-lived branch is undesirable: hold #338 open, stack
+Phase 2 on it, and merge the stack into `main` in one operation. The integration
+branch is preferred because it keeps each phase a small PR while still
+protecting the live deploy.)
 
 ## Design system (Tailwind theme)
 
