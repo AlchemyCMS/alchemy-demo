@@ -1,0 +1,22 @@
+name: Test
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  # Called by build_deploy.yml so the production deploy can depend on it.
+  workflow_call:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v7
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Prepare test database
+        run: bin/rails db:test:prepare
+      - name: Run tests
+        run: bin/rails test
