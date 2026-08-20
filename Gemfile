@@ -52,4 +52,4 @@ group :production do
   gem "lograge", "~> 0.10"
 end
 
-gem "newrelic_rpm", "~> 10.6"
+gem "newrelic_rpm", "~> 10.7"
