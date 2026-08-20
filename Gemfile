@@ -22,6 +22,8 @@ gem "tailwindcss-rails", "~> 4.0"
 # Import maps + Stimulus for the public frontend
 gem "importmap-rails", "~> 2.0"
 gem "stimulus-rails", "~> 1.3"
+# Turbo Drive for the public frontend (navigation only; no frames/streams)
+gem "turbo-rails", "~> 2.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
