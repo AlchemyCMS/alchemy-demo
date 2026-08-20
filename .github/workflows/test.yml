@@ -19,4 +19,4 @@ jobs:
       - name: Prepare test database
         run: bin/rails db:test:prepare
       - name: Run tests
-        run: bin/rails test
+        run: bin/rails test --verbose
