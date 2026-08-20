@@ -15,13 +15,13 @@ gem "rails", "~> 8.1.0"
 gem "sqlite3", ">= 2.1"
 # Use Puma as the app server
 gem "puma", "~> 8.0"
-# Sprockets asset pipeline (previously pulled in transitively by sassc-rails)
-gem "sprockets-rails", "~> 3.5"
+# Propshaft asset pipeline: serves the Tailwind build, importmap JavaScript,
+# and Alchemy's prebuilt admin assets (Alchemy itself needs only importmap-rails)
+gem "propshaft", "~> 1.1"
 # Use Tailwind CSS for the public frontend
 gem "tailwindcss-rails", "~> 4.0"
-# Import maps + Stimulus for the public frontend
+# Import maps for the public frontend
 gem "importmap-rails", "~> 2.0"
-gem "stimulus-rails", "~> 1.3"
 # Turbo Drive for the public frontend (navigation only; no frames/streams)
 gem "turbo-rails", "~> 2.0"
 
