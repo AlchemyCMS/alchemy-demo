@@ -18,10 +18,20 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# zurb-foundation 4.3.2 registers two initializers named
+# "foundation.update_asset_paths". Rails 8.1 implicitly orders each initializer
+# after the previously registered one, making the second depend on itself and
+# raising TSort::Cyclic on boot. Keep the first and drop the duplicate.
+if defined?(Foundation::Engine)
+  initializers = Foundation::Engine.initializers
+  deduped = Rails::Initializable::Collection.new(initializers.to_a.uniq(&:name))
+  Foundation::Engine.instance_variable_set(:@initializers, deduped)
+end
+
 module AlchemyDemo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 8.0
+    config.load_defaults 8.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -38,5 +48,10 @@ module AlchemyDemo
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Images are served through Dragonfly/Cloudinary, so Active Storage variants
+    # are unused. Rails 8.1 eagerly builds the variant transformer at boot, which
+    # would require an image_processing backend gem we don't bundle.
+    config.active_storage.variant_processor = :disabled
   end
 end
