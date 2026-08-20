@@ -30,10 +30,27 @@ definition behind it.
 
 ### Non-goals (YAGNI)
 
-- No Turbo/SPA behavior on the public site — plain full-page loads.
+- No Turbo Frames or Turbo Streams — we use **Turbo Drive only** (the
+  Turbolinks-style navigation replacement); no partial-page or SPA behavior.
 - No real email delivery from the contact form (see Contact component).
 - No pixel-for-pixel reproduction of Tailwind UI examples; we adapt them.
 - No redesign of the Alchemy admin — admin keeps its own assets and styling.
+
+## Navigation: Turbo Drive
+
+`turbo-rails` (already in the bundle transitively via the Alchemy admin) is added
+as an explicit host-app gem and pinned in the importmap. The public entrypoint
+(`app/javascript/application.js`) imports Turbo and calls `Turbo.start()` — we
+use **Turbo Drive only** for faster, Turbolinks-style navigation; Frames and
+Streams are intentionally unused. Implications:
+
+- `data-turbo-track: "reload"` is set on the Tailwind stylesheet and JS tags so
+  an asset-digest change forces a full reload.
+- The contact `<form>` is opted out with `data-turbo="false"`. Turbo Drive
+  expects form responses to redirect or return 422, but Alchemy's
+  `MessagesController#create` re-renders with **status 200** on validation
+  errors (which Turbo will not render); a normal full submit keeps inline errors
+  working. Turbo Drive still governs all page navigation.
 
 ## Interactivity policy: native first
 
@@ -59,7 +76,8 @@ all. Any decision to add a controller must be justified against this policy.
    `sprockets-rails` (made explicit; it was only transitive via sassc-rails).
    Reconciled the layout (Tailwind stylesheet + `javascript_importmap_tags`),
    the sprockets manifest, and CI (`test.yml` builds the gitignored Tailwind
-   artifact before the suite). Existing templates still carry now-inert
+   artifact before the suite). Also adds Turbo Drive (`turbo-rails` +
+   `Turbo.start()`, see Navigation). Existing templates still carry now-inert
    Foundation classes and render unstyled until Phase 2.
 
 2. **Phase 2 — Design system + elements/page-layouts redesign.** The Tailwind
@@ -204,6 +222,8 @@ Decisions:
   `contactform` element's `success_page` ingredient points at it (set in seeds).
 - **Flash:** the application layout currently renders no flash — add flash
   rendering (needed for the success notice).
+- **Turbo:** the `<form>` carries `data-turbo="false"` (see Navigation) so the
+  status-200 validation-error re-render displays correctly under Turbo Drive.
 
 ## Component: Events module + custom ingredient ("extending Alchemy")
 
@@ -313,6 +333,8 @@ record and the page renders its details (including the related Location).
 ## Decisions log
 
 - CSS framework: Tailwind via `tailwindcss-rails` (standalone CLI, Node-free).
+- Navigation: Turbo Drive only (`turbo-rails` + `Turbo.start()`); no Frames /
+  Streams; contact form opted out with `data-turbo="false"`.
 - JS: importmap + Stimulus available; design targets zero custom JS (native
   first); clipboard-copy the only sanctioned optional controller.
 - Content: guided concept tour; the page explains itself via native `<details>`.
