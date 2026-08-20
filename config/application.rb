@@ -18,16 +18,6 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-# zurb-foundation 4.3.2 registers two initializers named
-# "foundation.update_asset_paths". Rails 8.1 implicitly orders each initializer
-# after the previously registered one, making the second depend on itself and
-# raising TSort::Cyclic on boot. Keep the first and drop the duplicate.
-if defined?(Foundation::Engine)
-  initializers = Foundation::Engine.initializers
-  deduped = Rails::Initializable::Collection.new(initializers.to_a.uniq(&:name))
-  Foundation::Engine.instance_variable_set(:@initializers, deduped)
-end
-
 module AlchemyDemo
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

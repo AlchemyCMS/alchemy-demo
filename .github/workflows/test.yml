@@ -18,5 +18,7 @@ jobs:
           bundler-cache: true
       - name: Prepare test database
         run: bin/rails db:test:prepare
+      - name: Build Tailwind CSS
+        run: bin/rails tailwindcss:build
       - name: Run tests
         run: bin/rails test --verbose
