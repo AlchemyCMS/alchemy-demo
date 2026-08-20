@@ -15,13 +15,15 @@ gem "rails", "~> 8.1.0"
 gem "sqlite3", ">= 2.1"
 # Use Puma as the app server
 gem "puma", "~> 8.0"
-# Use SCSS for stylesheets
-gem "sassc-rails", "~> 2.1"
-# Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 1.3.0"
-gem "zurb-foundation", "~> 4.3.2"
-
-gem "jquery-rails", "~> 4.6"
+# Propshaft asset pipeline: serves the Tailwind build, importmap JavaScript,
+# and Alchemy's prebuilt admin assets (Alchemy itself needs only importmap-rails)
+gem "propshaft", "~> 1.1"
+# Use Tailwind CSS for the public frontend
+gem "tailwindcss-rails", "~> 4.0"
+# Import maps for the public frontend
+gem "importmap-rails", "~> 2.0"
+# Turbo Drive for the public frontend (navigation only; no frames/streams)
+gem "turbo-rails", "~> 2.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
