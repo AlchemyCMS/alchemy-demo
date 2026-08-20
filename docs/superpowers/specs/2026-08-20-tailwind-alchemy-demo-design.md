@@ -63,11 +63,11 @@ Client-side behavior uses native HTML/CSS wherever possible:
 - Galleries / carousels → CSS scroll-snap.
 - Mobile navigation → `<details>`-based disclosure menu.
 
-`importmap-rails` + `stimulus-rails` are installed (Phase 1) and available, but
-the design targets **zero custom JavaScript**. The single permitted exception is
-an optional `clipboard_controller` (Stimulus) for a "copy" button on code
-samples; if native selection is deemed sufficient, we ship no controllers at
-all. Any decision to add a controller must be justified against this policy.
+The design targets **zero custom JavaScript**, so Stimulus is intentionally not
+installed. Import maps and Turbo are present. The single foreseen exception is a
+"copy" button on code samples; if it is wanted and native selection is deemed
+insufficient, we add `stimulus-rails` plus one `clipboard_controller` at that
+point. Any decision to add JavaScript must be justified against this policy.
 
 ## Delivery phases (Approach A — sequenced, each its own PR)
 
@@ -75,13 +75,16 @@ all. Any decision to add a controller must be justified against this policy.
    Removed `zurb-foundation`, `jquery-rails`, `sassc-rails`, `uglifier`,
    `foundation_and_overrides.scss`, the sprockets `application.css`/`.js`, and
    the Rails-8.1 Foundation boot monkey-patch. Added `tailwindcss-rails` (v4,
-   standalone CLI — no Node), `importmap-rails` + `stimulus-rails`, and
-   `sprockets-rails` (made explicit; it was only transitive via sassc-rails).
-   Reconciled the layout (Tailwind stylesheet + `javascript_importmap_tags`),
-   the sprockets manifest, and CI (`test.yml` builds the gitignored Tailwind
-   artifact before the suite). Also adds Turbo Drive (`turbo-rails` +
-   `Turbo.start()`, see Navigation). Existing templates still carry now-inert
-   Foundation classes and render unstyled until Phase 2.
+   standalone CLI — no Node) and `importmap-rails`. With Foundation's SCSS gone,
+   nothing needs Sprockets, so the pipeline moves to **Propshaft** (the Rails 8
+   default): Propshaft serves the Tailwind build, the importmap JavaScript, and
+   Alchemy's prebuilt admin assets, so `app/assets/config/manifest.js` and the
+   Sprockets-only config are removed. Reconciled the layout (Tailwind stylesheet
+   + `javascript_importmap_tags`) and CI (`test.yml` builds the gitignored
+   Tailwind artifact before the suite). Adds Turbo Drive (`turbo-rails` +
+   `Turbo.start()`, see Navigation). Stimulus is not installed (native-first).
+   Existing templates still carry now-inert Foundation classes and render
+   unstyled until Phase 2.
 
 2. **Phase 2 — Design system + elements/page-layouts redesign.** The Tailwind
    theme, the new element and page-layout definitions, their Tailwind markup
@@ -354,10 +357,12 @@ record and the page renders its details (including the related Location).
 ## Decisions log
 
 - CSS framework: Tailwind via `tailwindcss-rails` (standalone CLI, Node-free).
+- Asset pipeline: Propshaft (Rails 8 default); Sprockets dropped as vestigial
+  once Foundation's SCSS was gone.
 - Navigation: Turbo Drive only (`turbo-rails` + `Turbo.start()`); no Frames /
   Streams; contact form opted out with `data-turbo="false"`.
-- JS: importmap + Stimulus available; design targets zero custom JS (native
-  first); clipboard-copy the only sanctioned optional controller.
+- JS: importmap + Turbo; design targets zero custom JS (native first); Stimulus
+  not installed — added only if a `clipboard_controller` is ever needed.
 - Content: guided concept tour; the page explains itself via native `<details>`.
 - Scope: redesign elements and page layouts (not just restyle); add Blog,
   Contact (Messages), and an Events custom module + custom ingredient.
