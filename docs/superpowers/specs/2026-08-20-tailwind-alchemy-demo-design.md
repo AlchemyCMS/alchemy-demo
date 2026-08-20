@@ -106,19 +106,14 @@ Foundation classes, so merging it alone would deploy a broken-looking demo. The
 toolchain change may only reach `main` together with the Phase 2 restyle.
 
 To keep per-phase PRs reviewable without ever leaving `main` in a broken state,
-the phases land on a long-lived integration branch (e.g. `tailwind-migration`,
-branched from `main`):
+the phases land on the long-lived integration branch `tailwind-migration`
+(branched from `main`). This is the chosen strategy:
 
-- PR #338 (Phase 1) is retargeted to merge into the integration branch, not
-  `main`.
-- Phase 2 and Phase 3 PRs also target the integration branch and stack on top.
-- Only once the demo is fully styled and content-complete is the integration
-  branch merged into `main` — a single, never-broken deploy.
-
-(Alternative if a long-lived branch is undesirable: hold #338 open, stack
-Phase 2 on it, and merge the stack into `main` in one operation. The integration
-branch is preferred because it keeps each phase a small PR while still
-protecting the live deploy.)
+- PR #338 (Phase 1) is retargeted to merge into `tailwind-migration`, not `main`
+  (done).
+- Phase 2 and Phase 3 PRs also target `tailwind-migration` and stack on top.
+- Only once the demo is fully styled and content-complete is `tailwind-migration`
+  merged into `main` — a single, never-broken deploy.
 
 ## Design system (Tailwind theme)
 
