@@ -31,6 +31,7 @@ de:
       concept_grid: "Ein Raster aus Konzeptkarten. Karten nach Bedarf hinzufügen oder entfernen."
       concept_card: "Ein Konzept im Raster: Titel, kurze Beschreibung und optionaler Link."
       cta: "Ein abschließender Call-to-Action-Banner."
+      button: "Ein einzelner Button – lege seinen Link fest und wähle seine Farbe."
 
     # Hint texts for contents
     content_hints:
@@ -62,3 +63,11 @@ de:
       link: "Ein optionaler Link am Ende der Karte."
       text: "Der Call-to-Action-Text. Nur Fett, Kursiv und Links sind erlaubt."
       button: "Der Button-Link des Call-to-Action."
+      background: "Hintergrund-Stil, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
+      button_style: "Button-Farben, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
+      color: "Ein Color-Ingredient – wähle eine Markenfarbe oder eine eigene mit dem Farbwähler; wird als Hex-Wert gespeichert und als Inline-Style angewendet."
+      label: "Der Link des Buttons; der sichtbare Text kommt aus dem Linktitel."
+
+    # Übersetzte Gruppen-Überschriften im Element-Editor
+    element_groups:
+      styling: "Gestaltung"

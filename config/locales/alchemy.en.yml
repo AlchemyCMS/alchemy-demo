@@ -33,6 +33,7 @@ en:
       concept_grid: "A grid of concept cards. Add or remove cards as needed."
       concept_card: "One concept in the grid: a title, a short description and an optional link."
       cta: "A closing call-to-action banner."
+      button: "A standalone button — set its link and pick its colour."
 
     # Hint texts for contents
     content_hints:
@@ -64,3 +65,11 @@ en:
       link: "An optional link shown at the bottom of the card."
       text: "The call-to-action body. Only bold, italic and links are allowed."
       button: "The call-to-action button link."
+      background: "Background style, chosen from a Select whose values are Tailwind CSS classes."
+      button_style: "Button colours, chosen from a Select whose values are Tailwind CSS classes."
+      color: "A Color ingredient — pick a brand colour or a custom one with the colour picker; stored as a hex value and applied as an inline style."
+      label: "The button's link; the visible text comes from the link title."
+
+    # Translated ingredient group headings shown in the element editor
+    element_groups:
+      styling: "Styling"

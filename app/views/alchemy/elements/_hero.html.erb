@@ -1,6 +1,6 @@
 <% cache(hero) do %>
 <%= element_view_for(hero) do |el| %>
-  <section class="bg-surface">
+  <section class="<%= hero.value_for(:background) %>">
     <div class="mx-auto max-w-5xl px-4 py-24 text-center">
       <%= el.render :headline, {}, { class: "font-display font-bold tracking-tight text-ink" } %>
       <p class="mx-auto mt-6 max-w-2xl text-lg text-ink-soft"><%= el.render :subheadline %></p>

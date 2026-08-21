@@ -1,10 +1,10 @@
 <% cache(cta) do %>
 <%= element_view_for(cta) do |el| %>
   <section class="mx-auto max-w-5xl px-4">
-    <div class="rounded-2xl bg-accent px-8 py-12 text-center text-white">
+    <div class="rounded-2xl <%= cta.value_for(:background) %> px-8 py-12 text-center text-white">
       <%= el.render :headline, {}, { class: "font-display font-bold" } %>
       <div class="mx-auto mt-3 max-w-xl text-white/90"><%= el.render :text %></div>
-      <%= el.render :button, {}, { class: "mt-6 inline-block rounded-lg bg-white px-6 py-3 font-medium text-accent-dark transition-colors hover:bg-surface" } %>
+      <%= el.render :button, {}, { class: "mt-6 inline-block rounded-lg #{cta.value_for(:button_style)} px-6 py-3 font-medium transition-opacity hover:opacity-90" } %>
     </div>
     <%= render "shared/reveal", element: cta %>
   </section>
