@@ -1,8 +1,8 @@
-<footer class="mt-24 bg-brand-950 text-brand-100">
+<footer class="mt-24 border-t border-accent-soft/40 bg-surface-violet text-ink-soft">
   <div class="mx-auto max-w-5xl px-4 py-12">
     <% if footer_page %>
       <div class="grid gap-8 md:grid-cols-3">
-        <div class="text-sm/6 text-brand-200">
+        <div class="text-sm/6">
           <%= render_elements(only: 'footer_note', from_page: footer_page) %>
         </div>
         <div class="flex items-start gap-3">

@@ -2,7 +2,7 @@
   <%= link_to_if node.url,
     node.name,
     @preview_mode ? 'javascript: void(0)' : node.url,
-    class: 'text-sm text-brand-200 hover:text-white transition-colors',
+    class: 'text-sm text-ink-soft hover:text-accent transition-colors',
     target: node.external? ? '_blank' : nil,
     rel: node.nofollow? ? 'nofollow' : nil %>
 </li>

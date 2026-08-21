@@ -4,7 +4,7 @@
     @preview_mode ? 'javascript: void(0)' : node.url,
     class: [
       'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
-      current_page?(node.url) ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-700'
+      current_page?(node.url) ? 'bg-accent/10 text-accent' : 'text-ink-soft hover:bg-accent/10 hover:text-accent'
     ].compact.join(' '),
     target: node.external? ? '_blank' : nil,
     rel: node.nofollow? ? 'nofollow' : nil %>
