@@ -1,5 +1,5 @@
 <% cache(cta) do %>
-<%= element_view_for(cta) do |el| %>
+<%= element_view_for(cta, class: "group") do |el| %>
   <section class="mx-auto max-w-5xl px-4">
     <div class="rounded-2xl <%= cta.value_for(:background) %> px-8 py-12 text-center text-white">
       <%= el.render :headline, {}, { class: "font-display font-bold" } %>
