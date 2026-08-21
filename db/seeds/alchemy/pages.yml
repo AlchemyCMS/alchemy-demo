@@ -2,6 +2,9 @@
   page_layout: intro
   public_on: 2019-04-02
   children:
+    - name: Welcome
+      page_layout: home
+      public_on: 2019-04-02
     - name: Home
       page_layout: standard
       public_on: 2019-04-02

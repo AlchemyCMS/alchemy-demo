@@ -158,3 +158,48 @@
   autogenerate:
     - video_slide
     - image_slide
+
+# --- Guided tour elements (Phase 2.2) ---
+
+- name: hero
+  unique: true
+  ingredients:
+    - role: headline
+      type: Text
+      default: "Build content like a chemist."
+    - role: subheadline
+      type: Text
+      default: "Alchemy is a flexible, component-based CMS for Rails. This whole site is built with Alchemy — open any block to see how it is made."
+
+- name: concept_grid
+  unique: true
+  nestable_elements:
+    - concept_card
+  autogenerate:
+    - concept_card
+    - concept_card
+    - concept_card
+  ingredients:
+    - role: headline
+      type: Text
+      default: "The building blocks"
+
+- name: concept_card
+  compact: true
+  ingredients:
+    - role: title
+      type: Text
+      default: "A building block"
+    - role: description
+      type: Richtext
+      default: "Alchemy is built from small, typed, reusable pieces. This card is one of them — edit it in the admin."
+
+- name: cta
+  unique: true
+  ingredients:
+    - role: headline
+      type: Text
+      default: "Ready to try Alchemy?"
+    - role: text
+      type: Richtext
+      default: "Log in to the demo admin and edit these very blocks."
