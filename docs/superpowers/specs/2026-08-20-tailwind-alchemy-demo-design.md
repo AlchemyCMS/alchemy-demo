@@ -120,21 +120,26 @@ the phases land on the long-lived integration branch `tailwind-migration`
 
 ## Design system (Tailwind theme)
 
-Direction: **"Alchemy-lab"** — a deep violet/indigo base with a bright "potion"
-accent on clean neutrals; darker violet surfaces for hero and footer.
+Direction: the **official Alchemy CMS brand**, taken verbatim from
+www.alchemy-cms.com (its CSS custom properties, read from the live site).
+Implemented in Phase 2.1 via Tailwind v4 `@theme` in
+`app/assets/tailwind/application.css`:
 
-Defined via Tailwind v4 CSS-first config in `app/assets/tailwind/application.css`
-using `@theme`:
-
-- `--color-brand-*` — violet/indigo primary scale (buttons, links, headings
-  accents).
-- `--color-potion-*` — emerald/lime accent scale (highlights, the "reveal"
-  affordance, active states). Nods to Alchemy's green heritage.
-- Neutral surfaces from Tailwind's `slate`/`zinc`.
-- Dark surfaces: `brand-950`-tinted backgrounds for hero and footer.
-- Typography: a display face for headings and a readable sans for body (loaded
-  as web fonts or system stack — exact choice finalized in Phase 2; keep it to
-  one display + one body face).
+- `--color-accent: #884cbe` (violet, `--accent-color`), `--color-accent-soft:
+  #b59fdb` (`--secondary-color`), `--color-accent-dark: #6d3a99` (derived, for
+  hover/active). These drive buttons, links, active states, and the "reveal"
+  affordance.
+- `--color-ink: #323a3d` (`--font-color`) body text, `--color-ink-soft: #4d4d4d`
+  (`--font-color-secondary`).
+- Surfaces: `--color-surface: #e1eef6` (`--background-color`, light blue),
+  `--color-surface-violet: #dce6ff`, `--color-surface-grey: #f2f2f2`,
+  `--color-surface-faint: #f9f9f9`. The palette is light/airy; the footer uses
+  the light violet surface, not a dark slab.
+- Typography: **Noto Sans** for headings and body (`--font-sans`/`--font-display`).
+  The logo wordmark's "cms" is set in **Permanent Marker** (`--font-marker`) in
+  the accent color, matching the site.
+- Logo: Alchemy's real three-pebble mark (two ink pebbles + one accent pebble)
+  inlined as SVG, plus the "Alchemy cms" wordmark.
 
 Tailwind UI (free/Plus) examples adapted per component (marketing/application
 categories): Hero, Feature sections, CTA sections, FAQ, Blog sections, Contact
@@ -189,7 +194,7 @@ A shared partial (e.g. `app/views/alchemy/elements/_reveal.html.erb`) takes an
 
 Because it reads the live element, the shown definition is always accurate.
 Every content element partial renders it (styled as a subtle "reveal"
-affordance in the potion accent).
+affordance in the accent color).
 
 ## Component: Blog (page tree + teasing children)
 
@@ -366,7 +371,9 @@ record and the page renders its details (including the related Location).
 - Content: guided concept tour; the page explains itself via native `<details>`.
 - Scope: redesign elements and page layouts (not just restyle); add Blog,
   Contact (Messages), and an Events custom module + custom ingredient.
-- Brand: "Alchemy-lab" — violet/indigo base + emerald/lime potion accent.
+- Brand: the official Alchemy CMS brand from www.alchemy-cms.com — #884cbe
+  accent, #323a3d ink, light blue/violet surfaces, Noto Sans + Permanent Marker
+  ("cms"), and the real three-pebble logo.
 - Contact: 3 fields (name/email/message), no real mail (test delivery), custom
   mailer template, dedicated Thank-you page.
 - Delivery: three sequenced PRs (toolchain → elements/layouts → content/seeds).
