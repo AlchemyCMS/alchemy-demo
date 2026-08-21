@@ -261,6 +261,7 @@ GEM
     marcel (1.2.1)
     method_source (1.1.0)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
@@ -287,6 +288,9 @@ GEM
     newrelic_rpm (10.9.1)
       logger
     nio4r (2.7.5)
+    nokogiri (1.19.4)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.19.4-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.19.4-arm64-darwin)
@@ -382,6 +386,7 @@ GEM
     responders (3.2.1)
       actionpack (>= 7.0)
       railties (>= 7.0)
+    rouge (4.7.0)
     securerandom (0.4.1)
     sentry-rails (6.7.0)
       railties (>= 5.2.0)
@@ -393,6 +398,8 @@ GEM
     simple_form (5.4.1)
       actionpack (>= 7.0)
       activemodel (>= 7.0)
+    sqlite3 (2.10.0)
+      mini_portile2 (~> 2.8.0)
     sqlite3 (2.10.0-aarch64-linux-gnu)
     sqlite3 (2.10.0-arm64-darwin)
     sqlite3 (2.10.0-x86_64-linux-gnu)
@@ -406,10 +413,12 @@ GEM
     tailwindcss-rails (4.6.0)
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
+    tailwindcss-ruby (4.3.3)
     tailwindcss-ruby (4.3.3-aarch64-linux-gnu)
     tailwindcss-ruby (4.3.3-arm64-darwin)
     tailwindcss-ruby (4.3.3-x86_64-linux-gnu)
     thor (1.5.0)
+    thruster (0.1.27)
     thruster (0.1.27-aarch64-linux)
     thruster (0.1.27-arm64-darwin)
     thruster (0.1.27-x86_64-linux)
@@ -442,6 +451,7 @@ PLATFORMS
   aarch64-linux
   arm64-darwin-23
   arm64-darwin-25
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -466,6 +476,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 8.0)
   rails (~> 8.1.4)
+  rouge (~> 4.0)
   sqlite3 (>= 2.1)
   tailwindcss-rails (~> 4.0)
   thruster (~> 0.1)
