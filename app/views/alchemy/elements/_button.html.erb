@@ -1,5 +1,5 @@
 <% cache(button) do %>
-<%= element_view_for(button) do |el| %>
+<%= element_view_for(button, class: "group") do |el| %>
   <section class="mx-auto max-w-5xl px-4 py-4 text-center">
     <% if button.value_for(:label).present? %>
       <%= el.render :label, {}, {
