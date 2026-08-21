@@ -14,6 +14,6 @@
       class="rounded px-2 text-lg/none text-ink-soft transition-colors hover:bg-white hover:text-ink" aria-label="Close">&times;</button>
   </div>
   <% if source %>
-    <pre class="max-h-[70vh] overflow-auto bg-ink px-4 py-4 text-left text-xs/relaxed text-surface-grey"><code><%= source %></code></pre>
+    <pre class="highlight max-h-[70vh] overflow-auto bg-ink px-4 py-4 text-left text-xs/relaxed text-surface-grey"><code><%= highlight_code(source, "yaml") %></code></pre>
   <% end %>
 </dialog>

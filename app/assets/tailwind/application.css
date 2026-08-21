@@ -32,3 +32,16 @@
     .h1 { font-size: 3rem; }
   }
 }
+
+/* Compact dark theme for Rouge server-side highlighting (yaml, erb, html, ruby),
+   used inside the dark code blocks. Token classes are Rouge's short aliases. */
+.highlight {
+  .c, .c1, .cm, .cp { color: #8a94a6; font-style: italic; } /* comments */
+  .nt, .na { color: #c4b5fd; }                              /* yaml keys, tags, attributes */
+  .s, .s1, .s2, .sb, .se, .ss, .sx { color: #6ee7b7; }      /* strings, symbols */
+  .k, .kc, .kn, .kp, .kd, .kr { color: #f0abfc; }           /* keywords */
+  .m, .mi, .mf, .il { color: #fbbf24; }                     /* numbers */
+  .no, .nb, .bp, .nc { color: #93c5fd; }                    /* constants, builtins, classes */
+  .nf, .nx { color: #fcd34d; }                              /* functions */
+  .p, .pi, .o, .ow { color: #cbd5e1; }                      /* punctuation, operators */
+}

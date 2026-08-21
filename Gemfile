@@ -24,6 +24,8 @@ gem "tailwindcss-rails", "~> 4.0"
 gem "importmap-rails", "~> 2.0"
 # Turbo Drive for the public frontend (navigation only; no frames/streams)
 gem "turbo-rails", "~> 2.0"
+# Server-side syntax highlighting for the "how it's built" code (no JS)
+gem "rouge", "~> 4.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
