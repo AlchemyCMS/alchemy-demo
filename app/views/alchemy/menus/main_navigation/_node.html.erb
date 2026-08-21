@@ -1,8 +1,11 @@
-<%= content_tag :li, class: ['nav-item', node.children.any? ? 'dropdown' : nil].compact do %>
+<li>
   <%= link_to_if node.url,
     node.name,
     @preview_mode ? 'javascript: void(0)' : node.url,
-    class: ['button', current_page?(node.url) ? 'active' : nil].compact,
+    class: [
+      'block rounded-md px-3 py-2 text-sm font-medium transition-colors',
+      current_page?(node.url) ? 'bg-brand-50 text-brand-700' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-700'
+    ].compact.join(' '),
     target: node.external? ? '_blank' : nil,
     rel: node.nofollow? ? 'nofollow' : nil %>
-<% end %>
+</li>
