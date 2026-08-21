@@ -1,32 +1,20 @@
 @import "tailwindcss";
 
+/* Official Alchemy CMS brand, taken from www.alchemy-cms.com CSS custom properties. */
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-marker: "Permanent Marker", cursive;
 
-  /* brand = violet */
-  --color-brand-50: #f5f3ff;
-  --color-brand-100: #ede9fe;
-  --color-brand-200: #ddd6fe;
-  --color-brand-300: #c4b5fd;
-  --color-brand-400: #a78bfa;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6d28d9;
-  --color-brand-800: #5b21b6;
-  --color-brand-900: #4c1d95;
-  --color-brand-950: #2e1065;
+  --color-accent: #884cbe;        /* --accent-color */
+  --color-accent-soft: #b59fdb;   /* --secondary-color */
+  --color-accent-dark: #6d3a99;   /* derived, for hover/active */
 
-  /* potion = emerald */
-  --color-potion-50: #ecfdf5;
-  --color-potion-100: #d1fae5;
-  --color-potion-200: #a7f3d0;
-  --color-potion-300: #6ee7b7;
-  --color-potion-400: #34d399;
-  --color-potion-500: #10b981;
-  --color-potion-600: #059669;
-  --color-potion-700: #047857;
-  --color-potion-800: #065f46;
-  --color-potion-900: #064e3b;
-  --color-potion-950: #022c22;
+  --color-ink: #323a3d;           /* --font-color */
+  --color-ink-soft: #4d4d4d;      /* --font-color-secondary */
+
+  --color-surface: #e1eef6;       /* --background-color */
+  --color-surface-violet: #dce6ff;/* --light-violet */
+  --color-surface-grey: #f2f2f2;  /* --light-grey */
+  --color-surface-faint: #f9f9f9; /* --very-light-grey */
 }
