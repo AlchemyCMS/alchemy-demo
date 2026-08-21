@@ -16,4 +16,8 @@
   <% if source %>
     <pre class="highlight max-h-[70vh] overflow-auto bg-ink px-4 py-4 text-left text-xs/relaxed text-surface-grey"><code><%= highlight_code(source, "yaml") %></code></pre>
   <% end %>
+  <div class="flex justify-end border-t border-accent-soft/40 bg-surface-violet px-4 py-2">
+    <%= link_to "Edit this element in the admin →", admin_element_url(element),
+      class: "text-xs font-medium text-accent transition-colors hover:text-accent-dark" %>
+  </div>
 </dialog>
