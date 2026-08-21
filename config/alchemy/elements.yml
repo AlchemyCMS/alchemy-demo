@@ -170,6 +170,11 @@
     - role: subheadline
       type: Text
       default: "Alchemy is a flexible, component-based CMS for Rails. This whole site is built with Alchemy — open any block to see how it is made."
+    - role: cta
+      type: Link
+      default: "#concepts"
+      settings:
+        text: Explore the tour
 
 - name: concept_grid
   unique: true
@@ -181,8 +186,11 @@
     - concept_card
   ingredients:
     - role: headline
-      type: Text
+      type: Headline
       default: "The building blocks"
+      settings:
+        anchor: concepts
+        levels: [2]
 
 - name: concept_card
   compact: true
