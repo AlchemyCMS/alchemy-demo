@@ -29,6 +29,10 @@ en:
     # Hint texts for elements
     element_hints:
       article: "This is a hint text for the article element. You can change this text in `config/locales/alchemy.en.yml`. Feel free to change it as you like, it's yours."
+      hero: "The page's opening banner: a headline, a supporting line and a call-to-action."
+      concept_grid: "A grid of concept cards. Add or remove cards as needed."
+      concept_card: "One concept in the grid: a title, a short description and an optional link."
+      cta: "A closing call-to-action banner."
 
     # Hint texts for contents
     content_hints:
@@ -39,3 +43,24 @@ en:
     menu_names:
       footer_navigation: Footer Navigation
       main_navigation: Main Navigation
+
+    # Translated default texts for guided-tour ingredients (symbol defaults)
+    default_ingredient_texts:
+      hero_headline: "Build content like a chemist."
+      hero_subheadline: "Alchemy structures content as reusable Elements, each built from typed Ingredients. This whole site is made with Alchemy — open any block to see how."
+      concepts_headline: "Core concepts"
+      concept_card_title: "A core concept"
+      concept_card_description: "<p>An Element is a reusable content block, made of typed Ingredients. Edit this text in the admin.</p>"
+      cta_headline: "Ready to try Alchemy?"
+      cta_text: "<p>Log in to the demo admin and edit these Elements yourself.</p>"
+
+    # Translated editor hints per ingredient role (hint: true)
+    ingredient_hints:
+      headline: "The heading for this block, rendered as a semantic Headline ingredient."
+      subheadline: "A short supporting line shown under the headline."
+      cta: "The call-to-action link. Point it at a page or an on-page anchor."
+      title: "The card's title (a Headline ingredient)."
+      description: "A short rich-text description. Only bold, italic and links are allowed."
+      link: "An optional link shown at the bottom of the card."
+      text: "The call-to-action body. Only bold, italic and links are allowed."
+      button: "The call-to-action button link."

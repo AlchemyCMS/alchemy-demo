@@ -26,6 +26,19 @@ Alchemy::Ingredients::Text.joins(:element)
   .where(alchemy_elements: { name: "video_slide" })
   .update_all(value: "225795837")
 
+# Distinct content for the Home concept cards (autogenerate creates identical ones)
+[
+  ["Pages & Page Layouts", "<p>Every Page uses a Page Layout that decides which Elements it may contain.</p>"],
+  ["Elements", "<p>An Element is a reusable content block you place on a Page.</p>"],
+  ["Ingredients", "<p>Ingredients are the typed fields inside an Element — Text, Richtext, Picture, Link and more.</p>"],
+].each_with_index do |(title, description), index|
+  card = Alchemy::Element.where(name: "concept_card").order(:position)[index]
+  next unless card
+
+  card.ingredient_by_role(:title)&.update(value: title)
+  card.ingredient_by_role(:description)&.update(value: description)
+end
+
 puts "\nSeeding Users"
 puts "-------------"
 

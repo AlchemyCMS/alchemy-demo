@@ -1,6 +1,11 @@
 <% cache(concept_card) do %>
 <%= element_view_for(concept_card, class: "rounded-xl border border-accent-soft/40 bg-white p-6 shadow-sm") do |el| %>
-  <h3 class="font-display text-lg font-semibold text-accent-dark"><%= el.render :title %></h3>
+  <%= el.render :title, {}, { class: "font-display text-lg font-semibold text-accent-dark" } %>
   <div class="mt-2 text-sm/6 text-ink-soft"><%= el.render :description %></div>
+  <% if concept_card.value_for(:link).present? %>
+    <p class="mt-4">
+      <%= el.render :link, {}, { class: "text-sm font-medium text-accent hover:text-accent-dark" } %>
+    </p>
+  <% end %>
 <% end %>
 <% end %>
