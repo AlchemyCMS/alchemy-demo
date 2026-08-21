@@ -1,4 +1,4 @@
-<ul class="button-group">
+<ul class="flex flex-col gap-1 md:flex-row md:items-center md:gap-1">
   <%= render partial: options[:node_partial_name],
     collection: menu.children.includes(:page, :children),
     locals: { options: options },
