@@ -56,10 +56,10 @@ en:
 
     # Translated editor hints per ingredient role (hint: true)
     ingredient_hints:
-      headline: "The heading for this block, rendered as a semantic Headline ingredient."
+      headline: "A Headline ingredient. Level sets the semantic tag (h1–h6) for structure and SEO; Size sets the visual scale independently of the level; and where an anchor is configured, it adds a stable #id so you can link straight to this heading."
       subheadline: "A short supporting line shown under the headline."
       cta: "The call-to-action link. Point it at a page or an on-page anchor."
-      title: "The card's title (a Headline ingredient)."
+      title: "The card's heading (a Headline ingredient). Pick its semantic Level (h3 or h4) and, independently, its visual Size."
       description: "A short rich-text description. Only bold, italic and links are allowed."
       link: "An optional link shown at the bottom of the card."
       text: "The call-to-action body. Only bold, italic and links are allowed."
