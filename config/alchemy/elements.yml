@@ -172,6 +172,7 @@
       default: :hero_headline
       settings:
         levels: [1]
+        sizes: [1, 2]
     - role: subheadline
       type: Text
       hint: true
@@ -200,7 +201,8 @@
       default: :concepts_headline
       settings:
         anchor: concepts
-        levels: [2]
+        levels: [2, 3]
+        sizes: [2, 3]
 
 - name: concept_card
   compact: true
@@ -214,7 +216,8 @@
       validate:
         - presence
       settings:
-        levels: [3]
+        levels: [3, 4]
+        sizes: [4, 5]
     - role: description
       type: Richtext
       hint: true
@@ -241,7 +244,8 @@
       hint: true
       default: :cta_headline
       settings:
-        levels: [2]
+        levels: [2, 3]
+        sizes: [2, 3]
     - role: text
       type: Richtext
       hint: true

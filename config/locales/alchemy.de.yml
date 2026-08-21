@@ -54,10 +54,10 @@ de:
 
     # Übersetzte Editor-Hinweise je Ingredient-Rolle (hint: true)
     ingredient_hints:
-      headline: "Die Überschrift dieses Blocks, gerendert als semantisches Headline-Ingredient."
+      headline: "Ein Headline-Ingredient. Level bestimmt das semantische Tag (h1–h6) für Struktur und SEO; Size die visuelle Größe unabhängig vom Level; und wenn ein Anchor gesetzt ist, erzeugt er eine feste #id, auf die du direkt verlinken kannst."
       subheadline: "Eine kurze ergänzende Zeile unter der Überschrift."
       cta: "Der Call-to-Action-Link. Verlinke eine Seite oder einen Anker auf der Seite."
-      title: "Der Titel der Karte (ein Headline-Ingredient)."
+      title: "Die Überschrift der Karte (ein Headline-Ingredient). Wähle das semantische Level (h3 oder h4) und – unabhängig davon – die visuelle Size."
       description: "Eine kurze Rich-Text-Beschreibung. Nur Fett, Kursiv und Links sind erlaubt."
       link: "Ein optionaler Link am Ende der Karte."
       text: "Der Call-to-Action-Text. Nur Fett, Kursiv und Links sind erlaubt."
