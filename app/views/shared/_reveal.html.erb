@@ -1,4 +1,4 @@
-<% source = element_source(element) %>
+<% yaml = element_definition_yaml(element) %>
 <details class="group mt-6 rounded-lg border border-accent-soft/50 bg-surface-violet/40">
   <summary class="flex cursor-pointer list-none items-center gap-2 px-4 py-2 text-sm font-medium text-accent-dark">
     <span class="text-accent">🔍</span>
@@ -6,18 +6,10 @@
     <span class="ml-auto text-xs text-ink-soft group-open:hidden">show</span>
     <span class="ml-auto hidden text-xs text-ink-soft group-open:inline">hide</span>
   </summary>
-  <div class="border-t border-accent-soft/50 px-4 py-3 font-mono text-xs text-ink-soft">
-    <p class="mb-2"><span class="text-accent">element</span>: <%= source[:name] %></p>
-    <% if source[:ingredients].any? %>
-      <p class="text-accent">ingredients:</p>
-      <ul class="ml-3">
-        <% source[:ingredients].each do |role, type| %>
-          <li><%= role %> <span class="text-ink-soft/50">→</span> <%= type %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <% if source[:nested].any? %>
-      <p class="mt-2 text-accent">nestable: <span class="text-ink-soft"><%= source[:nested].uniq.join(", ") %></span></p>
+  <div class="border-t border-accent-soft/50 px-4 py-3">
+    <p class="mb-2 text-xs text-ink-soft">Defined in <code class="text-accent">config/alchemy/elements.yml</code>:</p>
+    <% if yaml %>
+      <pre class="overflow-x-auto rounded-md bg-ink px-4 py-3 text-xs/relaxed text-surface-grey"><code><%= yaml %></code></pre>
     <% end %>
   </div>
 </details>
