@@ -61,10 +61,12 @@
   elements:
     - hero
     - concept_grid
+    - button
     - cta
   autogenerate:
     - hero
     - concept_grid
+    - button
     - cta
 
 # global pages

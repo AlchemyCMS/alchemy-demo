@@ -183,6 +183,16 @@
       default: "#concepts"
       settings:
         text: Explore the tour
+    - role: background
+      type: Select
+      group: styling
+      hint: true
+      default: bg-surface
+      settings:
+        select_values:
+          - ["Light blue", "bg-surface"]
+          - ["Violet tint", "bg-surface-violet"]
+          - ["White", "bg-white"]
 
 - name: concept_grid
   unique: true
@@ -262,3 +272,42 @@
       default: "/admin"
       settings:
         text: Open the admin
+    - role: background
+      type: Select
+      group: styling
+      hint: true
+      default: bg-accent
+      settings:
+        select_values:
+          - ["Accent violet", "bg-accent"]
+          - ["Ink", "bg-ink"]
+    - role: button_style
+      type: Select
+      group: styling
+      hint: true
+      default: "bg-white text-accent-dark"
+      settings:
+        select_values:
+          - ["Light button", "bg-white text-accent-dark"]
+          - ["Dark button", "bg-ink text-white"]
+
+- name: button
+  hint: true
+  ingredients:
+    - role: label
+      type: Link
+      hint: true
+      default: "#concepts"
+      settings:
+        text: See the concepts
+    - role: color
+      type: Color
+      group: styling
+      hint: true
+      default: "#884cbe"
+      settings:
+        custom_color: true
+        colors:
+          - ["Accent violet", "#884cbe"]
+          - ["Emerald", "#10b981"]
+          - ["Ink", "#323a3d"]
