@@ -27,6 +27,10 @@ es:
     # Hint texts for elements
     element_hints:
       article: "Este es el texto de ayuda del elemento artículo. Puedes cambiar este texto en `config/locales/alchemy.en.yml`. Siéntete libre de cambiarlo a tu gusto, es tuyo."
+      hero: "El banner de apertura de la página: un encabezado, una línea de apoyo y una llamada a la acción."
+      concept_grid: "Una cuadrícula de tarjetas de concepto. Añade o quita tarjetas según necesites."
+      concept_card: "Un concepto en la cuadrícula: título, breve descripción y enlace opcional."
+      cta: "Un banner final de llamada a la acción."
 
     # Hint texts for contents
     content_hints:
@@ -37,3 +41,24 @@ es:
     menu_names:
       footer_navigation: Navegación de pie de página
       main_navigation: Navegación Principal
+
+    # Textos por defecto traducidos para los ingredients de la visita guiada
+    default_ingredient_texts:
+      hero_headline: "Crea contenido como un químico."
+      hero_subheadline: "Alchemy estructura el contenido en Elementos reutilizables, formados por Ingredientes tipados. Todo este sitio está hecho con Alchemy: abre cualquier bloque para ver cómo."
+      concepts_headline: "Conceptos básicos"
+      concept_card_title: "Un concepto básico"
+      concept_card_description: "<p>Un Elemento es un bloque de contenido reutilizable, hecho de Ingredientes tipados. Edita este texto en el admin.</p>"
+      cta_headline: "¿Listo para probar Alchemy?"
+      cta_text: "<p>Inicia sesión en el admin de demostración y edita estos Elementos tú mismo.</p>"
+
+    # Ayudas de editor traducidas por rol de ingredient (hint: true)
+    ingredient_hints:
+      headline: "El encabezado de este bloque, renderizado como un Ingrediente Headline semántico."
+      subheadline: "Una línea de apoyo breve bajo el encabezado."
+      cta: "El enlace de llamada a la acción. Apúntalo a una página o a un ancla en la página."
+      title: "El título de la tarjeta (un Ingrediente Headline)."
+      description: "Una breve descripción en texto enriquecido. Solo se permiten negrita, cursiva y enlaces."
+      link: "Un enlace opcional al pie de la tarjeta."
+      text: "El cuerpo de la llamada a la acción. Solo se permiten negrita, cursiva y enlaces."
+      button: "El enlace del botón de llamada a la acción."

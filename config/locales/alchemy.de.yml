@@ -27,6 +27,10 @@ de:
     # Hint texts for elements
     element_hints:
       article: "Dies ist ein Hinweistext für das Artikel Element. Dieser Text kann in der `config/locales/alchemy.de.yml` Datei angepasst werden."
+      hero: "Der Eröffnungs-Banner der Seite: Überschrift, ergänzende Zeile und Call-to-Action."
+      concept_grid: "Ein Raster aus Konzeptkarten. Karten nach Bedarf hinzufügen oder entfernen."
+      concept_card: "Ein Konzept im Raster: Titel, kurze Beschreibung und optionaler Link."
+      cta: "Ein abschließender Call-to-Action-Banner."
 
     # Hint texts for contents
     content_hints:
@@ -37,3 +41,24 @@ de:
     menu_names:
       footer_navigation: Footer-Navigation
       main_navigation: Hauptnavigation
+
+    # Übersetzte Standardtexte für die Tour-Ingredients (Symbol-Defaults)
+    default_ingredient_texts:
+      hero_headline: "Inhalte bauen wie ein Alchemist."
+      hero_subheadline: "Alchemy strukturiert Inhalte als wiederverwendbare Elemente, die aus typisierten Ingredients bestehen. Diese Website ist komplett mit Alchemy gebaut – öffne einen Block, um zu sehen wie."
+      concepts_headline: "Grundkonzepte"
+      concept_card_title: "Ein Grundkonzept"
+      concept_card_description: "<p>Ein Element ist ein wiederverwendbarer Inhaltsblock aus typisierten Ingredients. Bearbeite diesen Text im Admin.</p>"
+      cta_headline: "Bereit, Alchemy auszuprobieren?"
+      cta_text: "<p>Melde dich im Demo-Admin an und bearbeite diese Elemente selbst.</p>"
+
+    # Übersetzte Editor-Hinweise je Ingredient-Rolle (hint: true)
+    ingredient_hints:
+      headline: "Die Überschrift dieses Blocks, gerendert als semantisches Headline-Ingredient."
+      subheadline: "Eine kurze ergänzende Zeile unter der Überschrift."
+      cta: "Der Call-to-Action-Link. Verlinke eine Seite oder einen Anker auf der Seite."
+      title: "Der Titel der Karte (ein Headline-Ingredient)."
+      description: "Eine kurze Rich-Text-Beschreibung. Nur Fett, Kursiv und Links sind erlaubt."
+      link: "Ein optionaler Link am Ende der Karte."
+      text: "Der Call-to-Action-Text. Nur Fett, Kursiv und Links sind erlaubt."
+      button: "Der Button-Link des Call-to-Action."

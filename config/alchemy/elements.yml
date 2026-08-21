@@ -163,21 +163,29 @@
 
 - name: hero
   unique: true
+  hint: true
   ingredients:
     - role: headline
-      type: Text
-      default: "Build content like a chemist."
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :hero_headline
+      settings:
+        levels: [1]
     - role: subheadline
       type: Text
-      default: "Alchemy is a flexible, component-based CMS for Rails. This whole site is built with Alchemy — open any block to see how it is made."
+      hint: true
+      default: :hero_subheadline
     - role: cta
       type: Link
+      hint: true
       default: "#concepts"
       settings:
         text: Explore the tour
 
 - name: concept_grid
   unique: true
+  hint: true
   nestable_elements:
     - concept_card
   autogenerate:
@@ -187,27 +195,66 @@
   ingredients:
     - role: headline
       type: Headline
-      default: "The building blocks"
+      as_element_title: true
+      hint: true
+      default: :concepts_headline
       settings:
         anchor: concepts
         levels: [2]
 
 - name: concept_card
   compact: true
+  hint: true
   ingredients:
     - role: title
-      type: Text
-      default: "A building block"
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :concept_card_title
+      validate:
+        - presence
+      settings:
+        levels: [3]
     - role: description
       type: Richtext
-      default: "Alchemy is built from small, typed, reusable pieces. This card is one of them — edit it in the admin."
+      hint: true
+      default: :concept_card_description
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: link
+      type: Link
+      hint: true
+      settings:
+        text: Learn more
 
 - name: cta
   unique: true
+  hint: true
   ingredients:
     - role: headline
-      type: Text
-      default: "Ready to try Alchemy?"
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :cta_headline
+      settings:
+        levels: [2]
     - role: text
       type: Richtext
-      default: "Log in to the demo admin and edit these very blocks."
+      hint: true
+      default: :cta_text
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: button
+      type: Link
+      hint: true
+      default: "/admin"
+      settings:
+        text: Open the admin
