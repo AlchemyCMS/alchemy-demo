@@ -1,0 +1,12 @@
+<% cache(cta) do %>
+<%= element_view_for(cta) do |el| %>
+  <section class="mx-auto max-w-5xl px-4">
+    <div class="rounded-2xl bg-accent px-8 py-12 text-center text-white">
+      <h2 class="font-display text-3xl font-bold"><%= el.render :headline %></h2>
+      <div class="mx-auto mt-3 max-w-xl text-white/90"><%= el.render :text %></div>
+      <a href="/admin" class="mt-6 inline-block rounded-lg bg-white px-6 py-3 font-medium text-accent-dark transition-colors hover:bg-surface">Open the admin</a>
+    </div>
+    <%= render "shared/reveal", element: cta %>
+  </section>
+<% end %>
+<% end %>
