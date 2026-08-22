@@ -1,0 +1,20 @@
+<% cache(image_text) do %>
+<%= element_view_for(image_text, class: "group") do |el| %>
+  <section class="mx-auto max-w-5xl px-4">
+    <div class="flex flex-col items-center gap-8 <%= image_text.value_for(:layout) %>">
+      <div class="w-full md:w-1/2">
+        <% if image_text.value_for(:image).present? %>
+          <%= el.render :image, {}, { class: "w-full rounded-xl" } %>
+        <% else %>
+          <div class="flex aspect-4/3 items-center justify-center rounded-xl bg-surface text-sm text-ink-soft/60">Picture</div>
+        <% end %>
+      </div>
+      <div class="w-full md:w-1/2">
+        <%= el.render :headline, {}, { class: "font-display font-bold text-ink" } %>
+        <div class="prose-content mt-3 text-ink-soft"><%= el.render :text %></div>
+      </div>
+    </div>
+    <%= render "shared/reveal", element: image_text %>
+  </section>
+<% end %>
+<% end %>

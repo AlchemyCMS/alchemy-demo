@@ -32,6 +32,11 @@ es:
       concept_card: "Un concepto en la cuadrícula: título, breve descripción y enlace opcional."
       cta: "Un banner final de llamada a la acción."
       button: "Un botón independiente: define su enlace y elige su color."
+      concept_intro: "La introducción de una página de concepto: una etiqueta, un encabezado (con ancla a partir de su texto) y un párrafo inicial."
+      prose: "Un bloque de texto enriquecido con encabezado."
+      image_text: "Una imagen junto a texto; el lado de la imagen es intercambiable."
+      callout: "Una nota destacada: información, consejo o advertencia."
+      code_sample: "Un fragmento de código con resaltado de sintaxis en el idioma elegido."
 
     # Hint texts for contents
     content_hints:
@@ -52,6 +57,22 @@ es:
       concept_card_description: "<p>Un Elemento es un bloque de contenido reutilizable, hecho de Ingredientes tipados. Edita este texto en el admin.</p>"
       cta_headline: "¿Listo para probar Alchemy?"
       cta_text: "<p>Inicia sesión en el admin de demostración y edita estos Elementos tú mismo.</p>"
+      concept_intro_eyebrow: "Concepto básico"
+      concept_intro_headline: "Elementos"
+      concept_intro_lead: "<p>Un <strong>Elemento</strong> es un bloque de contenido reutilizable que colocas en una Página. Cada Elemento se define en elements.yml y se compone de Ingredientes tipados.</p>"
+      prose_headline: "Componer una página con Elementos"
+      prose_text: "<p>Un Page Layout indica qué Elementos puede contener una página. Los editores pueden entonces:</p><ul><li>añadir y quitar Elementos,</li><li>ordenarlos y anidarlos,</li><li>rellenar sus Ingredientes.</li></ul><p>El frontend renderiza cada Elemento con su propio partial de vista.</p>"
+      image_text_headline: "Cada Elemento tiene una vista"
+      image_text_text: "<p>Los Elementos se renderizan mediante un partial en app/views/alchemy/elements, así que su marcado está totalmente bajo tu control.</p>"
+      callout_text: "<p><strong>Consejo:</strong> abre «Cómo se construye este bloque» en cualquier bloque para ver su definición exacta y saltar directamente a él en el admin.</p>"
+      code_sample_caption: "config/alchemy/elements.yml"
+      code_sample_code: |
+        - name: prose
+          ingredients:
+            - role: headline
+              type: Headline
+            - role: text
+              type: Richtext
 
     # Ayudas de editor traducidas por rol de ingredient (hint: true)
     ingredient_hints:
@@ -61,8 +82,16 @@ es:
       title: "El encabezado de la tarjeta (un Ingrediente Headline). Elige su Level semántico (h3 o h4) y, de forma independiente, su Size visual."
       description: "Una breve descripción en texto enriquecido. Solo se permiten negrita, cursiva y enlaces."
       link: "Un enlace opcional al pie de la tarjeta."
-      text: "El cuerpo de la llamada a la acción. Solo se permiten negrita, cursiva y enlaces."
+      text: "Un bloque de texto enriquecido; el formato disponible se limita a lo que necesita este elemento."
       button: "El enlace del botón de llamada a la acción."
+      eyebrow: "Una etiqueta breve mostrada sobre el encabezado."
+      lead: "El párrafo introductorio bajo el encabezado."
+      variant: "El estilo del callout: información, consejo o advertencia, guardado como valor de Select."
+      language: "El lenguaje de programación, usado para elegir el resaltador de sintaxis."
+      caption: "Una etiqueta opcional mostrada sobre el código."
+      code: "El fragmento de código (un área de texto); se resalta en el frontend."
+      layout: "En qué lado se sitúa la imagen, guardado como clase CSS de Tailwind."
+      image: "La imagen. Recortada y servida de forma responsiva con srcset/sizes."
       background: "Estilo de fondo, elegido de un Select cuyos valores son clases CSS de Tailwind."
       button_style: "Colores del botón, elegidos de un Select cuyos valores son clases CSS de Tailwind."
       color: "Un Ingrediente Color: elige un color de marca o uno personalizado con el selector; se guarda como valor hex y se aplica como estilo en línea."
