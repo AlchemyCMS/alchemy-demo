@@ -32,6 +32,11 @@ de:
       concept_card: "Ein Konzept im Raster: Titel, kurze Beschreibung und optionaler Link."
       cta: "Ein abschließender Call-to-Action-Banner."
       button: "Ein einzelner Button – lege seinen Link fest und wähle seine Farbe."
+      concept_intro: "Der Intro-Bereich einer Konzeptseite: ein Label, eine Überschrift (mit Anker aus ihrem Text) und ein einleitender Absatz."
+      prose: "Ein Rich-Text-Block mit Überschrift."
+      image_text: "Ein Bild neben Text; die Bildseite ist umschaltbar."
+      callout: "Ein hervorgehobener Hinweis – Info, Tipp oder Warnung."
+      code_sample: "Ein syntaxhervorgehobenes Code-Snippet in der gewählten Sprache."
 
     # Hint texts for contents
     content_hints:
@@ -52,6 +57,22 @@ de:
       concept_card_description: "<p>Ein Element ist ein wiederverwendbarer Inhaltsblock aus typisierten Ingredients. Bearbeite diesen Text im Admin.</p>"
       cta_headline: "Bereit, Alchemy auszuprobieren?"
       cta_text: "<p>Melde dich im Demo-Admin an und bearbeite diese Elemente selbst.</p>"
+      concept_intro_eyebrow: "Grundkonzept"
+      concept_intro_headline: "Elemente"
+      concept_intro_lead: "<p>Ein <strong>Element</strong> ist ein wiederverwendbarer Inhaltsblock, den du auf einer Seite platzierst. Jedes Element wird in elements.yml definiert und besteht aus typisierten Ingredients.</p>"
+      prose_headline: "Eine Seite aus Elementen zusammensetzen"
+      prose_text: "<p>Ein Page Layout legt fest, welche Elemente eine Seite enthalten darf. Redakteure können dann:</p><ul><li>Elemente hinzufügen und entfernen,</li><li>sie sortieren und verschachteln,</li><li>ihre Ingredients ausfüllen.</li></ul><p>Das Frontend rendert jedes Element mit seinem eigenen View-Partial.</p>"
+      image_text_headline: "Jedes Element hat einen View"
+      image_text_text: "<p>Elemente werden über ein Partial in app/views/alchemy/elements gerendert – ihr Markup liegt vollständig in deiner Hand.</p>"
+      callout_text: "<p><strong>Tipp:</strong> Öffne „Wie dieser Block gebaut ist“ an jedem Block, um seine genaue Definition zu sehen und direkt im Admin dorthin zu springen.</p>"
+      code_sample_caption: "config/alchemy/elements.yml"
+      code_sample_code: |
+        - name: prose
+          ingredients:
+            - role: headline
+              type: Headline
+            - role: text
+              type: Richtext
 
     # Übersetzte Editor-Hinweise je Ingredient-Rolle (hint: true)
     ingredient_hints:
@@ -61,8 +82,16 @@ de:
       title: "Die Überschrift der Karte (ein Headline-Ingredient). Wähle das semantische Level (h3 oder h4) und – unabhängig davon – die visuelle Size."
       description: "Eine kurze Rich-Text-Beschreibung. Nur Fett, Kursiv und Links sind erlaubt."
       link: "Ein optionaler Link am Ende der Karte."
-      text: "Der Call-to-Action-Text. Nur Fett, Kursiv und Links sind erlaubt."
+      text: "Ein Rich-Text-Block; die verfügbare Formatierung ist auf das beschränkt, was dieses Element braucht."
       button: "Der Button-Link des Call-to-Action."
+      eyebrow: "Ein kurzes Label über der Überschrift."
+      lead: "Der einleitende Absatz unter der Überschrift."
+      variant: "Der Callout-Stil – Info, Tipp oder Warnung – als Select-Wert gespeichert."
+      language: "Die Programmiersprache, zur Wahl des Syntax-Highlighters."
+      caption: "Ein optionales Label über dem Code."
+      code: "Das Code-Snippet (ein Textbereich); es wird im Frontend hervorgehoben."
+      layout: "Auf welcher Seite das Bild sitzt, als Tailwind-CSS-Klasse gespeichert."
+      image: "Das Bild. Zugeschnitten und responsiv über srcset/sizes ausgeliefert."
       background: "Hintergrund-Stil, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       button_style: "Button-Farben, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       color: "Ein Color-Ingredient – wähle eine Markenfarbe oder eine eigene mit dem Farbwähler; wird als Hex-Wert gespeichert und als Inline-Style angewendet."

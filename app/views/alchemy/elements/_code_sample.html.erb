@@ -1,0 +1,11 @@
+<% cache(code_sample) do %>
+<%= element_view_for(code_sample, class: "group") do |el| %>
+  <section class="mx-auto max-w-3xl px-4">
+    <% if code_sample.value_for(:caption).present? %>
+      <p class="mb-2 font-mono text-xs text-ink-soft"><%= el.render :caption %></p>
+    <% end %>
+    <pre class="highlight overflow-auto rounded-xl bg-ink px-4 py-4 text-xs/relaxed text-surface-grey"><code><%= highlight_code(code_sample.value_for(:code), code_sample.value_for(:language)) %></code></pre>
+    <%= render "shared/reveal", element: code_sample %>
+  </section>
+<% end %>
+<% end %>

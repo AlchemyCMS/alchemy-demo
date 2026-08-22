@@ -69,6 +69,20 @@
     - button
     - cta
 
+- name: concept
+  elements:
+    - concept_intro
+    - prose
+    - image_text
+    - callout
+    - code_sample
+  autogenerate:
+    - concept_intro
+    - prose
+    - image_text
+    - callout
+    - code_sample
+
 # global pages
 
 - name: footer

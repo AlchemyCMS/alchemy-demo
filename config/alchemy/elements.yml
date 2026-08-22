@@ -311,3 +311,139 @@
           - ["Accent violet", "#884cbe"]
           - ["Emerald", "#10b981"]
           - ["Ink", "#323a3d"]
+
+# --- Concept page elements (Phase 2.2) ---
+
+- name: concept_intro
+  hint: true
+  ingredients:
+    - role: eyebrow
+      type: Text
+      hint: true
+      default: :concept_intro_eyebrow
+    - role: headline
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :concept_intro_headline
+      settings:
+        levels: [1, 2]
+        sizes: [1, 2]
+        anchor: from_value
+    - role: lead
+      type: Richtext
+      hint: true
+      default: :concept_intro_lead
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+
+- name: prose
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :prose_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: text
+      type: Richtext
+      hint: true
+      default: :prose_text
+      settings:
+        tinymce:
+          toolbar: "bold italic | bullist numlist | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a, ul, ol, li]
+          attributes: [href, target, rel, title]
+
+- name: image_text
+  hint: true
+  ingredients:
+    - role: image
+      type: Picture
+      hint: true
+      settings:
+        size: 640x480
+        srcset: [320x240, 640x480]
+        sizes: ["(min-width: 768px) 50vw", "100vw"]
+    - role: headline
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :image_text_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: text
+      type: Richtext
+      hint: true
+      default: :image_text_text
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: layout
+      type: Select
+      group: styling
+      hint: true
+      default: "md:flex-row"
+      settings:
+        select_values:
+          - ["Image left", "md:flex-row"]
+          - ["Image right", "md:flex-row-reverse"]
+
+- name: callout
+  hint: true
+  ingredients:
+    - role: variant
+      type: Select
+      group: styling
+      hint: true
+      default: info
+      settings:
+        select_values:
+          - ["Info", "info"]
+          - ["Tip", "tip"]
+          - ["Warning", "warning"]
+    - role: text
+      type: Richtext
+      hint: true
+      default: :callout_text
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+
+- name: code_sample
+  hint: true
+  ingredients:
+    - role: caption
+      type: Text
+      as_element_title: true
+      hint: true
+      default: :code_sample_caption
+    - role: language
+      type: Select
+      hint: true
+      default: yaml
+      settings:
+        select_values:
+          - ["YAML", "yaml"]
+          - ["Ruby", "ruby"]
+          - ["ERB", "erb"]
+          - ["HTML", "html"]
+    - role: code
+      type: Html
+      hint: true
+      default: :code_sample_code

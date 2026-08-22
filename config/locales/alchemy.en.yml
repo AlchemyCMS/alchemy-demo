@@ -34,6 +34,11 @@ en:
       concept_card: "One concept in the grid: a title, a short description and an optional link."
       cta: "A closing call-to-action banner."
       button: "A standalone button — set its link and pick its colour."
+      concept_intro: "The intro for a concept page: an eyebrow label, a headline (with an anchor from its text) and a lead paragraph."
+      prose: "A block of rich text with a heading."
+      image_text: "An image beside text; the image side is switchable."
+      callout: "A highlighted note — info, tip or warning."
+      code_sample: "A syntax-highlighted code snippet in the chosen language."
 
     # Hint texts for contents
     content_hints:
@@ -54,6 +59,22 @@ en:
       concept_card_description: "<p>An Element is a reusable content block, made of typed Ingredients. Edit this text in the admin.</p>"
       cta_headline: "Ready to try Alchemy?"
       cta_text: "<p>Log in to the demo admin and edit these Elements yourself.</p>"
+      concept_intro_eyebrow: "Core concept"
+      concept_intro_headline: "Elements"
+      concept_intro_lead: "<p>An <strong>Element</strong> is a reusable content block you place on a Page. Each Element is defined in elements.yml and made of typed Ingredients.</p>"
+      prose_headline: "Composing a page from Elements"
+      prose_text: "<p>A Page Layout lists which Elements a page may contain. Editors then:</p><ul><li>add and remove Elements,</li><li>sort and nest them,</li><li>fill in their Ingredients.</li></ul><p>The frontend renders each Element with its own view partial.</p>"
+      image_text_headline: "Every Element has a view"
+      image_text_text: "<p>Elements render through a partial in app/views/alchemy/elements, so their markup is entirely under your control.</p>"
+      callout_text: "<p><strong>Tip:</strong> open “How this block is built” on any block to see its exact definition and jump straight to it in the admin.</p>"
+      code_sample_caption: "config/alchemy/elements.yml"
+      code_sample_code: |
+        - name: prose
+          ingredients:
+            - role: headline
+              type: Headline
+            - role: text
+              type: Richtext
 
     # Translated editor hints per ingredient role (hint: true)
     ingredient_hints:
@@ -63,8 +84,16 @@ en:
       title: "The card's heading (a Headline ingredient). Pick its semantic Level (h3 or h4) and, independently, its visual Size."
       description: "A short rich-text description. Only bold, italic and links are allowed."
       link: "An optional link shown at the bottom of the card."
-      text: "The call-to-action body. Only bold, italic and links are allowed."
+      text: "A rich-text block; the available formatting is limited to what this element needs."
       button: "The call-to-action button link."
+      eyebrow: "A short label shown above the headline."
+      lead: "The intro paragraph shown under the headline."
+      variant: "The callout style — info, tip or warning — stored as a Select value."
+      language: "The programming language, used to pick the syntax highlighter."
+      caption: "An optional label shown above the code."
+      code: "The code snippet (a plain-text area); it is highlighted on the frontend."
+      layout: "Which side the image sits on, stored as a Tailwind CSS class."
+      image: "The picture. Cropped and served responsively via srcset/sizes."
       background: "Background style, chosen from a Select whose values are Tailwind CSS classes."
       button_style: "Button colours, chosen from a Select whose values are Tailwind CSS classes."
       color: "A Color ingredient — pick a brand colour or a custom one with the colour picker; stored as a hex value and applied as an inline style."
