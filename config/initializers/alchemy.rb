@@ -132,16 +132,14 @@ Alchemy.configure do |config|
   #         alchemy/message:
   #           firstname: Vorname
   #
-  # config.mailer.tap do |mailer|
-  #   mailer.page_layout_name = "contact"
-  #   mailer.forward_to_page = false
-  #   mailer.mail_success_page = "thanks"
-  #   mailer.mail_from = "your.mail@your-domain.com"
-  #   mailer.mail_to = "your.mail@your-domain.com"
-  #   mailer.subject = "A new contact form message"
-  #   mailer.fields = ["salutation", "firstname", "lastname", "address", "zip", "city", "phone", "email", "message"]
-  #   mailer.validate_fields = ["lastname", "email"]
-  # end
+  config.mailer.tap do |mailer|
+    mailer.page_layout_name = "contact"
+    mailer.mail_from = "demo@alchemy-cms.com"
+    mailer.mail_to = "demo@alchemy-cms.com"
+    mailer.subject = "New contact form message"
+    mailer.fields = %w[name email message]
+    mailer.validate_fields = %w[email message]
+  end
 
   # === User roles
   #

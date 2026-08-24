@@ -105,6 +105,21 @@
     - post_header
     - prose
 
+- name: contact
+  cache: false
+  elements:
+    - concept_intro
+    - contactform
+  autogenerate:
+    - concept_intro
+    - contactform
+
+- name: thanks
+  elements:
+    - concept_intro
+  autogenerate:
+    - concept_intro
+
 # global pages
 
 - name: footer

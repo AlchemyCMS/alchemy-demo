@@ -42,6 +42,7 @@ en:
       image_gallery: "A gallery of nested gallery_image elements — add, remove and reorder them."
       gallery_image: "One image in the gallery: cropped to a fixed ratio and served responsively via srcset."
       post_header: "A blog article's header — headline, date, author, image and intro. The overview page teases these fields."
+      contactform: "A contact form powered by Alchemy's built-in Messages. Set the subject, an optional recipient and the page shown after sending."
 
     # Hint texts for contents
     content_hints:
@@ -76,6 +77,7 @@ en:
       post_header_headline: "A blog post"
       post_header_author: "The Alchemy Team"
       post_header_intro: "<p>A short introduction to this post.</p>"
+      contactform_subject: "New contact form message"
       code_sample_code: |
         - name: prose
           ingredients:
@@ -105,6 +107,9 @@ en:
       published_at: "When the article was published (a Datetime ingredient)."
       author: "The article's author."
       intro: "A short intro shown on the article and teased on the blog overview."
+      subject: "The email subject for submitted messages."
+      mail_to: "Optional recipient override; defaults to the mailer config."
+      success_page: "The page to redirect to after a message is sent."
       background: "Background style, chosen from a Select whose values are Tailwind CSS classes."
       button_style: "Button colours, chosen from a Select whose values are Tailwind CSS classes."
       color: "A Color ingredient — pick a brand colour or a custom one with the colour picker; stored as a hex value and applied as an inline style."

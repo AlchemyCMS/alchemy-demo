@@ -40,6 +40,7 @@ es:
       image_gallery: "Una galería de elementos gallery_image anidados: añade, quita y reordena."
       gallery_image: "Una imagen de la galería: recortada a una proporción fija y servida de forma responsiva con srcset."
       post_header: "La cabecera de un artículo de blog: encabezado, fecha, autor, imagen e introducción. El resumen muestra estos campos."
+      contactform: "Un formulario de contacto con los Messages integrados de Alchemy. Define el asunto, un destinatario opcional y la página de agradecimiento."
 
     # Hint texts for contents
     content_hints:
@@ -74,6 +75,7 @@ es:
       post_header_headline: "Una entrada de blog"
       post_header_author: "El equipo de Alchemy"
       post_header_intro: "<p>Una breve introducción a esta entrada.</p>"
+      contactform_subject: "Nuevo mensaje del formulario de contacto"
       code_sample_code: |
         - name: prose
           ingredients:
@@ -103,6 +105,9 @@ es:
       published_at: "Cuándo se publicó el artículo (un Ingrediente Datetime)."
       author: "El autor del artículo."
       intro: "Una breve introducción que aparece en el artículo y como avance en el resumen del blog."
+      subject: "El asunto del correo para los mensajes enviados."
+      mail_to: "Destinatario opcional; por defecto usa la configuración del mailer."
+      success_page: "La página a la que se redirige tras enviar un mensaje."
       background: "Estilo de fondo, elegido de un Select cuyos valores son clases CSS de Tailwind."
       button_style: "Colores del botón, elegidos de un Select cuyos valores son clases CSS de Tailwind."
       color: "Un Ingrediente Color: elige un color de marca o uno personalizado con el selector; se guarda como valor hex y se aplica como estilo en línea."

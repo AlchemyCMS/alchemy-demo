@@ -1,0 +1,27 @@
+<%= element_view_for(contactform) do |el| %>
+  <% message = @message || Alchemy::Message.new %>
+  <section class="mx-auto max-w-xl px-4">
+    <%= form_with model: message, url: alchemy.messages_path, data: { turbo: false }, html: { class: "space-y-4" } do |f| %>
+      <%= f.hidden_field :contact_form_id, value: contactform.id %>
+      <% if message.errors.any? %>
+        <div class="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800">
+          <%= message.errors.full_messages.to_sentence %>
+        </div>
+      <% end %>
+      <div>
+        <%= f.label :name, class: "mb-1 block text-sm font-medium text-ink" %>
+        <%= f.text_field :name, class: "w-full rounded-lg border border-accent-soft/50 px-3 py-2 focus:border-accent focus:outline-none" %>
+      </div>
+      <div>
+        <%= f.label :email, class: "mb-1 block text-sm font-medium text-ink" %>
+        <%= f.email_field :email, class: "w-full rounded-lg border border-accent-soft/50 px-3 py-2 focus:border-accent focus:outline-none" %>
+      </div>
+      <div>
+        <%= f.label :message, class: "mb-1 block text-sm font-medium text-ink" %>
+        <%= f.text_area :message, rows: 5, class: "w-full rounded-lg border border-accent-soft/50 px-3 py-2 focus:border-accent focus:outline-none" %>
+      </div>
+      <%= f.submit "Send message", class: "cursor-pointer rounded-lg bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-dark" %>
+    <% end %>
+    <%= render "shared/reveal", element: contactform %>
+  </section>
+<% end %>
