@@ -11,6 +11,34 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.1].define(version: 2026_09_02_191933) do
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.bigint "record_id", null: false
+    t.string "record_type", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.string "content_type"
+    t.datetime "created_at", null: false
+    t.string "filename", null: false
+    t.string "key", null: false
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
   create_table "alchemy_attachments", force: :cascade do |t|
     t.text "cached_tag_list"
     t.datetime "created_at", null: false
@@ -444,6 +472,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_191933) do
     t.index ["reset_password_token"], name: "index_alchemy_users_on_reset_password_token", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.datetime "ends_at"
+    t.integer "location_id"
+    t.string "name", null: false
+    t.datetime "starts_at"
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_events_on_location_id"
+  end
+
   create_table "gutentag_taggings", force: :cascade do |t|
     t.datetime "created_at", precision: nil, null: false
     t.integer "tag_id", null: false
@@ -462,6 +501,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_191933) do
     t.datetime "updated_at", precision: nil, null: false
     t.index ["name"], name: "index_gutentag_tags_on_name", unique: true
     t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -489,6 +534,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_191933) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "alchemy_cells", "alchemy_pages", column: "page_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "alchemy_contents", "alchemy_elements", column: "element_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "alchemy_elements", "alchemy_cells", column: "cell_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "alchemy_elements", "alchemy_page_versions", column: "page_version_id", on_delete: :cascade
+  add_foreign_key "alchemy_essence_nodes", "alchemy_nodes", column: "node_id"
+  add_foreign_key "alchemy_essence_pages", "alchemy_pages", column: "page_id"
+  add_foreign_key "alchemy_ingredients", "alchemy_elements", column: "element_id", on_delete: :cascade
   add_foreign_key "alchemy_nodes", "alchemy_languages", column: "language_id"
   add_foreign_key "alchemy_nodes", "alchemy_pages", column: "page_id", on_delete: :restrict
   add_foreign_key "alchemy_page_mutexes", "alchemy_pages", column: "page_id"
@@ -497,4 +551,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_02_191933) do
   add_foreign_key "alchemy_picture_descriptions", "alchemy_languages", column: "language_id"
   add_foreign_key "alchemy_picture_descriptions", "alchemy_pictures", column: "picture_id"
   add_foreign_key "alchemy_picture_thumbs", "alchemy_pictures", column: "picture_id"
+  add_foreign_key "events", "locations"
 end

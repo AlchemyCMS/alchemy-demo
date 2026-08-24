@@ -12,6 +12,8 @@
 /db/*.sqlite3-journal
 /storage/*.sqlite3
 /storage/*.sqlite3-*
+# Active Storage local disk blobs
+/storage/*/
 
 # Ignore all logfiles and tempfiles.
 /log/*

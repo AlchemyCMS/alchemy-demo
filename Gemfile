@@ -6,7 +6,6 @@ ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "8.4-stable"
 gem "alchemy-devise", "~> 8.4.1"
 gem "alchemy_i18n", "~> 8.4.1"
-gem "alchemy_cloudinary", "~> 4.0"
 gem "alchemy-sentry", "~> 2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -26,6 +25,8 @@ gem "importmap-rails", "~> 2.0"
 gem "turbo-rails", "~> 2.0"
 # Server-side syntax highlighting for the "how it's built" code (no JS)
 gem "rouge", "~> 4.0"
+# ImageMagick backend for Active Storage variant processing (Alchemy pictures)
+gem "mini_magick", "~> 5.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
@@ -57,7 +58,5 @@ group :production do
 end
 
 gem "newrelic_rpm", "~> 10.9"
-
-gem "dragonfly", "~> 1.4"
 
 gem "json", "< 3"

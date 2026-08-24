@@ -39,9 +39,12 @@ module AlchemyDemo
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    # Images are served through Dragonfly/Cloudinary, so Active Storage variants
-    # are unused. Rails 8.1 eagerly builds the variant transformer at boot, which
-    # would require an image_processing backend gem we don't bundle.
-    config.active_storage.variant_processor = :disabled
+    # Alchemy renders Picture variants through Active Storage; use ImageMagick
+    # (available in dev and the Docker image) as the variant processor.
+    config.active_storage.variant_processor = :mini_magick
+
+    # Alchemy sets image quality via image_processing's `saver`, which is not in
+    # Active Storage's default transformation allow-list.
+    config.active_storage.supported_image_processing_methods = %w[saver]
   end
 end
