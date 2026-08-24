@@ -41,6 +41,7 @@ en:
       code_sample: "A syntax-highlighted code snippet in the chosen language."
       image_gallery: "A gallery of nested gallery_image elements — add, remove and reorder them."
       gallery_image: "One image in the gallery: cropped to a fixed ratio and served responsively via srcset."
+      post_header: "A blog article's header — headline, date, author, image and intro. The overview page teases these fields."
 
     # Hint texts for contents
     content_hints:
@@ -72,6 +73,9 @@ en:
       code_sample_caption: "config/alchemy/elements.yml"
       gallery_headline: "A nestable gallery"
       gallery_image_caption: "A cropped, responsive image"
+      post_header_headline: "A blog post"
+      post_header_author: "The Alchemy Team"
+      post_header_intro: "<p>A short introduction to this post.</p>"
       code_sample_code: |
         - name: prose
           ingredients:
@@ -98,6 +102,9 @@ en:
       code: "The code snippet (a plain-text area); it is highlighted on the frontend."
       layout: "Which side the image sits on, stored as a Tailwind CSS class."
       image: "The picture. Cropped and served responsively via srcset/sizes."
+      published_at: "When the article was published (a Datetime ingredient)."
+      author: "The article's author."
+      intro: "A short intro shown on the article and teased on the blog overview."
       background: "Background style, chosen from a Select whose values are Tailwind CSS classes."
       button_style: "Button colours, chosen from a Select whose values are Tailwind CSS classes."
       color: "A Color ingredient — pick a brand colour or a custom one with the colour picker; stored as a hex value and applied as an inline style."

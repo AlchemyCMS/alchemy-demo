@@ -492,3 +492,49 @@
       type: Text
       hint: true
       default: :gallery_image_caption
+
+# --- Blog elements (Phase 2.2) ---
+
+- name: post_header
+  unique: true
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :post_header_headline
+      settings:
+        levels: [1, 2]
+        sizes: [1, 2]
+    - role: published_at
+      type: Datetime
+      hint: true
+    - role: author
+      type: Text
+      hint: true
+      default: :post_header_author
+    - role: image
+      type: Picture
+      hint: true
+      settings:
+        crop: true
+        fixed_ratio: true
+        size: "800x450"
+        srcset:
+          - "400x225"
+          - "800x450"
+          - "1200x675"
+        sizes:
+          - "(min-width: 768px) 720px"
+          - "100vw"
+    - role: intro
+      type: Richtext
+      hint: true
+      default: :post_header_intro
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]

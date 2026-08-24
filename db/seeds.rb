@@ -55,6 +55,38 @@ Alchemy::Element.where(name: "concept_intro")
       "<p>Some Elements are <strong>nestable</strong> — they hold child Elements. This gallery nests gallery_image Elements, each a Picture cropped to a fixed ratio and served responsively.</p>")
   end
 
+# Blog: distinct article headers (+ a photo each) and the overview intro
+blog_photos = Alchemy::Picture.order(:id).to_a
+[
+  ["blog/composing-content-with-elements", "Composing content with Elements", Date.new(2026, 6, 2),
+    "<p>How a page is assembled from reusable Elements, each made of typed Ingredients.</p>"],
+  ["blog/cropping-and-responsive-images", "Cropping and responsive images", Date.new(2026, 6, 9),
+    "<p>Using Picture ingredients with cropping, srcset and sizes for sharp, fast images.</p>"],
+  ["blog/nesting-elements-in-a-gallery", "Nesting elements in a gallery", Date.new(2026, 6, 16),
+    "<p>Nestable Elements let editors build galleries and other repeating structures.</p>"],
+].each_with_index do |(urlname, title, date, intro), index|
+  Alchemy::Element.where(name: "post_header")
+    .joins(page_version: :page)
+    .where(alchemy_pages: { urlname: urlname })
+    .find_each do |header|
+      header.ingredient_by_role(:headline)&.update!(value: title)
+      header.ingredient_by_role(:published_at)&.update!(value: date)
+      header.ingredient_by_role(:intro)&.update!(value: intro)
+      header.ingredient_by_role(:author)&.update!(value: "The Alchemy Team")
+      header.ingredient_by_role(:image)&.update!(related_object: blog_photos[index % blog_photos.size]) if blog_photos.any?
+    end
+end
+
+Alchemy::Element.where(name: "concept_intro")
+  .joins(page_version: :page)
+  .where(alchemy_pages: { urlname: "blog" })
+  .find_each do |element|
+    element.ingredient_by_role(:eyebrow)&.update!(value: "Guide")
+    element.ingredient_by_role(:headline)&.update!(value: "From the blog")
+    element.ingredient_by_role(:lead)&.update!(value:
+      "<p>A blog is just Pages: a parent overview and child article pages. This page teases each child's post_header — its headline, date and intro.</p>")
+  end
+
 puts "\nSeeding Users"
 puts "-------------"
 

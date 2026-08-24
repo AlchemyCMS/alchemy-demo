@@ -1,0 +1,9 @@
+<%= render 'shared/header' %>
+
+<% cache(page) do %>
+  <article class="space-y-8 py-16">
+    <%= render_elements %>
+  </article>
+<% end %>
+
+<%= render 'shared/footer' %>
