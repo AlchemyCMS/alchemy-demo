@@ -8,7 +8,7 @@ Demo::AlchemyPictureSeeder.seed!
 Alchemy::Seeder.seed!
 
 # Picture assignments (skipped when pictures were not seeded, e.g. in tests)
-featured_picture = Alchemy::Picture.find_by(name: "duotone-01") || Alchemy::Picture.first
+featured_picture = Alchemy::Picture.find_by(name: "photo-03") || Alchemy::Picture.first
 if featured_picture
   Alchemy::Ingredients::Picture.joins(:element)
     .where(alchemy_elements: { name: "image_text" })
