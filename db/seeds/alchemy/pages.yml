@@ -8,6 +8,9 @@
     - name: Elements
       page_layout: concept
       public_on: 2019-04-02
+    - name: Galleries
+      page_layout: gallery_page
+      public_on: 2019-04-02
     - name: Home
       page_layout: standard
       public_on: 2019-04-02

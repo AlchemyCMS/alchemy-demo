@@ -1,0 +1,14 @@
+<% cache(gallery_image) do %>
+<%= element_view_for(gallery_image, class: "w-72 shrink-0 snap-start") do |el| %>
+  <figure>
+    <% if gallery_image.value_for(:image).present? %>
+      <%= el.render :image, {}, { class: "aspect-3/2 w-full rounded-xl object-cover", loading: "lazy" } %>
+    <% else %>
+      <div class="flex aspect-3/2 items-center justify-center rounded-xl bg-surface text-sm text-ink-soft/60">Picture</div>
+    <% end %>
+    <% if gallery_image.value_for(:caption).present? %>
+      <figcaption class="mt-2 text-sm text-ink-soft"><%= el.render :caption %></figcaption>
+    <% end %>
+  </figure>
+<% end %>
+<% end %>

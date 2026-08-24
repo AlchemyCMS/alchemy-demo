@@ -39,6 +39,8 @@ en:
       image_text: "An image beside text; the image side is switchable."
       callout: "A highlighted note — info, tip or warning."
       code_sample: "A syntax-highlighted code snippet in the chosen language."
+      image_gallery: "A gallery of nested gallery_image elements — add, remove and reorder them."
+      gallery_image: "One image in the gallery: cropped to a fixed ratio and served responsively via srcset."
 
     # Hint texts for contents
     content_hints:
@@ -68,6 +70,8 @@ en:
       image_text_text: "<p>Elements render through a partial in app/views/alchemy/elements, so their markup is entirely under your control.</p>"
       callout_text: "<p><strong>Tip:</strong> open “How this block is built” on any block to see its exact definition and jump straight to it in the admin.</p>"
       code_sample_caption: "config/alchemy/elements.yml"
+      gallery_headline: "A nestable gallery"
+      gallery_image_caption: "A cropped, responsive image"
       code_sample_code: |
         - name: prose
           ingredients:
