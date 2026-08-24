@@ -40,6 +40,7 @@ de:
       image_gallery: "Eine Galerie aus verschachtelten gallery_image-Elementen – hinzufügen, entfernen und umsortieren."
       gallery_image: "Ein Bild in der Galerie: auf ein festes Seitenverhältnis zugeschnitten und responsiv per srcset ausgeliefert."
       post_header: "Der Kopf eines Blogartikels – Überschrift, Datum, Autor, Bild und Einleitung. Die Übersicht zeigt diese Felder als Teaser."
+      contactform: "Ein Kontaktformular auf Basis von Alchemys eingebauten Messages. Lege Betreff, optionalen Empfänger und die Danke-Seite fest."
 
     # Hint texts for contents
     content_hints:
@@ -74,6 +75,7 @@ de:
       post_header_headline: "Ein Blogbeitrag"
       post_header_author: "Das Alchemy-Team"
       post_header_intro: "<p>Eine kurze Einleitung zu diesem Beitrag.</p>"
+      contactform_subject: "Neue Nachricht über das Kontaktformular"
       code_sample_code: |
         - name: prose
           ingredients:
@@ -103,6 +105,9 @@ de:
       published_at: "Wann der Artikel veröffentlicht wurde (ein Datetime-Ingredient)."
       author: "Der Autor des Artikels."
       intro: "Eine kurze Einleitung, die im Artikel und als Teaser auf der Blog-Übersicht erscheint."
+      subject: "Der E-Mail-Betreff für gesendete Nachrichten."
+      mail_to: "Optionaler Empfänger; standardmäßig aus der Mailer-Konfiguration."
+      success_page: "Die Seite, zu der nach dem Senden weitergeleitet wird."
       background: "Hintergrund-Stil, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       button_style: "Button-Farben, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       color: "Ein Color-Ingredient – wähle eine Markenfarbe oder eine eigene mit dem Farbwähler; wird als Hex-Wert gespeichert und als Inline-Style angewendet."

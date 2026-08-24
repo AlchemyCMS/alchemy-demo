@@ -538,3 +538,21 @@
         sanitizer:
           tags: [p, br, strong, em, a]
           attributes: [href, target, rel, title]
+
+# --- Contact form element (Phase 2.2) ---
+
+- name: contactform
+  unique: true
+  hint: true
+  ingredients:
+    - role: subject
+      type: Text
+      as_element_title: true
+      hint: true
+      default: :contactform_subject
+    - role: mail_to
+      type: Text
+      hint: true
+    - role: success_page
+      type: Page
+      hint: true

@@ -33,6 +33,13 @@
         - name: Nesting elements in a gallery
           page_layout: article
           public_on: 2019-04-02
+    - name: Contact
+      page_layout: contact
+      public_on: 2019-04-02
+      children:
+        - name: Thank you
+          page_layout: thanks
+          public_on: 2019-04-02
 
 - name: Footer
   layoutpage: true

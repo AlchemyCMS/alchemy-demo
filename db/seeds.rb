@@ -87,6 +87,33 @@ Alchemy::Element.where(name: "concept_intro")
       "<p>A blog is just Pages: a parent overview and child article pages. This page teases each child's post_header — its headline, date and intro.</p>")
   end
 
+# Contact: wire the form's success page to the Thank you page, and set intros
+thanks_page = Alchemy::Page.find_by(urlname: "contact/thank-you")
+Alchemy::Element.where(name: "contactform")
+  .joins(page_version: :page)
+  .where(alchemy_pages: { urlname: "contact" })
+  .find_each { |form| form.ingredient_by_role(:success_page)&.update!(related_object: thanks_page) if thanks_page }
+
+Alchemy::Element.where(name: "concept_intro")
+  .joins(page_version: :page)
+  .where(alchemy_pages: { urlname: "contact" })
+  .find_each do |element|
+    element.ingredient_by_role(:eyebrow)&.update!(value: "Get in touch")
+    element.ingredient_by_role(:headline)&.update!(value: "Contact us")
+    element.ingredient_by_role(:lead)&.update!(value:
+      "<p>This form uses Alchemy's built-in <strong>Messages</strong> feature. In the demo it validates and confirms without sending real email.</p>")
+  end
+
+Alchemy::Element.where(name: "concept_intro")
+  .joins(page_version: :page)
+  .where(alchemy_pages: { urlname: "contact/thank-you" })
+  .find_each do |element|
+    element.ingredient_by_role(:eyebrow)&.update!(value: "Thank you")
+    element.ingredient_by_role(:headline)&.update!(value: "Message received")
+    element.ingredient_by_role(:lead)&.update!(value:
+      "<p>Thanks for reaching out — we'll be in touch. No real email was sent in this demo.</p>")
+  end
+
 puts "\nSeeding Users"
 puts "-------------"
 
