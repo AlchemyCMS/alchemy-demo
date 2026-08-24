@@ -6,7 +6,7 @@
   <div class="mx-auto mt-12 grid max-w-5xl gap-8 px-4 sm:grid-cols-2 lg:grid-cols-3">
     <% @page.children.published.contentpages.each do |article| %>
       <% header = article.elements.named("post_header").first %>
-      <%= link_to alchemy.show_page_path(article), class: "group block overflow-hidden rounded-xl border border-accent-soft/40 bg-white shadow-sm transition hover:shadow-md" do %>
+      <%= link_to show_alchemy_page_path(article), class: "group block overflow-hidden rounded-xl border border-accent-soft/40 bg-white shadow-sm transition hover:shadow-md" do %>
         <% if header && (image = header.ingredient_by_role(:image))&.value.present? %>
           <%= render image.as_view_component(html_options: { class: "aspect-video w-full object-cover" }) %>
         <% else %>
