@@ -91,6 +91,20 @@
     - concept_intro
     - image_gallery
 
+- name: blog_overview
+  elements:
+    - concept_intro
+  autogenerate:
+    - concept_intro
+
+- name: article
+  elements:
+    - post_header
+    - prose
+  autogenerate:
+    - post_header
+    - prose
+
 # global pages
 
 - name: footer

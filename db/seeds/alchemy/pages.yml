@@ -21,14 +21,17 @@
       page_layout: category
       public_on: 2019-04-02
     - name: Blog
-      page_layout: blog
+      page_layout: blog_overview
       public_on: 2019-04-02
       children:
-        - name: Blog Entry 1
-          page_layout: blog
+        - name: Composing content with Elements
+          page_layout: article
           public_on: 2019-04-02
-        - name: Blog Entry 2
-          page_layout: blog
+        - name: Cropping and responsive images
+          page_layout: article
+          public_on: 2019-04-02
+        - name: Nesting elements in a gallery
+          page_layout: article
           public_on: 2019-04-02
 
 - name: Footer

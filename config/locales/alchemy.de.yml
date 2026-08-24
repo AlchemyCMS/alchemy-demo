@@ -39,6 +39,7 @@ de:
       code_sample: "Ein syntaxhervorgehobenes Code-Snippet in der gewählten Sprache."
       image_gallery: "Eine Galerie aus verschachtelten gallery_image-Elementen – hinzufügen, entfernen und umsortieren."
       gallery_image: "Ein Bild in der Galerie: auf ein festes Seitenverhältnis zugeschnitten und responsiv per srcset ausgeliefert."
+      post_header: "Der Kopf eines Blogartikels – Überschrift, Datum, Autor, Bild und Einleitung. Die Übersicht zeigt diese Felder als Teaser."
 
     # Hint texts for contents
     content_hints:
@@ -70,6 +71,9 @@ de:
       code_sample_caption: "config/alchemy/elements.yml"
       gallery_headline: "Eine verschachtelbare Galerie"
       gallery_image_caption: "Ein zugeschnittenes, responsives Bild"
+      post_header_headline: "Ein Blogbeitrag"
+      post_header_author: "Das Alchemy-Team"
+      post_header_intro: "<p>Eine kurze Einleitung zu diesem Beitrag.</p>"
       code_sample_code: |
         - name: prose
           ingredients:
@@ -96,6 +100,9 @@ de:
       code: "Das Code-Snippet (ein Textbereich); es wird im Frontend hervorgehoben."
       layout: "Auf welcher Seite das Bild sitzt, als Tailwind-CSS-Klasse gespeichert."
       image: "Das Bild. Zugeschnitten und responsiv über srcset/sizes ausgeliefert."
+      published_at: "Wann der Artikel veröffentlicht wurde (ein Datetime-Ingredient)."
+      author: "Der Autor des Artikels."
+      intro: "Eine kurze Einleitung, die im Artikel und als Teaser auf der Blog-Übersicht erscheint."
       background: "Hintergrund-Stil, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       button_style: "Button-Farben, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       color: "Ein Color-Ingredient – wähle eine Markenfarbe oder eine eigene mit dem Farbwähler; wird als Hex-Wert gespeichert und als Inline-Style angewendet."
