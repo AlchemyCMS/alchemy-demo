@@ -83,6 +83,14 @@
     - callout
     - code_sample
 
+- name: gallery_page
+  elements:
+    - concept_intro
+    - image_gallery
+  autogenerate:
+    - concept_intro
+    - image_gallery
+
 # global pages
 
 - name: footer

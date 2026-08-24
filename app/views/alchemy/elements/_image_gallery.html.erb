@@ -1,0 +1,11 @@
+<% cache(image_gallery) do %>
+<%= element_view_for(image_gallery, class: "group") do |el| %>
+  <section class="mx-auto max-w-5xl px-4">
+    <%= el.render :headline, {}, { class: "text-center font-display font-bold text-ink" } %>
+    <div class="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4">
+      <%= render image_gallery.nested_elements %>
+    </div>
+    <%= render "shared/reveal", element: image_gallery %>
+  </section>
+<% end %>
+<% end %>

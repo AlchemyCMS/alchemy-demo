@@ -447,3 +447,48 @@
       type: Html
       hint: true
       default: :code_sample_code
+
+# --- Gallery elements (Phase 2.2) ---
+
+- name: image_gallery
+  hint: true
+  nestable_elements:
+    - gallery_image
+  autogenerate:
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+  ingredients:
+    - role: headline
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :gallery_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+
+- name: gallery_image
+  compact: true
+  hint: true
+  ingredients:
+    - role: image
+      type: Picture
+      hint: true
+      settings:
+        crop: true
+        fixed_ratio: true
+        size: "600x400"
+        srcset:
+          - "300x200"
+          - "600x400"
+          - "900x600"
+        sizes:
+          - "(min-width: 1024px) 300px"
+          - "(min-width: 640px) 45vw"
+          - "90vw"
+    - role: caption
+      type: Text
+      hint: true
+      default: :gallery_image_caption

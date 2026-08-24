@@ -15,6 +15,16 @@ if featured_picture
     .find_each { |ingredient| ingredient.update!(related_object: featured_picture) }
 end
 
+# Give each gallery image one of the seeded photos (round-robin)
+gallery_pictures = Alchemy::Picture.order(:id).to_a
+if gallery_pictures.any?
+  Alchemy::Ingredients::Picture.joins(:element)
+    .where(alchemy_elements: { name: "gallery_image" })
+    .each_with_index do |ingredient, index|
+      ingredient.update!(related_object: gallery_pictures[index % gallery_pictures.size])
+    end
+end
+
 # Video assigments
 Alchemy::Ingredients::Text.joins(:element)
   .where(alchemy_elements: { name: "video_slide" })
@@ -32,6 +42,18 @@ Alchemy::Ingredients::Text.joins(:element)
   card.ingredient_by_role(:title)&.update(value: title)
   card.ingredient_by_role(:description)&.update(value: description)
 end
+
+# Gallery-specific intro on the Galleries page (concept_intro is shared, so its
+# default belongs to the Elements page; override it here)
+Alchemy::Element.where(name: "concept_intro")
+  .joins(page_version: :page)
+  .where(alchemy_pages: { urlname: "galleries" })
+  .find_each do |element|
+    element.ingredient_by_role(:eyebrow)&.update!(value: "Core concept")
+    element.ingredient_by_role(:headline)&.update!(value: "Nesting & Galleries")
+    element.ingredient_by_role(:lead)&.update!(value:
+      "<p>Some Elements are <strong>nestable</strong> — they hold child Elements. This gallery nests gallery_image Elements, each a Picture cropped to a fixed ratio and served responsively.</p>")
+  end
 
 puts "\nSeeding Users"
 puts "-------------"
