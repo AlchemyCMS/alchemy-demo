@@ -237,7 +237,7 @@ Alchemy.configure do |config|
 
   # The storage adapter for Pictures and Attachments
   #
-  config.storage_adapter = "dragonfly"
+  config.storage_adapter = "active_storage"
 
   # Additional JS modules to be imported in the Alchemy admin UI
   #

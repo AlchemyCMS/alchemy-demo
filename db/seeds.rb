@@ -7,18 +7,12 @@ Demo::AlchemyPictureSeeder.seed!
 # Pages
 Alchemy::Seeder.seed!
 
-# Picture assigments
-{
-  gallery_picture: 1,
-  image_slide: 4,
-  image_teaser: 7,
-  blog_post: 11,
-  category_intro: 13,
-  content_block: 14,
-}.each do |element_name, picture_id|
+# Picture assignments (skipped when pictures were not seeded, e.g. in tests)
+featured_picture = Alchemy::Picture.find_by(name: "duotone-01") || Alchemy::Picture.first
+if featured_picture
   Alchemy::Ingredients::Picture.joins(:element)
-    .where(alchemy_elements: { name: element_name })
-    .update_all(related_object_id: picture_id, related_object_type: "Alchemy::Picture")
+    .where(alchemy_elements: { name: "image_text" })
+    .find_each { |ingredient| ingredient.update!(related_object: featured_picture) }
 end
 
 # Video assigments

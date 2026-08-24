@@ -1,31 +1,22 @@
 # frozen_string_literal: true
 
-require 'cloudinary'
-
 module Demo
+  # Seeds Alchemy pictures from the sample images committed under
+  # db/seeds/images, so the demo has real, self-contained images (no external
+  # service) via the Active Storage adapter.
   module AlchemyPictureSeeder
     extend self
+
+    IMAGES_DIR = Rails.root.join("db", "seeds", "images")
 
     def seed!
       puts "\nSeeding demo pictures"
       puts "---------------------"
-      date = Date.current.to_s
-      base_tags = %w(streetart germany erfurt graffiti)
-      results = Cloudinary::Search.expression("public_id:streetart-erfurt*").execute
-      results['resources'].each do |image|
-        filename = "#{image['filename']}.#{image['format']}"
-        tags = base_tags + (image['aspect_ratio'] >= 1.0 ? %w(landscape) : %w(portrait))
-        Alchemy::Picture.create!(
-          name: image['public_id'],
-          upload_hash: date,
-          image_file_name: filename,
-          image_file_uid: filename,
-          image_file_format: image['format'],
-          image_file_size: image['bytes'],
-          image_file_width: image['width'],
-          image_file_height: image['height'],
-          tag_list: tags
-        )
+      Dir.glob(IMAGES_DIR.join("*.png")).sort.each do |path|
+        filename = File.basename(path)
+        picture = Alchemy::Picture.new(name: File.basename(path, ".*"))
+        picture.image_file.attach(io: File.open(path), filename: filename, content_type: "image/png")
+        picture.save!
         puts "== Created picture: #{filename}"
       end
     end
