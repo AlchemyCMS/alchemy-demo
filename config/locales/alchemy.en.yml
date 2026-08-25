@@ -43,6 +43,8 @@ en:
       gallery_image: "One image in the gallery: cropped to a fixed ratio and served responsively via srcset."
       post_header: "A blog article's header — headline, date, author, image and intro. The overview page teases these fields."
       contactform: "A contact form powered by Alchemy's built-in Messages. Set the subject, an optional recipient and the page shown after sending."
+      event_teaser: "Features a single Event using a custom Ingredient type that references a record from the Events admin module."
+      events_overview: "Lists many Events straight from the custom Event model. Pick a timeframe and a layout — no per-event content is stored here."
 
     # Hint texts for contents
     content_hints:
@@ -78,6 +80,7 @@ en:
       post_header_author: "The Alchemy Team"
       post_header_intro: "<p>A short introduction to this post.</p>"
       contactform_subject: "New contact form message"
+      events_overview_headline: "Events"
       code_sample_code: |
         - name: prose
           ingredients:
@@ -114,7 +117,14 @@ en:
       button_style: "Button colours, chosen from a Select whose values are Tailwind CSS classes."
       color: "A Color ingredient — pick a brand colour or a custom one with the colour picker; stored as a hex value and applied as an inline style."
       label: "The button's link; the visible text comes from the link title."
+      event: "A custom Event ingredient. Its value references an Event record managed in the Events admin module."
+      timeframe: "Which Events to list, stored as a Select value: upcoming, past or all."
+      display: "How the list is rendered — a timeline or a calendar-style agenda."
 
     # Translated ingredient group headings shown in the element editor
     element_groups:
       styling: "Styling"
+
+    # Custom admin module navigation names
+    modules:
+      events: "Events"

@@ -41,6 +41,8 @@ es:
       gallery_image: "Una imagen de la galería: recortada a una proporción fija y servida de forma responsiva con srcset."
       post_header: "La cabecera de un artículo de blog: encabezado, fecha, autor, imagen e introducción. El resumen muestra estos campos."
       contactform: "Un formulario de contacto con los Messages integrados de Alchemy. Define el asunto, un destinatario opcional y la página de agradecimiento."
+      event_teaser: "Destaca un único Evento mediante un tipo de Ingredient propio que referencia un registro del módulo de administración de Eventos."
+      events_overview: "Lista muchos Eventos directamente desde el modelo Event propio. Elige un periodo y un diseño; aquí no se guarda contenido por evento."
 
     # Hint texts for contents
     content_hints:
@@ -76,6 +78,7 @@ es:
       post_header_author: "El equipo de Alchemy"
       post_header_intro: "<p>Una breve introducción a esta entrada.</p>"
       contactform_subject: "Nuevo mensaje del formulario de contacto"
+      events_overview_headline: "Eventos"
       code_sample_code: |
         - name: prose
           ingredients:
@@ -112,7 +115,14 @@ es:
       button_style: "Colores del botón, elegidos de un Select cuyos valores son clases CSS de Tailwind."
       color: "Un Ingrediente Color: elige un color de marca o uno personalizado con el selector; se guarda como valor hex y se aplica como estilo en línea."
       label: "El enlace del botón; el texto visible proviene del título del enlace."
+      event: "Un Ingredient Event propio. Su valor referencia un registro Event gestionado en el módulo de administración de Eventos."
+      timeframe: "Qué Eventos se listan, guardado como valor de Select: próximos, pasados o todos."
+      display: "Cómo se muestra la lista — una línea de tiempo o una agenda tipo calendario."
 
     # Encabezados de grupo traducidos en el editor de elementos
     element_groups:
       styling: "Estilo"
+
+    # Nombres de navegación de módulos de administración propios
+    modules:
+      events: "Eventos"

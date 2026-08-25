@@ -167,7 +167,6 @@
   ingredients:
     - role: headline
       type: Headline
-      as_element_title: true
       hint: true
       default: :hero_headline
       settings:
@@ -206,7 +205,6 @@
   ingredients:
     - role: headline
       type: Headline
-      as_element_title: true
       hint: true
       default: :concepts_headline
       settings:
@@ -220,7 +218,6 @@
   ingredients:
     - role: title
       type: Headline
-      as_element_title: true
       hint: true
       default: :concept_card_title
       validate:
@@ -250,7 +247,6 @@
   ingredients:
     - role: headline
       type: Headline
-      as_element_title: true
       hint: true
       default: :cta_headline
       settings:
@@ -346,7 +342,6 @@
   ingredients:
     - role: headline
       type: Headline
-      as_element_title: true
       hint: true
       default: :prose_headline
       settings:
@@ -430,7 +425,6 @@
   ingredients:
     - role: caption
       type: Text
-      as_element_title: true
       hint: true
       default: :code_sample_caption
     - role: language
@@ -462,7 +456,6 @@
   ingredients:
     - role: headline
       type: Headline
-      as_element_title: true
       hint: true
       default: :gallery_headline
       settings:
@@ -501,7 +494,6 @@
   ingredients:
     - role: headline
       type: Headline
-      as_element_title: true
       hint: true
       default: :post_header_headline
       settings:
@@ -539,6 +531,44 @@
           tags: [p, br, strong, em, a]
           attributes: [href, target, rel, title]
 
+# --- Events elements (Phase 2.2) ---
+
+- name: event_teaser
+  hint: true
+  ingredients:
+    - role: event
+      type: Event
+      hint: true
+
+- name: events_overview
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :events_overview_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: timeframe
+      type: Select
+      hint: true
+      default: upcoming
+      settings:
+        select_values:
+          - ["Upcoming", "upcoming"]
+          - ["Past", "past"]
+          - ["All", "all"]
+    - role: display
+      type: Select
+      group: styling
+      hint: true
+      default: timeline
+      settings:
+        select_values:
+          - ["Timeline", "timeline"]
+          - ["Calendar", "calendar"]
+
 # --- Contact form element (Phase 2.2) ---
 
 - name: contactform
@@ -547,7 +577,6 @@
   ingredients:
     - role: subject
       type: Text
-      as_element_title: true
       hint: true
       default: :contactform_subject
     - role: mail_to

@@ -114,6 +114,62 @@ Alchemy::Element.where(name: "concept_intro")
       "<p>Thanks for reaching out — we'll be in touch. No real email was sent in this demo.</p>")
   end
 
+# Events: seed records for the custom Events module and wire the demo page
+events_data = [
+  ["Alchemy Contributor Summit", "Berlin, Germany", Time.utc(2026, 3, 14, 9), Time.utc(2026, 3, 15, 17),
+    "Two days of talks and hacking with the Alchemy core team and contributors."],
+  ["Ruby on Rails Meetup", "Cologne, Germany", Time.utc(2026, 5, 6, 18, 30), Time.utc(2026, 5, 6, 21),
+    "A casual evening of lightning talks about Rails and CMS development."],
+  ["CMS Field Day", "Amsterdam, Netherlands", Time.utc(2026, 6, 20, 10), Time.utc(2026, 6, 20, 16),
+    "Hands-on workshops on structuring content with Elements and Ingredients."],
+  ["Alchemy 8 Release Party", "Online", Time.utc(2026, 9, 30, 17), Time.utc(2026, 9, 30, 19),
+    "Celebrating the Alchemy 8 release with a live walkthrough of what's new."],
+  ["Content Modeling Workshop", "Hamburg, Germany", Time.utc(2026, 10, 22, 9, 30), Time.utc(2026, 10, 22, 13),
+    "Design custom modules and ingredients for real editorial workflows."],
+  ["Year-end Community Call", "Online", Time.utc(2026, 12, 10, 16), Time.utc(2026, 12, 10, 17),
+    "Roadmap, thanks and open Q&A to close out the year."]
+]
+locations = {}
+events = events_data.map do |name, location_name, starts_at, ends_at, description|
+  location = locations[location_name] ||= Location.create!(name: location_name)
+  Event.create!(name:, location:, starts_at:, ends_at:, description:)
+end
+
+Alchemy::Element.where(name: "concept_intro")
+  .joins(page_version: :page)
+  .where(alchemy_pages: {urlname: "events"})
+  .find_each do |element|
+    element.ingredient_by_role(:eyebrow)&.update!(value: "Advanced")
+    element.ingredient_by_role(:headline)&.update!(value: "Custom modules & Ingredients")
+    element.ingredient_by_role(:lead)&.update!(value:
+      "<p>Alchemy can be extended with your own admin <strong>modules</strong> and <strong>Ingredient</strong> types. This page manages a custom Event model in the admin and surfaces it two ways below.</p>")
+  end
+
+# Two overviews on the page: an upcoming timeline and a full calendar
+overviews = Alchemy::Element.where(name: "events_overview")
+  .joins(page_version: :page)
+  .where(alchemy_pages: {urlname: "events"})
+  .order(:position).to_a
+if (timeline = overviews[0])
+  timeline.ingredient_by_role(:headline)&.update!(value: "Upcoming events")
+  timeline.ingredient_by_role(:timeframe)&.update!(value: "upcoming")
+  timeline.ingredient_by_role(:display)&.update!(value: "timeline")
+end
+if (calendar = overviews[1])
+  calendar.ingredient_by_role(:headline)&.update!(value: "Full calendar")
+  calendar.ingredient_by_role(:timeframe)&.update!(value: "all")
+  calendar.ingredient_by_role(:display)&.update!(value: "calendar")
+end
+
+# Feature one event per teaser (the custom Event ingredient references a record)
+featured = events.select { |event| event.ends_at >= Time.current }.presence || events
+Alchemy::Element.where(name: "event_teaser")
+  .joins(page_version: :page)
+  .where(alchemy_pages: {urlname: "events"})
+  .order(:position).each_with_index do |teaser, index|
+    teaser.ingredient_by_role(:event)&.update!(related_object: featured[index % featured.size])
+  end
+
 puts "\nSeeding Users"
 puts "-------------"
 

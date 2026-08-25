@@ -1,0 +1,8 @@
+<ol class="relative space-y-6 border-l-2 border-accent-soft/50 pl-6">
+  <% events.each do |event| %>
+    <li class="relative">
+      <span class="absolute -left-[1.9rem] top-1.5 h-3 w-3 rounded-full bg-accent ring-4 ring-white"></span>
+      <%= render "alchemy/events/event", event: event %>
+    </li>
+  <% end %>
+</ol>

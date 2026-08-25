@@ -120,6 +120,20 @@
   autogenerate:
     - concept_intro
 
+- name: events
+  cache: false
+  elements:
+    - concept_intro
+    - events_overview
+    - event_teaser
+  autogenerate:
+    - concept_intro
+    - events_overview
+    - events_overview
+    - event_teaser
+    - event_teaser
+    - event_teaser
+
 # global pages
 
 - name: footer
