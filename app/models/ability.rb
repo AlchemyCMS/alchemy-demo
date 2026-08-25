@@ -13,6 +13,10 @@ class Ability
       can [:index], :alchemy_admin_sites
       can [:index], :alchemy_admin_users
 
+      # Custom Events module
+      can :manage, Event
+      can [:index], :admin_events
+
       # Controller actions
       can [:info, :update_check], :alchemy_admin_dashboard
       can :clear, :trash

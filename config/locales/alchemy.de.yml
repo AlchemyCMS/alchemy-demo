@@ -41,6 +41,8 @@ de:
       gallery_image: "Ein Bild in der Galerie: auf ein festes Seitenverhältnis zugeschnitten und responsiv per srcset ausgeliefert."
       post_header: "Der Kopf eines Blogartikels – Überschrift, Datum, Autor, Bild und Einleitung. Die Übersicht zeigt diese Felder als Teaser."
       contactform: "Ein Kontaktformular auf Basis von Alchemys eingebauten Messages. Lege Betreff, optionalen Empfänger und die Danke-Seite fest."
+      event_teaser: "Hebt ein einzelnes Event über einen eigenen Ingredient-Typ hervor, der einen Datensatz aus dem Events-Admin-Modul referenziert."
+      events_overview: "Listet viele Events direkt aus dem eigenen Event-Modell. Wähle Zeitraum und Layout – hier werden keine Event-Inhalte gespeichert."
 
     # Hint texts for contents
     content_hints:
@@ -76,6 +78,7 @@ de:
       post_header_author: "Das Alchemy-Team"
       post_header_intro: "<p>Eine kurze Einleitung zu diesem Beitrag.</p>"
       contactform_subject: "Neue Nachricht über das Kontaktformular"
+      events_overview_headline: "Events"
       code_sample_code: |
         - name: prose
           ingredients:
@@ -112,7 +115,14 @@ de:
       button_style: "Button-Farben, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       color: "Ein Color-Ingredient – wähle eine Markenfarbe oder eine eigene mit dem Farbwähler; wird als Hex-Wert gespeichert und als Inline-Style angewendet."
       label: "Der Link des Buttons; der sichtbare Text kommt aus dem Linktitel."
+      event: "Ein eigener Event-Ingredient. Sein Wert referenziert einen Event-Datensatz aus dem Events-Admin-Modul."
+      timeframe: "Welche Events gelistet werden, als Select-Wert gespeichert: kommende, vergangene oder alle."
+      display: "Wie die Liste dargestellt wird – als Timeline oder als kalenderartige Agenda."
 
     # Übersetzte Gruppen-Überschriften im Element-Editor
     element_groups:
       styling: "Gestaltung"
+
+    # Navigationsnamen eigener Admin-Module
+    modules:
+      events: "Veranstaltungen"

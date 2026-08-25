@@ -1,0 +1,15 @@
+<%= element_view_for(events_overview, class: "group") do |el| %>
+  <% events = Event.for_timeframe(el.value(:timeframe)) %>
+  <% display = el.has?(:display) ? el.value(:display) : "timeline" %>
+  <section class="mx-auto max-w-3xl px-4">
+    <%= el.render :headline, {}, { class: "font-display font-bold text-ink" } %>
+    <div class="mt-6">
+      <% if events.any? %>
+        <%= render "alchemy/elements/events_overview/#{display}", events: events %>
+      <% else %>
+        <p class="text-sm text-ink-soft/70">No events to show for this timeframe yet.</p>
+      <% end %>
+    </div>
+    <%= render "shared/reveal", element: events_overview %>
+  </section>
+<% end %>

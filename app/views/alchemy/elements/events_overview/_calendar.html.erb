@@ -1,0 +1,26 @@
+<div class="space-y-8">
+  <% events.group_by { |event| event.starts_at&.strftime("%B %Y") || "Undated" }.each do |month, month_events| %>
+    <div>
+      <h4 class="mb-3 font-display text-sm font-bold uppercase tracking-wide text-ink-soft"><%= month %></h4>
+      <ul class="space-y-3">
+        <% month_events.each do |event| %>
+          <li class="flex items-start gap-4 rounded-xl border border-accent-soft/40 bg-white p-4">
+            <div class="flex w-14 shrink-0 flex-col items-center rounded-lg bg-surface-violet py-2 text-center">
+              <span class="text-xs font-semibold uppercase text-accent"><%= event.starts_at&.strftime("%b") %></span>
+              <span class="text-xl font-bold leading-none text-ink"><%= event.starts_at&.strftime("%-d") %></span>
+            </div>
+            <div>
+              <p class="font-display font-bold text-ink"><%= event.name %></p>
+              <% if event.location %>
+                <p class="text-sm text-ink-soft">📍 <%= event.location.name %></p>
+              <% end %>
+              <% if event.description.present? %>
+                <p class="mt-1 text-sm/relaxed text-ink-soft"><%= event.description %></p>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
