@@ -182,6 +182,14 @@
       default: "#concepts"
       settings:
         text: Explore the tour
+    - role: background_image
+      type: Picture
+      hint: true
+      settings:
+        size: 1600x600
+        crop: true
+        srcset: [800x300, 1600x600]
+        sizes: ["100vw"]
     - role: background
       type: Select
       group: styling
@@ -192,6 +200,19 @@
           - ["Light blue", "bg-surface"]
           - ["Violet tint", "bg-surface-violet"]
           - ["White", "bg-white"]
+    - role: filter
+      type: Select
+      group: styling
+      hint: true
+      default: ""
+      settings:
+        select_values:
+          - ["None", ""]
+          - ["Grayscale", "grayscale"]
+          - ["Sepia", "sepia"]
+          - ["Blur", "blur-sm"]
+          - ["Dim", "brightness-75"]
+          - ["Saturate", "saturate-150"]
 
 - name: concept_grid
   unique: true
@@ -216,6 +237,9 @@
   compact: true
   hint: true
   ingredients:
+    - role: illustration
+      type: Picture
+      hint: true
     - role: title
       type: Headline
       hint: true

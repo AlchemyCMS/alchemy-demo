@@ -12,7 +12,7 @@ module Demo
     def seed!
       puts "\nSeeding demo pictures"
       puts "---------------------"
-      Dir.glob(IMAGES_DIR.join("*.{jpg,jpeg,png}")).sort.each do |path|
+      Dir.glob(IMAGES_DIR.join("*.{jpg,jpeg,png,svg}")).sort.each do |path|
         filename = File.basename(path)
         picture = Alchemy::Picture.new(name: File.basename(path, ".*"))
         # content type is inferred from the filename by Active Storage

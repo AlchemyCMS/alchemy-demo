@@ -19,8 +19,16 @@ if featured_picture
     .find_each { |ingredient| ingredient.update!(related_object: featured_picture) }
 end
 
+# Hero background image (demonstrates the background_image Picture + CSS filter)
+hero_photo = Alchemy::Picture.find_by(name: "photo-05") || Alchemy::Picture.first
+if hero_photo
+  Alchemy::Ingredients::Picture.joins(:element)
+    .where(alchemy_elements: {name: "hero"})
+    .find_each { |ingredient| ingredient.update!(related_object: hero_photo) }
+end
+
 # Give each gallery image one of the seeded photos (round-robin)
-gallery_pictures = Alchemy::Picture.order(:id).to_a
+gallery_pictures = Alchemy::Picture.where("name LIKE ?", "photo-%").order(:id).to_a
 if gallery_pictures.any?
   Alchemy::Ingredients::Picture.joins(:element)
     .where(alchemy_elements: { name: "gallery_image" })
@@ -36,15 +44,17 @@ Alchemy::Ingredients::Text.joins(:element)
 
 # Distinct content for the Home concept cards (autogenerate creates identical ones)
 [
-  ["Pages & Page Layouts", "<p>Every Page uses a Page Layout that decides which Elements it may contain.</p>"],
-  ["Elements", "<p>An Element is a reusable content block you place on a Page.</p>"],
-  ["Ingredients", "<p>Ingredients are the typed fields inside an Element — Text, Richtext, Picture, Link and more.</p>"],
-].each_with_index do |(title, description), index|
+  ["Pages & Page Layouts", "<p>Every Page uses a Page Layout that decides which Elements it may contain.</p>", "concept-pages"],
+  ["Elements", "<p>An Element is a reusable content block you place on a Page.</p>", "concept-elements"],
+  ["Ingredients", "<p>Ingredients are the typed fields inside an Element — Text, Richtext, Picture, Link and more.</p>", "concept-ingredients"],
+].each_with_index do |(title, description, illustration_name), index|
   card = Alchemy::Element.where(name: "concept_card").order(:position)[index]
   next unless card
 
   card.ingredient_by_role(:title)&.update(value: title)
   card.ingredient_by_role(:description)&.update(value: description)
+  illustration = Alchemy::Picture.find_by(name: illustration_name)
+  card.ingredient_by_role(:illustration)&.update!(related_object: illustration) if illustration
 end
 
 # Gallery-specific intro on the Galleries page (concept_intro is shared, so its
@@ -60,7 +70,7 @@ Alchemy::Element.where(name: "concept_intro")
   end
 
 # Blog: distinct article headers (+ a photo each) and the overview intro
-blog_photos = Alchemy::Picture.order(:id).to_a
+blog_photos = Alchemy::Picture.where("name LIKE ?", "photo-%").order(:id).to_a
 [
   ["blog/composing-content-with-elements", "Composing content with Elements", Date.new(2026, 6, 2),
     "<p>How a page is assembled from reusable Elements, each made of typed Ingredients.</p>"],

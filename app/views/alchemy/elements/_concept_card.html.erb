@@ -1,5 +1,8 @@
 <% cache(concept_card) do %>
 <%= element_view_for(concept_card, class: "rounded-xl border border-accent-soft/40 bg-white p-6 shadow-sm") do |el| %>
+  <% if concept_card.value_for(:illustration).present? %>
+    <%= el.render :illustration, {}, { class: "mb-4 w-full rounded-lg" } %>
+  <% end %>
   <%= el.render :title, {}, { class: "font-display font-semibold text-accent-dark" } %>
   <div class="mt-2 text-sm/6 text-ink-soft"><%= el.render :description %></div>
   <% if concept_card.value_for(:link).present? %>
