@@ -8,8 +8,13 @@
       type: Text
       default: "Made with ❤️ and AlchemyCMS"
 
-- name: social_button
+- name: footer_nav
   unique: true
+  hint: true
+  ingredients:
+    - role: menu
+      type: Node
+      hint: true
 
 # --- Guided tour elements (Phase 2.2) ---
 

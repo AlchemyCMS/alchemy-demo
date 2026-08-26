@@ -1,6 +1,0 @@
-<ul class="flex flex-col gap-2 md:items-end">
-  <%= render partial: options[:node_partial_name],
-    collection: menu.children.includes(:page, :children),
-    locals: { options: options },
-    as: 'node' %>
-</ul>
