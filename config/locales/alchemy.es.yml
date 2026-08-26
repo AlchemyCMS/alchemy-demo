@@ -30,7 +30,6 @@ es:
 
     # Hint texts for elements
     element_hints:
-      article: "Este es el texto de ayuda del elemento artículo. Puedes cambiar este texto en `config/locales/alchemy.en.yml`. Siéntete libre de cambiarlo a tu gusto, es tuyo."
       hero: "El banner de apertura de la página: un encabezado, una línea de apoyo y una llamada a la acción."
       concept_grid: "Una cuadrícula de tarjetas de concepto. Añade o quita tarjetas según necesites."
       concept_card: "Un concepto en la cuadrícula: título, breve descripción y enlace opcional."

@@ -30,7 +30,6 @@ de:
 
     # Hint texts for elements
     element_hints:
-      article: "Dies ist ein Hinweistext für das Artikel Element. Dieser Text kann in der `config/locales/alchemy.de.yml` Datei angepasst werden."
       hero: "Der Eröffnungs-Banner der Seite: Überschrift, ergänzende Zeile und Call-to-Action."
       concept_grid: "Ein Raster aus Konzeptkarten. Karten nach Bedarf hinzufügen oder entfernen."
       concept_card: "Ein Konzept im Raster: Titel, kurze Beschreibung und optionaler Link."

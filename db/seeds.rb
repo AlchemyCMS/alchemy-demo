@@ -37,11 +37,6 @@ if gallery_pictures.any?
     end
 end
 
-# Video assigments
-Alchemy::Ingredients::Text.joins(:element)
-  .where(alchemy_elements: { name: "video_slide" })
-  .update_all(value: "225795837")
-
 # Distinct content for the Home concept cards (autogenerate creates identical ones)
 [
   ["Pages & Page Layouts", "<p>Every Page uses a Page Layout that decides which Elements it may contain.</p>", "concept-pages"],
@@ -262,7 +257,7 @@ catalog = Alchemy::Element.where(name: "ingredient_catalog")
 if catalog
   elements_page = Alchemy::Page.find_by(urlname: "elements")
   main_nav_node = Alchemy::Node.roots.find_by(menu_type: "main_navigation")
-  catalog_photo = Alchemy::Picture.order(:id).first
+  catalog_photo = Alchemy::Picture.find_by(name: "photo-02") || Alchemy::Picture.where("name LIKE ?", "photo-%").first
   upcoming_event = Event.upcoming.first
   # file_name is derived from the Active Storage blob (not a queryable column)
   attachments = Alchemy::Attachment.all.to_a

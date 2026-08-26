@@ -1,9 +1,0 @@
-<%- cache(gallery_picture) do -%>
-  <%= element_view_for(gallery_picture, class: 'large-4 small-6 columns') do |el| -%>
-    <%= el.render :image %>
-
-    <div class="panel">
-      <h5><%= el.value(:caption) %></h5>
-    </div>
-  <%- end -%>
-<%- end -%>

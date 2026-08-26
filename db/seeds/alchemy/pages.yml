@@ -1,10 +1,7 @@
-- name: Intro
-  page_layout: intro
+- name: Welcome
+  page_layout: home
   public_on: 2019-04-02
   children:
-    - name: Welcome
-      page_layout: home
-      public_on: 2019-04-02
     - name: Elements
       page_layout: concept
       public_on: 2019-04-02
@@ -16,15 +13,6 @@
       public_on: 2019-04-02
     - name: Events
       page_layout: events
-      public_on: 2019-04-02
-    - name: Home
-      page_layout: standard
-      public_on: 2019-04-02
-    - name: About us
-      page_layout: content_page
-      public_on: 2019-04-02
-    - name: Products
-      page_layout: category
       public_on: 2019-04-02
     - name: Blog
       page_layout: blog_overview
