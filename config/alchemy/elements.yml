@@ -531,6 +531,73 @@
           tags: [p, br, strong, em, a]
           attributes: [href, target, rel, title]
 
+# --- Ingredients catalog element (Phase 2.2) ---
+
+- name: ingredient_catalog
+  unique: true
+  hint: true
+  ingredients:
+    - role: text
+      type: Text
+    - role: headline
+      type: Headline
+      settings:
+        levels: [3]
+        sizes: [4]
+    - role: richtext
+      type: Richtext
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: picture
+      type: Picture
+      settings:
+        size: 240x160
+        crop: true
+    - role: link
+      type: Link
+      settings:
+        text: An example link
+    - role: page
+      type: Page
+    - role: node
+      type: Node
+    - role: select
+      type: Select
+      settings:
+        select_values:
+          - ["First choice", "first"]
+          - ["Second choice", "second"]
+    - role: color
+      type: Color
+      settings:
+        custom_color: true
+    - role: datetime
+      type: Datetime
+    - role: boolean
+      type: Boolean
+    - role: number
+      type: Number
+    - role: html
+      type: Html
+    - role: audio
+      type: Audio
+      settings:
+        only: [mp3, ogg, wav]
+    - role: video
+      type: Video
+      settings:
+        only: [mp4, webm, ogv]
+    - role: file
+      type: File
+      settings:
+        only: [pdf, doc, docx, txt]
+    - role: event
+      type: Event
+
 # --- Events elements (Phase 2.2) ---
 
 - name: event_teaser

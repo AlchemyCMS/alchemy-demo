@@ -3,6 +3,10 @@ de:
     user_roles:
       demo: Demo
 
+    # Alchemy liefert Übersetzungen für viele MIME-Typen, aber nicht für Ogg
+    mime_types:
+      audio/ogg: Ogg-Audio
+
     # Translations for page layout names
     page_layout_names:
       index: Startseite
@@ -43,6 +47,7 @@ de:
       contactform: "Ein Kontaktformular auf Basis von Alchemys eingebauten Messages. Lege Betreff, optionalen Empfänger und die Danke-Seite fest."
       event_teaser: "Hebt ein einzelnes Event über einen eigenen Ingredient-Typ hervor, der einen Datensatz aus dem Events-Admin-Modul referenziert."
       events_overview: "Listet viele Events direkt aus dem eigenen Event-Modell. Wähle Zeitraum und Layout – hier werden keine Event-Inhalte gespeichert."
+      ingredient_catalog: "Ein Ingredient jedes eingebauten Typs (plus ein eigenes), damit du siehst, was jedes Ingredient speichert und ausgibt."
 
     # Hint texts for contents
     content_hints:

@@ -1,0 +1,86 @@
+<%= element_view_for(ingredient_catalog, class: "group") do |el| %>
+  <% descriptions = {
+    "Text" => "A single line of plain text.",
+    "Headline" => "A heading with a chosen level (h1–h6) and visual size.",
+    "Richtext" => "Formatted text, edited with TinyMCE.",
+    "Picture" => "A reference to an image, with cropping and srcset.",
+    "Link" => "A link to a page, URL, file or email.",
+    "Page" => "A reference to another Alchemy page.",
+    "Node" => "A reference to a menu node.",
+    "Select" => "One value chosen from a fixed list.",
+    "Color" => "A colour value, stored as a hex string.",
+    "Datetime" => "A date and time.",
+    "Boolean" => "A true/false checkbox.",
+    "Number" => "A numeric value.",
+    "Html" => "A raw HTML snippet.",
+    "Audio" => "An uploaded audio attachment, rendered as a player.",
+    "Video" => "An uploaded video attachment, rendered as a player.",
+    "File" => "A link to an uploaded file attachment.",
+    "Event" => "A custom ingredient type referencing an Event record."
+  } %>
+  <% credits = {
+    "audio" => "Music: Komiku — “Tale on the Late (Main Theme)”, released under CC0 via Wikimedia Commons. Thank you!",
+    "video" => "Clip: an aerial view of Mt Hood, released under CC0 via Wikimedia Commons. Thank you!",
+    "file" => "This sample document was written for this demo (public domain)."
+  } %>
+  <% groups = [
+    {
+      title: "Content ingredients",
+      intro: "These store their value directly in the ingredient. They cover most day-to-day editing — text, formatting, choices and simple values.",
+      roles: %w[text headline richtext select color datetime boolean number html]
+    },
+    {
+      title: "Media ingredients",
+      intro: "These reference an asset from the library — a picture, or an uploaded audio, video or file — rather than storing the media itself.",
+      roles: %w[picture audio video file]
+    },
+    {
+      title: "Reference ingredients",
+      intro: "These point at something else in the system: a link target, another page, a menu node, or a record from a custom model like our Event.",
+      roles: %w[link page node event]
+    }
+  ] %>
+  <div class="mx-auto max-w-4xl space-y-14 px-4">
+    <% groups.each do |group| %>
+      <section>
+        <h2 class="font-display text-2xl font-bold text-ink"><%= group[:title] %></h2>
+        <p class="mt-2 max-w-2xl text-ink-soft"><%= group[:intro] %></p>
+        <dl class="mt-6 divide-y divide-accent-soft/40 overflow-hidden rounded-xl border border-accent-soft/40 bg-white">
+          <% group[:roles].each do |role| %>
+            <% ingredient = ingredient_catalog.ingredient_by_role(role) %>
+            <% next unless ingredient %>
+            <% type = ingredient.class.name.demodulize %>
+            <div class="grid gap-2 p-5 md:grid-cols-[11rem_1fr] md:gap-6">
+              <dt>
+                <span class="inline-block rounded-md bg-surface-violet px-2 py-1 font-mono text-xs font-semibold text-accent-dark"><%= type %></span>
+                <p class="mt-2 text-xs text-ink-soft/80"><%= descriptions[type] %></p>
+              </dt>
+              <dd class="min-w-0 self-center text-ink-soft<%= " prose-content" unless type == "Node" %>">
+                <% if type == "Color" && ingredient.value.present? %>
+                  <span class="inline-flex items-center gap-2">
+                    <span class="inline-block h-4 w-4 rounded ring-1 ring-ink/10" style="background: <%= ingredient.value %>"></span>
+                    <span class="font-mono text-sm"><%= ingredient.value %></span>
+                  </span>
+                <% elsif type == "Node" %>
+                  <% rendered = el.render(role) %>
+                  <% if rendered.present? %>
+                    <ul class="flex flex-col gap-1"><%= rendered %></ul>
+                  <% else %>
+                    <%= content_tag(:span, "— not set in this environment —", class: "text-sm text-ink-soft/50") %>
+                  <% end %>
+                <% else %>
+                  <% rendered = el.render(role) %>
+                  <%= rendered.presence || content_tag(:span, "— not set in this environment —", class: "text-sm text-ink-soft/50") %>
+                <% end %>
+                <% if credits[role] && el.has?(role) %>
+                  <p class="mt-2 text-xs text-ink-soft/60"><%= credits[role] %></p>
+                <% end %>
+              </dd>
+            </div>
+          <% end %>
+        </dl>
+      </section>
+    <% end %>
+    <%= render "shared/reveal", element: ingredient_catalog %>
+  </div>
+<% end %>

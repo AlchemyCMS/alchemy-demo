@@ -91,6 +91,14 @@
     - concept_intro
     - image_gallery
 
+- name: ingredients
+  elements:
+    - concept_intro
+    - ingredient_catalog
+  autogenerate:
+    - concept_intro
+    - ingredient_catalog
+
 - name: blog_overview
   elements:
     - concept_intro
