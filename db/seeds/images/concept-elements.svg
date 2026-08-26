@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160" role="img" aria-label="A page divided into element areas">
+  <rect width="240" height="160" rx="14" fill="#dce6ff"/>
+  <!-- page frame -->
+  <rect x="52" y="20" width="136" height="120" rx="8" fill="#ffffff" stroke="#b59fdb" stroke-width="2"/>
+  <!-- element areas, marked with dashed outlines -->
+  <g stroke="#884cbe" stroke-width="2" stroke-dasharray="5 4" fill="#f3effa">
+    <rect x="62" y="30" width="116" height="24" rx="5"/>
+    <rect x="62" y="60" width="116" height="44" rx="5"/>
+    <rect x="62" y="110" width="116" height="22" rx="5"/>
+  </g>
+  <!-- headline element content -->
+  <rect x="68" y="38" width="74" height="8" rx="3" fill="#884cbe"/>
+  <!-- media + text element content -->
+  <rect x="68" y="66" width="32" height="32" rx="4" fill="#b59fdb"/>
+  <g fill="#e2daf1">
+    <rect x="106" y="68" width="64" height="7" rx="3"/>
+    <rect x="106" y="80" width="64" height="7" rx="3"/>
+    <rect x="106" y="92" width="42" height="7" rx="3"/>
+  </g>
+  <!-- text element content -->
+  <g fill="#e2daf1">
+    <rect x="68" y="116" width="104" height="6" rx="3"/>
+    <rect x="68" y="125" width="72" height="6" rx="3"/>
+  </g>
+</svg>

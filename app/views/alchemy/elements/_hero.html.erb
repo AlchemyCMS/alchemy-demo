@@ -1,9 +1,14 @@
 <% cache(hero) do %>
 <%= element_view_for(hero, class: "group") do |el| %>
-  <section class="<%= hero.value_for(:background) %>">
+  <% has_bg = hero.value_for(:background_image).present? %>
+  <section class="relative isolate overflow-hidden <%= hero.value_for(:background) unless has_bg %>">
+    <% if has_bg %>
+      <%= el.render :background_image, {}, { class: "absolute inset-0 -z-20 h-full w-full object-cover #{hero.value_for(:filter)}" } %>
+      <div class="absolute inset-0 -z-10 bg-ink/50"></div>
+    <% end %>
     <div class="mx-auto max-w-5xl px-4 py-24 text-center">
-      <%= el.render :headline, {}, { class: "font-display font-bold tracking-tight text-ink" } %>
-      <p class="mx-auto mt-6 max-w-2xl text-lg text-ink-soft"><%= el.render :subheadline %></p>
+      <%= el.render :headline, {}, { class: "font-display font-bold tracking-tight #{has_bg ? "text-white" : "text-ink"}" } %>
+      <p class="mx-auto mt-6 max-w-2xl text-lg <%= has_bg ? "text-white/90" : "text-ink-soft" %>"><%= el.render :subheadline %></p>
       <%= el.render :cta, {}, { class: "mt-8 inline-block rounded-lg bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-dark" } %>
     </div>
   </section>
