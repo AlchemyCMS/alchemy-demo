@@ -32,7 +32,6 @@ en:
 
     # Hint texts for elements
     element_hints:
-      article: "This is a hint text for the article element. You can change this text in `config/locales/alchemy.en.yml`. Feel free to change it as you like, it's yours."
       hero: "The page's opening banner: a headline, a supporting line and a call-to-action."
       concept_grid: "A grid of concept cards. Add or remove cards as needed."
       concept_card: "One concept in the grid: a title, a short description and an optional link."
