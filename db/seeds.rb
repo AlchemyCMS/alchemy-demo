@@ -1,8 +1,12 @@
 require "dotenv/load"
 require "demo/alchemy_picture_seeder"
+require "demo/alchemy_attachment_seeder"
 
 # Pictures
 Demo::AlchemyPictureSeeder.seed!
+
+# Attachments (audio/video/file for the Ingredients tour page)
+Demo::AlchemyAttachmentSeeder.seed!
 
 # Pages
 Alchemy::Seeder.seed!
@@ -240,6 +244,50 @@ YAML.load_file("./db/seeds/alchemy/pages.yml", permitted_classes: [Date]).each d
     puts "== Created menu entry: Admin Login"
   end
 end
+
+# Ingredients catalog: fill one ingredient of each type on the Ingredients page
+catalog = Alchemy::Element.where(name: "ingredient_catalog")
+  .joins(page_version: :page)
+  .where(alchemy_pages: {urlname: "ingredients"}).first
+if catalog
+  elements_page = Alchemy::Page.find_by(urlname: "elements")
+  main_nav_node = Alchemy::Node.roots.find_by(menu_type: "main_navigation")
+  catalog_photo = Alchemy::Picture.order(:id).first
+  upcoming_event = Event.upcoming.first
+  # file_name is derived from the Active Storage blob (not a queryable column)
+  attachments = Alchemy::Attachment.all.to_a
+  audio_att = attachments.find { |a| a.file_name.to_s.start_with?("sample-audio") }
+  video_att = attachments.find { |a| a.file_name.to_s.start_with?("sample-video") }
+  file_att = attachments.find { |a| a.file_name.to_s.start_with?("sample-document") }
+
+  catalog.ingredient_by_role(:text)&.update!(value: "A single line of text.")
+  catalog.ingredient_by_role(:headline)&.update!(value: "I am a Headline", level: 3, size: 4)
+  catalog.ingredient_by_role(:richtext)&.update!(value: '<p>Rich text with <strong>bold</strong> and a <a href="/elements">link</a>.</p>')
+  catalog.ingredient_by_role(:picture)&.update!(related_object: catalog_photo) if catalog_photo
+  catalog.ingredient_by_role(:link)&.update!(value: "/elements")
+  catalog.ingredient_by_role(:page)&.update!(related_object: elements_page) if elements_page
+  catalog.ingredient_by_role(:node)&.update!(related_object: main_nav_node) if main_nav_node
+  catalog.ingredient_by_role(:select)&.update!(value: "first")
+  catalog.ingredient_by_role(:color)&.update!(value: "#884cbe")
+  catalog.ingredient_by_role(:datetime)&.update!(value: Time.utc(2026, 6, 15, 14, 30))
+  catalog.ingredient_by_role(:boolean)&.update!(value: true)
+  catalog.ingredient_by_role(:number)&.update!(value: 42)
+  catalog.ingredient_by_role(:html)&.update!(value: "<mark>Highlighted with raw HTML</mark>")
+  catalog.ingredient_by_role(:audio)&.update!(related_object: audio_att, controls: true) if audio_att
+  catalog.ingredient_by_role(:video)&.update!(related_object: video_att, controls: true) if video_att
+  catalog.ingredient_by_role(:file)&.update!(related_object: file_att, link_text: "Download the sample document") if file_att
+  catalog.ingredient_by_role(:event)&.update!(related_object: upcoming_event) if upcoming_event
+end
+
+Alchemy::Element.where(name: "concept_intro")
+  .joins(page_version: :page)
+  .where(alchemy_pages: {urlname: "ingredients"})
+  .find_each do |element|
+    element.ingredient_by_role(:eyebrow)&.update!(value: "Core concept")
+    element.ingredient_by_role(:headline)&.update!(value: "Ingredients")
+    element.ingredient_by_role(:lead)&.update!(value:
+      "<p><strong>Ingredients</strong> are the typed fields inside an Element. Each one stores a specific kind of content. Here is one of every built-in type — plus a custom one.</p>")
+  end
 
 puts "\nPublish Pages"
 puts "-------------"

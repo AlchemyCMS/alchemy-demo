@@ -19,4 +19,20 @@ class PublishedPagesTest < ActionDispatch::IntegrationTest
       assert_response :success, "#{page.url_path} (#{page.name}) returned #{response.status}"
     end
   end
+
+  test "the ingredients catalog renders a row for every ingredient type" do
+    get "/ingredients"
+    assert_response :success
+
+    badges = css_select("dl dt span.font-mono").map(&:text)
+    %w[Text Headline Richtext Picture Link Page Node Select Color Datetime
+      Boolean Number Html Audio Video File Event].each do |type|
+      assert_includes badges, type, "catalog is missing a #{type} row"
+    end
+
+    headings = css_select("section h2").map(&:text)
+    ["Content ingredients", "Media ingredients", "Reference ingredients"].each do |title|
+      assert_includes headings, title, "catalog is missing the #{title.inspect} section"
+    end
+  end
 end
