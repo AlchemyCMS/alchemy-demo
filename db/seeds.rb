@@ -209,46 +209,66 @@ puts "== Created demo user"
 puts "\nSeeding Menus"
 puts "-------------"
 
-YAML.load_file("./db/seeds/alchemy/pages.yml", permitted_classes: [Date]).each do |page|
-  if page["layoutpage"]
-    name = "Footer Navigation"
-    type = "footer_navigation"
-  else
-    name = "Main Navigation"
-    type = "main_navigation"
-  end
+# Main navigation is built from the root page and its children
+YAML.load_file("./db/seeds/alchemy/pages.yml", permitted_classes: [Date])
+  .reject { |page| page["layoutpage"] }
+  .each do |page|
+    parent_page = Alchemy::Page.find_by!(name: page["name"], page_layout: page["page_layout"])
+    parent = Alchemy::Node.create!(
+      name: "Main Navigation",
+      menu_type: "main_navigation",
+      site: parent_page.site,
+      language: parent_page.language
+    )
+    puts "== Created menu: #{parent.name}"
 
-  parent_page = Alchemy::Page.find_by!(name: page["name"], page_layout: page["page_layout"])
-  parent = Alchemy::Node.create!(
-    name: name,
-    menu_type: type,
-    site: parent_page.site,
-    language: parent_page.language,
-  )
-  puts "== Created menu: #{parent.name}"
-
-  if page["children"]
-    page["children"].each do |child|
+    page["children"]&.each do |child|
       child_page = Alchemy::Page.find_by!(name: child["name"], page_layout: child["page_layout"])
       Alchemy::Node.create!(
         parent: parent,
         page: child_page,
         site: parent.site,
-        language: parent.language,
+        language: parent.language
       )
       puts "== Created menu entry: #{child_page.name}"
     end
-  else
+  end
+
+# Footer navigation menu: sections of links to Alchemy resources. It is editable
+# under Menus in the admin and referenced by the footer element's Node ingredient.
+footer_sections = [
+  ["Resources", [
+    ["Homepage", "https://alchemy-cms.com"],
+    ["Guides", "https://guides.alchemy-cms.com"],
+    ["Source code", "https://github.com/AlchemyCMS/alchemy_cms"],
+    ["Live demo", "https://demo.alchemy-cms.com"]
+  ]],
+  ["Community", [
+    ["Slack", "https://alchemy-cms.slack.com"],
+    ["Mastodon", "https://ruby.social/@alchemy_cms"],
+    ["Bluesky", "https://bsky.app/profile/alchemy-cms.com"],
+    ["GitHub", "https://github.com/AlchemyCMS"]
+  ]]
+]
+language = Alchemy::Language.default
+footer_menu = Alchemy::Node.create!(
+  name: "Footer Navigation", menu_type: "footer_navigation", site: language.site, language: language
+)
+footer_sections.each do |section_name, links|
+  section = Alchemy::Node.create!(
+    parent: footer_menu, name: section_name, site: language.site, language: language
+  )
+  links.each do |link_name, url|
     Alchemy::Node.create!(
-      parent: parent,
-      url: "/admin",
-      name: "Admin Login",
-      site: parent.site,
-      language: parent.language,
+      parent: section, name: link_name, url: url, external: true, site: language.site, language: language
     )
-    puts "== Created menu entry: Admin Login"
   end
 end
+puts "== Created footer navigation"
+
+# Point the footer element's Node ingredient at the footer navigation menu
+Alchemy::Page.find_by(page_layout: "footer")&.draft_version&.elements
+  &.find_by(name: "footer_nav")&.ingredient_by_role(:menu)&.update!(related_object: footer_menu)
 
 # Ingredients catalog: fill one ingredient of each type on the Ingredients page
 catalog = Alchemy::Element.where(name: "ingredient_catalog")

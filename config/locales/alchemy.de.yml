@@ -47,6 +47,7 @@ de:
       event_teaser: "Hebt ein einzelnes Event über einen eigenen Ingredient-Typ hervor, der einen Datensatz aus dem Events-Admin-Modul referenziert."
       events_overview: "Listet viele Events direkt aus dem eigenen Event-Modell. Wähle Zeitraum und Layout – hier werden keine Event-Inhalte gespeichert."
       ingredient_catalog: "Ein Ingredient jedes eingebauten Typs (plus ein eigenes), damit du siehst, was jedes Ingredient speichert und ausgibt."
+      footer_nav: "Die Link-Spalten des Footers, aus einem Menü – dessen Bereiche werden Spalten und deren Unterpunkte Links."
 
     # Hint texts for contents
     content_hints:
@@ -119,6 +120,7 @@ de:
       background: "Hintergrund-Stil, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       background_image: "Ein optionales Hintergrundbild, ganzflächig hinter dem Hero-Text mit dunkler Überlagerung."
       filter: "Ein CSS-Filter für das Hintergrundbild, als Tailwind-Klasse gespeichert."
+      menu: "Das anzuzeigende Menü. Seine Bereiche (oberste Knoten) werden Spalten, deren Unterpunkte Links; bearbeitbar unter Menüs."
       button_style: "Button-Farben, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       color: "Ein Color-Ingredient – wähle eine Markenfarbe oder eine eigene mit dem Farbwähler; wird als Hex-Wert gespeichert und als Inline-Style angewendet."
       label: "Der Link des Buttons; der sichtbare Text kommt aus dem Linktitel."

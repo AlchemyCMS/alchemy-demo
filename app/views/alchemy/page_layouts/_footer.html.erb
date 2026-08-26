@@ -1,1 +1,5 @@
-<%= render 'alchemy/page_layouts/content_page', page: page %>
+<%# The Footer is a global (layout) page; this partial is only used for its admin
+   preview. The elements themselves are rendered site-wide via shared/_footer. %>
+<main class="mx-auto max-w-5xl px-4 py-12">
+  <%= render_elements %>
+</main>

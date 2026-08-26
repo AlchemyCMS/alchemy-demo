@@ -95,6 +95,7 @@
   layoutpage: true
   elements:
     - footer_note
-    - social_button
+    - footer_nav
   autogenerate:
     - footer_note
+    - footer_nav
