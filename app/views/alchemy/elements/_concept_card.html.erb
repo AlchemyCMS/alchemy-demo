@@ -5,9 +5,9 @@
   <% end %>
   <%= el.render :title, {}, { class: "font-display font-semibold text-accent-dark" } %>
   <div class="mt-2 text-sm/6 text-ink-soft"><%= el.render :description %></div>
-  <% if concept_card.value_for(:link).present? %>
+  <% if concept_card.ingredient_by_role(:link)&.link.present? %>
     <p class="mt-4">
-      <%= el.render :link, {}, { class: "text-sm font-medium text-accent hover:text-accent-dark" } %>
+      <%= el.render :link, {}, { class: "text-sm font-medium text-accent transition-colors hover:text-accent-dark after:ml-1 after:inline-block after:content-['→'] after:transition-transform hover:after:translate-x-1" } %>
     </p>
   <% end %>
 <% end %>

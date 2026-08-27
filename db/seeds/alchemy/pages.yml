@@ -2,6 +2,9 @@
   page_layout: home
   public_on: 2019-04-02
   children:
+    - name: Pages
+      page_layout: pages
+      public_on: 2019-04-02
     - name: Elements
       page_layout: concept
       public_on: 2019-04-02

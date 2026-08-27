@@ -91,7 +91,6 @@
         sizes: [2, 3]
 
 - name: concept_card
-  compact: true
   hint: true
   ingredients:
     - role: illustration
@@ -117,10 +116,11 @@
           tags: [p, br, strong, em, a]
           attributes: [href, target, rel, title]
     - role: link
-      type: Link
+      type: Text
       hint: true
+      default: Learn more
       settings:
-        text: Learn more
+        linkable: true
 
 - name: cta
   unique: true
