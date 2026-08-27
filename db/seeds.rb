@@ -39,15 +39,16 @@ end
 
 # Distinct content for the Home concept cards (autogenerate creates identical ones)
 [
-  ["Pages & Page Layouts", "<p>Every Page uses a Page Layout that decides which Elements it may contain.</p>", "concept-pages"],
-  ["Elements", "<p>An Element is a reusable content block you place on a Page.</p>", "concept-elements"],
-  ["Ingredients", "<p>Ingredients are the typed fields inside an Element — Text, Richtext, Picture, Link and more.</p>", "concept-ingredients"],
-].each_with_index do |(title, description, illustration_name), index|
+  ["Pages & Page Layouts", "<p>Every Page uses a Page Layout that decides which Elements it may contain.</p>", "concept-pages", "/pages"],
+  ["Elements", "<p>An Element is a reusable content block you place on a Page.</p>", "concept-elements", "/elements"],
+  ["Ingredients", "<p>Ingredients are the typed fields inside an Element — Text, Richtext, Picture, Link and more.</p>", "concept-ingredients", "/ingredients"],
+].each_with_index do |(title, description, illustration_name, link_path), index|
   card = Alchemy::Element.where(name: "concept_card").order(:position)[index]
   next unless card
 
   card.ingredient_by_role(:title)&.update(value: title)
   card.ingredient_by_role(:description)&.update(value: description)
+  card.ingredient_by_role(:link)&.update!(value: "Learn more", link: link_path)
   illustration = Alchemy::Picture.find_by(name: illustration_name)
   card.ingredient_by_role(:illustration)&.update!(related_object: illustration) if illustration
 end
@@ -313,6 +314,46 @@ Alchemy::Element.where(name: "concept_intro")
     element.ingredient_by_role(:lead)&.update!(value:
       "<p><strong>Ingredients</strong> are the typed fields inside an Element. Each one stores a specific kind of content. Here is one of every built-in type — plus a custom one.</p>")
   end
+
+# Pages concept page: page layouts, the draft/publish workflow, scheduling and access control
+pages_scope = Alchemy::Element.joins(page_version: :page).where(alchemy_pages: {urlname: "pages"})
+pages_scope.where(name: "concept_intro").find_each do |el|
+  el.ingredient_by_role(:eyebrow)&.update!(value: "Core concept")
+  el.ingredient_by_role(:headline)&.update!(value: "Pages & Page Layouts")
+  el.ingredient_by_role(:lead)&.update!(value:
+    "<p>Every Page has a <strong>Page Layout</strong> that decides which Elements it may contain. Pages are versioned, can be scheduled, and can be restricted to certain roles.</p>")
+end
+pages_scope.where(name: "prose").find_each do |el|
+  el.ingredient_by_role(:headline)&.update!(value: "Draft and publish")
+  el.ingredient_by_role(:text)&.update!(value:
+    "<p>Every Page keeps two versions: a <strong>draft</strong> you edit and a <strong>public</strong> version visitors see. Publishing copies the draft over the public version, so work in progress never leaks — and you can preview the draft in the admin any time.</p><ul><li>Edit the draft freely.</li><li>Preview it privately.</li><li>Publish when it's ready.</li></ul>")
+end
+pages_callouts = pages_scope.where(name: "callout").order(:position).to_a
+if (c = pages_callouts[0])
+  c.ingredient_by_role(:variant)&.update!(value: "info")
+  c.ingredient_by_role(:text)&.update!(value:
+    "<p><strong>Scheduled publishing.</strong> Set <em>public_on</em> to make a Page go live at a future time, and <em>public_until</em> to retire it automatically — ideal for embargoed news or time-limited campaigns.</p>")
+end
+if (c = pages_callouts[1])
+  c.ingredient_by_role(:variant)&.update!(value: "tip")
+  c.ingredient_by_role(:text)&.update!(value:
+    "<p><strong>Restricted pages.</strong> Mark a Page as <em>restricted</em> and choose its <em>permitted roles</em>, so only signed-in users with those roles can see it — perfect for members-only or internal content.</p>")
+end
+pages_scope.where(name: "code_sample").find_each do |el|
+  el.ingredient_by_role(:caption)&.update!(value: "config/alchemy/page_layouts.yml")
+  el.ingredient_by_role(:language)&.update!(value: "yaml")
+  el.ingredient_by_role(:code)&.update!(value: <<~YAML)
+    - name: article
+      cache: false
+      elements: [post_header, prose]
+
+    # A Page can also be scheduled and access-controlled:
+    #   public_on:       2026-09-01 09:00   # goes live
+    #   public_until:    2026-12-31 23:59   # retires automatically
+    #   restricted:      true               # signed-in visitors only
+    #   permitted_roles: [member]           # ...with one of these roles
+  YAML
+end
 
 puts "\nPublish Pages"
 puts "-------------"
