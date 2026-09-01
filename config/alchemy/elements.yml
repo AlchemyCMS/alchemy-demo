@@ -301,6 +301,28 @@
           tags: [p, br, strong, em, a]
           attributes: [href, target, rel, title]
 
+- name: scheduled_note
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      settings:
+        levels: [2, 3]
+        sizes: [3, 4]
+    - role: text
+      type: Richtext
+      hint: true
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: illustration
+      type: Picture
+      hint: true
+
 - name: code_sample
   hint: true
   ingredients:

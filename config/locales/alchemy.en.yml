@@ -50,6 +50,7 @@ en:
       events_overview: "Lists many Events straight from the custom Event model. Pick a timeframe and a layout — no per-event content is stored here."
       ingredient_catalog: "One ingredient of every built-in type (plus a custom one), so you can see what each Ingredient stores and renders."
       footer_nav: "The footer's link columns, pulled from a menu — its sections become columns and their children become links."
+      scheduled_note: "A highlighted note with an illustration. Give it a start and end date to show it only within a time window."
 
     # Hint texts for contents
     content_hints:

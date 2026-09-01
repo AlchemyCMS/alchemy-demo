@@ -34,12 +34,14 @@
     - prose
     - image_text
     - callout
+    - scheduled_note
     - code_sample
   autogenerate:
     - concept_intro
     - prose
     - image_text
     - callout
+    - scheduled_note
     - code_sample
 
 - name: gallery_page

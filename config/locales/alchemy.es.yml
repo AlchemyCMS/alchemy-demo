@@ -48,6 +48,7 @@ es:
       events_overview: "Lista muchos Eventos directamente desde el modelo Event propio. Elige un periodo y un diseño; aquí no se guarda contenido por evento."
       ingredient_catalog: "Un ingredient de cada tipo integrado (más uno propio), para ver qué guarda y cómo se muestra cada Ingredient."
       footer_nav: "Las columnas de enlaces del pie, tomadas de un menú: sus secciones son columnas y sus hijos, enlaces."
+      scheduled_note: "Una nota destacada con ilustración. Con una fecha de inicio y fin se muestra solo en una ventana de tiempo."
 
     # Hint texts for contents
     content_hints:

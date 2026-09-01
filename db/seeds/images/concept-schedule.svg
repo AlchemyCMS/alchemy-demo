@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160" role="img" aria-label="A scheduled element">
+  <rect width="240" height="160" rx="14" fill="#dce6ff"/>
+  <!-- calendar -->
+  <rect x="44" y="42" width="108" height="90" rx="10" fill="#ffffff" stroke="#b59fdb" stroke-width="2"/>
+  <path d="M44 52a10 10 0 0 1 10-10h88a10 10 0 0 1 10 10v10H44z" fill="#884cbe"/>
+  <rect x="64" y="36" width="6" height="14" rx="3" fill="#6d3a99"/>
+  <rect x="126" y="36" width="6" height="14" rx="3" fill="#6d3a99"/>
+  <g fill="#e7e0f4">
+    <rect x="56" y="74" width="16" height="12" rx="2"/>
+    <rect x="80" y="74" width="16" height="12" rx="2"/>
+    <rect x="104" y="74" width="16" height="12" rx="2"/>
+    <rect x="56" y="94" width="16" height="12" rx="2"/>
+    <rect x="80" y="94" width="16" height="12" rx="2" fill="#b59fdb"/>
+    <rect x="104" y="94" width="16" height="12" rx="2"/>
+  </g>
+  <!-- clock badge -->
+  <circle cx="172" cy="110" r="28" fill="#ffffff" stroke="#884cbe" stroke-width="3"/>
+  <path d="M172 110V94M172 110l12 6" stroke="#884cbe" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="172" cy="110" r="3" fill="#884cbe"/>
+</svg>

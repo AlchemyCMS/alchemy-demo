@@ -1,0 +1,14 @@
+<%= element_view_for(scheduled_note, class: "group") do |el| %>
+  <section class="mx-auto max-w-3xl px-4">
+    <div class="flex flex-col items-center gap-6 rounded-2xl border border-accent-soft/40 bg-surface-violet/50 p-6 sm:flex-row">
+      <% if scheduled_note.value_for(:illustration).present? %>
+        <%= el.render :illustration, {}, { class: "h-28 w-auto shrink-0" } %>
+      <% end %>
+      <div>
+        <%= el.render :headline, {}, { class: "font-display font-bold text-ink" } %>
+        <div class="prose-content mt-2 text-ink-soft"><%= el.render :text %></div>
+      </div>
+    </div>
+    <%= render "shared/reveal", element: scheduled_note %>
+  </section>
+<% end %>
