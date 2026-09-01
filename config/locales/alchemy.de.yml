@@ -48,6 +48,7 @@ de:
       events_overview: "Listet viele Events direkt aus dem eigenen Event-Modell. Wähle Zeitraum und Layout – hier werden keine Event-Inhalte gespeichert."
       ingredient_catalog: "Ein Ingredient jedes eingebauten Typs (plus ein eigenes), damit du siehst, was jedes Ingredient speichert und ausgibt."
       footer_nav: "Die Link-Spalten des Footers, aus einem Menü – dessen Bereiche werden Spalten und deren Unterpunkte Links."
+      scheduled_note: "Ein hervorgehobener Hinweis mit Illustration. Über ein Start- und Enddatum nur in einem Zeitfenster sichtbar."
 
     # Hint texts for contents
     content_hints:

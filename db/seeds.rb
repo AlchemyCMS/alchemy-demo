@@ -315,6 +315,18 @@ Alchemy::Element.where(name: "concept_intro")
       "<p><strong>Ingredients</strong> are the typed fields inside an Element. Each one stores a specific kind of content. Here is one of every built-in type — plus a custom one.</p>")
   end
 
+# Elements page: demonstrate time-based element visibility with a scheduled note
+scheduled_note = Alchemy::Element.joins(page_version: :page)
+  .where(name: "scheduled_note", alchemy_pages: {urlname: "elements"}).first
+if scheduled_note
+  scheduled_note.ingredient_by_role(:headline)&.update!(value: "Scheduled elements", level: 2, size: 3)
+  scheduled_note.ingredient_by_role(:text)&.update!(value:
+    "<p>Every Element can be given its own <strong>start and end date</strong>, so content appears and disappears on schedule — a launch banner, a seasonal promo. This very note is scheduled (visible 2026–2030); after its end date it would simply drop off the page.</p>")
+  sched_illustration = Alchemy::Picture.find_by(name: "concept-schedule")
+  scheduled_note.ingredient_by_role(:illustration)&.update!(related_object: sched_illustration) if sched_illustration
+  scheduled_note.update!(public_on: Time.utc(2026, 1, 1), public_until: Time.utc(2030, 1, 1))
+end
+
 # Pages concept page: page layouts, the draft/publish workflow, scheduling and access control
 pages_scope = Alchemy::Element.joins(page_version: :page).where(alchemy_pages: {urlname: "pages"})
 pages_scope.where(name: "concept_intro").find_each do |el|
@@ -332,7 +344,7 @@ pages_callouts = pages_scope.where(name: "callout").order(:position).to_a
 if (c = pages_callouts[0])
   c.ingredient_by_role(:variant)&.update!(value: "info")
   c.ingredient_by_role(:text)&.update!(value:
-    "<p><strong>Scheduled publishing.</strong> Set <em>public_on</em> to make a Page go live at a future time, and <em>public_until</em> to retire it automatically — ideal for embargoed news or time-limited campaigns.</p>")
+    "<p><strong>Scheduled publishing.</strong> Give a Page a <strong>go-live date</strong> to publish it automatically at a future time, and an <strong>end date</strong> to retire it — ideal for embargoed news or time-limited campaigns.</p>")
 end
 if (c = pages_callouts[1])
   c.ingredient_by_role(:variant)&.update!(value: "tip")
