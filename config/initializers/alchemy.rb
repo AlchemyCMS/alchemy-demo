@@ -159,7 +159,13 @@ Alchemy.configure do |config|
   #     user_roles:
   #       rolename: Name of the role
   #
-  # config.user_roles = ["member", "author", "editor", "admin"]
+  config.user_roles = %w[
+    member
+    author
+    editor
+    admin
+    demo
+  ]
 
   # === Uploader Settings
   #
