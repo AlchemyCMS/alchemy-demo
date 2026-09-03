@@ -1,5 +1,5 @@
 <%- cache(gallery) do -%>
   <%= element_view_for(gallery, class: 'row') do |el| -%>
-    <%= render gallery.nested_elements %>
+    <%= render el.nested_elements %>
   <%- end -%>
 <%- end -%>

@@ -3,9 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 
-gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "8.3-stable"
-gem "alchemy-devise", "~> 8.0"
-gem "alchemy_i18n", "~> 8.3"
+gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "8.4-stable"
+gem "alchemy-devise", github: "AlchemyCMS/alchemy-devise", branch: "8.4-stable"
+gem "alchemy_i18n", github: "AlchemyCMS/alchemy_i18n", branch: "8.4-stable"
 gem "alchemy_cloudinary", "~> 4.0"
 gem "alchemy-sentry", "~> 2.0"
 
@@ -53,3 +53,5 @@ group :production do
 end
 
 gem "newrelic_rpm", "~> 10.7"
+
+gem "dragonfly", "~> 1.4"

@@ -1,9 +1,19 @@
 GIT
-  remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 3a2df4027f52ddb4b0d61d822ca72b891c82fcaa
-  branch: 8.3-stable
+  remote: https://github.com/AlchemyCMS/alchemy-devise.git
+  revision: 73d062f1664df9cab034fa3190973470a657b839
+  branch: 8.4-stable
   specs:
-    alchemy_cms (8.3.8)
+    alchemy-devise (8.4.0)
+      alchemy_cms (>= 8.4.0.a, < 9.0)
+      devise (>= 4.9, < 6.0)
+      flickwerk (~> 0.3.6)
+
+GIT
+  remote: https://github.com/AlchemyCMS/alchemy_cms.git
+  revision: 307a5f47679c2b839ff0ab6b63bcd243c9f704f9
+  branch: 8.4-stable
+  specs:
+    alchemy_cms (8.4.0.a)
       actionmailer (>= 7.2, < 8.2)
       actionpack (>= 7.2, < 8.2)
       actionview (>= 7.2, < 8.2)
@@ -17,7 +27,6 @@ GIT
       awesome_nested_set (>= 3.9.0, < 4.0)
       cancancan (>= 2.1, < 4.0)
       csv (~> 3.3)
-      dragonfly (~> 1.4)
       gutentag (>= 2.2.1, < 4.0)
       image_processing (>= 1.14, < 3.0)
       importmap-rails (~> 2.0)
@@ -28,6 +37,15 @@ GIT
       simple_form (>= 4.0, < 6)
       turbo-rails (>= 1.4, < 2.1)
       view_component (>= 3, < 5)
+
+GIT
+  remote: https://github.com/AlchemyCMS/alchemy_i18n.git
+  revision: 2596e105257fad6931aedefa6979cb472f574f0a
+  branch: 8.4-stable
+  specs:
+    alchemy_i18n (8.4.0)
+      alchemy_cms (>= 8.0.0.c, < 9)
+      rails-i18n
 
 GEM
   remote: https://rubygems.org/
@@ -116,10 +134,6 @@ GEM
       activesupport (>= 6.1)
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
-    alchemy-devise (8.3.0)
-      alchemy_cms (>= 8.3.0, < 9.0)
-      devise (>= 4.9, < 6.0)
-      flickwerk (~> 0.3.6)
     alchemy-sentry (2.0.0)
       alchemy_cms (>= 7, < 9)
       sentry-rails (~> 6.0)
@@ -127,9 +141,6 @@ GEM
     alchemy_cloudinary (4.0.0)
       alchemy_cms (>= 8.0.0.c, < 9.0)
       cloudinary (~> 2.0)
-    alchemy_i18n (8.3.0)
-      alchemy_cms (>= 8.0.0.c, < 9)
-      rails-i18n
     awesome_nested_set (3.9.0)
       activerecord (>= 4.0.0, < 8.2)
     base64 (0.3.0)
@@ -266,7 +277,6 @@ GEM
     marcel (1.2.1)
     method_source (1.1.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
     minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
@@ -292,9 +302,6 @@ GEM
     newrelic_rpm (10.7.1)
       logger
     nio4r (2.7.5)
-    nokogiri (1.19.4)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.19.4-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.19.4-arm64-darwin)
@@ -418,8 +425,6 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (2.9.6)
-      mini_portile2 (~> 2.8.0)
     sqlite3 (2.9.6-aarch64-linux-gnu)
     sqlite3 (2.9.6-arm64-darwin)
     sqlite3 (2.9.6-x86_64-linux-gnu)
@@ -467,20 +472,21 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm64-darwin-23
   arm64-darwin-25
-  ruby
   x86_64-linux
 
 DEPENDENCIES
-  alchemy-devise (~> 8.0)
+  alchemy-devise!
   alchemy-sentry (~> 2.0)
   alchemy_cloudinary (~> 4.0)
   alchemy_cms!
-  alchemy_i18n (~> 8.3)
+  alchemy_i18n!
   bootsnap (>= 1.1.0)
   connection_pool (~> 3.0)
   database_cleaner (~> 2.0)
   dotenv-rails (~> 3.1)
+  dragonfly (~> 1.4)
   health_bit (~> 0.2)
   jquery-rails (~> 4.6)
   kamal (~> 2.0)

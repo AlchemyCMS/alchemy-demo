@@ -28,10 +28,12 @@ Alchemy.configure do |config|
   #
   #   show_root [Boolean] # Show language root page in sitemap?
   #   show_flag [Boolean] # Enables the Checkbox in Page#update overlay. So your customer can set the visibility of pages in the sitemap.
+  #   max_age [Integer]   # How long the sitemap is cached, in seconds. Set to 0 to disable sitemap caching.
   #
   # config.sitemap.tap do |sitemap|
   #   sitemap.show_root = true
   #   sitemap.show_flag = false
+  #   sitemap.max_age = 3600
   # end
 
   # === Default items per page in admin views
@@ -100,8 +102,8 @@ Alchemy.configure do |config|
   config.default_language.tap do |default_language|
     default_language.code = "en"
     default_language.name = "English"
-    default_language.page_layout = "intro"
-    default_language.frontpage_name = "Index"
+    # default_language.page_layout = "index"
+    # default_language.frontpage_name = "Index"
   end
 
   # === Mailer Settings:
@@ -157,7 +159,7 @@ Alchemy.configure do |config|
   #     user_roles:
   #       rolename: Name of the role
   #
-  config.user_roles = ["member", "author", "editor", "demo", "admin"]
+  # config.user_roles = ["member", "author", "editor", "admin"]
 
   # === Uploader Settings
   #
@@ -177,14 +179,11 @@ Alchemy.configure do |config|
 
   # === Link Target Options
   #
-  # Values for the link target selectbox inside the page link overlay.
-  # The value gets attached as a data-link-target attribute to the link.
+  # Values for the link target selectbox inside the link dialog.
   #
-  # == Example:
-  #
-  # Open all links set to overlay inside an jQuery UI Dialog Window.
-  #
-  #   jQuery(a[data-link-target="overlay"]).dialog();
+  # Each value is stored with a leading underscore, so that it can be used as
+  # the link's `target` attribute right away: `blank` is stored as `_blank` and
+  # rendered as `target="_blank"`.
   #
   # config.link_target_options = ["blank"]
 
@@ -268,6 +267,4 @@ Alchemy.configure do |config|
   # without overwriting or defacing the Admin Interface.
   #
   # config.link_dialog_tabs << "Acme::LinkTab"
-
-  config.abilities.add("Ability")
 end
