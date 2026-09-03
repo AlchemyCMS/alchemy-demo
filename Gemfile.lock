@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 49414e6defc4a09d7cde52fa0de9a5e08e731fa5
+  revision: 3a2df4027f52ddb4b0d61d822ca72b891c82fcaa
   branch: 8.3-stable
   specs:
-    alchemy_cms (8.3.7)
+    alchemy_cms (8.3.8)
       actionmailer (>= 7.2, < 8.2)
       actionpack (>= 7.2, < 8.2)
       actionview (>= 7.2, < 8.2)
@@ -204,7 +204,7 @@ GEM
       rack
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    image_processing (2.0.3)
+    image_processing (2.1.0)
     importmap-rails (2.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
