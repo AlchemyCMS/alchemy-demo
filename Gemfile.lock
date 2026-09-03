@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AlchemyCMS/alchemy-devise.git
-  revision: 73d062f1664df9cab034fa3190973470a657b839
+  revision: d472f0adb0d1b653ce5c2be9116fe2710928641c
   branch: 8.4-stable
   specs:
     alchemy-devise (8.4.0)
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 307a5f47679c2b839ff0ab6b63bcd243c9f704f9
+  revision: b741e3a2ca6cc4c71e20a22764cc8e972f177be6
   branch: 8.4-stable
   specs:
     alchemy_cms (8.4.0.a)
@@ -190,7 +190,8 @@ GEM
     ed25519 (1.4.0)
     erb (6.0.7)
     erubi (1.13.1)
-    execjs (2.10.1)
+    execjs (2.10.2)
+      json (>= 2)
     faraday (2.14.3)
       faraday-net_http (>= 2.0, < 3.5)
       json
@@ -390,7 +391,7 @@ GEM
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
-    responders (3.2.0)
+    responders (3.2.1)
       actionpack (>= 7.0)
       railties (>= 7.0)
     sass (3.7.4)
@@ -407,18 +408,18 @@ GEM
       sprockets-rails
       tilt
     securerandom (0.4.1)
-    sentry-rails (6.6.2)
+    sentry-rails (6.7.0)
       railties (>= 5.2.0)
-      sentry-ruby (~> 6.6.2)
-    sentry-ruby (6.6.2)
+      sentry-ruby (~> 6.7.0)
+    sentry-ruby (6.7.0)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       logger
     simple_form (5.4.1)
       actionpack (>= 7.0)
       activemodel (>= 7.0)
-    sprockets (4.2.2)
-      concurrent-ruby (~> 1.0)
+    sprockets (4.4.1)
+      concurrent-ruby (~> 1.1)
       logger
       rack (>= 2.2.4, < 4)
     sprockets-rails (3.5.2)
@@ -440,7 +441,7 @@ GEM
     thruster (0.1.26-aarch64-linux)
     thruster (0.1.26-arm64-darwin)
     thruster (0.1.26-x86_64-linux)
-    tilt (2.8.0)
+    tilt (2.9.0)
     timeout (0.6.1)
     tsort (0.2.0)
     turbo-rails (2.0.23)
