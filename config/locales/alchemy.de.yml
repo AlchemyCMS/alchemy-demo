@@ -49,6 +49,7 @@ de:
       ingredient_catalog: "Ein Ingredient jedes eingebauten Typs (plus ein eigenes), damit du siehst, was jedes Ingredient speichert und ausgibt."
       footer_nav: "Die Link-Spalten des Footers, aus einem Menü – dessen Bereiche werden Spalten und deren Unterpunkte Links."
       scheduled_note: "Ein hervorgehobener Hinweis mit Illustration. Über ein Start- und Enddatum nur in einem Zeitfenster sichtbar."
+      section: "Ein Abschnitt über die volle Breite mit eigenem Hintergrund und vertikalem Abstand. Verschachtele Inhalts-Elemente darin, um sie zu gruppieren."
 
     # Hint texts for contents
     content_hints:
@@ -120,6 +121,7 @@ de:
       success_page: "Die Seite, zu der nach dem Senden weitergeleitet wird."
       background: "Hintergrund-Stil, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
       background_image: "Ein optionales Hintergrundbild, ganzflächig hinter dem Hero-Text mit dunkler Überlagerung."
+      spacing: "Der vertikale Innenabstand des Abschnitts (oben und unten), gespeichert als Tailwind-Klasse."
       filter: "Ein CSS-Filter für das Hintergrundbild, als Tailwind-Klasse gespeichert."
       menu: "Das anzuzeigende Menü. Seine Bereiche (oberste Knoten) werden Spalten, deren Unterpunkte Links; bearbeitbar unter Menüs."
       button_style: "Button-Farben, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."

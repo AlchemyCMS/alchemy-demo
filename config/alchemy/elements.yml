@@ -18,6 +18,42 @@
 
 # --- Guided tour elements (Phase 2.2) ---
 
+- name: section
+  hint: true
+  nestable_elements:
+    - concept_intro
+    - prose
+    - image_text
+    - callout
+    - scheduled_note
+    - code_sample
+  autogenerate:
+    - prose
+  ingredients:
+    - role: background
+      type: Select
+      group: styling
+      hint: true
+      default: bg-white
+      settings:
+        select_values:
+          - ["White", "bg-white"]
+          - ["Faint grey", "bg-surface-faint"]
+          - ["Light grey", "bg-surface-grey"]
+          - ["Violet tint", "bg-surface-violet"]
+          - ["Light blue", "bg-surface"]
+    - role: spacing
+      type: Select
+      group: styling
+      hint: true
+      default: py-16
+      settings:
+        select_values:
+          - ["None", "py-0"]
+          - ["Small", "py-8"]
+          - ["Medium", "py-16"]
+          - ["Large", "py-24"]
+
 - name: hero
   unique: true
   hint: true

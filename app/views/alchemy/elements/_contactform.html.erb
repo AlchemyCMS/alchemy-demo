@@ -1,6 +1,6 @@
 <%= element_view_for(contactform) do |el| %>
   <% message = @message || Alchemy::Message.new %>
-  <section class="mx-auto max-w-xl px-4">
+  <section class="mx-auto max-w-xl px-4 py-16">
     <%= form_with model: message, url: alchemy.messages_path, data: { turbo: false }, html: { class: "space-y-4" } do |f| %>
       <%= f.hidden_field :contact_form_id, value: contactform.id %>
       <% if message.errors.any? %>

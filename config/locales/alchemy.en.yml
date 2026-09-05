@@ -51,6 +51,7 @@ en:
       ingredient_catalog: "One ingredient of every built-in type (plus a custom one), so you can see what each Ingredient stores and renders."
       footer_nav: "The footer's link columns, pulled from a menu — its sections become columns and their children become links."
       scheduled_note: "A highlighted note with an illustration. Give it a start and end date to show it only within a time window."
+      section: "A full-width band with its own background and vertical spacing. Nest content Elements inside it to group them into a section."
 
     # Hint texts for contents
     content_hints:
@@ -122,6 +123,7 @@ en:
       success_page: "The page to redirect to after a message is sent."
       background: "Background style, chosen from a Select whose values are Tailwind CSS classes."
       background_image: "An optional background image, shown full-width behind the hero text with a dark overlay."
+      spacing: "The section's vertical padding (top and bottom), stored as a Tailwind class."
       filter: "A CSS filter applied to the background image, stored as a Tailwind class."
       menu: "The menu to render. Its sections (top-level nodes) become columns and their children become links; edit them under Menus."
       button_style: "Button colours, chosen from a Select whose values are Tailwind CSS classes."

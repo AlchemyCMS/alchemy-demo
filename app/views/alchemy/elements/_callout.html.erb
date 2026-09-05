@@ -1,16 +1,14 @@
 <% cache(callout) do %>
-<%= element_view_for(callout, class: "group") do |el| %>
+<%= element_view_for(callout, class: "group mx-auto max-w-3xl") do |el| %>
   <% variant = callout.value_for(:variant) %>
   <% styles = {
     "info" => "border-accent bg-surface-violet",
     "tip" => "border-emerald-500 bg-emerald-50",
     "warning" => "border-amber-500 bg-amber-50"
   } %>
-  <section class="mx-auto max-w-3xl px-4">
-    <div class="rounded-lg border-l-4 p-4 <%= styles.fetch(variant, styles['info']) %>">
-      <div class="prose-content text-ink-soft"><%= el.render :text %></div>
-    </div>
-    <%= render "shared/reveal", element: callout %>
-  </section>
+  <div class="rounded-lg border-l-4 p-4 <%= styles.fetch(variant, styles['info']) %>">
+    <div class="prose-content text-ink-soft"><%= el.render :text %></div>
+  </div>
+  <%= render "shared/reveal", element: callout %>
 <% end %>
 <% end %>
