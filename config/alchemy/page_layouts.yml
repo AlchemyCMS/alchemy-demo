@@ -17,6 +17,7 @@
 
 - name: pages
   elements:
+    - section
     - concept_intro
     - prose
     - callout
@@ -30,6 +31,7 @@
 
 - name: concept
   elements:
+    - section
     - concept_intro
     - prose
     - image_text
@@ -46,6 +48,7 @@
 
 - name: gallery_page
   elements:
+    - section
     - concept_intro
     - image_gallery
   autogenerate:
@@ -54,6 +57,7 @@
 
 - name: ingredients
   elements:
+    - section
     - concept_intro
     - ingredient_catalog
   autogenerate:
@@ -62,12 +66,14 @@
 
 - name: blog_overview
   elements:
+    - section
     - concept_intro
   autogenerate:
     - concept_intro
 
 - name: article
   elements:
+    - section
     - post_header
     - prose
   autogenerate:
@@ -77,6 +83,7 @@
 - name: contact
   cache: false
   elements:
+    - section
     - concept_intro
     - contactform
   autogenerate:
@@ -85,6 +92,7 @@
 
 - name: thanks
   elements:
+    - section
     - concept_intro
   autogenerate:
     - concept_intro
@@ -92,6 +100,7 @@
 - name: events
   cache: false
   elements:
+    - section
     - concept_intro
     - events_overview
     - event_teaser

@@ -367,6 +367,33 @@ pages_scope.where(name: "code_sample").find_each do |el|
   YAML
 end
 
+# Wrap each tour page's flat content into Section elements with alternating
+# backgrounds, nesting the content so pages read as banded sections rather than
+# one long column. Runs after content is set and before publishing; specialized
+# top-level elements (catalog, overviews, forms, galleries) stay as they are.
+SECTION_CONTENT = %w[concept_intro prose image_text callout scheduled_note code_sample].freeze
+Alchemy::Page.where.not(page_layout: %w[home footer]).find_each do |page|
+  draft = page.draft_version
+  next unless draft
+
+  band = 0
+  ordered = draft.elements.not_nested.order(:position).to_a.map do |element|
+    next element unless SECTION_CONTENT.include?(element.name)
+
+    section = Alchemy::Element.create!(
+      name: "section", page_version: draft, autogenerate_nested_elements: false
+    )
+    section.ingredient_by_role(:background)&.update!(value: band.even? ? "bg-white" : "bg-surface-faint")
+    section.ingredient_by_role(:spacing)&.update!(value: "py-16")
+    band += 1
+    element.update!(parent_element_id: section.id)
+    section
+  end
+  # insert_at rewrites the top-level order so sections sit where their content
+  # used to, keeping specialized elements interleaved in their original places.
+  ordered.each_with_index { |element, index| element.insert_at(index + 1) }
+end
+
 puts "\nPublish Pages"
 puts "-------------"
 Alchemy::Page.all.each do |page|

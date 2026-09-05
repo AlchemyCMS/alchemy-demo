@@ -49,6 +49,7 @@ es:
       ingredient_catalog: "Un ingredient de cada tipo integrado (más uno propio), para ver qué guarda y cómo se muestra cada Ingredient."
       footer_nav: "Las columnas de enlaces del pie, tomadas de un menú: sus secciones son columnas y sus hijos, enlaces."
       scheduled_note: "Una nota destacada con ilustración. Con una fecha de inicio y fin se muestra solo en una ventana de tiempo."
+      section: "Una banda a todo el ancho con su propio fondo y espaciado vertical. Anida Elementos de contenido dentro para agruparlos en una sección."
 
     # Hint texts for contents
     content_hints:
@@ -120,6 +121,7 @@ es:
       success_page: "La página a la que se redirige tras enviar un mensaje."
       background: "Estilo de fondo, elegido de un Select cuyos valores son clases CSS de Tailwind."
       background_image: "Una imagen de fondo opcional, a todo ancho tras el texto del hero con una capa oscura."
+      spacing: "El espaciado vertical de la sección (arriba y abajo), guardado como clase de Tailwind."
       filter: "Un filtro CSS aplicado a la imagen de fondo, guardado como clase de Tailwind."
       menu: "El menú a mostrar. Sus secciones (nodos superiores) son columnas y sus hijos, enlaces; edítalos en Menús."
       button_style: "Colores del botón, elegidos de un Select cuyos valores son clases CSS de Tailwind."
