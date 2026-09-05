@@ -16,7 +16,7 @@
           <% if header&.value_for(:published_at) %>
             <p class="text-xs text-ink-soft"><%= header.value_for(:published_at).strftime("%B %-d, %Y") %></p>
           <% end %>
-          <h3 class="mt-1 font-display text-lg font-semibold text-ink group-hover:text-accent"><%= header&.value_for(:headline) || article.name %></h3>
+          <h3 class="mt-1 font-display text-lg font-semibold text-ink transition-colors group-hover:text-accent"><%= header&.value_for(:headline) || article.name %></h3>
           <p class="mt-2 text-sm text-ink-soft"><%= truncate(strip_tags(header&.value_for(:intro).to_s), length: 110) %></p>
         </div>
       <% end %>
