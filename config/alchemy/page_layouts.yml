@@ -50,9 +50,12 @@
   elements:
     - section
     - concept_intro
+    - slider
     - image_gallery
   autogenerate:
     - concept_intro
+    - slider
+    - image_gallery
     - image_gallery
 
 - name: ingredients

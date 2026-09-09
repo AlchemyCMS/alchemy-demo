@@ -62,8 +62,34 @@ Alchemy::Element.where(name: "concept_intro")
     element.ingredient_by_role(:eyebrow)&.update!(value: "Core concept")
     element.ingredient_by_role(:headline)&.update!(value: "Nesting & Galleries")
     element.ingredient_by_role(:lead)&.update!(value:
-      "<p>Some Elements are <strong>nestable</strong> — they hold child Elements. This gallery nests gallery_image Elements, each a Picture cropped to a fixed ratio and served responsively.</p>")
+      "<p>You can define any Element as <strong>nestable</strong>, so it holds child Elements. The slider and gallery below both nest gallery_image Elements, each a Picture served responsively; the same children are shown three ways: an autoplaying slider, a grid and a masonry.</p>")
   end
+
+# Galleries page: three nestable layouts. The slider is its own element (driven
+# by the <alchemy-slider> custom element); the gallery renders as a grid or a
+# masonry via its appearance Select.
+slider_element = Alchemy::Element.joins(page_version: :page)
+  .where(name: "slider", alchemy_pages: {urlname: "galleries"}).first
+if slider_element
+  slider_element.ingredient_by_role(:headline)&.update!(value: "Image slider")
+  slider_element.ingredient_by_role(:autoplay)&.update!(value: true)
+  slider_element.ingredient_by_role(:duration)&.update!(value: 4000)
+  slider_element.ingredient_by_role(:transition)&.update!(value: 500)
+  slider_element.ingredient_by_role(:per_slide)&.update!(value: "1")
+end
+
+galleries = Alchemy::Element.where(name: "image_gallery")
+  .joins(page_version: :page)
+  .where(alchemy_pages: {urlname: "galleries"})
+  .order(:position).to_a
+if (grid = galleries[0])
+  grid.ingredient_by_role(:appearance)&.update!(value: "grid")
+  grid.ingredient_by_role(:headline)&.update!(value: "Picture gallery")
+end
+if (masonry = galleries[1])
+  masonry.ingredient_by_role(:appearance)&.update!(value: "masonry")
+  masonry.ingredient_by_role(:headline)&.update!(value: "Masonry gallery")
+end
 
 # Blog: distinct article headers (+ a photo each) and the overview intro
 blog_photos = Alchemy::Picture.where("name LIKE ?", "photo-%").order(:id).to_a
@@ -407,7 +433,8 @@ end
 # one long column. Runs after content is set and before publishing; specialized
 # top-level elements (catalog, overviews, forms, galleries) stay as they are.
 SECTION_CONTENT = %w[
-  concept_intro prose image_text callout scheduled_note code_sample ingredient_group
+  concept_intro prose image_text callout scheduled_note code_sample
+  ingredient_group image_gallery slider
 ].freeze
 Alchemy::Page.where.not(page_layout: %w[home footer]).find_each do |page|
   draft = page.draft_version

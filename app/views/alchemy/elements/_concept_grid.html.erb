@@ -3,7 +3,7 @@
   <section class="mx-auto max-w-5xl px-4 py-16">
     <%= el.render :headline, {}, { class: "text-center font-display font-bold text-ink" } %>
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <%= render concept_grid.nested_elements %>
+      <%= render el.nested_elements %>
     </div>
     <%= render "shared/reveal", element: concept_grid %>
   </section>

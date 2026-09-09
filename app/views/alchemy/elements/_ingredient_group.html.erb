@@ -5,7 +5,7 @@
   <%= el.render :headline, {}, { class: "font-display text-2xl font-bold text-ink" } %>
   <div class="prose-content mt-2 max-w-2xl text-ink-soft"><%= el.render :lead %></div>
   <dl class="mt-6 divide-y divide-accent-soft/40 overflow-hidden rounded-xl border border-accent-soft/40 bg-white">
-    <%= render ingredient_group.nested_elements %>
+    <%= render el.nested_elements %>
   </dl>
   <%= render "shared/reveal", element: ingredient_group %>
 <% end %>
