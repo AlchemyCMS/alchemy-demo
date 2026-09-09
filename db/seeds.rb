@@ -271,38 +271,73 @@ puts "== Created footer navigation"
 Alchemy::Page.find_by(page_layout: "footer")&.draft_version&.elements
   &.find_by(name: "footer_nav")&.ingredient_by_role(:menu)&.update!(related_object: footer_menu)
 
-# Ingredients catalog: fill one ingredient of each type on the Ingredients page
-catalog = Alchemy::Element.where(name: "ingredient_catalog")
-  .joins(page_version: :page)
-  .where(alchemy_pages: {urlname: "ingredients"}).first
-if catalog
-  elements_page = Alchemy::Page.find_by(urlname: "elements")
-  main_nav_node = Alchemy::Node.roots.find_by(menu_type: "main_navigation")
+# Ingredients tour: build the four groups on the Ingredients page. A single
+# ingredient_group element is reused for each; the grouping — heading, intro and
+# which ingredient-row elements it nests — lives here in the seed, not in the
+# element definitions. Each row is a *_ingredient element holding one "value".
+ingredients_draft = Alchemy::Page.find_by(urlname: "ingredients")&.draft_version
+if ingredients_draft
   catalog_photo = Alchemy::Picture.find_by(name: "photo-02") || Alchemy::Picture.where("name LIKE ?", "photo-%").first
-  upcoming_event = Event.upcoming.first
   # file_name is derived from the Active Storage blob (not a queryable column)
   attachments = Alchemy::Attachment.all.to_a
   audio_att = attachments.find { |a| a.file_name.to_s.start_with?("sample-audio") }
   video_att = attachments.find { |a| a.file_name.to_s.start_with?("sample-video") }
   file_att = attachments.find { |a| a.file_name.to_s.start_with?("sample-document") }
+  elements_page = Alchemy::Page.find_by(urlname: "elements")
+  main_nav_node = Alchemy::Node.roots.find_by(menu_type: "main_navigation")
+  upcoming_event = Event.upcoming.first
 
-  catalog.ingredient_by_role(:text)&.update!(value: "A single line of text.")
-  catalog.ingredient_by_role(:headline)&.update!(value: "I am a Headline", level: 3, size: 4)
-  catalog.ingredient_by_role(:richtext)&.update!(value: '<p>Rich text with <strong>bold</strong> and a <a href="/elements">link</a>.</p>')
-  catalog.ingredient_by_role(:picture)&.update!(related_object: catalog_photo) if catalog_photo
-  catalog.ingredient_by_role(:link)&.update!(value: "/elements")
-  catalog.ingredient_by_role(:page)&.update!(related_object: elements_page) if elements_page
-  catalog.ingredient_by_role(:node)&.update!(related_object: main_nav_node) if main_nav_node
-  catalog.ingredient_by_role(:select)&.update!(value: "first")
-  catalog.ingredient_by_role(:color)&.update!(value: "#884cbe")
-  catalog.ingredient_by_role(:datetime)&.update!(value: Time.utc(2026, 6, 15, 14, 30))
-  catalog.ingredient_by_role(:boolean)&.update!(value: true)
-  catalog.ingredient_by_role(:number)&.update!(value: 42)
-  catalog.ingredient_by_role(:html)&.update!(value: "<mark>Highlighted with raw HTML</mark>")
-  catalog.ingredient_by_role(:audio)&.update!(related_object: audio_att, controls: true) if audio_att
-  catalog.ingredient_by_role(:video)&.update!(related_object: video_att, controls: true) if video_att
-  catalog.ingredient_by_role(:file)&.update!(related_object: file_att, link_text: "Download the sample document") if file_att
-  catalog.ingredient_by_role(:event)&.update!(related_object: upcoming_event) if upcoming_event
+  ingredient_groups = [
+    ["Content ingredients",
+      "<p>These store their value directly in the ingredient. They cover most day-to-day editing — text, formatting, choices and simple values.</p>",
+      [
+        ["text_ingredient", {value: "A single line of text."}],
+        ["headline_ingredient", {value: "I am a Headline", level: 3, size: 4}],
+        ["richtext_ingredient", {value: '<p>Rich text with <strong>bold</strong> and a <a href="/elements">link</a>.</p>'}],
+        ["select_ingredient", {value: "first"}],
+        ["color_ingredient", {value: "#884cbe"}],
+        ["datetime_ingredient", {value: Time.utc(2026, 6, 15, 14, 30)}],
+        ["boolean_ingredient", {value: true}],
+        ["number_ingredient", {value: 42}],
+        ["html_ingredient", {value: "<mark>Highlighted with raw HTML</mark>"}]
+      ]],
+    ["Media ingredients",
+      "<p>These reference an asset from the library — a picture, or an uploaded audio, video or file — rather than storing the media itself.</p>",
+      [
+        # The row is always created so the type renders; the value is only set
+        # when the asset exists (pictures/attachments are not seeded in tests).
+        ["picture_ingredient", catalog_photo && {related_object: catalog_photo}],
+        ["audio_ingredient", audio_att && {related_object: audio_att, controls: true}],
+        ["video_ingredient", video_att && {related_object: video_att, controls: true}],
+        ["file_ingredient", file_att && {related_object: file_att, link_text: "Download the sample document"}]
+      ]],
+    ["Reference ingredients",
+      "<p>These point at something else in the system: a link target, another page, or a menu node.</p>",
+      [
+        ["link_ingredient", {value: "/elements"}],
+        ["page_ingredient", elements_page && {related_object: elements_page}],
+        ["node_ingredient", main_nav_node && {related_object: main_nav_node}]
+      ]],
+    ["Custom ingredients",
+      "<p>Alchemy's built-in types cover most needs, but you can define your own. This Event ingredient is a custom type that references a record from our Event model, managed in the Events admin module.</p>",
+      [
+        ["event_ingredient", upcoming_event && {related_object: upcoming_event}]
+      ]]
+  ]
+
+  ingredient_groups.each do |headline, lead, rows|
+    group = Alchemy::Element.create!(
+      name: "ingredient_group", page_version: ingredients_draft, autogenerate_nested_elements: false
+    )
+    group.ingredient_by_role(:headline)&.update!(value: headline)
+    group.ingredient_by_role(:lead)&.update!(value: lead)
+    rows.each do |row_name, attrs|
+      row = Alchemy::Element.create!(
+        name: row_name, page_version: ingredients_draft, parent_element: group, autogenerate_nested_elements: false
+      )
+      row.ingredient_by_role(:value)&.update!(**attrs) if attrs
+    end
+  end
 end
 
 Alchemy::Element.where(name: "concept_intro")
@@ -371,7 +406,9 @@ end
 # backgrounds, nesting the content so pages read as banded sections rather than
 # one long column. Runs after content is set and before publishing; specialized
 # top-level elements (catalog, overviews, forms, galleries) stay as they are.
-SECTION_CONTENT = %w[concept_intro prose image_text callout scheduled_note code_sample].freeze
+SECTION_CONTENT = %w[
+  concept_intro prose image_text callout scheduled_note code_sample ingredient_group
+].freeze
 Alchemy::Page.where.not(page_layout: %w[home footer]).find_each do |page|
   draft = page.draft_version
   next unless draft

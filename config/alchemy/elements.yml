@@ -27,6 +27,7 @@
     - callout
     - scheduled_note
     - code_sample
+    - ingredient_group
   autogenerate:
     - prose
   ingredients:
@@ -472,18 +473,30 @@
 
 # --- Ingredients catalog element (Phase 2.2) ---
 
-- name: ingredient_catalog
+# The ingredient tour: one nestable element per ingredient type, each holding a
+# single "value" ingredient and rendered as a row by shared/_ingredient_row.
+# The four group elements below compose these — the same definitions, reused in
+# different subsets — so a group is just an editable heading, intro and a set of
+# nested rows. Marked unique so each type appears at most once per group.
+- name: text_ingredient
   unique: true
-  hint: true
   ingredients:
-    - role: text
+    - role: value
       type: Text
-    - role: headline
+
+- name: headline_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Headline
       settings:
         levels: [3]
         sizes: [4]
-    - role: richtext
+
+- name: richtext_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Richtext
       settings:
         tinymce:
@@ -491,51 +504,144 @@
         sanitizer:
           tags: [p, br, strong, em, a]
           attributes: [href, target, rel, title]
-    - role: picture
-      type: Picture
-      settings:
-        size: 240x160
-        crop: true
-    - role: link
-      type: Link
-      settings:
-        text: An example link
-    - role: page
-      type: Page
-    - role: node
-      type: Node
-    - role: select
+
+- name: select_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Select
       settings:
         select_values:
           - ["First choice", "first"]
           - ["Second choice", "second"]
-    - role: color
+
+- name: color_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Color
       settings:
         custom_color: true
-    - role: datetime
+
+- name: datetime_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Datetime
-    - role: boolean
+
+- name: boolean_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Boolean
-    - role: number
+
+- name: number_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Number
-    - role: html
+
+- name: html_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Html
-    - role: audio
+
+- name: picture_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Picture
+      settings:
+        size: 240x160
+        crop: true
+
+- name: audio_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Audio
       settings:
         only: [mp3, ogg, wav]
-    - role: video
+
+- name: video_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Video
       settings:
         only: [mp4, webm, ogv]
-    - role: file
+
+- name: file_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: File
       settings:
         only: [pdf, doc, docx, txt]
-    - role: event
+
+- name: link_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Link
+      settings:
+        text: An example link
+
+- name: page_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Page
+
+- name: node_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Node
+
+- name: event_ingredient
+  unique: true
+  ingredients:
+    - role: value
       type: Event
+
+# One reusable group element: an editable heading and intro plus any of the
+# ingredient-row elements nested inside. The Ingredients page seeds four of
+# these (Content, Media, Reference, Custom); the grouping lives in the data,
+# not in separate element definitions.
+- name: ingredient_group
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :ingredient_group_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: lead
+      type: Richtext
+      hint: true
+      default: :ingredient_group_lead
+  nestable_elements:
+    - text_ingredient
+    - headline_ingredient
+    - richtext_ingredient
+    - select_ingredient
+    - color_ingredient
+    - datetime_ingredient
+    - boolean_ingredient
+    - number_ingredient
+    - html_ingredient
+    - picture_ingredient
+    - audio_ingredient
+    - video_ingredient
+    - file_ingredient
+    - link_ingredient
+    - page_ingredient
+    - node_ingredient
+    - event_ingredient
 
 # --- Events elements (Phase 2.2) ---
 

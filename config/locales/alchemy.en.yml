@@ -48,7 +48,7 @@ en:
       contactform: "A contact form powered by Alchemy's built-in Messages. Set the subject, an optional recipient and the page shown after sending."
       event_teaser: "Features a single Event using a custom Ingredient type that references a record from the Events admin module."
       events_overview: "Lists many Events straight from the custom Event model. Pick a timeframe and a layout — no per-event content is stored here."
-      ingredient_catalog: "One ingredient of every built-in type (plus a custom one), so you can see what each Ingredient stores and renders."
+      ingredient_group: "A group of the ingredient tour: an editable heading and intro, plus nested ingredient-row elements. Add or reorder rows to show any ingredient type."
       footer_nav: "The footer's link columns, pulled from a menu — its sections become columns and their children become links."
       scheduled_note: "A highlighted note with an illustration. Give it a start and end date to show it only within a time window."
       section: "A full-width band with its own background and vertical spacing. Nest content Elements inside it to group them into a section."
@@ -88,6 +88,8 @@ en:
       post_header_intro: "<p>A short introduction to this post.</p>"
       contactform_subject: "New contact form message"
       events_overview_headline: "Events"
+      ingredient_group_headline: "Ingredient group"
+      ingredient_group_lead: "<p>Describe this group of ingredients.</p>"
       code_sample_code: |
         - name: prose
           ingredients:

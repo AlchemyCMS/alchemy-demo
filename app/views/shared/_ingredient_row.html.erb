@@ -1,0 +1,56 @@
+<%# One row of the ingredient tour: a badge and description for the ingredient
+    type, plus its live rendered value. Rendered by each *_ingredient element,
+    which holds a single "value" ingredient of one type. %>
+<%= element_view_for(row, tag: :div, class: "grid gap-2 p-5 md:grid-cols-[11rem_1fr] md:gap-6") do |el| %>
+  <% descriptions = {
+    "Text" => "A single line of plain text.",
+    "Headline" => "A heading with a chosen level (h1–h6) and visual size.",
+    "Richtext" => "Formatted text, edited with TinyMCE.",
+    "Picture" => "A reference to an image, with cropping and srcset.",
+    "Link" => "A link to a page, URL, file or email.",
+    "Page" => "A reference to another Alchemy page.",
+    "Node" => "A reference to a menu node.",
+    "Select" => "One value chosen from a fixed list.",
+    "Color" => "A colour value, stored as a hex string.",
+    "Datetime" => "A date and time.",
+    "Boolean" => "A true/false checkbox.",
+    "Number" => "A numeric value.",
+    "Html" => "A raw HTML snippet.",
+    "Audio" => "An uploaded audio attachment, rendered as a player.",
+    "Video" => "An uploaded video attachment, rendered as a player.",
+    "File" => "A link to an uploaded file attachment.",
+    "Event" => "A custom ingredient type referencing an Event record."
+  } %>
+  <% credits = {
+    "Audio" => "Music: Komiku — “Tale on the Late (Main Theme)”, released under CC0 via Wikimedia Commons. Thank you!",
+    "Video" => "Clip: an aerial view of Mt Hood, released under CC0 via Wikimedia Commons. Thank you!",
+    "File" => "This sample document was written for this demo (public domain)."
+  } %>
+  <% ingredient = row.ingredient_by_role(:value) %>
+  <% type = ingredient.class.name.demodulize %>
+  <dt>
+    <span class="inline-block rounded-md bg-surface-violet px-2 py-1 font-mono text-xs font-semibold text-accent-dark"><%= type %></span>
+    <p class="mt-2 text-xs text-ink-soft/80"><%= descriptions[type] %></p>
+  </dt>
+  <dd class="min-w-0 self-center text-ink-soft<%= " prose-content" unless type == "Node" %>">
+    <% if type == "Color" && ingredient.value.present? %>
+      <span class="inline-flex items-center gap-2">
+        <span class="inline-block h-4 w-4 rounded ring-1 ring-ink/10" style="background: <%= ingredient.value %>"></span>
+        <span class="font-mono text-sm"><%= ingredient.value %></span>
+      </span>
+    <% elsif type == "Node" %>
+      <% rendered = el.render(:value) %>
+      <% if rendered.present? %>
+        <ul class="flex flex-col gap-1"><%= rendered %></ul>
+      <% else %>
+        <%= content_tag(:span, "— not set in this environment —", class: "text-sm text-ink-soft/50") %>
+      <% end %>
+    <% else %>
+      <% rendered = el.render(:value) %>
+      <%= rendered.presence || content_tag(:span, "— not set in this environment —", class: "text-sm text-ink-soft/50") %>
+    <% end %>
+    <% if credits[type] && el.has?(:value) %>
+      <p class="mt-2 text-xs text-ink-soft/60"><%= credits[type] %></p>
+    <% end %>
+  </dd>
+<% end %>
