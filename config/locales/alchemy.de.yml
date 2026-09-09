@@ -46,7 +46,7 @@ de:
       contactform: "Ein Kontaktformular auf Basis von Alchemys eingebauten Messages. Lege Betreff, optionalen Empfänger und die Danke-Seite fest."
       event_teaser: "Hebt ein einzelnes Event über einen eigenen Ingredient-Typ hervor, der einen Datensatz aus dem Events-Admin-Modul referenziert."
       events_overview: "Listet viele Events direkt aus dem eigenen Event-Modell. Wähle Zeitraum und Layout – hier werden keine Event-Inhalte gespeichert."
-      ingredient_catalog: "Ein Ingredient jedes eingebauten Typs (plus ein eigenes), damit du siehst, was jedes Ingredient speichert und ausgibt."
+      ingredient_group: "Eine Gruppe der Ingredient-Tour: editierbare Überschrift und Einleitung plus verschachtelte Ingredient-Zeilen. Füge Zeilen hinzu oder ordne sie um, um beliebige Ingredient-Typen zu zeigen."
       footer_nav: "Die Link-Spalten des Footers, aus einem Menü – dessen Bereiche werden Spalten und deren Unterpunkte Links."
       scheduled_note: "Ein hervorgehobener Hinweis mit Illustration. Über ein Start- und Enddatum nur in einem Zeitfenster sichtbar."
       section: "Ein Abschnitt über die volle Breite mit eigenem Hintergrund und vertikalem Abstand. Verschachtele Inhalts-Elemente darin, um sie zu gruppieren."
@@ -86,6 +86,8 @@ de:
       post_header_intro: "<p>Eine kurze Einleitung zu diesem Beitrag.</p>"
       contactform_subject: "Neue Nachricht über das Kontaktformular"
       events_overview_headline: "Events"
+      ingredient_group_headline: "Ingredient-Gruppe"
+      ingredient_group_lead: "<p>Beschreibe diese Gruppe von Ingredients.</p>"
       code_sample_code: |
         - name: prose
           ingredients:

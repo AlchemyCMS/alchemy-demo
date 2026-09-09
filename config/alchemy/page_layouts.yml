@@ -59,10 +59,9 @@
   elements:
     - section
     - concept_intro
-    - ingredient_catalog
+    - ingredient_group
   autogenerate:
     - concept_intro
-    - ingredient_catalog
 
 - name: blog_overview
   elements:

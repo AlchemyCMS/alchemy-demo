@@ -46,7 +46,7 @@ es:
       contactform: "Un formulario de contacto con los Messages integrados de Alchemy. Define el asunto, un destinatario opcional y la página de agradecimiento."
       event_teaser: "Destaca un único Evento mediante un tipo de Ingredient propio que referencia un registro del módulo de administración de Eventos."
       events_overview: "Lista muchos Eventos directamente desde el modelo Event propio. Elige un periodo y un diseño; aquí no se guarda contenido por evento."
-      ingredient_catalog: "Un ingredient de cada tipo integrado (más uno propio), para ver qué guarda y cómo se muestra cada Ingredient."
+      ingredient_group: "Un grupo de la visita de ingredients: encabezado e introducción editables, más filas de ingredient anidadas. Añade o reordena filas para mostrar cualquier tipo."
       footer_nav: "Las columnas de enlaces del pie, tomadas de un menú: sus secciones son columnas y sus hijos, enlaces."
       scheduled_note: "Una nota destacada con ilustración. Con una fecha de inicio y fin se muestra solo en una ventana de tiempo."
       section: "Una banda a todo el ancho con su propio fondo y espaciado vertical. Anida Elementos de contenido dentro para agruparlos en una sección."
@@ -86,6 +86,8 @@ es:
       post_header_intro: "<p>Una breve introducción a esta entrada.</p>"
       contactform_subject: "Nuevo mensaje del formulario de contacto"
       events_overview_headline: "Eventos"
+      ingredient_group_headline: "Grupo de ingredients"
+      ingredient_group_lead: "<p>Describe este grupo de ingredients.</p>"
       code_sample_code: |
         - name: prose
           ingredients:
