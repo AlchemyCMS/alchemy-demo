@@ -41,6 +41,7 @@ es:
       callout: "Una nota destacada: información, consejo o advertencia."
       code_sample: "Un fragmento de código con resaltado de sintaxis en el idioma elegido."
       image_gallery: "Una galería de elementos gallery_image anidados: añade, quita y reordena."
+      slider: "Un carrusel con reproducción automática de slides gallery_image anidadas, gestionado por el custom element <alchemy-slider>. Activa la reproducción automática y ajusta el tiempo, la transición y las imágenes por slide."
       gallery_image: "Una imagen de la galería: recortada a una proporción fija y servida de forma responsiva con srcset."
       post_header: "La cabecera de un artículo de blog: encabezado, fecha, autor, imagen e introducción. El resumen muestra estos campos."
       contactform: "Un formulario de contacto con los Messages integrados de Alchemy. Define el asunto, un destinatario opcional y la página de agradecimiento."
@@ -132,6 +133,11 @@ es:
       event: "Un Ingredient Event propio. Su valor referencia un registro Event gestionado en el módulo de administración de Eventos."
       timeframe: "Qué Eventos se listan, guardado como valor de Select: próximos, pasados o todos."
       display: "Cómo se muestra la lista — una línea de tiempo o una agenda tipo calendario."
+      appearance: "Cómo se dispone la galería — una cuadrícula o un masonry — guardado como valor de Select."
+      autoplay: "Avanzar el slider automáticamente."
+      duration: "Cuánto tiempo se muestra cada slide, en milisegundos."
+      transition: "Cuánto dura la animación de la slide, en milisegundos (un control deslizante en el editor)."
+      per_slide: "Cuántas imágenes se ven por slide."
 
     # Encabezados de grupo traducidos en el editor de elementos
     element_groups:

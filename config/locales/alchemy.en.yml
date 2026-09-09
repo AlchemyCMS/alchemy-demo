@@ -43,6 +43,7 @@ en:
       callout: "A highlighted note — info, tip or warning."
       code_sample: "A syntax-highlighted code snippet in the chosen language."
       image_gallery: "A gallery of nested gallery_image elements — add, remove and reorder them."
+      slider: "An autoplaying carousel of nested gallery_image slides, driven by the <alchemy-slider> custom element. Toggle autoplay and set the timing, transition and slides per view."
       gallery_image: "One image in the gallery: cropped to a fixed ratio and served responsively via srcset."
       post_header: "A blog article's header — headline, date, author, image and intro. The overview page teases these fields."
       contactform: "A contact form powered by Alchemy's built-in Messages. Set the subject, an optional recipient and the page shown after sending."
@@ -134,6 +135,11 @@ en:
       event: "A custom Event ingredient. Its value references an Event record managed in the Events admin module."
       timeframe: "Which Events to list, stored as a Select value: upcoming, past or all."
       display: "How the list is rendered — a timeline or a calendar-style agenda."
+      appearance: "How the gallery is laid out — a grid or a masonry — stored as a Select value."
+      autoplay: "Advance the slider automatically."
+      duration: "How long each slide is shown, in milliseconds."
+      transition: "How long the slide animation takes, in milliseconds (a range slider in the editor)."
+      per_slide: "How many pictures are visible per slide."
 
     # Translated ingredient group headings shown in the element editor
     element_groups:

@@ -28,6 +28,8 @@
     - scheduled_note
     - code_sample
     - ingredient_group
+    - image_gallery
+    - slider
   autogenerate:
     - prose
   ingredients:
@@ -393,6 +395,8 @@
     - gallery_image
     - gallery_image
     - gallery_image
+    - gallery_image
+    - gallery_image
   ingredients:
     - role: headline
       type: Headline
@@ -401,6 +405,15 @@
       settings:
         levels: [2, 3]
         sizes: [2, 3]
+    - role: appearance
+      type: Select
+      group: styling
+      hint: true
+      default: grid
+      settings:
+        select_values:
+          - ["Grid", "grid"]
+          - ["Masonry", "masonry"]
 
 - name: gallery_image
   compact: true
@@ -425,6 +438,65 @@
       type: Text
       hint: true
       default: :gallery_image_caption
+
+# An autoplaying carousel, driven by the <alchemy-slider> custom element. Reuses
+# gallery_image for its slides; its settings map to the element's attributes.
+- name: slider
+  hint: true
+  nestable_elements:
+    - gallery_image
+  autogenerate:
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :gallery_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: autoplay
+      type: Boolean
+      group: styling
+      hint: true
+      default: true
+    - role: duration
+      type: Number
+      group: styling
+      hint: true
+      default: 4000
+      settings:
+        input_type: number
+        min: 1000
+        max: 10000
+        step: 500
+        unit: ms
+    - role: transition
+      type: Number
+      group: styling
+      hint: true
+      default: 500
+      settings:
+        input_type: range
+        min: 100
+        max: 1500
+        step: 100
+        unit: ms
+    - role: per_slide
+      type: Select
+      group: styling
+      hint: true
+      default: "1"
+      settings:
+        select_values:
+          - ["One", "1"]
+          - ["Two", "2"]
+          - ["Three", "3"]
 
 # --- Blog elements (Phase 2.2) ---
 

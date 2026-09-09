@@ -35,4 +35,18 @@ class PublishedPagesTest < ActionDispatch::IntegrationTest
       assert_includes headings, title, "catalog is missing the #{title.inspect} section"
     end
   end
+
+  test "the galleries page renders the slider element and both gallery layouts" do
+    get "/galleries"
+    assert_response :success
+
+    slider = css_select("alchemy-slider").first
+    assert slider, "expected an <alchemy-slider> element"
+    assert_not_nil slider["autoplay"], "the seeded slider should autoplay"
+    assert_equal "1", slider["per-slide"]
+    assert css_select("alchemy-slider [data-slider-track] figure").any?, "slider should render slides"
+
+    assert css_select("div.grid-cols-2 figure").any?, "expected a grid gallery"
+    assert css_select("div.columns-2 figure").any?, "expected a masonry gallery"
+  end
 end
