@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: b741e3a2ca6cc4c71e20a22764cc8e972f177be6
+  revision: 607dbccd848e74452c5c91e02fcab97680d03ee7
   branch: 8.4-stable
   specs:
     alchemy_cms (8.4.0.a)
@@ -146,7 +146,7 @@ GEM
     base64 (0.3.0)
     bcrypt (3.1.22)
     bcrypt_pbkdf (1.1.2)
-    bigdecimal (4.1.2)
+    bigdecimal (4.1.3)
     bindex (0.8.1)
     bootsnap (1.26.0)
       msgpack (~> 1.5)
@@ -221,7 +221,7 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
-    io-console (0.9.2)
+    io-console (0.9.3)
     irb (1.18.0)
       pp (>= 0.6.0)
       prism (>= 1.3.0)
@@ -231,7 +231,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    json (2.21.2)
+    json (3.0.2)
     jsonapi-renderer (0.2.2)
     kamal (2.12.0)
       activesupport (>= 7.0)
@@ -286,12 +286,12 @@ GEM
     multipart-post (2.4.1)
     net-http (0.9.1)
       uri (>= 0.11.1)
-    net-imap (0.6.6)
+    net-imap (0.6.7)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.3.0)
+    net-protocol (0.4.0)
       timeout
     net-scp (4.1.0)
       net-ssh (>= 2.6.5, < 8.0.0)
