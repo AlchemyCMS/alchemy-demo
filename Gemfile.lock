@@ -490,6 +490,7 @@ DEPENDENCIES
   dragonfly (~> 1.4)
   health_bit (~> 0.2)
   jquery-rails (~> 4.6)
+  json (< 3)
   kamal (~> 2.0)
   listen (>= 3.0.5)
   lograge (~> 0.10)

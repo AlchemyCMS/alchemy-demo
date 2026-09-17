@@ -55,3 +55,5 @@ end
 gem "newrelic_rpm", "~> 10.7"
 
 gem "dragonfly", "~> 1.4"
+
+gem "json", "< 3"
