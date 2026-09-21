@@ -39,9 +39,9 @@ end
 
 # Distinct content for the Home concept cards (autogenerate creates identical ones)
 [
-  ["Pages & Page Layouts", "<p>Every Page uses a Page Layout that decides which Elements it may contain.</p>", "concept-pages", "/pages"],
-  ["Elements", "<p>An Element is a reusable content block you place on a Page.</p>", "concept-elements", "/elements"],
-  ["Ingredients", "<p>Ingredients are the typed fields inside an Element — Text, Richtext, Picture, Link and more.</p>", "concept-ingredients", "/ingredients"],
+  ["Pages & Page Layouts", "<p>Each page follows a layout that decides which blocks it can hold. Freedom where you want it, guardrails where you don’t.</p>", "concept-pages", "/pages"],
+  ["Elements", "<p>The building blocks. Define one once, reuse it on any page, render it with your own template.</p>", "concept-elements", "/elements"],
+  ["Ingredients", "<p>The fields inside a block: text, rich text, pictures, links, dates. Each knows what it is, so editors get the right input for it.</p>", "concept-ingredients", "/ingredients"],
 ].each_with_index do |(title, description, illustration_name, link_path), index|
   card = Alchemy::Element.where(name: "concept_card").order(:position)[index]
   next unless card
@@ -51,6 +51,66 @@ end
   card.ingredient_by_role(:link)&.update!(value: "Learn more", link: link_path)
   illustration = Alchemy::Picture.find_by(name: illustration_name)
   card.ingredient_by_role(:illustration)&.update!(related_object: illustration) if illustration
+end
+
+# Home: the capability grid, and the "how this page works" band. Every claim in
+# the grid is backed by a real Alchemy feature, not by this demo.
+home_draft = Alchemy::Page.find_by(page_layout: "home")&.draft_version
+if home_draft
+  feature_list = home_draft.elements.find_by(name: "feature_list")
+  if feature_list
+    feature_list.ingredient_by_role(:lead)&.update!(value:
+      "<p>Alchemy ships with what a real site needs, so you are not gluing it together yourself.</p>")
+
+    [
+      ["photo", "Media library",
+        "<p>Upload once, use anywhere. Crop an image differently for each place it appears without altering the original, and let the browser download only the size it needs.</p>", nil],
+      ["documents", "Draft and publish",
+        "<p>Every page has a draft you work on and a published version visitors see. Nothing goes live until you say so.</p>", nil],
+      ["clock", "Publish on a schedule",
+        "<p>Give a page a go-live date and an end date. Embargoed announcements and time-limited campaigns handle themselves.</p>", nil],
+      ["lock", "Roles and restricted pages",
+        "<p>Members-only sections, internal pages, and editors who can only reach what they should.</p>", nil],
+      ["magnifier", "Built for search engines",
+        "<p>Readable URLs, per-page titles and descriptions, robots settings, an automatic sitemap, and redirects that keep old links working when a page moves.</p>", nil],
+      ["globe", "Languages and sites",
+        "<p>Run several languages, several domains, or several separate sites from one installation.</p>", nil],
+      ["menu", "Menus and shared content",
+        "<p>Build navigation in the admin and reuse content across every page, the way this site’s own footer does.</p>", nil],
+      ["code", "JSON API",
+        "<p>Read your pages and elements as JSON — for a mobile app, a search index, or a separate frontend.</p>",
+        ["See /api/pages", "/api/pages"]]
+    ].each do |icon, title, description, link|
+      item = Alchemy::Element.create!(
+        name: "feature_item", page_version: home_draft,
+        parent_element: feature_list, autogenerate_nested_elements: false
+      )
+      item.ingredient_by_role(:icon)&.update!(value: icon)
+      item.ingredient_by_role(:title)&.update!(value: title)
+      item.ingredient_by_role(:description)&.update!(value: description)
+      item.ingredient_by_role(:link)&.update!(value: link[0], link: link[1]) if link
+    end
+  end
+
+  band = home_draft.elements.not_nested.find_by(name: "image_text")
+  if band
+    band.ingredient_by_role(:headline)&.update!(value: "Curious how this page works?")
+    band.ingredient_by_role(:text)&.update!(value:
+      "<p>This whole site is an Alchemy site — none of it is hardcoded. On any block, choose “How this block is built” to see its real definition, then jump straight into the admin and change it.</p>")
+    illustration = Alchemy::Picture.find_by(name: "concept-inspect")
+    band.ingredient_by_role(:image)&.update!(related_object: illustration) if illustration
+
+    # image_text brings no width or spacing of its own, so give it a Section to
+    # sit in, the way the tour pages do.
+    position = band.position
+    section = Alchemy::Element.create!(
+      name: "section", page_version: home_draft, autogenerate_nested_elements: false
+    )
+    section.ingredient_by_role(:background)&.update!(value: "bg-surface-faint")
+    section.ingredient_by_role(:spacing)&.update!(value: "py-16")
+    band.update!(parent_element_id: section.id)
+    section.insert_at(position)
+  end
 end
 
 # Gallery-specific intro on the Galleries page (concept_intro is shared, so its

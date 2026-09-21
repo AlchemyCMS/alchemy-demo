@@ -1,0 +1,14 @@
+<%# No `group` class and no reveal here: the parent feature_list carries both,
+    and a nested group makes every child show the parent's reveal too. %>
+<% cache(feature_item) do %>
+<%= element_view_for(feature_item, tag: :li) do |el| %>
+  <%= render "shared/feature_icon", name: feature_item.value_for(:icon) %>
+  <%= el.render :title, {}, { class: "mt-4 font-display font-semibold text-accent-dark" } %>
+  <div class="prose-content mt-2 text-sm/6 text-ink-soft"><%= el.render :description %></div>
+  <% if feature_item.ingredient_by_role(:link)&.link.present? %>
+    <p class="mt-3">
+      <%= el.render :link, {}, { class: "text-sm font-medium text-accent transition-colors hover:text-accent-dark after:ml-1 after:inline-block after:content-['→'] after:transition-transform hover:after:translate-x-1" } %>
+    </p>
+  <% end %>
+<% end %>
+<% end %>

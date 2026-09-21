@@ -36,6 +36,22 @@ class PublishedPagesTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "the homepage renders every feature item with a resolved icon" do
+    get "/"
+    assert_response :success
+
+    items = css_select("ul.grid > li")
+    assert_equal 8, items.size, "expected the seeded eight capability items"
+
+    # An icon name with no matching shape renders nothing, so an icon per item
+    # proves every seeded Select value resolves.
+    icons = items.map { |item| item.css("svg").size }
+    assert_equal [1] * 8, icons, "every feature item should render exactly one icon"
+
+    api_link = css_select("ul.grid > li a[href='/api/pages']").first
+    assert api_link, "the JSON API item should link to the live endpoint"
+  end
+
   test "the galleries page renders the slider element and both gallery layouts" do
     get "/galleries"
     assert_response :success
