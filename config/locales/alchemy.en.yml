@@ -67,7 +67,7 @@ en:
     # Translated default texts for guided-tour ingredients (symbol defaults)
     default_ingredient_texts:
       hero_headline: "Build content like a chemist."
-      hero_subheadline: "Alchemy structures content as reusable Elements, each built from typed Ingredients. This whole site is made with Alchemy — open any block to see how."
+      hero_subheadline: "Alchemy structures content as reusable Elements, each built from typed Ingredients. This whole site is made with Alchemy — open a block to see how."
       concepts_headline: "Core concepts"
       concept_card_title: "A core concept"
       concept_card_description: "<p>An Element is a reusable content block, made of typed Ingredients. Edit this text in the admin.</p>"
@@ -80,7 +80,7 @@ en:
       prose_text: "<p>A Page Layout lists which Elements a page may contain. Editors then:</p><ul><li>add and remove Elements,</li><li>sort and nest them,</li><li>fill in their Ingredients.</li></ul><p>The frontend renders each Element with its own view partial.</p>"
       image_text_headline: "Every Element has a view"
       image_text_text: "<p>Elements render through a partial in app/views/alchemy/elements, so their markup is entirely under your control.</p>"
-      callout_text: "<p><strong>Tip:</strong> open “How this block is built” on any block to see its exact definition and jump straight to it in the admin.</p>"
+      callout_text: "<p><strong>Tip:</strong> open “How this block is built” wherever you see it to get that block’s exact definition and jump straight to it in the admin.</p>"
       code_sample_caption: "config/alchemy/elements.yml"
       gallery_headline: "A nestable gallery"
       gallery_image_caption: "A cropped, responsive image"

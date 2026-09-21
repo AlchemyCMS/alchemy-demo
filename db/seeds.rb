@@ -62,7 +62,8 @@ Alchemy::Element.where(name: "concept_intro")
     element.ingredient_by_role(:eyebrow)&.update!(value: "Core concept")
     element.ingredient_by_role(:headline)&.update!(value: "Nesting & Galleries")
     element.ingredient_by_role(:lead)&.update!(value:
-      "<p>You can define any Element as <strong>nestable</strong>, so it holds child Elements. The slider and gallery below both nest gallery_image Elements, each a Picture served responsively; the same children are shown three ways: an autoplaying slider, a grid and a masonry.</p>")
+      "<p>You can define any Element as <strong>nestable</strong>, so it holds child Elements. The slider and gallery below both nest gallery_image Elements, each a Picture served responsively; the same children are shown three ways: an autoplaying slider, a grid and a masonry.</p>" \
+      "<p>Alchemy provides the nesting and the typed Ingredients. The three layouts are this demo's own frontend code — view partials, plus an <strong>&lt;alchemy-slider&gt;</strong> custom element for the carousel — not built-in widgets. Your application renders nested Elements however it likes.</p>")
   end
 
 # Galleries page: three nestable layouts. The slider is its own element (driven
@@ -91,16 +92,33 @@ if (masonry = galleries[1])
   masonry.ingredient_by_role(:headline)&.update!(value: "Masonry gallery")
 end
 
-# Blog: distinct article headers (+ a photo each) and the overview intro
+# Blog: distinct article headers (+ a photo each), a body per article, and the
+# overview intro. Without a body, every article falls back to the same
+# :prose_text default.
 blog_photos = Alchemy::Picture.where("name LIKE ?", "photo-%").order(:id).to_a
 [
   ["blog/composing-content-with-elements", "Composing content with Elements", Date.new(2026, 6, 2),
-    "<p>How a page is assembled from reusable Elements, each made of typed Ingredients.</p>"],
+    "<p>How a page is assembled from reusable Elements, each made of typed Ingredients.</p>",
+    "Composing a page from Elements",
+    "<p>A Page Layout lists which Elements a page may contain. This article page allows exactly two: a <strong>post_header</strong> and a <strong>prose</strong> block — the one you are reading now.</p>" \
+    "<p>Each Element is defined once in <strong>config/alchemy/elements.yml</strong> and can be reused on any page. Editors then:</p>" \
+    "<ul><li>add and remove Elements,</li><li>sort and nest them,</li><li>fill in their typed Ingredients.</li></ul>" \
+    "<p>None of this layout is hard-coded into the page. The frontend renders every Element through its own view partial, so a prose block reads the same here as it does anywhere else on the site.</p>"],
   ["blog/cropping-and-responsive-images", "Cropping and responsive images", Date.new(2026, 6, 9),
-    "<p>Using Picture ingredients with cropping, srcset and sizes for sharp, fast images.</p>"],
+    "<p>Using Picture ingredients with cropping, srcset and sizes for sharp, fast images.</p>",
+    "One file, many renderings",
+    "<p>A <strong>Picture</strong> ingredient does not hold a copy of an image. It references a single file in the picture library, and every place that uses it asks for its own rendering.</p>" \
+    "<p>The header image above is cropped to a fixed 16:9 ratio. The crop lives on the ingredient rather than on the file, so the same picture can be a wide banner here and a taller, differently cropped tile in a gallery without ever being re-uploaded. Editors set it in the admin with a visual cropper.</p>" \
+    "<p>Responsive delivery is declared next to it in the element definition: a <strong>srcset</strong> of several widths — 400, 800 and 1200 pixels wide for this header — and a <strong>sizes</strong> hint describing how wide the image will really be rendered. The browser downloads only the variant it picks.</p>" \
+    "<p>Alchemy processes each variant on demand and caches the result, so adding another width to the list costs nothing up front. Open “How this block is built” on the header above to see the exact settings.</p>"],
   ["blog/nesting-elements-in-a-gallery", "Nesting elements in a gallery", Date.new(2026, 6, 16),
-    "<p>Nestable Elements let editors build galleries and other repeating structures.</p>"],
-].each_with_index do |(urlname, title, date, intro), index|
+    "<p>Nestable Elements let editors build galleries and other repeating structures.</p>",
+    "Parents, children and the admin",
+    "<p>Any Element can be declared <strong>nestable</strong>, which lets it contain child Elements of the types it names. A gallery is nothing more than that: an <strong>image_gallery</strong> parent whose children are <strong>gallery_image</strong> Elements.</p>" \
+    "<p>The parent carries whatever applies to the whole group — a headline, and an <em>appearance</em> Select that switches between a grid and a masonry layout. Each child carries one Picture and one caption. Editors add, remove and reorder children by dragging them in the admin, and the frontend simply renders whichever children it finds.</p>" \
+    "<p>Nesting is not just for galleries. Every content band on the tour pages is a <strong>section</strong> Element nesting the blocks inside it, which is how one page mixes backgrounds and spacing without a separate page layout per variation.</p>" \
+    "<p>See all three layouts on the <a href=\"/galleries\">Galleries page</a>.</p>"],
+].each_with_index do |(urlname, title, date, intro, body_headline, body_text), index|
   Alchemy::Element.where(name: "post_header")
     .joins(page_version: :page)
     .where(alchemy_pages: { urlname: urlname })
@@ -110,6 +128,14 @@ blog_photos = Alchemy::Picture.where("name LIKE ?", "photo-%").order(:id).to_a
       header.ingredient_by_role(:intro)&.update!(value: intro)
       header.ingredient_by_role(:author)&.update!(value: "The Alchemy Team")
       header.ingredient_by_role(:image)&.update!(related_object: blog_photos[index % blog_photos.size]) if blog_photos.any?
+    end
+
+  Alchemy::Element.where(name: "prose")
+    .joins(page_version: :page)
+    .where(alchemy_pages: { urlname: urlname })
+    .find_each do |body|
+      body.ingredient_by_role(:headline)&.update!(value: body_headline)
+      body.ingredient_by_role(:text)&.update!(value: body_text)
     end
 end
 
