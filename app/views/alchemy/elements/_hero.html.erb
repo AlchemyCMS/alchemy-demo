@@ -9,7 +9,12 @@
     <div class="mx-auto max-w-5xl px-4 py-24 text-center">
       <%= el.render :headline, {}, { class: "font-display font-bold tracking-tight #{has_bg ? "text-white" : "text-ink"}" } %>
       <p class="mx-auto mt-6 max-w-2xl text-lg <%= has_bg ? "text-white/90" : "text-ink-soft" %>"><%= el.render :subheadline %></p>
-      <%= el.render :cta, {}, { class: "mt-8 inline-block rounded-lg bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-dark" } %>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+        <%= el.render :cta, {}, { class: "inline-block rounded-lg bg-accent px-6 py-3 font-medium text-white transition-colors hover:bg-accent-dark" } %>
+        <% if hero.ingredient_by_role(:secondary_cta)&.link.present? %>
+          <%= el.render :secondary_cta, {}, { class: "font-medium #{has_bg ? "text-white hover:text-white/80" : "text-accent hover:text-accent-dark"} transition-colors after:ml-1 after:inline-block after:content-['→'] after:transition-transform hover:after:translate-x-1" } %>
+        <% end %>
+      </div>
     </div>
   </section>
   <div class="mx-auto max-w-5xl px-4"><%= render "shared/reveal", element: hero %></div>

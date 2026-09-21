@@ -5,14 +5,18 @@
 - name: home
   unique: true
   elements:
+    - section
     - hero
+    - feature_list
     - concept_grid
+    - image_text
     - button
     - cta
   autogenerate:
     - hero
+    - feature_list
     - concept_grid
-    - button
+    - image_text
     - cta
 
 - name: pages

@@ -53,6 +53,8 @@ en:
       footer_nav: "The footer's link columns, pulled from a menu — its sections become columns and their children become links."
       scheduled_note: "A highlighted note with an illustration. Give it a start and end date to show it only within a time window."
       section: "A full-width band with its own background and vertical spacing. Nest content Elements inside it to group them into a section."
+      feature_list: "A grid of short capability statements. Add, remove and reorder the items inside it."
+      feature_item: "One capability: an icon, a title, a short description and an optional link."
 
     # Hint texts for contents
     content_hints:
@@ -66,13 +68,17 @@ en:
 
     # Translated default texts for guided-tour ingredients (symbol defaults)
     default_ingredient_texts:
-      hero_headline: "Build content like a chemist."
-      hero_subheadline: "Alchemy structures content as reusable Elements, each built from typed Ingredients. This whole site is made with Alchemy — open a block to see how."
-      concepts_headline: "Core concepts"
+      hero_headline: "Build it your way. Let your team run it."
+      hero_subheadline: "Alchemy is a content management system for Rails. You design the building blocks and own every line of markup — your editors add, arrange and publish pages without touching code."
+      feature_list_headline: "Everything you’d expect, already built in"
+      feature_list_lead: "<p>Describe what this list covers.</p>"
+      feature_item_title: "A capability"
+      feature_item_description: "<p>A sentence or two on what this gets you. Edit this text in the admin.</p>"
+      concepts_headline: "How Alchemy is put together"
       concept_card_title: "A core concept"
       concept_card_description: "<p>An Element is a reusable content block, made of typed Ingredients. Edit this text in the admin.</p>"
-      cta_headline: "Ready to try Alchemy?"
-      cta_text: "<p>Log in to the demo admin and edit these Elements yourself.</p>"
+      cta_headline: "Have a go"
+      cta_text: "<p>The admin is open: sign in as <strong>demo</strong> / <strong>demo123</strong> and edit anything you see here.</p>"
       concept_intro_eyebrow: "Core concept"
       concept_intro_headline: "Elements"
       concept_intro_lead: "<p>An <strong>Element</strong> is a reusable content block you place on a Page. Each Element is defined in elements.yml and made of typed Ingredients.</p>"
@@ -104,6 +110,8 @@ en:
       headline: "A Headline ingredient. Level sets the semantic tag (h1–h6) for structure and SEO; Size sets the visual scale independently of the level; and where an anchor is configured, it adds a stable #id so you can link straight to this heading."
       subheadline: "A short supporting line shown under the headline."
       cta: "The call-to-action link. Point it at a page or an on-page anchor."
+      secondary_cta: "An optional second, quieter link beside the main call to action. Leave it empty to hide it."
+      icon: "Which icon to show. The values map to hand-drawn SVGs in the feature_icon partial, so the demo needs no icon library."
       title: "The card's heading (a Headline ingredient). Pick its semantic Level (h3 or h4) and, independently, its visual Size."
       description: "A short rich-text description. Only bold, italic and links are allowed."
       link: "An optional link shown at the bottom of the card."
