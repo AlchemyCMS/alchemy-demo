@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/AlchemyCMS/alchemy-devise.git
-  revision: d472f0adb0d1b653ce5c2be9116fe2710928641c
+  revision: c51b514e4cbc1cbeda948bc45652cfec6141d1d7
   branch: 8.4-stable
   specs:
-    alchemy-devise (8.4.0)
+    alchemy-devise (8.4.1)
       alchemy_cms (>= 8.4.0.a, < 9.0)
       devise (>= 4.9, < 6.0)
       flickwerk (~> 0.3.6)
