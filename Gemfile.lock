@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_i18n.git
-  revision: 2596e105257fad6931aedefa6979cb472f574f0a
+  revision: 39abbf478e57b928548a2ced596dbb4d7e8c4ee6
   branch: 8.4-stable
   specs:
     alchemy_i18n (8.4.0)
