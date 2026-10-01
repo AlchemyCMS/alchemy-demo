@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/AlchemyCMS/alchemy-devise.git
-  revision: c51b514e4cbc1cbeda948bc45652cfec6141d1d7
+  revision: ec18b81176837f16ea77eb13dc8f129f6766704b
   branch: 8.4-stable
   specs:
     alchemy-devise (8.4.1)
@@ -216,7 +216,7 @@ GEM
       rack
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    image_processing (2.1.0)
+    image_processing (2.2.0)
     importmap-rails (2.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
