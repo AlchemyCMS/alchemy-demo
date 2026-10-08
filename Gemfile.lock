@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/AlchemyCMS/alchemy_cms.git
-  revision: 5adcc981929521f0f450f7e6f4de34eda5548d7d
+  revision: 56fcf8885058017cf598002ea4f8d969eccdc4a2
   branch: 8.4-stable
   specs:
     alchemy_cms (8.4.0.a)
@@ -170,7 +170,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0)
     database_cleaner-core (2.1.0)
-    date (3.5.1)
+    date (3.6.0)
     devise (5.0.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
