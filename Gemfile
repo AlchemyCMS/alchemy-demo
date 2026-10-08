@@ -49,10 +49,10 @@ group :development do
 end
 
 group :production do
-  gem "lograge", "~> 0.10"
+  gem "lograge", "~> 0.15"
 end
 
-gem "newrelic_rpm", "~> 10.7"
+gem "newrelic_rpm", "~> 10.9"
 
 gem "dragonfly", "~> 1.4"
 
