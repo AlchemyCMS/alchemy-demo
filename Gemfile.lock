@@ -256,14 +256,15 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    listen (3.10.0)
+    listen (3.10.1)
       logger
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    lograge (0.15.0)
+    lograge (0.15.1)
       actionpack (>= 4)
       activesupport (>= 4)
+      logger
       railties (>= 4)
       request_store (~> 1.0)
     loofah (2.25.2)
@@ -300,7 +301,7 @@ GEM
     net-smtp (0.5.2)
       net-protocol
     net-ssh (7.3.3)
-    newrelic_rpm (10.8.0)
+    newrelic_rpm (10.9.0)
       logger
     nio4r (2.7.5)
     nokogiri (1.19.4-aarch64-linux-gnu)
@@ -317,7 +318,7 @@ GEM
     ostruct (0.6.3)
     pp (0.6.4)
       prettyprint
-    prettyprint (0.2.0)
+    prettyprint (0.2.1)
     prism (1.9.0)
     pry (0.16.0)
       coderay (~> 1.1)
@@ -451,7 +452,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uglifier (4.2.1)
       execjs (>= 0.3.0, < 3)
-    uri (1.1.1)
+    uri (1.1.2)
     useragent (0.16.11)
     view_component (4.15.0)
       actionview (>= 7.1.0)
@@ -493,8 +494,8 @@ DEPENDENCIES
   json (< 3)
   kamal (~> 2.0)
   listen (>= 3.0.5)
-  lograge (~> 0.10)
-  newrelic_rpm (~> 10.7)
+  lograge (~> 0.15)
+  newrelic_rpm (~> 10.9)
   pry-rails
   puma (~> 8.0)
   rails (~> 8.1.4)
