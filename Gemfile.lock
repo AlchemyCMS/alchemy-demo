@@ -301,7 +301,7 @@ GEM
     net-smtp (0.5.2)
       net-protocol
     net-ssh (7.3.3)
-    newrelic_rpm (10.9.0)
+    newrelic_rpm (10.9.1)
       logger
     nio4r (2.7.5)
     nokogiri (1.19.4-aarch64-linux-gnu)
@@ -438,10 +438,9 @@ GEM
       net-ssh (>= 2.8.0)
       ostruct
     thor (1.5.0)
-    thruster (0.1.26)
-    thruster (0.1.26-aarch64-linux)
-    thruster (0.1.26-arm64-darwin)
-    thruster (0.1.26-x86_64-linux)
+    thruster (0.1.27-aarch64-linux)
+    thruster (0.1.27-arm64-darwin)
+    thruster (0.1.27-x86_64-linux)
     tilt (2.9.0)
     timeout (0.6.1)
     tsort (0.2.0)
