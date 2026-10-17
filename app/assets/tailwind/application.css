@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Official Alchemy CMS brand, taken from www.alchemy-cms.com CSS custom properties. */
+@theme {
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-marker: "Permanent Marker", cursive;
+
+  --color-accent: #884cbe;        /* --accent-color */
+  --color-accent-soft: #b59fdb;   /* --secondary-color */
+  --color-accent-dark: #6d3a99;   /* derived, for hover/active */
+
+  --color-ink: #323a3d;           /* --font-color */
+  --color-ink-soft: #4d4d4d;      /* --font-color-secondary */
+
+  --color-surface: #e1eef6;       /* --background-color */
+  --color-surface-violet: #dce6ff;/* --light-violet */
+  --color-surface-grey: #f2f2f2;  /* --light-grey */
+  --color-surface-faint: #f9f9f9; /* --very-light-grey */
+}
