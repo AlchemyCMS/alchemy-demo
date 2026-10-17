@@ -1,0 +1,15 @@
+<% cache(image_gallery) do %>
+<%= element_view_for(image_gallery, class: "group") do |el| %>
+  <%= el.render :headline, {}, { class: "text-center font-display font-bold text-ink" } %>
+  <% if image_gallery.value_for(:appearance) == "masonry" %>
+    <div class="mt-8 columns-2 gap-4 sm:columns-3">
+      <%= render el.nested_elements %>
+    </div>
+  <% else %>
+    <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
+      <%= render el.nested_elements %>
+    </div>
+  <% end %>
+  <%= render "shared/reveal", element: image_gallery %>
+<% end %>
+<% end %>

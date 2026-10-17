@@ -3,6 +3,10 @@ en:
     user_roles:
       demo: Demo
 
+    # Alchemy ships translations for many mime types but not Ogg
+    mime_types:
+      audio/ogg: Ogg Audio
+
     # Translations for page layout names
     page_layout_names:
       index: Homepage
@@ -28,7 +32,29 @@ en:
 
     # Hint texts for elements
     element_hints:
-      article: "This is a hint text for the article element. You can change this text in `config/locales/alchemy.en.yml`. Feel free to change it as you like, it's yours."
+      hero: "The page's opening banner: a headline, a supporting line and a call-to-action."
+      concept_grid: "A grid of concept cards. Add or remove cards as needed."
+      concept_card: "One concept in the grid: a title, a short description and an optional link."
+      cta: "A closing call-to-action banner."
+      button: "A standalone button — set its link and pick its colour."
+      concept_intro: "The intro for a concept page: an eyebrow label, a headline (with an anchor from its text) and a lead paragraph."
+      prose: "A block of rich text with a heading."
+      image_text: "An image beside text; the image side is switchable."
+      callout: "A highlighted note — info, tip or warning."
+      code_sample: "A syntax-highlighted code snippet in the chosen language."
+      image_gallery: "A gallery of nested gallery_image elements — add, remove and reorder them."
+      slider: "An autoplaying carousel of nested gallery_image slides, driven by the <alchemy-slider> custom element. Toggle autoplay and set the timing, transition and slides per view."
+      gallery_image: "One image in the gallery: cropped to a fixed ratio and served responsively via srcset."
+      post_header: "A blog article's header — headline, date, author, image and intro. The overview page teases these fields."
+      contactform: "A contact form powered by Alchemy's built-in Messages. Set the subject, an optional recipient and the page shown after sending."
+      event_teaser: "Features a single Event using a custom Ingredient type that references a record from the Events admin module."
+      events_overview: "Lists many Events straight from the custom Event model. Pick a timeframe and a layout — no per-event content is stored here."
+      ingredient_group: "A group of the ingredient tour: an editable heading and intro, plus nested ingredient-row elements. Add or reorder rows to show any ingredient type."
+      footer_nav: "The footer's link columns, pulled from a menu — its sections become columns and their children become links."
+      scheduled_note: "A highlighted note with an illustration. Give it a start and end date to show it only within a time window."
+      section: "A full-width band with its own background and vertical spacing. Nest content Elements inside it to group them into a section."
+      feature_list: "A grid of short capability statements. Add, remove and reorder the items inside it."
+      feature_item: "One capability: an icon, a title, a short description and an optional link."
 
     # Hint texts for contents
     content_hints:
@@ -39,3 +65,94 @@ en:
     menu_names:
       footer_navigation: Footer Navigation
       main_navigation: Main Navigation
+
+    # Translated default texts for guided-tour ingredients (symbol defaults)
+    default_ingredient_texts:
+      hero_headline: "Build it your way. Let your team run it."
+      hero_subheadline: "Alchemy is a content management system for Rails. You design the building blocks and own every line of markup — your editors add, arrange and publish pages without touching code."
+      feature_list_headline: "Everything you’d expect, already built in"
+      feature_list_lead: "<p>Describe what this list covers.</p>"
+      feature_item_title: "A capability"
+      feature_item_description: "<p>A sentence or two on what this gets you. Edit this text in the admin.</p>"
+      concepts_headline: "How Alchemy is put together"
+      concept_card_title: "A core concept"
+      concept_card_description: "<p>An Element is a reusable content block, made of typed Ingredients. Edit this text in the admin.</p>"
+      cta_headline: "Have a go"
+      cta_text: "<p>The admin is open: sign in as <strong>demo</strong> / <strong>demo123</strong> and edit anything you see here.</p>"
+      concept_intro_eyebrow: "Core concept"
+      concept_intro_headline: "Elements"
+      concept_intro_lead: "<p>An <strong>Element</strong> is a reusable content block you place on a Page. Each Element is defined in elements.yml and made of typed Ingredients.</p>"
+      prose_headline: "Composing a page from Elements"
+      prose_text: "<p>A Page Layout lists which Elements a page may contain. Editors then:</p><ul><li>add and remove Elements,</li><li>sort and nest them,</li><li>fill in their Ingredients.</li></ul><p>The frontend renders each Element with its own view partial.</p>"
+      image_text_headline: "Every Element has a view"
+      image_text_text: "<p>Elements render through a partial in app/views/alchemy/elements, so their markup is entirely under your control.</p>"
+      callout_text: "<p><strong>Tip:</strong> open “How this block is built” wherever you see it to get that block’s exact definition and jump straight to it in the admin.</p>"
+      code_sample_caption: "config/alchemy/elements.yml"
+      gallery_headline: "A nestable gallery"
+      gallery_image_caption: "A cropped, responsive image"
+      post_header_headline: "A blog post"
+      post_header_author: "The Alchemy Team"
+      post_header_intro: "<p>A short introduction to this post.</p>"
+      contactform_subject: "New contact form message"
+      events_overview_headline: "Events"
+      ingredient_group_headline: "Ingredient group"
+      ingredient_group_lead: "<p>Describe this group of ingredients.</p>"
+      code_sample_code: |
+        - name: prose
+          ingredients:
+            - role: headline
+              type: Headline
+            - role: text
+              type: Richtext
+
+    # Translated editor hints per ingredient role (hint: true)
+    ingredient_hints:
+      headline: "A Headline ingredient. Level sets the semantic tag (h1–h6) for structure and SEO; Size sets the visual scale independently of the level; and where an anchor is configured, it adds a stable #id so you can link straight to this heading."
+      subheadline: "A short supporting line shown under the headline."
+      cta: "The call-to-action link. Point it at a page or an on-page anchor."
+      secondary_cta: "An optional second, quieter link beside the main call to action. Leave it empty to hide it."
+      icon: "Which icon to show. The values map to hand-drawn SVGs in the feature_icon partial, so the demo needs no icon library."
+      title: "The card's heading (a Headline ingredient). Pick its semantic Level (h3 or h4) and, independently, its visual Size."
+      description: "A short rich-text description. Only bold, italic and links are allowed."
+      link: "An optional link shown at the bottom of the card."
+      text: "A rich-text block; the available formatting is limited to what this element needs."
+      button: "The call-to-action button link."
+      eyebrow: "A short label shown above the headline."
+      lead: "The intro paragraph shown under the headline."
+      variant: "The callout style — info, tip or warning — stored as a Select value."
+      language: "The programming language, used to pick the syntax highlighter."
+      caption: "An optional label shown above the code."
+      code: "The code snippet (a plain-text area); it is highlighted on the frontend."
+      layout: "Which side the image sits on, stored as a Tailwind CSS class."
+      image: "The picture. Cropped and served responsively via srcset/sizes."
+      illustration: "An optional illustration shown at the top of the card."
+      published_at: "When the article was published (a Datetime ingredient)."
+      author: "The article's author."
+      intro: "A short intro shown on the article and teased on the blog overview."
+      subject: "The email subject for submitted messages."
+      mail_to: "Optional recipient override; defaults to the mailer config."
+      success_page: "The page to redirect to after a message is sent."
+      background: "Background style, chosen from a Select whose values are Tailwind CSS classes."
+      background_image: "An optional background image, shown full-width behind the hero text with a dark overlay."
+      spacing: "The section's vertical padding (top and bottom), stored as a Tailwind class."
+      filter: "A CSS filter applied to the background image, stored as a Tailwind class."
+      menu: "The menu to render. Its sections (top-level nodes) become columns and their children become links; edit them under Menus."
+      button_style: "Button colours, chosen from a Select whose values are Tailwind CSS classes."
+      color: "A Color ingredient — pick a brand colour or a custom one with the colour picker; stored as a hex value and applied as an inline style."
+      label: "The button's link; the visible text comes from the link title."
+      event: "A custom Event ingredient. Its value references an Event record managed in the Events admin module."
+      timeframe: "Which Events to list, stored as a Select value: upcoming, past or all."
+      display: "How the list is rendered — a timeline or a calendar-style agenda."
+      appearance: "How the gallery is laid out — a grid or a masonry — stored as a Select value."
+      autoplay: "Advance the slider automatically."
+      duration: "How long each slide is shown, in milliseconds."
+      transition: "How long the slide animation takes, in milliseconds (a range slider in the editor)."
+      per_slide: "How many pictures are visible per slide."
+
+    # Translated ingredient group headings shown in the element editor
+    element_groups:
+      styling: "Styling"
+
+    # Custom admin module navigation names
+    modules:
+      events: "Events"

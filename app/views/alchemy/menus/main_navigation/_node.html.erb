@@ -8,4 +8,10 @@
     ].compact.join(' '),
     target: node.external? ? '_blank' : nil,
     rel: node.nofollow? ? 'nofollow' : nil %>
+  <% if node.children.any? %>
+    <ul class="ml-4 mt-1 flex flex-col gap-1 border-l border-accent-soft/30 pl-2">
+      <%= render partial: 'alchemy/menus/main_navigation/node',
+        collection: node.children.includes(:page, :children), as: 'node' %>
+    </ul>
+  <% end %>
 </li>

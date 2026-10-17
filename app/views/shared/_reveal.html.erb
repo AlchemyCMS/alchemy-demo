@@ -1,23 +1,23 @@
-<% source = element_source(element) %>
-<details class="group mt-6 rounded-lg border border-accent-soft/50 bg-surface-violet/40">
-  <summary class="flex cursor-pointer list-none items-center gap-2 px-4 py-2 text-sm font-medium text-accent-dark">
-    <span class="text-accent">🔍</span>
-    How this block is built
-    <span class="ml-auto text-xs text-ink-soft group-open:hidden">show</span>
-    <span class="ml-auto hidden text-xs text-ink-soft group-open:inline">hide</span>
-  </summary>
-  <div class="border-t border-accent-soft/50 px-4 py-3 font-mono text-xs text-ink-soft">
-    <p class="mb-2"><span class="text-accent">element</span>: <%= source[:name] %></p>
-    <% if source[:ingredients].any? %>
-      <p class="text-accent">ingredients:</p>
-      <ul class="ml-3">
-        <% source[:ingredients].each do |role, type| %>
-          <li><%= role %> <span class="text-ink-soft/50">→</span> <%= type %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <% if source[:nested].any? %>
-      <p class="mt-2 text-accent">nestable: <span class="text-ink-soft"><%= source[:nested].uniq.join(", ") %></span></p>
-    <% end %>
+<% source = element_definition_yaml(element) %>
+<% dialog_id = "reveal-#{element.id}" %>
+<p class="mt-4 text-right">
+  <button type="button" command="show-modal" commandfor="<%= dialog_id %>"
+    class="inline-flex items-center gap-1.5 text-xs font-medium text-ink-soft/80 transition duration-200 hover:text-accent focus-visible:opacity-100 md:opacity-0 md:group-hover:opacity-100">
+    <span aria-hidden="true">🔍</span> How this block is built
+  </button>
+</p>
+
+<dialog id="<%= dialog_id %>" class="m-auto w-[min(42rem,92vw)] rounded-xl p-0 shadow-xl backdrop:bg-ink/50">
+  <div class="flex items-center justify-between gap-4 border-b border-accent-soft/40 bg-surface-violet px-4 py-3">
+    <span class="font-mono text-xs text-accent-dark">config/alchemy/elements.yml</span>
+    <button type="button" command="close" commandfor="<%= dialog_id %>"
+      class="rounded px-2 text-lg/none text-ink-soft transition-colors hover:bg-white hover:text-ink" aria-label="Close">&times;</button>
   </div>
-</details>
+  <% if source %>
+    <pre class="highlight max-h-[70vh] overflow-auto bg-ink px-4 py-4 text-left text-xs/relaxed text-surface-grey"><code><%= highlight_code(source, "yaml") %></code></pre>
+  <% end %>
+  <div class="flex justify-end border-t border-accent-soft/40 bg-surface-violet px-4 py-2">
+    <%= link_to "Edit this element in the admin →", admin_element_url(element),
+      class: "text-xs font-medium text-accent transition-colors hover:text-accent-dark" %>
+  </div>
+</dialog>

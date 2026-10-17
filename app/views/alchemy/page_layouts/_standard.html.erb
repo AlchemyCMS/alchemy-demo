@@ -1,9 +1,9 @@
+<%# Generic fallback layout: Alchemy's render_page_layout renders this when a
+   page has no dedicated page_layout partial. %>
 <%= render 'shared/header' %>
 
-<% cache(page) do %>
-<div class="row">
+<main class="space-y-16 py-16">
   <%= render_elements %>
-</div>
-<% end %>
+</main>
 
 <%= render 'shared/footer' %>

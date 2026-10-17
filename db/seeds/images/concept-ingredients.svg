@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160" role="img" aria-label="Typed ingredient fields">
+  <rect width="240" height="160" rx="14" fill="#dce6ff"/>
+  <rect x="48" y="22" width="144" height="116" rx="10" fill="#ffffff" stroke="#b59fdb" stroke-width="2"/>
+  <!-- Text field -->
+  <rect x="60" y="33" width="26" height="26" rx="6" fill="#884cbe"/>
+  <path d="M67 40h12M73 40v12" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="96" y="40" width="72" height="7" rx="3" fill="#ece7f6"/>
+  <rect x="96" y="51" width="52" height="7" rx="3" fill="#ece7f6"/>
+  <!-- Picture field -->
+  <rect x="60" y="68" width="26" height="26" rx="6" fill="#b59fdb"/>
+  <circle cx="69" cy="77" r="3" fill="#ffffff"/>
+  <path d="M63 90l7-7 5 4 4-3 4 6z" fill="#ffffff"/>
+  <rect x="96" y="73" width="64" height="7" rx="3" fill="#ece7f6"/>
+  <rect x="96" y="84" width="48" height="7" rx="3" fill="#ece7f6"/>
+  <!-- Boolean field -->
+  <rect x="60" y="103" width="26" height="26" rx="6" fill="#6d3a99"/>
+  <path d="M66 117l4 4 8-9" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="96" y="108" width="70" height="7" rx="3" fill="#ece7f6"/>
+  <rect x="96" y="119" width="40" height="7" rx="3" fill="#ece7f6"/>
+</svg>

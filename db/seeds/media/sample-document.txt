@@ -1,0 +1,6 @@
+Alchemy CMS — sample document
+
+This small text file is attached to an Alchemy File ingredient to
+demonstrate the "File" ingredient type on the Ingredients tour page.
+The File ingredient stores a reference to an Alchemy::Attachment and
+renders a download link on the frontend.

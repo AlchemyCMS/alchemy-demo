@@ -1,0 +1,9 @@
+<%= render 'shared/header' %>
+
+<% cache(page) do %>
+  <main class="space-y-4 pb-12">
+    <%= render_elements %>
+  </main>
+<% end %>
+
+<%= render 'shared/footer' %>

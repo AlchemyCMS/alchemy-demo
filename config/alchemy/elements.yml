@@ -1,144 +1,6 @@
 # == In this configuration you setup Alchemy´s element layouts.
 #
 # For further informations please see http://guides.alchemy-cms.com/create_elements.html
-- name: gallery
-  unique: true
-  nestable_elements:
-    - gallery_picture
-  autogenerate:
-    - gallery_picture
-
-- name: gallery_picture
-  compact: true
-  ingredients:
-    - role: image
-      type: Picture
-      settings:
-        size: 500x500
-        crop: true
-    - role: caption
-      type: Text
-      default: "Image Caption"
-
-- name: category_intro
-  unique: true
-  ingredients:
-    - role: image
-      type: Picture
-      settings:
-        size: 303x393
-        crop: true
-    - role: header
-      type: Text
-      default: "Header"
-    - role: text
-      type: Richtext
-      default: "Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis."
-
-- name: blog_post
-  ingredients:
-    - role: title
-      type: Text
-      default: "Blog Post Title"
-    - role: meta_data
-      type: Text
-      default: "Written by"
-    - role: image
-      type: Picture
-      settings:
-        size: 400x240
-        crop: true
-    - role: intro
-      type: Richtext
-      default: :blog_post_intro
-    - role: body
-      type: Richtext
-      default: :blog_post_body
-
-- name: video_slide
-  ingredients:
-    - role: video
-      type: Text
-      hint: Please paste a Vimeo video id into this field. The embed code is already included.
-
-- name: image_slide
-  ingredients:
-    - role: image
-      type: Picture
-      settings:
-        size: 1000x400
-        crop: true
-
-- name: content_block
-  ingredients:
-    - role: picture
-      type: Picture
-      settings:
-        size: 400x300
-        crop: true
-    - role: headline
-      type: Text
-      default: This is a content section.
-    - role: text
-      type: Richtext
-      default: <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-
-- name: intro_text
-  unique: true
-  ingredients:
-    - role: headline
-      type: Text
-      default: Header
-    - role: subheader
-      type: Text
-      default: Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
-    - role: text
-      type: Richtext
-      default: <p>Suspendisse ultrices ornare tempor. Aenean eget ultricies libero. Phasellus non ipsum eros. Vivamus at dignissim massa. Aenean dolor libero, blandit quis interdum et, malesuada nec ligula. Nullam erat erat, eleifend sed pulvinar ac. Suspendisse ultrices ornare tempor. Aenean eget ultricies libero.</p>
-
-- name: text_block
-  ingredients:
-    - role: headline
-      type: Text
-      default: This is a headline.
-    - role: text
-      type: Richtext
-      default: <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-      settings:
-        tinymce:
-          toolbar1: "bold,italic,underline"
-          toolbar2: ""
-
-- name: call_to_action
-  unique: true
-  ingredients:
-    - role: headline
-      type: Text
-      default: Get in touch!
-    - role: text
-      type: Richtext
-      default: We'd love to hear from you, you attractive person you.
-
-- name: image_teaser
-  ingredients:
-    - role: image
-      type: Picture
-      settings:
-        size: 250x250
-        crop: true
-    - role: caption
-      type: Text
-      default: Subline
-
-- name: portrait_image
-  unique: true
-  ingredients:
-    - role: image
-      type: Picture
-      settings:
-        size: 300x465
-        crop: true
-
 - name: footer_note
   unique: true
   ingredients:
@@ -146,15 +8,839 @@
       type: Text
       default: "Made with ❤️ and AlchemyCMS"
 
-- name: social_button
+- name: footer_nav
   unique: true
+  hint: true
+  ingredients:
+    - role: menu
+      type: Node
+      hint: true
 
-- name: slider
-  fixed: true
-  unique: true
+# --- Guided tour elements (Phase 2.2) ---
+
+- name: section
+  hint: true
   nestable_elements:
-    - video_slide
-    - image_slide
+    - concept_intro
+    - prose
+    - image_text
+    - callout
+    - scheduled_note
+    - code_sample
+    - ingredient_group
+    - image_gallery
+    - slider
   autogenerate:
-    - video_slide
-    - image_slide
+    - prose
+  ingredients:
+    - role: background
+      type: Select
+      group: styling
+      hint: true
+      default: bg-white
+      settings:
+        select_values:
+          - ["White", "bg-white"]
+          - ["Faint grey", "bg-surface-faint"]
+          - ["Light grey", "bg-surface-grey"]
+          - ["Violet tint", "bg-surface-violet"]
+          - ["Light blue", "bg-surface"]
+    - role: spacing
+      type: Select
+      group: styling
+      hint: true
+      default: py-16
+      settings:
+        select_values:
+          - ["None", "py-0"]
+          - ["Small", "py-8"]
+          - ["Medium", "py-16"]
+          - ["Large", "py-24"]
+
+- name: hero
+  unique: true
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :hero_headline
+      settings:
+        levels: [1]
+        sizes: [1, 2]
+    - role: subheadline
+      type: Text
+      hint: true
+      default: :hero_subheadline
+    - role: cta
+      type: Link
+      hint: true
+      default: "/pages"
+      settings:
+        text: Take the tour
+    - role: secondary_cta
+      type: Link
+      hint: true
+      default: "#how"
+      settings:
+        text: How this site is built
+    - role: background_image
+      type: Picture
+      hint: true
+      settings:
+        size: 1600x600
+        crop: true
+        srcset: [800x300, 1600x600]
+        sizes: ["100vw"]
+    - role: background
+      type: Select
+      group: styling
+      hint: true
+      default: bg-surface
+      settings:
+        select_values:
+          - ["Light blue", "bg-surface"]
+          - ["Violet tint", "bg-surface-violet"]
+          - ["White", "bg-white"]
+    - role: filter
+      type: Select
+      group: styling
+      hint: true
+      default: ""
+      settings:
+        select_values:
+          - ["None", ""]
+          - ["Grayscale", "grayscale"]
+          - ["Sepia", "sepia"]
+          - ["Blur", "blur-sm"]
+          - ["Dim", "brightness-75"]
+          - ["Saturate", "saturate-150"]
+
+- name: concept_grid
+  unique: true
+  hint: true
+  nestable_elements:
+    - concept_card
+  autogenerate:
+    - concept_card
+    - concept_card
+    - concept_card
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :concepts_headline
+      settings:
+        anchor: concepts
+        levels: [2, 3]
+        sizes: [2, 3]
+
+- name: concept_card
+  hint: true
+  ingredients:
+    - role: illustration
+      type: Picture
+      hint: true
+    - role: title
+      type: Headline
+      hint: true
+      default: :concept_card_title
+      validate:
+        - presence
+      settings:
+        levels: [3, 4]
+        sizes: [4, 5]
+    - role: description
+      type: Richtext
+      hint: true
+      default: :concept_card_description
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: link
+      type: Text
+      hint: true
+      default: Learn more
+      settings:
+        linkable: true
+
+- name: cta
+  unique: true
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :cta_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: text
+      type: Richtext
+      hint: true
+      default: :cta_text
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: button
+      type: Link
+      hint: true
+      default: "/admin"
+      settings:
+        text: Open the admin
+    - role: background
+      type: Select
+      group: styling
+      hint: true
+      default: bg-accent
+      settings:
+        select_values:
+          - ["Accent violet", "bg-accent"]
+          - ["Ink", "bg-ink"]
+    - role: button_style
+      type: Select
+      group: styling
+      hint: true
+      default: "bg-white text-accent-dark"
+      settings:
+        select_values:
+          - ["Light button", "bg-white text-accent-dark"]
+          - ["Dark button", "bg-ink text-white"]
+
+- name: button
+  hint: true
+  ingredients:
+    - role: label
+      type: Link
+      hint: true
+      default: "#concepts"
+      settings:
+        text: See the concepts
+    - role: color
+      type: Color
+      group: styling
+      hint: true
+      default: "#884cbe"
+      settings:
+        custom_color: true
+        colors:
+          - ["Accent violet", "#884cbe"]
+          - ["Emerald", "#10b981"]
+          - ["Ink", "#323a3d"]
+
+# A grid of short capability statements for the Home page. Nestable so editors
+# can add, remove and reorder the items.
+- name: feature_list
+  unique: true
+  hint: true
+  nestable_elements:
+    - feature_item
+  ingredients:
+    - role: headline
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :feature_list_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: lead
+      type: Richtext
+      hint: true
+      default: :feature_list_lead
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+
+- name: feature_item
+  hint: true
+  ingredients:
+    - role: icon
+      type: Select
+      hint: true
+      default: photo
+      settings:
+        select_values:
+          - ["Picture", "photo"]
+          - ["Documents", "documents"]
+          - ["Clock", "clock"]
+          - ["Lock", "lock"]
+          - ["Magnifier", "magnifier"]
+          - ["Globe", "globe"]
+          - ["Menu", "menu"]
+          - ["Code", "code"]
+    - role: title
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :feature_item_title
+      settings:
+        levels: [3, 4]
+        sizes: [4, 5]
+    - role: description
+      type: Richtext
+      hint: true
+      default: :feature_item_description
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: link
+      type: Text
+      hint: true
+      settings:
+        linkable: true
+
+# --- Concept page elements (Phase 2.2) ---
+
+- name: concept_intro
+  hint: true
+  ingredients:
+    - role: eyebrow
+      type: Text
+      hint: true
+      default: :concept_intro_eyebrow
+    - role: headline
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :concept_intro_headline
+      settings:
+        levels: [1, 2]
+        sizes: [1, 2]
+        anchor: from_value
+    - role: lead
+      type: Richtext
+      hint: true
+      default: :concept_intro_lead
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+
+- name: prose
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :prose_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: text
+      type: Richtext
+      hint: true
+      default: :prose_text
+      settings:
+        tinymce:
+          toolbar: "bold italic | bullist numlist | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a, ul, ol, li]
+          attributes: [href, target, rel, title]
+
+- name: image_text
+  hint: true
+  ingredients:
+    - role: image
+      type: Picture
+      hint: true
+      settings:
+        size: 640x480
+        srcset: [320x240, 640x480]
+        sizes: ["(min-width: 768px) 50vw", "100vw"]
+    - role: headline
+      type: Headline
+      as_element_title: true
+      hint: true
+      default: :image_text_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+        anchor: how
+    - role: text
+      type: Richtext
+      hint: true
+      default: :image_text_text
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: layout
+      type: Select
+      group: styling
+      hint: true
+      default: "md:flex-row"
+      settings:
+        select_values:
+          - ["Image left", "md:flex-row"]
+          - ["Image right", "md:flex-row-reverse"]
+
+- name: callout
+  hint: true
+  ingredients:
+    - role: variant
+      type: Select
+      group: styling
+      hint: true
+      default: info
+      settings:
+        select_values:
+          - ["Info", "info"]
+          - ["Tip", "tip"]
+          - ["Warning", "warning"]
+    - role: text
+      type: Richtext
+      hint: true
+      default: :callout_text
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+
+- name: scheduled_note
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      settings:
+        levels: [2, 3]
+        sizes: [3, 4]
+    - role: text
+      type: Richtext
+      hint: true
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+    - role: illustration
+      type: Picture
+      hint: true
+
+- name: code_sample
+  hint: true
+  ingredients:
+    - role: caption
+      type: Text
+      hint: true
+      default: :code_sample_caption
+    - role: language
+      type: Select
+      hint: true
+      default: yaml
+      settings:
+        select_values:
+          - ["YAML", "yaml"]
+          - ["Ruby", "ruby"]
+          - ["ERB", "erb"]
+          - ["HTML", "html"]
+    - role: code
+      type: Html
+      hint: true
+      default: :code_sample_code
+
+# --- Gallery elements (Phase 2.2) ---
+
+- name: image_gallery
+  hint: true
+  nestable_elements:
+    - gallery_image
+  autogenerate:
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :gallery_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: appearance
+      type: Select
+      group: styling
+      hint: true
+      default: grid
+      settings:
+        select_values:
+          - ["Grid", "grid"]
+          - ["Masonry", "masonry"]
+
+- name: gallery_image
+  compact: true
+  hint: true
+  ingredients:
+    - role: image
+      type: Picture
+      hint: true
+      settings:
+        crop: true
+        fixed_ratio: true
+        size: "600x400"
+        srcset:
+          - "300x200"
+          - "600x400"
+          - "900x600"
+        sizes:
+          - "(min-width: 1024px) 300px"
+          - "(min-width: 640px) 45vw"
+          - "90vw"
+    - role: caption
+      type: Text
+      hint: true
+      default: :gallery_image_caption
+
+# An autoplaying carousel, driven by the <alchemy-slider> custom element. Reuses
+# gallery_image for its slides; its settings map to the element's attributes.
+- name: slider
+  hint: true
+  nestable_elements:
+    - gallery_image
+  autogenerate:
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+    - gallery_image
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :gallery_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: autoplay
+      type: Boolean
+      group: styling
+      hint: true
+      default: true
+    - role: duration
+      type: Number
+      group: styling
+      hint: true
+      default: 4000
+      settings:
+        input_type: number
+        min: 1000
+        max: 10000
+        step: 500
+        unit: ms
+    - role: transition
+      type: Number
+      group: styling
+      hint: true
+      default: 500
+      settings:
+        input_type: range
+        min: 100
+        max: 1500
+        step: 100
+        unit: ms
+    - role: per_slide
+      type: Select
+      group: styling
+      hint: true
+      default: "1"
+      settings:
+        select_values:
+          - ["One", "1"]
+          - ["Two", "2"]
+          - ["Three", "3"]
+
+# --- Blog elements (Phase 2.2) ---
+
+- name: post_header
+  unique: true
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :post_header_headline
+      settings:
+        levels: [1, 2]
+        sizes: [1, 2]
+    - role: published_at
+      type: Datetime
+      hint: true
+    - role: author
+      type: Text
+      hint: true
+      default: :post_header_author
+    - role: image
+      type: Picture
+      hint: true
+      settings:
+        crop: true
+        fixed_ratio: true
+        size: "800x450"
+        srcset:
+          - "400x225"
+          - "800x450"
+          - "1200x675"
+        sizes:
+          - "(min-width: 768px) 720px"
+          - "100vw"
+    - role: intro
+      type: Richtext
+      hint: true
+      default: :post_header_intro
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+
+# --- Ingredients catalog element (Phase 2.2) ---
+
+# The ingredient tour: one nestable element per ingredient type, each holding a
+# single "value" ingredient and rendered as a row by shared/_ingredient_row.
+# The four group elements below compose these — the same definitions, reused in
+# different subsets — so a group is just an editable heading, intro and a set of
+# nested rows. Marked unique so each type appears at most once per group.
+- name: text_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Text
+
+- name: headline_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Headline
+      settings:
+        levels: [3]
+        sizes: [4]
+
+- name: richtext_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Richtext
+      settings:
+        tinymce:
+          toolbar: "bold italic | alchemy_link unlink"
+        sanitizer:
+          tags: [p, br, strong, em, a]
+          attributes: [href, target, rel, title]
+
+- name: select_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Select
+      settings:
+        select_values:
+          - ["First choice", "first"]
+          - ["Second choice", "second"]
+
+- name: color_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Color
+      settings:
+        custom_color: true
+
+- name: datetime_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Datetime
+
+- name: boolean_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Boolean
+
+- name: number_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Number
+
+- name: html_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Html
+
+- name: picture_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Picture
+      settings:
+        size: 240x160
+        crop: true
+
+- name: audio_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Audio
+      settings:
+        only: [mp3, ogg, wav]
+
+- name: video_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Video
+      settings:
+        only: [mp4, webm, ogv]
+
+- name: file_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: File
+      settings:
+        only: [pdf, doc, docx, txt]
+
+- name: link_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Link
+      settings:
+        text: An example link
+
+- name: page_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Page
+
+- name: node_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Node
+
+- name: event_ingredient
+  unique: true
+  ingredients:
+    - role: value
+      type: Event
+
+# One reusable group element: an editable heading and intro plus any of the
+# ingredient-row elements nested inside. The Ingredients page seeds four of
+# these (Content, Media, Reference, Custom); the grouping lives in the data,
+# not in separate element definitions.
+- name: ingredient_group
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :ingredient_group_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: lead
+      type: Richtext
+      hint: true
+      default: :ingredient_group_lead
+  nestable_elements:
+    - text_ingredient
+    - headline_ingredient
+    - richtext_ingredient
+    - select_ingredient
+    - color_ingredient
+    - datetime_ingredient
+    - boolean_ingredient
+    - number_ingredient
+    - html_ingredient
+    - picture_ingredient
+    - audio_ingredient
+    - video_ingredient
+    - file_ingredient
+    - link_ingredient
+    - page_ingredient
+    - node_ingredient
+    - event_ingredient
+
+# --- Events elements (Phase 2.2) ---
+
+- name: event_teaser
+  hint: true
+  ingredients:
+    - role: event
+      type: Event
+      hint: true
+
+- name: events_overview
+  hint: true
+  ingredients:
+    - role: headline
+      type: Headline
+      hint: true
+      default: :events_overview_headline
+      settings:
+        levels: [2, 3]
+        sizes: [2, 3]
+    - role: timeframe
+      type: Select
+      hint: true
+      default: upcoming
+      settings:
+        select_values:
+          - ["Upcoming", "upcoming"]
+          - ["Past", "past"]
+          - ["All", "all"]
+    - role: display
+      type: Select
+      group: styling
+      hint: true
+      default: timeline
+      settings:
+        select_values:
+          - ["Timeline", "timeline"]
+          - ["Calendar", "calendar"]
+
+# --- Contact form element (Phase 2.2) ---
+
+- name: contactform
+  unique: true
+  hint: true
+  ingredients:
+    - role: subject
+      type: Text
+      hint: true
+      default: :contactform_subject
+    - role: mail_to
+      type: Text
+      hint: true
+    - role: success_page
+      type: Page
+      hint: true

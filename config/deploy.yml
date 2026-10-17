@@ -36,7 +36,6 @@ env:
     - ADMIN_LOGIN
     - ADMIN_EMAIL
     - ADMIN_PASSWORD
-    - CLOUDINARY_URL
     - SENTRY_DSN
 
 # Use a persistent storage volume for sqlite database and uploads.
