@@ -18,6 +18,6 @@
     <%= yield %>
 
     <%= render 'alchemy/preview_mode_code' %>
-    <%= render 'alchemy/menubar' %>
+    <%= render Alchemy::Menubar.new %>
   </body>
 </html>
