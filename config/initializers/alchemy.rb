@@ -290,4 +290,6 @@ Alchemy.configure do |config|
   # without overwriting or defacing the Admin Interface.
   #
   # config.link_dialog_tabs << "Acme::LinkTab"
+
+  config.abilities.add("Ability")
 end
