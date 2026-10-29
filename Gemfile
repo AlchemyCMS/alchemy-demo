@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "8.4-stable"
-gem "alchemy-devise", "~> 8.4.1"
+gem "alchemy-devise", "~> 8.4.2"
 gem "alchemy_i18n", "~> 8.4.1"
 gem "alchemy_cloudinary", "~> 4.0"
 gem "alchemy-sentry", "~> 2.0"
