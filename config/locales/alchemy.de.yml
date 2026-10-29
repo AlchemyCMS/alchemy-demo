@@ -3,6 +3,10 @@ de:
     user_roles:
       demo: Demo
 
+    # Alchemy liefert Übersetzungen für viele MIME-Typen, aber nicht für Ogg
+    mime_types:
+      audio/ogg: Ogg-Audio
+
     # Translations for page layout names
     page_layout_names:
       index: Startseite
@@ -26,7 +30,27 @@ de:
 
     # Hint texts for elements
     element_hints:
-      article: "Dies ist ein Hinweistext für das Artikel Element. Dieser Text kann in der `config/locales/alchemy.de.yml` Datei angepasst werden."
+      hero: "Der Eröffnungs-Banner der Seite: Überschrift, ergänzende Zeile und Call-to-Action."
+      concept_grid: "Ein Raster aus Konzeptkarten. Karten nach Bedarf hinzufügen oder entfernen."
+      concept_card: "Ein Konzept im Raster: Titel, kurze Beschreibung und optionaler Link."
+      cta: "Ein abschließender Call-to-Action-Banner."
+      button: "Ein einzelner Button – lege seinen Link fest und wähle seine Farbe."
+      concept_intro: "Der Intro-Bereich einer Konzeptseite: ein Label, eine Überschrift (mit Anker aus ihrem Text) und ein einleitender Absatz."
+      prose: "Ein Rich-Text-Block mit Überschrift."
+      image_text: "Ein Bild neben Text; die Bildseite ist umschaltbar."
+      callout: "Ein hervorgehobener Hinweis – Info, Tipp oder Warnung."
+      code_sample: "Ein syntaxhervorgehobenes Code-Snippet in der gewählten Sprache."
+      image_gallery: "Eine Galerie aus verschachtelten gallery_image-Elementen – hinzufügen, entfernen und umsortieren."
+      slider: "Ein automatisch ablaufendes Karussell aus verschachtelten gallery_image-Slides, gesteuert vom <alchemy-slider> Custom Element. Autoplay ein-/ausschalten und Timing, Übergang und Bilder pro Slide festlegen."
+      gallery_image: "Ein Bild in der Galerie: auf ein festes Seitenverhältnis zugeschnitten und responsiv per srcset ausgeliefert."
+      post_header: "Der Kopf eines Blogartikels – Überschrift, Datum, Autor, Bild und Einleitung. Die Übersicht zeigt diese Felder als Teaser."
+      contactform: "Ein Kontaktformular auf Basis von Alchemys eingebauten Messages. Lege Betreff, optionalen Empfänger und die Danke-Seite fest."
+      event_teaser: "Hebt ein einzelnes Event über einen eigenen Ingredient-Typ hervor, der einen Datensatz aus dem Events-Admin-Modul referenziert."
+      events_overview: "Listet viele Events direkt aus dem eigenen Event-Modell. Wähle Zeitraum und Layout – hier werden keine Event-Inhalte gespeichert."
+      ingredient_group: "Eine Gruppe der Ingredient-Tour: editierbare Überschrift und Einleitung plus verschachtelte Ingredient-Zeilen. Füge Zeilen hinzu oder ordne sie um, um beliebige Ingredient-Typen zu zeigen."
+      footer_nav: "Die Link-Spalten des Footers, aus einem Menü – dessen Bereiche werden Spalten und deren Unterpunkte Links."
+      scheduled_note: "Ein hervorgehobener Hinweis mit Illustration. Über ein Start- und Enddatum nur in einem Zeitfenster sichtbar."
+      section: "Ein Abschnitt über die volle Breite mit eigenem Hintergrund und vertikalem Abstand. Verschachtele Inhalts-Elemente darin, um sie zu gruppieren."
 
     # Hint texts for contents
     content_hints:
@@ -37,3 +61,88 @@ de:
     menu_names:
       footer_navigation: Footer-Navigation
       main_navigation: Hauptnavigation
+
+    # Übersetzte Standardtexte für die Tour-Ingredients (Symbol-Defaults)
+    default_ingredient_texts:
+      hero_headline: "Inhalte bauen wie ein Alchemist."
+      hero_subheadline: "Alchemy strukturiert Inhalte als wiederverwendbare Elemente, die aus typisierten Ingredients bestehen. Diese Website ist komplett mit Alchemy gebaut – öffne einen Block, um zu sehen wie."
+      concepts_headline: "Grundkonzepte"
+      concept_card_title: "Ein Grundkonzept"
+      concept_card_description: "<p>Ein Element ist ein wiederverwendbarer Inhaltsblock aus typisierten Ingredients. Bearbeite diesen Text im Admin.</p>"
+      cta_headline: "Bereit, Alchemy auszuprobieren?"
+      cta_text: "<p>Melde dich im Demo-Admin an und bearbeite diese Elemente selbst.</p>"
+      concept_intro_eyebrow: "Grundkonzept"
+      concept_intro_headline: "Elemente"
+      concept_intro_lead: "<p>Ein <strong>Element</strong> ist ein wiederverwendbarer Inhaltsblock, den du auf einer Seite platzierst. Jedes Element wird in elements.yml definiert und besteht aus typisierten Ingredients.</p>"
+      prose_headline: "Eine Seite aus Elementen zusammensetzen"
+      prose_text: "<p>Ein Page Layout legt fest, welche Elemente eine Seite enthalten darf. Redakteure können dann:</p><ul><li>Elemente hinzufügen und entfernen,</li><li>sie sortieren und verschachteln,</li><li>ihre Ingredients ausfüllen.</li></ul><p>Das Frontend rendert jedes Element mit seinem eigenen View-Partial.</p>"
+      image_text_headline: "Jedes Element hat einen View"
+      image_text_text: "<p>Elemente werden über ein Partial in app/views/alchemy/elements gerendert – ihr Markup liegt vollständig in deiner Hand.</p>"
+      callout_text: "<p><strong>Tipp:</strong> Öffne „Wie dieser Block gebaut ist“ an jedem Block, um seine genaue Definition zu sehen und direkt im Admin dorthin zu springen.</p>"
+      code_sample_caption: "config/alchemy/elements.yml"
+      gallery_headline: "Eine verschachtelbare Galerie"
+      gallery_image_caption: "Ein zugeschnittenes, responsives Bild"
+      post_header_headline: "Ein Blogbeitrag"
+      post_header_author: "Das Alchemy-Team"
+      post_header_intro: "<p>Eine kurze Einleitung zu diesem Beitrag.</p>"
+      contactform_subject: "Neue Nachricht über das Kontaktformular"
+      events_overview_headline: "Events"
+      ingredient_group_headline: "Ingredient-Gruppe"
+      ingredient_group_lead: "<p>Beschreibe diese Gruppe von Ingredients.</p>"
+      code_sample_code: |
+        - name: prose
+          ingredients:
+            - role: headline
+              type: Headline
+            - role: text
+              type: Richtext
+
+    # Übersetzte Editor-Hinweise je Ingredient-Rolle (hint: true)
+    ingredient_hints:
+      headline: "Ein Headline-Ingredient. Level bestimmt das semantische Tag (h1–h6) für Struktur und SEO; Size die visuelle Größe unabhängig vom Level; und wenn ein Anchor gesetzt ist, erzeugt er eine feste #id, auf die du direkt verlinken kannst."
+      subheadline: "Eine kurze ergänzende Zeile unter der Überschrift."
+      cta: "Der Call-to-Action-Link. Verlinke eine Seite oder einen Anker auf der Seite."
+      title: "Die Überschrift der Karte (ein Headline-Ingredient). Wähle das semantische Level (h3 oder h4) und – unabhängig davon – die visuelle Size."
+      description: "Eine kurze Rich-Text-Beschreibung. Nur Fett, Kursiv und Links sind erlaubt."
+      link: "Ein optionaler Link am Ende der Karte."
+      text: "Ein Rich-Text-Block; die verfügbare Formatierung ist auf das beschränkt, was dieses Element braucht."
+      button: "Der Button-Link des Call-to-Action."
+      eyebrow: "Ein kurzes Label über der Überschrift."
+      lead: "Der einleitende Absatz unter der Überschrift."
+      variant: "Der Callout-Stil – Info, Tipp oder Warnung – als Select-Wert gespeichert."
+      language: "Die Programmiersprache, zur Wahl des Syntax-Highlighters."
+      caption: "Ein optionales Label über dem Code."
+      code: "Das Code-Snippet (ein Textbereich); es wird im Frontend hervorgehoben."
+      layout: "Auf welcher Seite das Bild sitzt, als Tailwind-CSS-Klasse gespeichert."
+      image: "Das Bild. Zugeschnitten und responsiv über srcset/sizes ausgeliefert."
+      illustration: "Eine optionale Illustration oben auf der Karte."
+      published_at: "Wann der Artikel veröffentlicht wurde (ein Datetime-Ingredient)."
+      author: "Der Autor des Artikels."
+      intro: "Eine kurze Einleitung, die im Artikel und als Teaser auf der Blog-Übersicht erscheint."
+      subject: "Der E-Mail-Betreff für gesendete Nachrichten."
+      mail_to: "Optionaler Empfänger; standardmäßig aus der Mailer-Konfiguration."
+      success_page: "Die Seite, zu der nach dem Senden weitergeleitet wird."
+      background: "Hintergrund-Stil, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
+      background_image: "Ein optionales Hintergrundbild, ganzflächig hinter dem Hero-Text mit dunkler Überlagerung."
+      spacing: "Der vertikale Innenabstand des Abschnitts (oben und unten), gespeichert als Tailwind-Klasse."
+      filter: "Ein CSS-Filter für das Hintergrundbild, als Tailwind-Klasse gespeichert."
+      menu: "Das anzuzeigende Menü. Seine Bereiche (oberste Knoten) werden Spalten, deren Unterpunkte Links; bearbeitbar unter Menüs."
+      button_style: "Button-Farben, gewählt aus einem Select, dessen Werte Tailwind-CSS-Klassen sind."
+      color: "Ein Color-Ingredient – wähle eine Markenfarbe oder eine eigene mit dem Farbwähler; wird als Hex-Wert gespeichert und als Inline-Style angewendet."
+      label: "Der Link des Buttons; der sichtbare Text kommt aus dem Linktitel."
+      event: "Ein eigener Event-Ingredient. Sein Wert referenziert einen Event-Datensatz aus dem Events-Admin-Modul."
+      timeframe: "Welche Events gelistet werden, als Select-Wert gespeichert: kommende, vergangene oder alle."
+      display: "Wie die Liste dargestellt wird – als Timeline oder als kalenderartige Agenda."
+      appearance: "Wie die Galerie dargestellt wird — als Raster oder als Masonry — gespeichert als Select-Wert."
+      autoplay: "Den Slider automatisch weiterschalten."
+      duration: "Wie lange jede Slide gezeigt wird, in Millisekunden."
+      transition: "Wie lange die Slide-Animation dauert, in Millisekunden (im Editor ein Schieberegler)."
+      per_slide: "Wie viele Bilder pro Slide sichtbar sind."
+
+    # Übersetzte Gruppen-Überschriften im Element-Editor
+    element_groups:
+      styling: "Gestaltung"
+
+    # Navigationsnamen eigener Admin-Module
+    modules:
+      events: "Veranstaltungen"

@@ -102,8 +102,8 @@ Alchemy.configure do |config|
   config.default_language.tap do |default_language|
     default_language.code = "en"
     default_language.name = "English"
-    # default_language.page_layout = "index"
-    # default_language.frontpage_name = "Index"
+    default_language.page_layout = "home"
+    default_language.frontpage_name = "Welcome"
   end
 
   # === Mailer Settings:
@@ -132,16 +132,14 @@ Alchemy.configure do |config|
   #         alchemy/message:
   #           firstname: Vorname
   #
-  # config.mailer.tap do |mailer|
-  #   mailer.page_layout_name = "contact"
-  #   mailer.forward_to_page = false
-  #   mailer.mail_success_page = "thanks"
-  #   mailer.mail_from = "your.mail@your-domain.com"
-  #   mailer.mail_to = "your.mail@your-domain.com"
-  #   mailer.subject = "A new contact form message"
-  #   mailer.fields = ["salutation", "firstname", "lastname", "address", "zip", "city", "phone", "email", "message"]
-  #   mailer.validate_fields = ["lastname", "email"]
-  # end
+  config.mailer.tap do |mailer|
+    mailer.page_layout_name = "contact"
+    mailer.mail_from = "demo@alchemy-cms.com"
+    mailer.mail_to = "demo@alchemy-cms.com"
+    mailer.subject = "New contact form message"
+    mailer.fields = %w[name email message]
+    mailer.validate_fields = %w[email message]
+  end
 
   # === User roles
   #
@@ -237,7 +235,7 @@ Alchemy.configure do |config|
 
   # The storage adapter for Pictures and Attachments
   #
-  config.storage_adapter = "dragonfly"
+  config.storage_adapter = "active_storage"
 
   # Additional JS modules to be imported in the Alchemy admin UI
   #

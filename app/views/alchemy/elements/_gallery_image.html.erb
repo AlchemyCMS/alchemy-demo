@@ -1,0 +1,33 @@
+<% parent = gallery_image.parent_element %>
+<% mode = parent&.name == "slider" ? "slider" : (parent&.value_for(:appearance) == "masonry" ? "masonry" : "grid") %>
+<% index = defined?(gallery_image_counter) ? gallery_image_counter : 0 %>
+<% per = (parent&.value_for(:per_slide).presence || 1).to_i %>
+<% cache([gallery_image, mode, index, per]) do %>
+<%
+  basis = (100.0 / per).round(4)
+  wrapper = case mode
+    when "slider" then { tag: :div, class: "shrink-0 px-2", style: "flex: 0 0 #{basis}%; max-width: #{basis}%" }
+    when "masonry" then { class: "mb-4 break-inside-avoid" }
+    else {}
+  end
+%>
+<%= element_view_for(gallery_image, **wrapper) do |el| %>
+  <figure>
+    <% if gallery_image.value_for(:image).present? %>
+      <% if mode == "masonry" %>
+        <%# Crop each to a different ratio so heights vary → a real masonry look
+            even though the demo photos share a similar aspect. %>
+        <% ratio = %w[600x760 600x440 600x600 600x820 600x500 600x680][index % 6] %>
+        <%= el.render :image, { srcset: [], sizes: [], crop: true, size: ratio }, { class: "w-full rounded-xl", loading: "lazy" } %>
+      <% else %>
+        <%= el.render :image, {}, { class: "aspect-3/2 w-full rounded-xl object-cover", loading: "lazy" } %>
+      <% end %>
+    <% else %>
+      <div class="flex aspect-3/2 items-center justify-center rounded-xl bg-surface text-sm text-ink-soft/60">Picture</div>
+    <% end %>
+    <% if mode != "slider" && gallery_image.value_for(:caption).present? %>
+      <figcaption class="mt-2 text-sm text-ink-soft"><%= el.render :caption %></figcaption>
+    <% end %>
+  </figure>
+<% end %>
+<% end %>

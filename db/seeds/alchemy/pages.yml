@@ -1,25 +1,41 @@
-- name: Intro
-  page_layout: intro
+- name: Welcome
+  page_layout: home
   public_on: 2019-04-02
   children:
-    - name: Home
-      page_layout: standard
+    - name: Pages
+      page_layout: pages
       public_on: 2019-04-02
-    - name: About us
-      page_layout: content_page
+    - name: Elements
+      page_layout: concept
       public_on: 2019-04-02
-    - name: Products
-      page_layout: category
+    - name: Ingredients
+      page_layout: ingredients
+      public_on: 2019-04-02
+    - name: Galleries
+      page_layout: gallery_page
+      public_on: 2019-04-02
+    - name: Events
+      page_layout: events
       public_on: 2019-04-02
     - name: Blog
-      page_layout: blog
+      page_layout: blog_overview
       public_on: 2019-04-02
       children:
-        - name: Blog Entry 1
-          page_layout: blog
+        - name: Composing content with Elements
+          page_layout: article
           public_on: 2019-04-02
-        - name: Blog Entry 2
-          page_layout: blog
+        - name: Cropping and responsive images
+          page_layout: article
+          public_on: 2019-04-02
+        - name: Nesting elements in a gallery
+          page_layout: article
+          public_on: 2019-04-02
+    - name: Contact
+      page_layout: contact
+      public_on: 2019-04-02
+      children:
+        - name: Thank you
+          page_layout: thanks
           public_on: 2019-04-02
 
 - name: Footer

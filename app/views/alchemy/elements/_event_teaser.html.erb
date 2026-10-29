@@ -1,0 +1,12 @@
+<%= element_view_for(event_teaser, class: "group") do |el| %>
+  <section class="mx-auto max-w-3xl px-4 py-16">
+    <% if el.has?(:event) %>
+      <%= el.render :event %>
+    <% else %>
+      <div class="rounded-xl border border-dashed border-accent-soft/60 p-5 text-sm text-ink-soft/60">
+        Pick an event for this teaser in the admin.
+      </div>
+    <% end %>
+    <%= render "shared/reveal", element: event_teaser %>
+  </section>
+<% end %>

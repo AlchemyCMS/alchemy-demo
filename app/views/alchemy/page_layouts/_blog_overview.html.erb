@@ -1,0 +1,27 @@
+<%= render 'shared/header' %>
+
+<main>
+  <%= render_elements %>
+
+  <div class="mx-auto grid max-w-5xl gap-8 px-4 pb-16 sm:grid-cols-2 lg:grid-cols-3">
+    <% @page.children.published.contentpages.each do |article| %>
+      <% header = article.elements.named("post_header").first %>
+      <%= link_to show_alchemy_page_path(article), class: "group block overflow-hidden rounded-xl border border-accent-soft/40 bg-white shadow-sm transition hover:shadow-md" do %>
+        <% if header && (image = header.ingredient_by_role(:image))&.value.present? %>
+          <%= render image.as_view_component(html_options: { class: "aspect-video w-full object-cover" }) %>
+        <% else %>
+          <div class="flex aspect-video items-center justify-center bg-surface text-sm text-ink-soft/60">Picture</div>
+        <% end %>
+        <div class="p-5">
+          <% if header&.value_for(:published_at) %>
+            <p class="text-xs text-ink-soft"><%= header.value_for(:published_at).strftime("%B %-d, %Y") %></p>
+          <% end %>
+          <h3 class="mt-1 font-display text-lg font-semibold text-ink transition-colors group-hover:text-accent"><%= header&.value_for(:headline) || article.name %></h3>
+          <p class="mt-2 text-sm text-ink-soft"><%= truncate(strip_tags(header&.value_for(:intro).to_s), length: 110) %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</main>
+
+<%= render 'shared/footer' %>

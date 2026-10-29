@@ -1,12 +1,25 @@
 <% cache(slider) do %>
-  <% if slider.nested_elements.any? %>
-    <%= element_view_for(slider, class: 'row') do |el| -%>
-      <div class="large-12 columns">
-        <ul data-orbit data-options="bullets: false; timer: false; slide_number: false">
-          <%= render el.nested_elements %>
-        </ul>
-        <hr>
+<%= element_view_for(slider, class: "group") do |el| %>
+  <%= el.render :headline, {}, { class: "text-center font-display font-bold text-ink" } %>
+  <alchemy-slider class="relative mt-8 block"
+    <%= "autoplay" if slider.value_for(:autoplay) %>
+    duration="<%= slider.value_for(:duration).presence || 4000 %>"
+    transition="<%= slider.value_for(:transition).presence || 500 %>"
+    per-slide="<%= slider.value_for(:per_slide).presence || "1" %>">
+    <div data-slider-viewport class="overflow-x-auto">
+      <div data-slider-track class="flex">
+        <%= render el.nested_elements %>
       </div>
-    <% end %>
-  <% end %>
+    </div>
+    <button type="button" data-slider-prev aria-label="Previous slide"
+      class="absolute left-3 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-white backdrop-blur-sm transition hover:bg-ink/60">
+      <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+    </button>
+    <button type="button" data-slider-next aria-label="Next slide"
+      class="absolute right-3 top-1/2 z-10 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-ink/40 text-white backdrop-blur-sm transition hover:bg-ink/60">
+      <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+    </button>
+  </alchemy-slider>
+  <%= render "shared/reveal", element: slider %>
+<% end %>
 <% end %>

@@ -1,18 +1,24 @@
-<footer class="row">
-  <div class="large-12 columns">
-    <hr>
-    <div class="row">
-    <% if footer_page %>
-      <div class="large-4 columns">
-        <%= render_elements(only: 'footer_note', from_page: footer_page) %>
+<footer class="mt-24 border-t border-accent-soft/40 bg-surface-violet text-ink-soft">
+  <div class="mx-auto max-w-5xl px-4 py-14">
+    <div class="grid gap-10 md:grid-cols-[1.3fr_2fr]">
+      <div>
+        <%= link_to alchemy.root_path, class: "inline-flex items-center gap-2 text-ink" do %>
+          <span class="font-display text-lg font-bold tracking-tight">Alchemy <span class="font-marker font-normal text-accent">cms</span></span>
+        <% end %>
+        <p class="mt-3 max-w-xs text-sm/6">An interactive demo of Alchemy CMS — the whole site explains itself. Open a block to see how it's built.</p>
       </div>
-      <div class="large-4 columns">
-        <%= render_elements(only: 'social_button', from_page: footer_page) %>
-      </div>
-      <div class="large-4 columns">
-        <%= render_menu('footer_navigation') %>
-      </div>
-    <% end %>
+      <%= render_elements(only: 'footer_nav', from_page: footer_page) %>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-3 border-t border-accent-soft/40 pt-6 text-sm sm:flex-row sm:items-center sm:justify-between">
+      <% if footer_page %>
+        <div><%= render_elements(only: 'footer_note', from_page: footer_page) %></div>
+      <% end %>
+      <p>
+        © <%= Date.current.year %>
+        <%= link_to "Blish GmbH", "https://blish.cloud/en", class: "transition-colors hover:text-accent", target: "_blank", rel: "noopener" %>
+        · <%= link_to "Admin", "/admin", class: "transition-colors hover:text-accent" %>
+      </p>
     </div>
   </div>
 </footer>

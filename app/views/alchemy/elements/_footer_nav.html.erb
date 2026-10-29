@@ -1,0 +1,25 @@
+<%= element_view_for(footer_nav, class: "group") do |el| %>
+  <% menu = footer_nav.ingredient_by_role(:menu)&.related_object %>
+  <% if menu %>
+    <nav aria-label="Footer" class="grid grid-cols-2 gap-8 sm:grid-cols-3">
+      <% menu.children.each do |section| %>
+        <div>
+          <h3 class="mb-3 font-display text-sm font-semibold text-ink"><%= section.name %></h3>
+          <ul class="space-y-2">
+            <% section.children.each do |link| %>
+              <li>
+                <%= link_to_if link.url,
+                  link.name,
+                  link.url,
+                  class: 'text-sm text-ink-soft transition-colors hover:text-accent',
+                  target: link.external? ? '_blank' : nil,
+                  rel: link.external? ? 'noopener' : nil %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </nav>
+  <% end %>
+  <%= render "shared/reveal", element: footer_nav %>
+<% end %>

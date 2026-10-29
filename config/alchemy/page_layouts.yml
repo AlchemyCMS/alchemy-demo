@@ -2,57 +2,121 @@
 #
 # For further informations please see http://guides.alchemy-cms.com/create_page_layouts.html
 
-- name: intro
+- name: home
   unique: true
   elements:
-    - image_teaser
-    - intro_text
-    - slider
+    - section
+    - hero
+    - feature_list
+    - concept_grid
+    - image_text
+    - button
+    - cta
   autogenerate:
-    - image_teaser
-    - intro_text
-    - slider
+    - hero
+    - feature_list
+    - concept_grid
+    - image_text
+    - cta
 
-- name: standard
+- name: pages
   elements:
-    - text_block
-    - content_block
+    - section
+    - concept_intro
+    - prose
+    - callout
+    - code_sample
   autogenerate:
-    - text_block
-    - content_block
+    - concept_intro
+    - prose
+    - callout
+    - callout
+    - code_sample
 
-- name: content_page
+- name: concept
   elements:
-    - content_block
-    - call_to_action
-    - slider
+    - section
+    - concept_intro
+    - prose
+    - image_text
+    - callout
+    - scheduled_note
+    - code_sample
   autogenerate:
-    - content_block
-    - call_to_action
-    - slider
+    - concept_intro
+    - prose
+    - image_text
+    - callout
+    - scheduled_note
+    - code_sample
 
-- name: blog
-  insert_elements_at: top
+- name: gallery_page
   elements:
-    - blog_post
-  autogenerate:
-    - blog_post
-
-- name: category
-  elements:
-    - category_intro
-    - gallery
-  autogenerate:
-    - category_intro
-    - gallery
-
-- name: microsite
-  elements:
-    - portrait_image
+    - section
+    - concept_intro
     - slider
+    - image_gallery
   autogenerate:
-    - portrait_image
+    - concept_intro
     - slider
+    - image_gallery
+    - image_gallery
+
+- name: ingredients
+  elements:
+    - section
+    - concept_intro
+    - ingredient_group
+  autogenerate:
+    - concept_intro
+
+- name: blog_overview
+  elements:
+    - section
+    - concept_intro
+  autogenerate:
+    - concept_intro
+
+- name: article
+  elements:
+    - section
+    - post_header
+    - prose
+  autogenerate:
+    - post_header
+    - prose
+
+- name: contact
+  cache: false
+  elements:
+    - section
+    - concept_intro
+    - contactform
+  autogenerate:
+    - concept_intro
+    - contactform
+
+- name: thanks
+  elements:
+    - section
+    - concept_intro
+  autogenerate:
+    - concept_intro
+
+- name: events
+  cache: false
+  elements:
+    - section
+    - concept_intro
+    - events_overview
+    - event_teaser
+  autogenerate:
+    - concept_intro
+    - events_overview
+    - events_overview
+    - event_teaser
+    - event_teaser
+    - event_teaser
 
 # global pages
 
@@ -61,6 +125,7 @@
   layoutpage: true
   elements:
     - footer_note
-    - social_button
+    - footer_nav
   autogenerate:
     - footer_note
+    - footer_nav

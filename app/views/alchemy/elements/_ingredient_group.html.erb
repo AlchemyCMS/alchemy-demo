@@ -1,0 +1,11 @@
+<%# A group of the ingredient tour: an editable heading and intro, then its
+    nested *_ingredient row elements. The Ingredients page seeds several of
+    these, each with a different heading and set of rows. %>
+<%= element_view_for(ingredient_group, class: "group mx-auto max-w-4xl") do |el| %>
+  <%= el.render :headline, {}, { class: "font-display text-2xl font-bold text-ink" } %>
+  <div class="prose-content mt-2 max-w-2xl text-ink-soft"><%= el.render :lead %></div>
+  <dl class="mt-6 divide-y divide-accent-soft/40 overflow-hidden rounded-xl border border-accent-soft/40 bg-white">
+    <%= render el.nested_elements %>
+  </dl>
+  <%= render "shared/reveal", element: ingredient_group %>
+<% end %>

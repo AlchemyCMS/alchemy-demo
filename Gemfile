@@ -6,7 +6,6 @@ ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 gem "alchemy_cms", github: "AlchemyCMS/alchemy_cms", branch: "8.4-stable"
 gem "alchemy-devise", "~> 8.4.1"
 gem "alchemy_i18n", "~> 8.4.1"
-gem "alchemy_cloudinary", "~> 4.0"
 gem "alchemy-sentry", "~> 2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -15,13 +14,19 @@ gem "rails", "~> 8.1.4"
 gem "sqlite3", ">= 2.1"
 # Use Puma as the app server
 gem "puma", "~> 8.0"
-# Use SCSS for stylesheets
-gem "sassc-rails", "~> 2.1"
-# Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 1.3.0"
-gem "zurb-foundation", "~> 4.3.2"
-
-gem "jquery-rails", "~> 4.6"
+# Propshaft asset pipeline: serves the Tailwind build, importmap JavaScript,
+# and Alchemy's prebuilt admin assets (Alchemy itself needs only importmap-rails)
+gem "propshaft", "~> 1.1"
+# Use Tailwind CSS for the public frontend
+gem "tailwindcss-rails", "~> 4.0"
+# Import maps for the public frontend
+gem "importmap-rails", "~> 2.0"
+# Turbo Drive for the public frontend (navigation only; no frames/streams)
+gem "turbo-rails", "~> 2.0"
+# Server-side syntax highlighting for the "how it's built" code (no JS)
+gem "rouge", "~> 4.0"
+# ImageMagick backend for Active Storage variant processing (Alchemy pictures)
+gem "mini_magick", "~> 5.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
@@ -53,7 +58,5 @@ group :production do
 end
 
 gem "newrelic_rpm", "~> 10.9"
-
-gem "dragonfly", "~> 1.4"
 
 gem "json", "< 4"

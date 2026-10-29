@@ -1,0 +1,14 @@
+<% cache(feature_list) do %>
+<%= element_view_for(feature_list, class: "group") do |el| %>
+  <section class="mx-auto max-w-5xl px-4 py-16">
+    <%= el.render :headline, {}, { class: "text-center font-display font-bold text-ink" } %>
+    <% if feature_list.value_for(:lead).present? %>
+      <div class="prose-content mx-auto mt-3 max-w-2xl text-center text-ink-soft"><%= el.render :lead %></div>
+    <% end %>
+    <ul class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <%= render el.nested_elements %>
+    </ul>
+    <%= render "shared/reveal", element: feature_list %>
+  </section>
+<% end %>
+<% end %>
