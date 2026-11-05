@@ -24,7 +24,7 @@ gem "importmap-rails", "~> 2.0"
 # Turbo Drive for the public frontend (navigation only; no frames/streams)
 gem "turbo-rails", "~> 2.0"
 # Server-side syntax highlighting for the "how it's built" code (no JS)
-gem "rouge", "~> 4.0"
+gem "rouge", "~> 5.1"
 # ImageMagick backend for Active Storage variant processing (Alchemy pictures)
 gem "mini_magick", "~> 5.0"
 
