@@ -25,8 +25,8 @@ gem "importmap-rails", "~> 2.0"
 gem "turbo-rails", "~> 2.0"
 # Server-side syntax highlighting for the "how it's built" code (no JS)
 gem "rouge", "~> 5.1"
-# ImageMagick backend for Active Storage variant processing (Alchemy pictures)
-gem "mini_magick", "~> 5.0"
+# libvips backend for Active Storage variant processing (Alchemy pictures)
+gem "ruby-vips", "~> 2.2"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
