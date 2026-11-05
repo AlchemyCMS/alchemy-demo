@@ -39,9 +39,9 @@ module AlchemyDemo
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    # Alchemy renders Picture variants through Active Storage; use ImageMagick
+    # Alchemy renders Picture variants through Active Storage; use libvips
     # (available in dev and the Docker image) as the variant processor.
-    config.active_storage.variant_processor = :mini_magick
+    config.active_storage.variant_processor = :vips
 
     # Alchemy sets image quality via image_processing's `saver`, which is not in
     # Active Storage's default transformation allow-list.

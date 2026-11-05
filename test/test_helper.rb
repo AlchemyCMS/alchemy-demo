@@ -14,7 +14,7 @@ module DemoSeeding
   def seed_demo_once!
     return if DemoSeeding.seeded
 
-    # The media seeders attach files via Active Storage/ImageMagick, which is
+    # The media seeders attach files via Active Storage/libvips, which is
     # neither available nor needed in tests; pages render fine without them.
     Demo::AlchemyPictureSeeder.define_singleton_method(:seed!) { nil }
     Demo::AlchemyAttachmentSeeder.define_singleton_method(:seed!) { nil }

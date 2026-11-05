@@ -15,11 +15,8 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 WORKDIR /rails
 
 # Install base packages
-# libmagickcore-*-extra ships ImageMagick's built-in SVG coder, so `identify` reports SVGs
-# correctly. The base build lacks it and misidentifies SVGs as PNG (via the rsvg-convert
-# delegate), which makes Alchemy rasterize them on upload.
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 imagemagick libmagickcore-7.q16-10-extra sqlite3 && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips sqlite3 && \
     ln -s /usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
