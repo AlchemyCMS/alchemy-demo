@@ -348,7 +348,8 @@ GEM
     responders (3.2.1)
       actionpack (>= 7.0)
       railties (>= 7.0)
-    rouge (4.7.0)
+    rouge (5.1.0)
+      strscan (~> 3.1)
     securerandom (0.4.1)
     sentry-rails (6.7.0)
       railties (>= 5.2.0)
@@ -370,6 +371,7 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
+    strscan (3.1.8)
     tailwindcss-rails (4.7.0)
       railties (>= 7.0.0)
       tailwindcss-ruby (~> 4.0)
@@ -434,7 +436,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 8.0)
   rails (~> 8.1.4)
-  rouge (~> 4.0)
+  rouge (~> 5.1)
   sqlite3 (>= 2.1)
   tailwindcss-rails (~> 4.0)
   thruster (~> 0.1)
