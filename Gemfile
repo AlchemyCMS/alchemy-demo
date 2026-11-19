@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> #{`cat .ruby-version`.chomp.tr("ruby-", "")}"
 
-gem "alchemy_cms", "~> 8.4.1"
+gem "alchemy_cms", "~> 8.4.4"
 gem "alchemy-devise", "~> 8.4.1"
 gem "alchemy_i18n", "~> 8.4.1"
 gem "alchemy-sentry", "~> 2.0"
@@ -13,7 +13,7 @@ gem "rails", "~> 8.1.4"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 2.1"
 # Use Puma as the app server
-gem "puma", "~> 8.0"
+gem "puma", "~> 8.1"
 # Propshaft asset pipeline: serves the Tailwind build, importmap JavaScript,
 # and Alchemy's prebuilt admin assets (Alchemy itself needs only importmap-rails)
 gem "propshaft", "~> 1.1"
@@ -54,7 +54,7 @@ group :development do
 end
 
 group :production do
-  gem "lograge", "~> 0.15"
+  gem "lograge", "~> 0.16"
 end
 
 gem "newrelic_rpm", "~> 10.9"
